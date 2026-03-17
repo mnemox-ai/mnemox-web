@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { Hero } from '@/components/home/Hero';
 import { ProductCard } from '@/components/home/ProductCard';
-import { StatsBar } from '@/components/shared/StatsBar';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { NumberTicker } from '@/components/magicui/number-ticker';
 import { useI18n } from '@/lib/i18n';

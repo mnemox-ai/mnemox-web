@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useI18n } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 
 interface ProductCardProps {

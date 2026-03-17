@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useSyncExternalStore, useCallback, type ReactNode } from 'react';
 import { en, type TranslationKey } from './translations/en';
 import { zh } from './translations/zh';
 
@@ -25,14 +25,11 @@ function getInitialLang(): Lang {
   return navigator.language.startsWith('zh') ? 'zh' : 'en';
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('en');
-  const [mounted, setMounted] = useState(false);
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    setLang(getInitialLang());
-    setMounted(true);
-  }, []);
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [lang, setLang] = useState<Lang>(getInitialLang);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const toggleLang = useCallback(() => {
     setLang(prev => {

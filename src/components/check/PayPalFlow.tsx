@@ -54,7 +54,7 @@ type PayPalPhase = 'idle' | 'creating' | 'capturing' | 'error';
 const CAPTURE_STEPS_EN = ['Scanning sources...', 'Analyzing competitors...', 'Generating strategic analysis...', 'Finalizing report...'];
 const CAPTURE_STEPS_ZH = ['掃描來源中...', '分析競品中...', '生成策略分析中...', '完成報告中...'];
 
-export function PayPalFlow({ ideaText, ideaHash, depth, onReportReady }: PayPalFlowProps) {
+export function PayPalFlow({ ideaText, ideaHash, depth }: PayPalFlowProps) {
   const { t, lang } = useI18n();
   const [phase, setPhase] = useState<PayPalPhase>('idle');
   const [error, setError] = useState('');
