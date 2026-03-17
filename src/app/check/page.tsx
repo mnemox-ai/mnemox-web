@@ -3,6 +3,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { Gauge } from '@/components/check/Gauge';
+import { PayPalFlow, PayPalCapture } from '@/components/check/PayPalFlow';
+import { PaidReport } from '@/components/check/PaidReport';
+import { trackEvent, flushEvents } from '@/lib/analytics';
+import type { ReportData } from '@/components/check/PayPalFlow';
 
 const API_BASE = 'https://idea-reality-mcp.onrender.com';
 
@@ -56,7 +60,7 @@ interface StatsData {
   unique_countries?: number;
 }
 
-type Phase = 'input' | 'loading' | 'results' | 'error';
+type Phase = 'input' | 'loading' | 'results' | 'error' | 'paypal_capture' | 'paid_report';
 
 export default function CheckPage() {
   const { t, lang } = useI18n();
@@ -70,11 +74,21 @@ export default function CheckPage() {
   const [activeSources, setActiveSources] = useState<Set<string>>(new Set());
   const [stats, setStats] = useState<StatsData | null>(null);
   const [copied, setCopied] = useState(false);
+  const [paidReport, setPaidReport] = useState<ReportData | null>(null);
 
   // Placeholder rotation
   const [placeholderIdx, setPlaceholderIdx] = useState(0);
   const [placeholderFade, setPlaceholderFade] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // --- Detect PayPal return on mount ---
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('paypal_complete') === '1') {
+      setPhase('paypal_capture');
+      trackEvent('paypal_return');
+    }
+  }, []);
 
   // --- Fetch stats on mount ---
   useEffect(() => {
@@ -82,6 +96,7 @@ export default function CheckPage() {
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data) setStats(data); })
       .catch(() => {});
+    trackEvent('check_page_view');
   }, []);
 
   // --- Placeholder rotation ---
@@ -112,6 +127,7 @@ export default function CheckPage() {
     setPhase('loading');
     setActiveSources(new Set());
     setResult(null);
+    trackEvent('check_submit', { depth: isDeep ? 'deep' : 'quick', length: trimmed.length });
 
     const sources = isDeep ? SCAN_SOURCES_DEEP : SCAN_SOURCES_QUICK;
 
@@ -142,6 +158,7 @@ export default function CheckPage() {
           setErrorMsg(t('check_err_generic'));
         }
         setPhase('error');
+        trackEvent('check_error', { status: res.status });
         return;
       }
 
@@ -149,10 +166,12 @@ export default function CheckPage() {
       setResult(data);
       setActiveSources(new Set(sources));
       setPhase('results');
+      trackEvent('check_result', { score: data.reality_signal, depth: isDeep ? 'deep' : 'quick' });
     } catch {
       clearInterval(sourceTimer);
       setErrorMsg(t('check_err_server'));
       setPhase('error');
+      trackEvent('check_error', { status: 0 });
     }
   }, [idea, isDeep, t]);
 
@@ -163,6 +182,8 @@ export default function CheckPage() {
     setErrorMsg('');
     setActiveSources(new Set());
     setCopied(false);
+    setPaidReport(null);
+    trackEvent('check_reset');
   };
 
   const handleCopyToAI = () => {
@@ -178,6 +199,14 @@ export default function CheckPage() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
+    trackEvent('copy_to_ai');
+  };
+
+  const handlePaidReportReady = (data: ReportData) => {
+    setPaidReport(data);
+    setPhase('paid_report');
+    trackEvent('paid_report_loaded');
+    flushEvents();
   };
 
   // --- Render ---
@@ -217,6 +246,16 @@ export default function CheckPage() {
           </div>
         )}
       </header>
+
+      {/* PayPal Capture (returning from PayPal) */}
+      {phase === 'paypal_capture' && (
+        <PayPalCapture onReportReady={handlePaidReportReady} />
+      )}
+
+      {/* Paid Report */}
+      {phase === 'paid_report' && paidReport && (
+        <PaidReport data={paidReport} onReset={handleReset} />
+      )}
 
       {/* Input Section */}
       {phase === 'input' && (
@@ -311,7 +350,7 @@ export default function CheckPage() {
         </div>
       )}
 
-      {/* Results */}
+      {/* Free Results */}
       {phase === 'results' && result && (
         <div>
           {/* Gauge */}
@@ -455,6 +494,28 @@ export default function CheckPage() {
             </section>
           )}
 
+          {/* Blurred Preview Teasers */}
+          {isDeep && (
+            <section className="mb-8">
+              <div className="grid gap-4 sm:grid-cols-3">
+                {[
+                  { title: t('check_preview_subdim'), text: t('check_blur_subdim_text') },
+                  { title: t('check_preview_comp'), text: t('check_blur_comp_text') },
+                  { title: t('check_preview_strat'), text: t('check_blur_strat_text') },
+                ].map((card, i) => (
+                  <div key={i} className="rounded-lg border border-border bg-bg-card p-4 relative overflow-hidden">
+                    <h4 className="font-mono text-[11px] uppercase tracking-wider text-cyan mb-2">
+                      {card.title}
+                    </h4>
+                    <p className="text-sm text-txt-muted select-none pointer-events-none" style={{ filter: 'blur(5px)' }}>
+                      {card.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Action Buttons */}
           <div className="flex justify-center gap-4 mt-8">
             <button
@@ -471,6 +532,18 @@ export default function CheckPage() {
             </button>
           </div>
 
+          {/* PayPal CTA (deep mode only) */}
+          {isDeep && (
+            <div className="mt-10">
+              <PayPalFlow
+                ideaText={idea}
+                ideaHash={result.idea_hash}
+                depth="deep"
+                onReportReady={handlePaidReportReady}
+              />
+            </div>
+          )}
+
           {/* Agent CTA */}
           <div className="mt-8 text-center font-mono text-xs text-txt-dim">
             <span>{t('check_agent_cta')}</span>{' '}
@@ -484,6 +557,57 @@ export default function CheckPage() {
             </a>
           </div>
         </div>
+      )}
+
+      {/* SEO Content Section */}
+      {(phase === 'input' || phase === 'results') && (
+        <section className="mt-16 space-y-12">
+          {/* What is Idea Reality Check? */}
+          <div>
+            <h2 className="text-2xl font-bold text-txt mb-3">{t('check_sc_what_title')}</h2>
+            <p className="text-txt-dim leading-relaxed">{t('check_sc_what_desc')}</p>
+          </div>
+
+          {/* How It Works */}
+          <div>
+            <h2 className="text-2xl font-bold text-txt mb-4">{t('check_sc_how_title')}</h2>
+            <ol className="space-y-3">
+              {(['check_sc_how_1', 'check_sc_how_2', 'check_sc_how_3'] as const).map((key, i) => (
+                <li key={key} className="flex gap-3 text-txt-dim">
+                  <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-full border border-cyan-dim bg-cyan-glow font-mono text-xs text-cyan">
+                    {i + 1}
+                  </span>
+                  <span className="pt-0.5">{t(key)}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Comparison Table */}
+          <div>
+            <h2 className="text-2xl font-bold text-txt mb-4">{t('check_sc_compare_title')}</h2>
+            <div className="overflow-x-auto rounded-xl border border-border">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border bg-bg-card">
+                    <th className="p-3 text-left font-mono text-[11px] uppercase tracking-wider text-txt-dim">{t('check_sc_compare_feature')}</th>
+                    <th className="p-3 text-left font-mono text-[11px] uppercase tracking-wider text-cyan">{t('check_sc_compare_ir')}</th>
+                    <th className="p-3 text-left font-mono text-[11px] uppercase tracking-wider text-txt-dim">{t('check_sc_compare_manual')}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {([1, 2, 3, 4, 5] as const).map(n => (
+                    <tr key={n} className="hover:bg-bg-card/50">
+                      <td className="p-3 text-txt-dim">{t(`check_sc_compare_row${n}_feat` as 'check_sc_compare_row1_feat')}</td>
+                      <td className="p-3 text-txt font-medium">{t(`check_sc_compare_row${n}_ir` as 'check_sc_compare_row1_ir')}</td>
+                      <td className="p-3 text-txt-muted">{t(`check_sc_compare_row${n}_manual` as 'check_sc_compare_row1_manual')}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Footer privacy note */}

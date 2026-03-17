@@ -266,4 +266,45 @@ export const zh: Record<TranslationKey, string> = {
   check_sc_how_1: '輸入你的點子 \u2014 用自然語言描述你的軟體概念。',
   check_sc_how_2: '同時掃描 5 個來源 \u2014 GitHub 儲存庫、Hacker News、npm、PyPI、Product Hunt。',
   check_sc_how_3: '取得現實信號 \u2014 0-100 分數，含子維度拆分、市場動能追蹤和趨勢偵測。',
+
+  // Check — PayPal capture
+  check_capture_scanning: '掃描來源中...',
+  check_capture_analyzing: '分析競品中...',
+  check_capture_strategic: '生成策略分析中...',
+  check_capture_finalizing: '完成報告中...',
+  check_capture_fail: '報告載入失敗，請聯繫 support@mnemox.ai 並附上訂單資訊。',
+  check_capture_back: '返回檢測頁',
+
+  // Check — Blurred preview
+  check_blur_unlock: '解鎖完整報告',
+  check_blur_subdim_text: '子維度拆分：競爭密度、市場成熟度、社群熱度、生態深度 — 每項 0-100 分。',
+  check_blur_comp_text: '前 10 名已驗證競品，含星數、活躍度徽章、程式語言、最後更新日期。',
+  check_blur_strat_text: 'AI 策略分析：競爭定位、市場空白、進入機會、以及從即時數據推導的風險因素。',
+
+  // Check — Paid report
+  check_paid_source_dist: '來源分佈',
+  check_paid_dup_likelihood: '重複可能性',
+  check_paid_download_pdf: '下載 PDF',
+  check_paid_download_json: '下載 JSON',
+
+  // Check — SEO comparison table
+  check_sc_compare_title: '和其他方法相比如何？',
+  check_sc_compare_feature: '功能',
+  check_sc_compare_ir: 'Idea Reality',
+  check_sc_compare_manual: '手動搜尋',
+  check_sc_compare_row1_feat: '檢測時間',
+  check_sc_compare_row1_ir: '15 秒',
+  check_sc_compare_row1_manual: '2 小時以上',
+  check_sc_compare_row2_feat: '涵蓋來源',
+  check_sc_compare_row2_ir: '5 個同時掃描',
+  check_sc_compare_row2_manual: '一次 1-2 個',
+  check_sc_compare_row3_feat: 'AI 代理相容',
+  check_sc_compare_row3_ir: '\u2713 MCP 原生',
+  check_sc_compare_row3_manual: '\u2717',
+  check_sc_compare_row4_feat: '市場動能',
+  check_sc_compare_row4_ir: '\u2713 自動追蹤',
+  check_sc_compare_row4_manual: '\u2717',
+  check_sc_compare_row5_feat: '價格',
+  check_sc_compare_row5_ir: '免費（快速）/ $9.99（深度）',
+  check_sc_compare_row5_manual: '你的時間',
 };

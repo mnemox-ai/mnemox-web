@@ -264,6 +264,47 @@ export const en = {
   check_sc_how_1: 'Enter your idea \u2014 Describe your software concept in plain English.',
   check_sc_how_2: 'We scan 5 sources in parallel \u2014 GitHub repos, Hacker News, npm, PyPI, Product Hunt.',
   check_sc_how_3: 'Get your reality signal \u2014 A 0-100 score with sub-dimension breakdown, market momentum tracking, and trend detection.',
+
+  // Check — PayPal capture
+  check_capture_scanning: 'Scanning sources...',
+  check_capture_analyzing: 'Analyzing competitors...',
+  check_capture_strategic: 'Generating strategic analysis...',
+  check_capture_finalizing: 'Finalizing report...',
+  check_capture_fail: 'Failed to load your report. Please contact support@mnemox.ai with your order details.',
+  check_capture_back: 'Back to Check',
+
+  // Check — Blurred preview
+  check_blur_unlock: 'Unlock Full Report',
+  check_blur_subdim_text: 'Sub-dimension breakdown: Competition Density, Market Maturity, Community Buzz, Ecosystem Depth \u2014 each scored 0-100.',
+  check_blur_comp_text: 'Top 10 verified competitors with star counts, activity badges, programming language, and last update date.',
+  check_blur_strat_text: 'AI strategic analysis: competitive positioning, market gaps, entry opportunities, and risk factors derived from live data.',
+
+  // Check — Paid report
+  check_paid_source_dist: 'Source Distribution',
+  check_paid_dup_likelihood: 'Duplicate likelihood',
+  check_paid_download_pdf: 'Download PDF',
+  check_paid_download_json: 'Download JSON',
+
+  // Check — SEO comparison table
+  check_sc_compare_title: 'How does it compare?',
+  check_sc_compare_feature: 'Feature',
+  check_sc_compare_ir: 'Idea Reality',
+  check_sc_compare_manual: 'Manual Search',
+  check_sc_compare_row1_feat: 'Time to check',
+  check_sc_compare_row1_ir: '15 seconds',
+  check_sc_compare_row1_manual: '2+ hours',
+  check_sc_compare_row2_feat: 'Sources covered',
+  check_sc_compare_row2_ir: '5 in parallel',
+  check_sc_compare_row2_manual: '1\u20132 at a time',
+  check_sc_compare_row3_feat: 'AI agent compatible',
+  check_sc_compare_row3_ir: '\u2713 MCP native',
+  check_sc_compare_row3_manual: '\u2717',
+  check_sc_compare_row4_feat: 'Market momentum',
+  check_sc_compare_row4_ir: '\u2713 Auto-tracked',
+  check_sc_compare_row4_manual: '\u2717',
+  check_sc_compare_row5_feat: 'Price',
+  check_sc_compare_row5_ir: 'Free (quick) / $9.99 (deep)',
+  check_sc_compare_row5_manual: 'Your time',
 } as const;
 
 export type TranslationKey = keyof typeof en;
