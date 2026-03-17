@@ -18,4 +18,5 @@ export const zh: Record<TranslationKey, string> = {
   social_tests: '{count} 測試通過',
   social_license: 'MIT 授權',
   nav_github: 'GitHub',
+  footer_blog: '部落格',
 };

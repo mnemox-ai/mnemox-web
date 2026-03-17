@@ -16,6 +16,7 @@ export const en = {
   social_tests: '{count} tests passing',
   social_license: 'MIT licensed',
   nav_github: 'GitHub',
+  footer_blog: 'Blog',
 } as const;
 
 export type TranslationKey = keyof typeof en;

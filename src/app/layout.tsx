@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n";
+import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
+import { BackgroundEffects } from "@/components/shared/BackgroundEffects";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -30,7 +33,12 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${jetbrainsMono.variable} font-display antialiased`}
       >
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider>
+          <BackgroundEffects />
+          <Nav />
+          <main className="pt-[64px]">{children}</main>
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );
