@@ -4,6 +4,7 @@ interface PricingCardProps {
   tier: string;
   price: string;
   period?: string;
+  description?: string;
   features: string[];
   cta: string;
   ctaHref?: string;
@@ -16,6 +17,7 @@ export function PricingCard({
   tier,
   price,
   period = '/mo',
+  description,
   features,
   cta,
   ctaHref = '#',
@@ -57,6 +59,11 @@ export function PricingCard({
           <span className="text-sm text-txt-dim">{period}</span>
         )}
       </div>
+
+      {/* Description */}
+      {description && (
+        <p className="mt-3 text-sm leading-relaxed text-txt-dim">{description}</p>
+      )}
 
       {/* Features */}
       <ul className="mt-6 flex flex-1 flex-col gap-3">

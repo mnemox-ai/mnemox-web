@@ -114,6 +114,83 @@ export const en = {
   // TradeMemory page — CTA (Part 2)
   tm_cta_title: 'Start Building Trading Memory',
   tm_cta_desc: 'Give your AI agent the memory it deserves.',
+
+  // Pricing page
+  pricing_hero_title: 'Simple, transparent pricing.',
+  pricing_hero_subtitle: 'Free forever for self-hosting. Or use our hosted API with guaranteed uptime and zero infrastructure.',
+
+  pricing_tier_free: 'Free',
+  pricing_tier_pro: 'Pro',
+  pricing_tier_team: 'Team',
+  pricing_tier_enterprise: 'Enterprise',
+  pricing_tier_period: '/mo',
+  pricing_badge_popular: 'Most Popular',
+
+  pricing_tier_free_desc: 'For developers who want full control and don\'t mind self-hosting.',
+  pricing_tier_pro_desc: 'For individual traders who want cloud sync across devices.',
+  pricing_tier_team_desc: 'For teams running multiple strategies across accounts.',
+  pricing_tier_enterprise_desc: 'For prop firms and funds managing multiple traders.',
+
+  pricing_feat_free_1: 'MCP stdio (local)',
+  pricing_feat_free_2: 'Unlimited trades',
+  pricing_feat_free_3: 'Local storage only',
+  pricing_feat_free_4: '1 agent/device',
+  pricing_feat_free_5: 'Community support',
+
+  pricing_feat_pro_1: 'Hosted API (mcp.mnemox.ai)',
+  pricing_feat_pro_2: '1,000 trades/month',
+  pricing_feat_pro_3: 'Cloud storage + sync',
+  pricing_feat_pro_4: '1 agent',
+  pricing_feat_pro_5: 'Email support',
+
+  pricing_feat_team_1: 'All Pro features',
+  pricing_feat_team_2: '10,000 trades/month',
+  pricing_feat_team_3: '5 agents',
+  pricing_feat_team_4: 'Shared dashboards',
+  pricing_feat_team_5: 'Priority email support',
+
+  pricing_feat_enterprise_1: 'All Team features',
+  pricing_feat_enterprise_2: 'Custom trade limits',
+  pricing_feat_enterprise_3: 'SLA guarantees',
+  pricing_feat_enterprise_4: '1-on-1 onboarding',
+  pricing_feat_enterprise_5: 'Dedicated support',
+
+  pricing_cta_free: 'Start Free \u2192',
+  pricing_cta_pro: 'Get Pro \u2192',
+  pricing_cta_team: 'Get Team \u2192',
+  pricing_cta_enterprise: 'Contact \u2192',
+
+  pricing_diff_title: 'What\'s the real difference?',
+  pricing_diff_subtitle: 'It\'s not just about features \u2014 it\'s about workflow.',
+  pricing_diff_free_title: 'Free (Self-Hosted)',
+  pricing_diff_free_text: 'Your trade memory lives on your local machine. Switch devices? Start from zero. Great for single-machine workflows and developers who love full control.',
+  pricing_diff_paid_title: 'Paid (Hosted API)',
+  pricing_diff_paid_text: 'Trade memory stored in the cloud at mcp.mnemox.ai. Desktop, laptop, VPS \u2014 your agent remembers everywhere. No setup, no databases, no backups. Just works.',
+
+  pricing_billing_title: 'How does billing work?',
+  pricing_billing_intro: 'Credits are consumed per API call. Reads are always free \u2014 you only pay when writing or running AI analysis.',
+  pricing_tbl_api: 'API Call',
+  pricing_tbl_action: 'Action',
+  pricing_tbl_cost: 'Cost',
+  pricing_api_store_desc: 'Save one trade with full context',
+  pricing_api_recall_desc: 'Query trade history with filters',
+  pricing_api_perf_desc: 'Win rate, PF, drawdown, Sharpe ratio',
+  pricing_api_reflect_desc: 'AI pattern analysis + strategy adjustments (L2/L3)',
+  pricing_api_free: 'Free',
+  pricing_billing_3: 'Credits reset monthly \u2014 if you hit your limit, the API returns 429 Too Many Requests',
+  pricing_billing_4: 'No overage charges. No surprise bills. Just a hard monthly cap.',
+  pricing_billing_5: 'run_reflection() costs more because it runs an LLM internally to find patterns across your trade history.',
+
+  pricing_faq_title: 'Frequently Asked Questions',
+  pricing_faq_subtitle: 'Everything you need to know about TradeMemory pricing.',
+  pricing_faq1_q: 'What happens to my data if I upgrade from Free to Paid?',
+  pricing_faq1_a: 'Nothing. Your local trades stay local. When you start using the hosted API, it\'s a separate cloud database. You can manually migrate trades via the API if you want continuity.',
+  pricing_faq2_q: 'Can I cancel anytime?',
+  pricing_faq2_a: 'Yes. Cancel anytime from your dashboard. Your data remains accessible until the end of your billing period, then it\'s archived (we keep a 30-day backup). You can always export before canceling.',
+  pricing_faq3_q: 'Which platforms are supported?',
+  pricing_faq3_a: 'TradeMemory works with any platform that can send trade data: MT5 (via mt5_sync.py), Binance, Alpaca, Interactive Brokers, or any custom source via our REST API or MCP tools.',
+  pricing_faq4_q: 'Where is my data stored?',
+  pricing_faq4_a: 'Hosted API data is stored on Render\'s US infrastructure with automated daily backups (30-day retention). Free tier data is stored locally on your machine \u2014 you control the location.',
 } as const;
 
 export type TranslationKey = keyof typeof en;
