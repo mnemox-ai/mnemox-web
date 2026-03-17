@@ -1,12 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n';
 
 export function Nav() {
   const { t, toggleLang } = useI18n();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [stars, setStars] = useState<{ idea_reality: number; tradememory: number } | null>(null);
+
+  useEffect(() => {
+    fetch('/api/github-stars')
+      .then((r) => r.json())
+      .then(setStars)
+      .catch(() => {});
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-10 py-4 bg-[rgba(5,5,8,0.85)] backdrop-blur-[20px] border-b border-border max-md:px-5 max-md:py-3">
@@ -43,7 +51,7 @@ export function Nav() {
                 Idea Reality
               </span>
               <span className="font-mono text-[11px] text-txt-dim">
-                329 ★
+                {stars ? `${stars.idea_reality} ★` : '★'}
               </span>
             </Link>
             <Link
@@ -54,7 +62,7 @@ export function Nav() {
                 TradeMemory
               </span>
               <span className="font-mono text-[11px] text-txt-dim">
-                91 ★
+                {stars ? `${stars.tradememory} ★` : '★'}
               </span>
             </Link>
           </div>

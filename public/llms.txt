@@ -1,0 +1,28 @@
+# Mnemox
+
+> Trading Decision Intelligence. Open-source MCP tools for AI agents — memory systems and pre-build validation. Built in Taiwan.
+
+Mnemox builds open-source infrastructure for AI-assisted decision making. We focus on two product lines:
+
+1. **Idea Reality Check** (idea-reality-mcp) — An MCP tool that scans GitHub, Hacker News, npm, PyPI, and Product Hunt before you build. Returns a 0-100 reality signal with evidence of existing competitors. Used by AI coding agents to prevent reinventing the wheel.
+
+2. **TradeMemory Protocol** — An outcome-weighted memory system with 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective) for AI trading agents. Applies ACT-R cognitive architecture and Kelly Criterion to MCP-based trade recall. 15 MCP tools, 1055 tests. Accepts data from MT5, Binance, Alpaca, or any trading platform.
+
+## Products
+
+- [Idea Reality Check — Web Demo](https://mnemox.ai/check): Try the idea scanner in your browser. Free, no signup required.
+- [idea-reality-mcp on PyPI](https://pypi.org/project/idea-reality-mcp/): Install the MCP server locally via pip. MIT license.
+- [idea-reality-mcp on GitHub](https://github.com/mnemox-ai/idea-reality-mcp): Source code, documentation, and examples.
+- [TradeMemory Protocol on GitHub](https://github.com/mnemox-ai/tradememory-protocol): Source code for the trading memory system.
+- [TradeMemory Protocol on PyPI](https://pypi.org/project/tradememory-protocol/): Install via pip.
+
+## Developer Resources
+
+- [idea-check-action](https://github.com/mnemox-ai/idea-check-action): GitHub Action for CI/CD integration. Runs idea reality check on every PR.
+- [REST API](https://idea-reality-mcp.onrender.com/health): Public API endpoint for idea checking. POST /api/check with {idea_text, depth}.
+- [MCP Registry](https://registry.modelcontextprotocol.io): Listed as io.github.mnemox-ai/idea-reality-mcp.
+
+## Optional
+
+- [Smithery Marketplace](https://smithery.ai): idea-reality-mcp listed for one-click MCP installation.
+- [Glama.ai](https://glama.ai/mcp/servers/@mnemox-ai/idea-reality-mcp): Alternative MCP marketplace listing.

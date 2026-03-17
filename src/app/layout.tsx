@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { BackgroundEffects } from "@/components/shared/BackgroundEffects";
 import "./globals.css";
+
+const GA_ID = "G-3VD4L98FJP";
 
 const outfit = Outfit({
   variable: "--font-display",
@@ -30,6 +33,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+        </Script>
+      </head>
       <body
         className={`${outfit.variable} ${jetbrainsMono.variable} font-display antialiased`}
       >
