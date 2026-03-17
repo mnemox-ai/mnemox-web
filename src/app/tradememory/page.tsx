@@ -4,6 +4,9 @@ import { Terminal } from '@/components/shared/Terminal';
 import { StatsBar } from '@/components/shared/StatsBar';
 import { FeatureCard } from '@/components/shared/FeatureCard';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { Architecture } from '@/components/tradememory/Architecture';
+import { InstallSection } from '@/components/tradememory/InstallSection';
+import { MCPTools } from '@/components/tradememory/MCPTools';
 import { useI18n } from '@/lib/i18n';
 
 const terminalLines = [
@@ -159,6 +162,15 @@ export default function TradeMemoryPage() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* Architecture */}
+      <Architecture />
+
+      {/* Install */}
+      <InstallSection />
+
+      {/* MCP Tools */}
+      <MCPTools />
     </>
   );
 }
