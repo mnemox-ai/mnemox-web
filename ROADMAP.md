@@ -28,7 +28,7 @@
 - [ ] Duplicate GitHub stars fetch (Nav + Home) → use SWR or shared context
 - [ ] Inline lang ternary bypassing i18n in PayPalFlow + PaidReport → use t() keys
 - [ ] Duplicate card accent stripe → extract AccentCard component
-- [ ] Clipboard .catch() missing → add error handling
+- [x] Clipboard .catch() missing → add error handling
 - [ ] Duplicate copy-to-AI logic → extract CopyToAIButton component
 
 ## Phase 3: Auth + User System (NEXT)
@@ -44,9 +44,15 @@
 - [ ] OG images per page (i18n-aware)
 - [ ] Structured data (schema.org) per page
 
-## Phase 5: Deployment
-- [ ] Vercel project setup
-- [ ] mnemox.ai DNS migration
+## Phase 2.6: API Response Alignment ✅
+- [x] Fix crash: evidence is array of objects, not strings (React can't render objects as children)
+- [x] Map API fields: top_similars, duplicate_likelihood, trend, total_ideas_scanned
+- [x] Verify Vercel deploy (auto-deploy not working, manual `npx vercel --prod` needed)
+
+## Phase 5: Deployment ✅
+- [x] Vercel project setup
+- [x] mnemox.ai DNS migration (Namecheap: A record + www CNAME → Vercel)
 - [ ] Environment variables (PayPal, Clerk, Supabase, GA)
 - [ ] Smoke test all pages + PayPal sandbox
-- [ ] Go live: DNS cutover
+- [x] Go live: DNS cutover
+- [ ] Fix Vercel Git integration (auto-deploy on push not triggering)
