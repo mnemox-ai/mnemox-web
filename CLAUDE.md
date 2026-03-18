@@ -32,9 +32,18 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - Config: `src/lib/config.ts`
 
 ## Recent Changes
-- [2026-03-18] Phase 3: Clerk auth + Supabase + Dashboard + Webhooks + i18n
+- [2026-03-18] Clerk 切 production：pk_live + sk_live keys，Google OAuth custom credentials，5 DNS CNAME records
+- [2026-03-18] Phase 4 OG + Schema.org：root layout OG/Twitter/Organization schema，tradememory layout 新建，pricing 加 OG image + Product schema，check URL 統一 www.mnemox.ai
+- [2026-03-18] Vercel redeploy with production Clerk keys
+- [2026-03-18] fix: ensureUser upsert 解決 FK violation，API key 產生/撤銷正常
+- [2026-03-18] Supabase project 建立 + schema.sql 跑完 + Vercel env vars 設定完成
+- [2026-03-18] Phase 3: Clerk auth + Supabase + Dashboard + Webhooks + CTA auth gate
 
 ## Current Status
-- Phase 3 完成：Clerk auth, Supabase (users/api_keys/subscriptions), Dashboard, PayPal webhooks
-- i18n: en + zh, 含 dashboard 和 nav auth keys
-- Vercel 部署中
+- Phase 3 完成 + Supabase live（4 tables, RLS enabled, Tokyo region）
+- **Clerk production mode**，Email + Google OAuth（custom credentials）
+- Phase 4 OG + Schema.org 完成（4/5 pages 有完整 OG + schema）
+- Dashboard 正常：訂閱方案 / 使用量 / API 金鑰產生
+- Vercel auto-deploy 正常，7 env vars 已設
+- DNS：clerk/accounts/clkmail/clk._domainkey/clk2._domainkey CNAME 已加，等驗證
+- 待辦：Turso → Supabase 遷移（省 $6/月）、GitHub OAuth（optional）

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Idea Reality Check — Validate Your Idea Against 5 Databases',
     description:
       'Scans 5 live sources, scores your idea 0-100, and tells you whether the market is accelerating, stable, or declining — in 15 seconds.',
-    url: 'https://mnemox.ai/check',
+    url: 'https://www.mnemox.ai/check',
     siteName: 'Mnemox',
     images: [{ url: '/assets/og-check.png', width: 1200, height: 630, alt: 'Idea Reality Check' }],
     type: 'website',
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     images: ['/assets/og-check.png'],
   },
   alternates: {
-    canonical: 'https://mnemox.ai/check',
+    canonical: 'https://www.mnemox.ai/check',
   },
   other: {
     'application-ld+json': JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
       name: 'Idea Reality Check',
-      url: 'https://mnemox.ai/check',
+      url: 'https://www.mnemox.ai/check',
       description:
         'Pre-build validation tool. Scans GitHub, Hacker News, npm, PyPI, and Product Hunt to score your software idea 0-100.',
       applicationCategory: 'DeveloperApplication',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       creator: {
         '@type': 'Organization',
         name: 'Mnemox AI',
-        url: 'https://mnemox.ai',
+        url: 'https://www.mnemox.ai',
       },
     }),
   },

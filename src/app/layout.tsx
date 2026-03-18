@@ -23,8 +23,40 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mnemox.ai"),
-  title: "Mnemox AI",
-  description: "AI-powered tools for traders and developers",
+  title: {
+    default: "Mnemox AI — AI Tools for Traders & Developers",
+    template: "%s | Mnemox",
+  },
+  description:
+    "AI-powered tools for traders and developers. TradeMemory Protocol for algorithmic trading memory, Idea Reality Check for pre-build validation.",
+  openGraph: {
+    title: "Mnemox AI — AI Tools for Traders & Developers",
+    description:
+      "TradeMemory Protocol for algorithmic trading memory. Idea Reality Check for pre-build validation.",
+    url: "https://www.mnemox.ai",
+    siteName: "Mnemox AI",
+    images: [
+      {
+        url: "/assets/og-home.png",
+        width: 1200,
+        height: 630,
+        alt: "Mnemox AI",
+      },
+    ],
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mnemox AI — AI Tools for Traders & Developers",
+    description:
+      "TradeMemory Protocol for trading memory. Idea Reality Check for pre-build validation.",
+    images: ["/assets/og-home.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -57,6 +89,21 @@ export default function RootLayout({
             <Footer />
           </I18nProvider>
         </ClerkProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Mnemox AI',
+              url: 'https://www.mnemox.ai',
+              logo: 'https://www.mnemox.ai/assets/og-home.png',
+              description:
+                'AI-powered tools for traders and developers.',
+              sameAs: ['https://github.com/mnemox-ai'],
+            }),
+          }}
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
