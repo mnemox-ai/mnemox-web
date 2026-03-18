@@ -90,7 +90,15 @@ export function Nav() {
 
         {/* Auth */}
         {isSignedIn ? (
-          <UserButton />
+          <>
+            <Link
+              href="/dashboard"
+              className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
+            >
+              {t('nav_dashboard')}
+            </Link>
+            <UserButton />
+          </>
         ) : (
           <SignInButton mode="redirect">
             <button className="font-mono text-[11px] tracking-[1.5px] uppercase px-4 py-1.5 border border-border text-txt-dim bg-transparent cursor-pointer transition-all hover:text-cyan hover:border-cyan">

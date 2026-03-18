@@ -305,6 +305,23 @@ export const en = {
   check_sc_compare_row5_feat: 'Price',
   check_sc_compare_row5_ir: 'Free (quick) / $9.99 (deep)',
   check_sc_compare_row5_manual: 'Your time',
+  // Dashboard
+  dash_api_keys: 'API Keys',
+  dash_generate_key: 'Generate Key',
+  dash_key_warning: 'Copy this key now — it won\'t be shown again.',
+  dash_copy: 'Copy',
+  dash_copied: 'Copied!',
+  dash_no_keys: 'No API keys yet. Generate one to get started.',
+  dash_revoke: 'Revoke',
+  dash_usage: 'Usage',
+  dash_this_month: 'This Month',
+  dash_total_calls: 'Total Calls',
+  dash_last_call: 'Last Call',
+  dash_subscription: 'Subscription',
+  dash_api_limit: 'API limit',
+  dash_renews: 'Renews',
+  dash_upgrade: 'Upgrade',
+  nav_dashboard: 'Dashboard',
 } as const;
 
 export type TranslationKey = keyof typeof en;
