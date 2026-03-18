@@ -66,12 +66,12 @@ export function StatusCard({ position, strategyInfo }: StatusCardProps) {
           <div className="mb-4">
             <span
               className={`inline-block rounded px-2 py-0.5 text-xs font-bold ${
-                position.side?.toUpperCase() === 'LONG'
+                position.direction?.toUpperCase() === 'LONG'
                   ? 'bg-neon-green/20 text-neon-green'
                   : 'bg-danger/20 text-danger'
               }`}
             >
-              {position.side?.toUpperCase()}
+              {position.direction?.toUpperCase()}
             </span>
           </div>
 

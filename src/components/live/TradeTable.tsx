@@ -98,7 +98,7 @@ export default function TradeTable({ trades }: TradeTableProps) {
                 {formatTime(t.entry_time)}
               </td>
               <td className="px-4 py-3">
-                <DirectionBadge direction={t.side} />
+                <DirectionBadge direction={t.direction} />
               </td>
               <td className="px-4 py-3 font-mono text-sm">{t.entry_price}</td>
               <td className="px-4 py-3 font-mono text-sm">{t.exit_price}</td>

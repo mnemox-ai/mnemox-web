@@ -13,7 +13,7 @@ export interface Position {
   id: string;
   strategy_id: string;
   symbol: string;
-  side: string;
+  direction: string;
   entry_price: number;
   entry_time: string;
   quantity: number;
@@ -33,7 +33,7 @@ export interface Trade {
   id: string;
   strategy_id: string;
   symbol: string;
-  side: string;
+  direction: string;
   entry_price: number;
   exit_price: number;
   entry_time: string;
