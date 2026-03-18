@@ -82,6 +82,18 @@ export function Nav() {
           </div>
         </div>
 
+        {/* LIVE top-level */}
+        <Link
+          href="/live"
+          className="font-mono text-xs tracking-[1.5px] uppercase text-neon-green no-underline transition-colors hover:text-cyan hover:no-underline flex items-center gap-1.5"
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+          </span>
+          LIVE
+        </Link>
+
         {/* Pricing */}
         <Link
           href="/pricing"
