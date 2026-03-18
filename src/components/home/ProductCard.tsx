@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useUser } from '@clerk/nextjs';
 import { cn } from '@/lib/utils';
 
 interface ProductCardProps {
@@ -11,6 +12,7 @@ interface ProductCardProps {
   accentColor: string;
   stars?: number | null;
   tests?: number;
+  requireAuth?: boolean;
   className?: string;
 }
 
@@ -22,8 +24,11 @@ export function ProductCard({
   accentColor,
   stars,
   tests,
+  requireAuth = false,
   className,
 }: ProductCardProps) {
+  const { isSignedIn } = useUser();
+  const resolvedHref = requireAuth && !isSignedIn ? `/sign-in?redirect_url=${encodeURIComponent(href)}` : href;
   return (
     <div
       className={cn(
@@ -63,7 +68,7 @@ export function ProductCard({
 
       {/* CTA */}
       <Link
-        href={href}
+        href={resolvedHref}
         className="mt-5 inline-flex items-center text-sm font-semibold transition-colors"
         style={{ color: accentColor }}
       >
