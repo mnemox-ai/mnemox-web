@@ -59,14 +59,13 @@ export async function POST(req: NextRequest) {
           .from('users')
           .upsert(
             {
-              clerk_user_id: userData.id,
+              id: userData.id,
               email: primaryEmail,
-              first_name: userData.first_name,
-              last_name: userData.last_name,
+              name: [userData.first_name, userData.last_name].filter(Boolean).join(' ') || null,
               image_url: userData.image_url,
               updated_at: new Date().toISOString(),
             },
-            { onConflict: 'clerk_user_id' }
+            { onConflict: 'id' }
           );
 
         if (error) {
@@ -80,7 +79,7 @@ export async function POST(req: NextRequest) {
         const { error } = await supabase
           .from('users')
           .delete()
-          .eq('clerk_user_id', userData.id);
+          .eq('id', userData.id);
 
         if (error) {
           console.error('Clerk webhook user.deleted error:', error);

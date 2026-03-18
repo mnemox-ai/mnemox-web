@@ -72,7 +72,10 @@ CREATE TABLE IF NOT EXISTS subscriptions (
   user_id         TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   plan            TEXT NOT NULL DEFAULT 'free',   -- free | pro | enterprise
   status          TEXT NOT NULL DEFAULT 'active', -- active | cancelled | past_due
-  paypal_order_id TEXT UNIQUE,                    -- idempotency key
+  paypal_subscription_id TEXT UNIQUE,             -- PayPal subscription ID (idempotency key)
+  paypal_plan_id  TEXT,                           -- PayPal plan ID (P-xxx)
+  paypal_payer_email TEXT,                        -- PayPal payer email
+  paypal_payer_id TEXT,                           -- PayPal payer ID
   current_period_start TIMESTAMPTZ,
   current_period_end   TIMESTAMPTZ,
   created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),

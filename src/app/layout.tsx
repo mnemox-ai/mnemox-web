@@ -22,6 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mnemox.ai"),
   title: "Mnemox AI",
   description: "AI-powered tools for traders and developers",
 };

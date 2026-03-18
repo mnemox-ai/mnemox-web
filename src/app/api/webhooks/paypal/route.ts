@@ -140,13 +140,13 @@ export async function POST(req: NextRequest) {
           .upsert(
             {
               paypal_subscription_id: resource.id,
-              clerk_user_id: clerkUserId,
+              user_id: clerkUserId,
               paypal_plan_id: resource.plan_id,
               status: resource.status?.toLowerCase() ?? 'active',
               paypal_payer_email: resource.subscriber?.email_address ?? null,
               paypal_payer_id: resource.subscriber?.payer_id ?? null,
-              start_time: resource.start_time ?? null,
-              next_billing_time: resource.billing_info?.next_billing_time ?? null,
+              current_period_start: resource.start_time ?? null,
+              current_period_end: resource.billing_info?.next_billing_time ?? null,
               updated_at: new Date().toISOString(),
             },
             { onConflict: 'paypal_subscription_id' }
