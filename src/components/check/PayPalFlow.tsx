@@ -2,14 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useI18n } from '@/lib/i18n';
-
-const API_BASE = 'https://idea-reality-mcp.onrender.com';
+import { API_BASE } from '@/lib/config';
 
 interface PayPalFlowProps {
   ideaText: string;
   ideaHash?: string;
   depth: 'quick' | 'deep';
-  onReportReady: (reportData: ReportData) => void;
 }
 
 export interface ReportData {

@@ -6,9 +6,8 @@ import { Gauge } from '@/components/check/Gauge';
 import { PayPalFlow, PayPalCapture } from '@/components/check/PayPalFlow';
 import { PaidReport } from '@/components/check/PaidReport';
 import { trackEvent, flushEvents } from '@/lib/analytics';
+import { API_BASE } from '@/lib/config';
 import type { ReportData } from '@/components/check/PayPalFlow';
-
-const API_BASE = 'https://idea-reality-mcp.onrender.com';
 
 const SUGGESTIONS = {
   en: [
@@ -99,8 +98,9 @@ export default function CheckPage() {
     trackEvent('check_page_view');
   }, []);
 
-  // --- Placeholder rotation ---
+  // --- Placeholder rotation (only during input phase) ---
   useEffect(() => {
+    if (phase !== 'input') return;
     timerRef.current = setInterval(() => {
       setPlaceholderFade(true);
       setTimeout(() => {
@@ -109,7 +109,7 @@ export default function CheckPage() {
       }, 300);
     }, 4000);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, []);
+  }, [phase]);
 
   const suggestions = SUGGESTIONS[lang] || SUGGESTIONS.en;
   const prefix = lang === 'zh' ? '例如：' : 'e.g. ';
@@ -539,7 +539,6 @@ export default function CheckPage() {
                 ideaText={idea}
                 ideaHash={result.idea_hash}
                 depth="deep"
-                onReportReady={handlePaidReportReady}
               />
             </div>
           )}

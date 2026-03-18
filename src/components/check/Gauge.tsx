@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface GaugeProps {
   score: number; // 0-100
@@ -24,8 +24,9 @@ export function Gauge({ score, size = 180, strokeWidth = 8, label }: GaugeProps)
   const dashOffset = circumference - (animatedScore / 100) * circumference;
   const color = getColor(animatedScore);
 
+  const prevRef = useRef(0);
+
   useEffect(() => {
-    // Animate from 0 to score
     let frame: number;
     const duration = 1200;
     const start = performance.now();
@@ -33,9 +34,12 @@ export function Gauge({ score, size = 180, strokeWidth = 8, label }: GaugeProps)
     function tick(now: number) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      setAnimatedScore(Math.round(eased * score));
+      const next = Math.round(eased * score);
+      if (next !== prevRef.current) {
+        prevRef.current = next;
+        setAnimatedScore(next);
+      }
       if (progress < 1) {
         frame = requestAnimationFrame(tick);
       }

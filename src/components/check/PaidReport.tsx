@@ -3,9 +3,8 @@
 import { useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { Gauge } from './Gauge';
+import { API_BASE } from '@/lib/config';
 import type { ReportData } from './PayPalFlow';
-
-const API_BASE = 'https://idea-reality-mcp.onrender.com';
 
 interface PaidReportProps {
   data: ReportData;
