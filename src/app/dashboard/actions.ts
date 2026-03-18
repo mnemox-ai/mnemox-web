@@ -2,7 +2,7 @@
 
 import { randomBytes, createHash } from 'crypto';
 import { auth } from '@clerk/nextjs/server';
-import { createServerSupabaseClient } from '@/lib/supabase/server';
+import { createServiceSupabaseClient } from '@/lib/supabase/server';
 
 export async function generateApiKey(): Promise<{
   key: string | null;
@@ -11,7 +11,7 @@ export async function generateApiKey(): Promise<{
   const { userId } = await auth();
   if (!userId) return { key: null, error: 'Not authenticated' };
 
-  const supabase = await createServerSupabaseClient();
+  const supabase = createServiceSupabaseClient();
 
   // Generate key: mk_live_ + 32 random bytes hex
   const raw = randomBytes(32).toString('hex');
@@ -37,7 +37,7 @@ export async function revokeApiKey(
   const { userId } = await auth();
   if (!userId) return { error: 'Not authenticated' };
 
-  const supabase = await createServerSupabaseClient();
+  const supabase = createServiceSupabaseClient();
 
   const { error } = await supabase
     .from('api_keys')
@@ -56,7 +56,7 @@ export async function getApiKeys(): Promise<{
   const { userId } = await auth();
   if (!userId) return { keys: [], error: 'Not authenticated' };
 
-  const supabase = await createServerSupabaseClient();
+  const supabase = createServiceSupabaseClient();
 
   const { data, error } = await supabase
     .from('api_keys')
@@ -76,7 +76,7 @@ export async function getUsageStats(): Promise<{
   if (!userId)
     return { stats: { total_calls: 0, month_calls: 0, last_call_at: null }, error: 'Not authenticated' };
 
-  const supabase = await createServerSupabaseClient();
+  const supabase = createServiceSupabaseClient();
 
   const now = new Date();
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
@@ -121,7 +121,7 @@ export async function getSubscription(): Promise<{
   if (!userId)
     return { plan: 'free', status: 'active', current_period_end: null, error: null };
 
-  const supabase = await createServerSupabaseClient();
+  const supabase = createServiceSupabaseClient();
 
   const { data, error } = await supabase
     .from('subscriptions')
