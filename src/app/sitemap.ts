@@ -8,5 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/tradememory`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/check`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/live`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.85 },
   ];
 }
