@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/lib/i18n';
 import type { Trade } from '@/lib/live-data';
 
 interface TradeTableProps {
@@ -62,10 +63,12 @@ function TypeLabel({ type }: { type: string }) {
 }
 
 export default function TradeTable({ trades }: TradeTableProps) {
+  const { t } = useI18n();
+
   if (trades.length === 0) {
     return (
       <div className="rounded-xl border border-border bg-bg-card p-8 text-center text-txt-dim">
-        No trades yet
+        {t('live_no_trades')}
       </div>
     );
   }

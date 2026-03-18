@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useI18n } from '@/lib/i18n';
 import type { Position } from '@/lib/live-data';
 
 interface StatusCardProps {
@@ -9,7 +10,7 @@ interface StatusCardProps {
 }
 
 function formatCountdown(ms: number): string {
-  if (ms <= 0) return 'Expired';
+  if (ms <= 0) return '';
   const totalSec = Math.floor(ms / 1000);
   const h = Math.floor(totalSec / 3600);
   const m = Math.floor((totalSec % 3600) / 60);
@@ -18,6 +19,7 @@ function formatCountdown(ms: number): string {
 }
 
 export function StatusCard({ position, strategyInfo }: StatusCardProps) {
+  const { t } = useI18n();
   const [remaining, setRemaining] = useState('');
 
   useEffect(() => {
@@ -54,7 +56,7 @@ export function StatusCard({ position, strategyInfo }: StatusCardProps) {
         ) : (
           <div className="flex items-center gap-2">
             <span className="inline-flex h-2.5 w-2.5 rounded-full bg-gray-500" />
-            <span className="text-xs text-txt-dim">No open position</span>
+            <span className="text-xs text-txt-dim">{t('live_no_position')}</span>
           </div>
         )}
       </div>
@@ -75,18 +77,18 @@ export function StatusCard({ position, strategyInfo }: StatusCardProps) {
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-txt-dim">Entry</span>
+              <span className="text-sm text-txt-dim">{t('live_entry_price')}</span>
               <span className="font-mono text-cyan">{position.entry_price.toFixed(2)}</span>
             </div>
             {position.stop_loss != null && (
               <div className="flex items-center justify-between">
-                <span className="text-sm text-txt-dim">Stop Loss</span>
+                <span className="text-sm text-txt-dim">{t('live_stop_loss')}</span>
                 <span className="font-mono text-danger">{position.stop_loss.toFixed(2)}</span>
               </div>
             )}
             {position.take_profit != null && (
               <div className="flex items-center justify-between">
-                <span className="text-sm text-txt-dim">Take Profit</span>
+                <span className="text-sm text-txt-dim">{t('live_take_profit')}</span>
                 <span className="font-mono text-neon-green">{position.take_profit.toFixed(2)}</span>
               </div>
             )}
@@ -94,13 +96,13 @@ export function StatusCard({ position, strategyInfo }: StatusCardProps) {
 
           <div className="mt-4 border-t border-border pt-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-txt-dim">Time Remaining</span>
+              <span className="text-sm text-txt-dim">{t('live_next_exit')}</span>
               <span
                 className={`font-mono text-sm ${
-                  remaining === 'Expired' ? 'text-danger' : 'text-txt'
+                  remaining === '' ? 'text-danger' : 'text-txt'
                 }`}
               >
-                {remaining}
+                {remaining || t('live_countdown_expired')}
               </span>
             </div>
           </div>

@@ -1,5 +1,7 @@
 'use client';
 
+import { useI18n } from '@/lib/i18n';
+
 interface StatsCardProps {
   stats: {
     total_trades: number;
@@ -10,15 +12,17 @@ interface StatsCardProps {
 }
 
 export function StatsCard({ stats }: StatsCardProps) {
+  const { t } = useI18n();
+
   const items = [
     {
-      label: 'Win Rate',
+      label: t('live_win_rate'),
       value: `${(stats.win_rate * 100).toFixed(1)}%`,
       color: stats.win_rate > 0.5 ? 'text-neon-green' : 'text-danger',
     },
-    { label: 'Total Trades', value: stats.total_trades, color: 'text-txt' },
-    { label: 'Backtest Trades', value: stats.total_backtest, color: 'text-txt' },
-    { label: 'Paper Trades', value: stats.total_paper, color: 'text-txt' },
+    { label: t('live_total_trades'), value: stats.total_trades, color: 'text-txt' },
+    { label: t('live_backtest_trades'), value: stats.total_backtest, color: 'text-txt' },
+    { label: t('live_paper_trades'), value: stats.total_paper, color: 'text-txt' },
   ];
 
   return (
