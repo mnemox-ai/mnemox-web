@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const data = await fetchLiveData(strategy);
     return NextResponse.json(data);
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error('[live-status]', error instanceof Error ? error.message : error);
+    return NextResponse.json({ error: 'Failed to fetch live data' }, { status: 500 });
   }
 }

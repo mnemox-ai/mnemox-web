@@ -8,7 +8,7 @@ export async function GET() {
     const summaries = await fetchAllStrategySummaries();
     return NextResponse.json(summaries);
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown error';
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error('[live-summaries]', error instanceof Error ? error.message : error);
+    return NextResponse.json({ error: 'Failed to fetch strategy summaries' }, { status: 500 });
   }
 }
