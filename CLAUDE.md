@@ -33,6 +33,7 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - Config: `src/lib/config.ts`
 
 ## Recent Changes
+- [2026-03-19] Dynamic OG image for /live：Satori ImageResponse 即時生成 1200×630 PNG，顯示 win rate / trades / paper / position 狀態，5 min ISR cache
 - [2026-03-19] Session 2.5: Nav top-level LIVE link + LiveBanner on /tradememory + 60s auto-refresh + sitemap /live + OG twitter card + code health (i18n keys 補全, TradeTable 修正) + security review PASS
 - [2026-03-18] fix: direction 欄位名對齊 Supabase（was side），Dir 欄位 LONG badge 正常顯示
 - [2026-03-18] /live 頁面上線：equity chart (lightweight-charts) + StatusCard + StatsCard + TradeTable + i18n 中英切換 + Nav dropdown 加 Live Dashboard
@@ -52,4 +53,5 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - Vercel auto-deploy 正常
 - GH Actions executor 已正常運行（每小時 :05），paper trades 會自動出現在 /live
 - /live 已加入 sitemap（hourly changeFrequency）
-- 待辦：custom /live OG image（目前用 og-home.png 共用）
+- Dynamic OG image 上線：`src/app/live/opengraph-image.tsx`，即時數據 + 深色漸層 + glow 效果
+- Live Dashboard Step 1 全部完成，無待辦
