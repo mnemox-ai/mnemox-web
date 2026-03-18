@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { Suspense, useState, useEffect, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useI18n } from '@/lib/i18n';
 import EquityChart from '@/components/live/EquityChart';
@@ -11,6 +11,14 @@ import StrategySummaryCard from '@/components/live/StrategySummaryCard';
 import type { StrategySummary, LiveData } from '@/lib/live-data';
 
 export default function LivePage() {
+  return (
+    <Suspense fallback={<div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-txt-dim text-sm">Loading...</div>}>
+      <LivePageContent />
+    </Suspense>
+  );
+}
+
+function LivePageContent() {
   const { t } = useI18n();
   const searchParams = useSearchParams();
   const router = useRouter();
