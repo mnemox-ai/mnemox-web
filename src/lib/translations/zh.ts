@@ -325,4 +325,23 @@ export const zh: Record<TranslationKey, string> = {
   dash_upgrade: '升級',
   nav_dashboard: '控制台',
   nav_sign_in: '登入',
+
+  // Live Dashboard
+  live_title: '即時儀表板',
+  live_subtitle: 'BTCUSDT 1小時 | 打贏1000個隨機策略',
+  live_badge: '即時',
+  live_no_position: '目前無持倉',
+  live_entry_price: '進場價格',
+  live_stop_loss: '停損',
+  live_take_profit: '停利',
+  live_next_exit: '最大出場時間',
+  live_win_rate: '勝率',
+  live_total_trades: '總交易數',
+  live_backtest_trades: '回測',
+  live_paper_trades: '模擬交易',
+  live_recent_trades: '近期交易',
+  live_disclaimer: '策略效果受市場狀態影響。非投資建議。過往績效不保證未來表現。',
+  live_strategy_name: '策略 E：午後引擎',
+  live_no_trades: '尚無交易記錄。',
+  live_countdown_expired: '已過期',
 };

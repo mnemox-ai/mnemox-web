@@ -46,6 +46,18 @@ export function Nav() {
             }`}
           >
             <Link
+              href="/live"
+              className="flex items-center justify-between px-4 py-2.5 rounded-md transition-colors hover:bg-bg-card-hover no-underline hover:no-underline"
+            >
+              <span className="font-display text-sm font-semibold text-txt flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                {t('live_title')}
+              </span>
+            </Link>
+            <Link
               href="/check"
               className="flex items-center justify-between px-4 py-2.5 rounded-md transition-colors hover:bg-bg-card-hover no-underline hover:no-underline"
             >

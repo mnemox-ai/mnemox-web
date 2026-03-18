@@ -323,6 +323,25 @@ export const en = {
   dash_upgrade: 'Upgrade',
   nav_dashboard: 'Dashboard',
   nav_sign_in: 'Sign In',
+
+  // Live Dashboard
+  live_title: 'Live Dashboard',
+  live_subtitle: 'BTCUSDT 1H | P100% vs 1000 random',
+  live_badge: 'LIVE',
+  live_no_position: 'No open position',
+  live_entry_price: 'Entry Price',
+  live_stop_loss: 'Stop Loss',
+  live_take_profit: 'Take Profit',
+  live_next_exit: 'Max Exit',
+  live_win_rate: 'Win Rate',
+  live_total_trades: 'Total Trades',
+  live_backtest_trades: 'Backtest',
+  live_paper_trades: 'Paper Trading',
+  live_recent_trades: 'Recent Trades',
+  live_disclaimer: 'Edge is regime-specific. Not financial advice. Past performance does not guarantee future results.',
+  live_strategy_name: 'Strategy E: Afternoon Engine',
+  live_no_trades: 'No trades yet.',
+  live_countdown_expired: 'Expired',
 } as const;
 
 export type TranslationKey = keyof typeof en;
