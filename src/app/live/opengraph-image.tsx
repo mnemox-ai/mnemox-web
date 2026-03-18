@@ -1,26 +1,30 @@
 import { ImageResponse } from 'next/og';
-import { fetchLiveData } from '@/lib/live-data';
+import { fetchAllStrategySummaries } from '@/lib/live-data';
 
 export const runtime = 'nodejs';
 export const revalidate = 300; // 5 min cache
-export const alt = 'Strategy E Live Dashboard - Mnemox AI';
+export const alt = 'Live Strategies Dashboard - Mnemox AI';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function OGImage() {
+  let strategyCount = '—';
   let winRate = '—';
   let totalTrades = '—';
   let paperTrades = '—';
-  let status = 'FLAT';
 
   try {
-    const data = await fetchLiveData();
-    winRate = `${(data.stats.win_rate * 100).toFixed(1)}%`;
-    totalTrades = `${data.stats.total_trades}`;
-    paperTrades = `${data.stats.total_paper}`;
-    status = data.current_position
-      ? data.current_position.direction.toUpperCase()
-      : 'FLAT';
+    const summaries = await fetchAllStrategySummaries();
+    strategyCount = `${summaries.length}`;
+    const total = summaries.reduce((s, x) => s + x.stats.total_trades, 0);
+    const paper = summaries.reduce((s, x) => s + x.stats.total_paper, 0);
+    const weightedWr =
+      total > 0
+        ? summaries.reduce((s, x) => s + x.stats.win_rate * x.stats.total_trades, 0) / total
+        : 0;
+    winRate = `${(weightedWr * 100).toFixed(1)}%`;
+    totalTrades = `${total}`;
+    paperTrades = `${paper}`;
   } catch {
     // fallback to defaults
   }
@@ -139,7 +143,7 @@ export default async function OGImage() {
                 lineHeight: 1.1,
               }}
             >
-              Strategy E
+              {strategyCount !== '—' ? `${strategyCount} Strategies Live` : 'Live Strategies'}
             </span>
             <span
               style={{
@@ -148,7 +152,7 @@ export default async function OGImage() {
                 fontWeight: 500,
               }}
             >
-              Afternoon Engine
+              Evolution Engine
             </span>
           </div>
           <div
@@ -166,7 +170,7 @@ export default async function OGImage() {
                 letterSpacing: '1px',
               }}
             >
-              BTCUSDT · 1H · P100% vs 1000 random strategies
+              BTCUSDT · 1H · Statistically validated strategies
             </span>
           </div>
         </div>
@@ -179,6 +183,43 @@ export default async function OGImage() {
             marginTop: '20px',
           }}
         >
+          {/* Strategies */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '16px',
+              padding: '24px 40px',
+              flex: 1,
+            }}
+          >
+            <span
+              style={{
+                fontSize: '44px',
+                fontWeight: 700,
+                color: '#00e5ff',
+                fontFamily: 'monospace',
+              }}
+            >
+              {strategyCount}
+            </span>
+            <span
+              style={{
+                fontSize: '14px',
+                color: 'rgba(255,255,255,0.4)',
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                marginTop: '8px',
+              }}
+            >
+              Strategies
+            </span>
+          </div>
+
           {/* Win Rate */}
           <div
             style={{
@@ -287,43 +328,6 @@ export default async function OGImage() {
               }}
             >
               Paper Trades
-            </span>
-          </div>
-
-          {/* Status */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
-              padding: '24px 40px',
-              flex: 1,
-            }}
-          >
-            <span
-              style={{
-                fontSize: '44px',
-                fontWeight: 700,
-                color: status === 'LONG' ? '#00ff88' : status === 'SHORT' ? '#ff3366' : 'rgba(255,255,255,0.4)',
-                fontFamily: 'monospace',
-              }}
-            >
-              {status}
-            </span>
-            <span
-              style={{
-                fontSize: '14px',
-                color: 'rgba(255,255,255,0.4)',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-                marginTop: '8px',
-              }}
-            >
-              Position
             </span>
           </div>
         </div>

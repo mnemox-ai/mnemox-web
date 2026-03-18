@@ -328,7 +328,7 @@ export const zh: Record<TranslationKey, string> = {
 
   // Live Dashboard
   live_title: '即時戰況',
-  live_subtitle: 'BTCUSDT 1H | 贏過 1000 組隨機策略',
+  live_subtitle: 'BTCUSDT 1H | Evolution Engine 策略',
   live_badge: 'LIVE',
   live_no_position: '目前沒有持倉',
   live_entry_price: '進場價',
@@ -361,4 +361,10 @@ export const zh: Record<TranslationKey, string> = {
   live_th_type: '類型',
   live_banner_view: '查看即時戰況 →',
   live_banner_strategy: 'Strategy E',
+  live_strategies_title: '即時策略',
+  live_select_strategy: '選擇策略查看詳情',
+  live_no_data: '此策略尚無數據',
+  live_open_position: '持倉中',
+  live_strategies_count: '個策略運行中',
+  live_banner_strategies: '策略',
 };

@@ -326,7 +326,7 @@ export const en = {
 
   // Live Dashboard
   live_title: 'Live Dashboard',
-  live_subtitle: 'BTCUSDT 1H | P100% vs 1000 random',
+  live_subtitle: 'BTCUSDT 1H | Evolution Engine Strategies',
   live_badge: 'LIVE',
   live_no_position: 'No open position',
   live_entry_price: 'Entry Price',
@@ -359,6 +359,12 @@ export const en = {
   live_th_type: 'Type',
   live_banner_view: 'View Live Dashboard →',
   live_banner_strategy: 'Strategy E',
+  live_strategies_title: 'Live Strategies',
+  live_select_strategy: 'Select a strategy to view details',
+  live_no_data: 'No data for this strategy yet',
+  live_open_position: 'Open',
+  live_strategies_count: 'strategies live',
+  live_banner_strategies: 'Strategies',
 } as const;
 
 export type TranslationKey = keyof typeof en;
