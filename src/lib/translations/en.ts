@@ -322,6 +322,7 @@ export const en = {
   dash_renews: 'Renews',
   dash_upgrade: 'Upgrade',
   nav_dashboard: 'Dashboard',
+  nav_sign_in: 'Sign In',
 } as const;
 
 export type TranslationKey = keyof typeof en;

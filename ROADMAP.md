@@ -31,11 +31,11 @@
 - [x] Clipboard .catch() missing → add error handling
 - [ ] Duplicate copy-to-AI logic → extract CopyToAIButton component
 
-## Phase 3: Auth + User System (NEXT)
-- [ ] Clerk setup (sign-in, sign-up, user button, middleware)
-- [ ] Supabase setup (users, api_keys, subscriptions tables)
-- [ ] Dashboard page (`/dashboard`) — API key management, usage stats
-- [ ] Subscription flow — PayPal → Supabase record → API key
+## Phase 3: Auth + User System ✅
+- [x] Clerk setup (sign-in, sign-up, user button, middleware)
+- [x] Supabase setup (users, api_keys, subscriptions tables)
+- [x] Dashboard page (`/dashboard`) — API key management, usage stats
+- [x] Subscription flow — PayPal → Supabase record → API key
 
 ## Phase 4: Dynamic Data + SEO
 - [x] GitHub stars API route (cached 1hr)
@@ -55,4 +55,4 @@
 - [ ] Environment variables (PayPal, Clerk, Supabase, GA)
 - [ ] Smoke test all pages + PayPal sandbox
 - [x] Go live: DNS cutover
-- [ ] Fix Vercel Git integration (auto-deploy on push not triggering)
+- [x] Fix Vercel Git integration (auto-deploy on push not triggering)

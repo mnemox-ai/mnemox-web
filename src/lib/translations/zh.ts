@@ -324,4 +324,5 @@ export const zh: Record<TranslationKey, string> = {
   dash_renews: '續約日',
   dash_upgrade: '升級',
   nav_dashboard: '控制台',
+  nav_sign_in: '登入',
 };
