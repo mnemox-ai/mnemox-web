@@ -1,8 +1,27 @@
 'use server';
 
 import { randomBytes, createHash } from 'crypto';
-import { auth } from '@clerk/nextjs/server';
+import { auth, currentUser } from '@clerk/nextjs/server';
 import { createServiceSupabaseClient } from '@/lib/supabase/server';
+import type { SupabaseClient } from '@supabase/supabase-js';
+
+/**
+ * Ensure user exists in Supabase (upsert from Clerk data).
+ * Must be called before any operation that references users table via FK.
+ */
+async function ensureUser(supabase: SupabaseClient, userId: string) {
+  const user = await currentUser();
+  await supabase.from('users').upsert(
+    {
+      id: userId,
+      email: user?.emailAddresses?.[0]?.emailAddress ?? 'unknown',
+      name: [user?.firstName, user?.lastName].filter(Boolean).join(' ') || null,
+      image_url: user?.imageUrl ?? null,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: 'id' }
+  );
+}
 
 export async function generateApiKey(): Promise<{
   key: string | null;
@@ -12,6 +31,7 @@ export async function generateApiKey(): Promise<{
   if (!userId) return { key: null, error: 'Not authenticated' };
 
   const supabase = createServiceSupabaseClient();
+  await ensureUser(supabase, userId);
 
   // Generate key: mk_live_ + 32 random bytes hex
   const raw = randomBytes(32).toString('hex');
