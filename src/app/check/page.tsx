@@ -36,26 +36,37 @@ const SCAN_SOURCES_QUICK = ['GitHub', 'HN'];
 const SCAN_SOURCES_DEEP = ['GitHub', 'HN', 'npm', 'PyPI', 'Product Hunt'];
 
 // --- Types ---
-interface SourceBreakdown {
+interface EvidenceItem {
   source: string;
-  raw_count?: number;
-  score?: number;
-  items?: Array<{ name?: string; full_name?: string; stars?: number; url?: string; description?: string }>;
+  type: string;
+  query?: string;
+  count?: number;
+  detail?: string;
+  queried_at?: string;
+}
+
+interface SimilarProject {
+  name: string;
+  url?: string;
+  stars?: number;
+  updated?: string;
+  description?: string;
 }
 
 interface CheckResult {
   reality_signal: number;
-  verdict?: string;
-  market_momentum?: { trend: string; label: string };
-  source_breakdown?: SourceBreakdown[];
-  evidence?: string[];
-  similar_projects?: Array<{ name: string; url?: string; stars?: number; description?: string }>;
+  duplicate_likelihood?: string;
+  trend?: string;
+  sub_scores?: Record<string, number | null>;
+  evidence?: EvidenceItem[];
+  top_similars?: SimilarProject[];
   pivot_hints?: string[];
   idea_hash?: string;
+  meta?: { sources_used?: string[]; depth?: string };
 }
 
 interface StatsData {
-  total_queries?: number;
+  total_ideas_scanned?: number;
   unique_countries?: number;
 }
 
@@ -190,15 +201,15 @@ export default function CheckPage() {
     if (!result) return;
     const text = [
       `Reality Signal: ${result.reality_signal}/100`,
-      result.verdict ? `Verdict: ${result.verdict}` : '',
-      result.evidence?.length ? `\nEvidence:\n${result.evidence.map(e => `- ${e}`).join('\n')}` : '',
-      result.similar_projects?.length ? `\nSimilar Projects:\n${result.similar_projects.map(p => `- ${p.name}${p.stars ? ` (${p.stars}★)` : ''}`).join('\n')}` : '',
+      result.duplicate_likelihood ? `Duplicate Likelihood: ${result.duplicate_likelihood}` : '',
+      result.evidence?.length ? `\nEvidence:\n${result.evidence.map(e => `- ${e.detail || e.type}`).join('\n')}` : '',
+      result.top_similars?.length ? `\nSimilar Projects:\n${result.top_similars.map(p => `- ${p.name}${p.stars ? ` (${p.stars}★)` : ''}`).join('\n')}` : '',
       result.pivot_hints?.length ? `\nPivot Hints:\n${result.pivot_hints.map(h => `- ${h}`).join('\n')}` : '',
     ].filter(Boolean).join('\n');
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    });
+    }).catch(() => { /* clipboard not available */ });
     trackEvent('copy_to_ai');
   };
 
@@ -227,9 +238,9 @@ export default function CheckPage() {
         {/* Live stats */}
         {stats && (
           <div className="mt-6 flex justify-center gap-8 flex-wrap">
-            {stats.total_queries != null && (
+            {stats.total_ideas_scanned != null && (
               <div className="text-center">
-                <div className="font-mono text-lg font-bold text-cyan">{stats.total_queries.toLocaleString()}</div>
+                <div className="font-mono text-lg font-bold text-cyan">{stats.total_ideas_scanned.toLocaleString()}</div>
                 <div className="font-mono text-[11px] text-txt-dim uppercase tracking-wider">{t('check_stat_ideas')}</div>
               </div>
             )}
@@ -356,12 +367,20 @@ export default function CheckPage() {
           {/* Gauge */}
           <div className="mb-8 text-center">
             <Gauge score={result.reality_signal} label={t('check_reality_signal')} />
-            {result.verdict && (
-              <p className="mt-4 font-mono text-sm text-txt-dim">{result.verdict}</p>
+            {result.duplicate_likelihood && (
+              <p className="mt-4 font-mono text-sm text-txt-dim">
+                {lang === 'zh' ? '重複可能性：' : 'Duplicate likelihood: '}
+                <span className={`font-bold ${
+                  result.duplicate_likelihood === 'high' ? 'text-danger' :
+                  result.duplicate_likelihood === 'medium' ? 'text-amber' : 'text-neon-green'
+                }`}>
+                  {t(`check_likelihood_${result.duplicate_likelihood}` as 'check_likelihood_low')}
+                </span>
+              </p>
             )}
-            {result.market_momentum && (
+            {result.trend && (
               <p className="mt-2 font-mono text-xs text-txt-muted">
-                {t('check_comp_trend')}: {result.market_momentum.label}
+                {t('check_comp_trend')}: {result.trend}
               </p>
             )}
           </div>
@@ -378,57 +397,17 @@ export default function CheckPage() {
                     key={i}
                     className="rounded-lg border border-border bg-bg-card p-4 text-sm text-txt-dim"
                   >
-                    {ev}
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Source Breakdown */}
-          {result.source_breakdown && result.source_breakdown.length > 0 && (
-            <section className="mb-8">
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {result.source_breakdown.map((src) => (
-                  <div
-                    key={src.source}
-                    className="rounded-lg border border-border bg-bg-card p-4"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-xs uppercase tracking-wider text-cyan">
-                        {src.source}
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="rounded bg-cyan-glow px-1.5 py-0.5 font-mono text-[10px] uppercase text-cyan">
+                        {ev.source}
                       </span>
-                      {src.raw_count != null && (
-                        <span className="font-mono text-xs text-txt-dim">
-                          {src.raw_count} found
+                      {ev.count != null && (
+                        <span className="font-mono text-xs text-txt-muted">
+                          {ev.count.toLocaleString()}
                         </span>
                       )}
                     </div>
-                    {src.items && src.items.length > 0 && (
-                      <ul className="space-y-1.5">
-                        {src.items.slice(0, 3).map((item, j) => (
-                          <li key={j} className="text-sm text-txt-dim truncate">
-                            {item.url ? (
-                              <a
-                                href={item.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-accent hover:underline"
-                              >
-                                {item.name || item.full_name}
-                              </a>
-                            ) : (
-                              <span>{item.name || item.full_name}</span>
-                            )}
-                            {item.stars != null && (
-                              <span className="ml-1 text-amber text-xs">
-                                {item.stars.toLocaleString()}★
-                              </span>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    <p>{ev.detail || ev.type}</p>
                   </div>
                 ))}
               </div>
@@ -436,13 +415,13 @@ export default function CheckPage() {
           )}
 
           {/* Similar Projects */}
-          {result.similar_projects && result.similar_projects.length > 0 && (
+          {result.top_similars && result.top_similars.length > 0 && (
             <section className="mb-8">
               <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[2px] text-cyan">
                 {t('check_similar_projects')}
               </h3>
               <div className="space-y-3">
-                {result.similar_projects.map((proj, i) => (
+                {result.top_similars.map((proj, i) => (
                   <div
                     key={i}
                     className="flex items-start justify-between gap-4 rounded-lg border border-border bg-bg-card p-4"
