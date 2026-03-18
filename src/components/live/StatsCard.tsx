@@ -13,8 +13,8 @@ export function StatsCard({ stats }: StatsCardProps) {
   const items = [
     {
       label: 'Win Rate',
-      value: `${stats.win_rate.toFixed(1)}%`,
-      color: stats.win_rate > 50 ? 'text-neon-green' : 'text-danger',
+      value: `${(stats.win_rate * 100).toFixed(1)}%`,
+      color: stats.win_rate > 0.5 ? 'text-neon-green' : 'text-danger',
     },
     { label: 'Total Trades', value: stats.total_trades, color: 'text-txt' },
     { label: 'Backtest Trades', value: stats.total_backtest, color: 'text-txt' },

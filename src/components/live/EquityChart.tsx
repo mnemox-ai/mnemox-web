@@ -87,7 +87,7 @@ export default function EquityChart({ data }: EquityChartProps) {
 
   if (data.length === 0) {
     return (
-      <div className="flex items-center justify-center h-[400px] text-[#6a6a80] text-sm">
+      <div className="flex items-center justify-center h-[400px] text-txt-dim text-sm">
         No equity data available
       </div>
     );
@@ -96,13 +96,13 @@ export default function EquityChart({ data }: EquityChartProps) {
   return (
     <div>
       <div ref={containerRef} />
-      <div className="flex items-center gap-4 mt-2 text-xs text-[#6a6a80]">
+      <div className="flex items-center gap-4 mt-2 text-xs text-txt-dim">
         <span className="flex items-center gap-1.5">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#6a6a80]" />
+          <span className="inline-block w-2.5 h-2.5 rounded-full bg-txt-dim" />
           Backtest
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#00e5ff]" />
+          <span className="inline-block w-2.5 h-2.5 rounded-full bg-cyan" />
           Paper Trading
         </span>
       </div>
