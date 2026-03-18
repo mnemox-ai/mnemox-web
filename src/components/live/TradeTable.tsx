@@ -1,16 +1,6 @@
 'use client';
 
-interface Trade {
-  entry_time: string;
-  exit_time: string;
-  direction: string;
-  entry_price: number;
-  exit_price: number;
-  pnl_pct: number;
-  pnl_r: number;
-  exit_reason: string;
-  trade_type: string;
-}
+import type { Trade } from '@/lib/live-data';
 
 interface TradeTableProps {
   trades: Trade[];
@@ -33,14 +23,14 @@ function pnlColor(value: number) {
 }
 
 function DirectionBadge({ direction }: { direction: string }) {
-  const isLong = direction.toUpperCase() === 'LONG';
+  const isLong = (direction ?? '').toUpperCase() === 'LONG';
   return (
     <span
       className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
         isLong ? 'bg-neon-green-dim text-neon-green' : 'bg-danger-dim text-danger'
       }`}
     >
-      {direction.toUpperCase()}
+      {(direction ?? '').toUpperCase()}
     </span>
   );
 }
@@ -105,7 +95,7 @@ export default function TradeTable({ trades }: TradeTableProps) {
                 {formatTime(t.entry_time)}
               </td>
               <td className="px-4 py-3">
-                <DirectionBadge direction={t.direction} />
+                <DirectionBadge direction={t.side} />
               </td>
               <td className="px-4 py-3 font-mono text-sm">{t.entry_price}</td>
               <td className="px-4 py-3 font-mono text-sm">{t.exit_price}</td>
@@ -113,12 +103,11 @@ export default function TradeTable({ trades }: TradeTableProps) {
                 {t.pnl_pct >= 0 ? '+' : ''}
                 {t.pnl_pct.toFixed(2)}%
               </td>
-              <td className={`px-4 py-3 font-mono text-sm ${pnlColor(t.pnl_r)}`}>
-                {t.pnl_r >= 0 ? '+' : ''}
-                {t.pnl_r.toFixed(2)}
+              <td className={`px-4 py-3 font-mono text-sm ${t.pnl_r != null ? pnlColor(t.pnl_r) : 'text-txt-dim'}`}>
+                {t.pnl_r != null ? `${t.pnl_r >= 0 ? '+' : ''}${t.pnl_r.toFixed(2)}` : '—'}
               </td>
               <td className="px-4 py-3">
-                <ReasonBadge reason={t.exit_reason} />
+                {t.exit_reason ? <ReasonBadge reason={t.exit_reason} /> : <span className="text-txt-dim">—</span>}
               </td>
               <td className="px-4 py-3">
                 <TypeLabel type={t.trade_type} />

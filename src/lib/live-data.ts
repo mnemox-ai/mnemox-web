@@ -18,6 +18,9 @@ export interface Position {
   entry_time: string;
   quantity: number;
   status: string;
+  stop_loss: number | null;
+  take_profit: number | null;
+  max_exit_time: string | null;
 }
 
 export interface EquityPoint {
@@ -37,6 +40,8 @@ export interface Trade {
   exit_time: string;
   pnl_pct: number;
   pnl_usd: number;
+  pnl_r: number | null;
+  exit_reason: string | null;
   trade_type: string;
 }
 

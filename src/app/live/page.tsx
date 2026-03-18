@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { fetchLiveData } from '@/lib/live-data';
 import EquityChart from '@/components/live/EquityChart';
 import { StatusCard } from '@/components/live/StatusCard';

@@ -1,15 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-interface Position {
-  entry_price: number;
-  stop_loss: number;
-  take_profit: number;
-  direction: 'LONG' | 'SHORT';
-  entry_time: string;
-  max_exit_time: string;
-}
+import type { Position } from '@/lib/live-data';
 
 interface StatusCardProps {
   position: Position | null;
@@ -32,6 +24,10 @@ export function StatusCard({ position, strategyInfo }: StatusCardProps) {
     if (!position) return;
 
     const update = () => {
+      if (!position.max_exit_time) {
+        setRemaining('—');
+        return;
+      }
       const diff = new Date(position.max_exit_time).getTime() - Date.now();
       setRemaining(formatCountdown(diff));
     };
@@ -68,12 +64,12 @@ export function StatusCard({ position, strategyInfo }: StatusCardProps) {
           <div className="mb-4">
             <span
               className={`inline-block rounded px-2 py-0.5 text-xs font-bold ${
-                position.direction === 'LONG'
+                position.side?.toUpperCase() === 'LONG'
                   ? 'bg-neon-green/20 text-neon-green'
                   : 'bg-danger/20 text-danger'
               }`}
             >
-              {position.direction}
+              {position.side?.toUpperCase()}
             </span>
           </div>
 
@@ -82,14 +78,18 @@ export function StatusCard({ position, strategyInfo }: StatusCardProps) {
               <span className="text-sm text-txt-dim">Entry</span>
               <span className="font-mono text-cyan">{position.entry_price.toFixed(2)}</span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-txt-dim">Stop Loss</span>
-              <span className="font-mono text-danger">{position.stop_loss.toFixed(2)}</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-txt-dim">Take Profit</span>
-              <span className="font-mono text-neon-green">{position.take_profit.toFixed(2)}</span>
-            </div>
+            {position.stop_loss != null && (
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-txt-dim">Stop Loss</span>
+                <span className="font-mono text-danger">{position.stop_loss.toFixed(2)}</span>
+              </div>
+            )}
+            {position.take_profit != null && (
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-txt-dim">Take Profit</span>
+                <span className="font-mono text-neon-green">{position.take_profit.toFixed(2)}</span>
+              </div>
+            )}
           </div>
 
           <div className="mt-4 border-t border-border pt-4">
