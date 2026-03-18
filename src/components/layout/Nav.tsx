@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { SignInButton, UserButton, useUser } from '@clerk/nextjs';
 import { useI18n } from '@/lib/i18n';
 
 export function Nav() {
   const { t, toggleLang } = useI18n();
+  const { isSignedIn } = useUser();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [stars, setStars] = useState<{ idea_reality: number; tradememory: number } | null>(null);
 
@@ -85,6 +87,17 @@ export function Nav() {
         >
           {t('nav_github')}
         </a>
+
+        {/* Auth */}
+        {isSignedIn ? (
+          <UserButton />
+        ) : (
+          <SignInButton mode="redirect">
+            <button className="font-mono text-[11px] tracking-[1.5px] uppercase px-4 py-1.5 border border-border text-txt-dim bg-transparent cursor-pointer transition-all hover:text-cyan hover:border-cyan">
+              Sign In
+            </button>
+          </SignInButton>
+        )}
 
         {/* Lang toggle */}
         <button
