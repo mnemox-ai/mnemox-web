@@ -343,6 +343,20 @@ export const en = {
   live_no_trades: 'No trades yet.',
   live_countdown_expired: 'Expired',
   live_auto_refresh: 'Auto-refreshes every 60s',
+  live_loading: 'Loading...',
+  live_error: 'Unable to load live data. Please try again later.',
+  live_no_equity: 'No equity data available',
+  live_legend_backtest: 'Backtest',
+  live_legend_paper: 'Paper Trading',
+  live_disclaimer_prefix: 'Backtest: 2024-01 ~ 2026-03. Paper Trading: 2026-03-19 ~.',
+  live_th_time: 'Time',
+  live_th_dir: 'Dir',
+  live_th_entry: 'Entry',
+  live_th_exit: 'Exit',
+  live_th_pnl: 'PnL%',
+  live_th_r: 'R',
+  live_th_reason: 'Reason',
+  live_th_type: 'Type',
 } as const;
 
 export type TranslationKey = keyof typeof en;

@@ -39,7 +39,7 @@ export default function LivePage() {
     return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="flex items-center justify-center h-[400px] text-txt-dim text-sm">
-          Loading...
+          {t('live_loading')}
         </div>
       </div>
     );
@@ -49,7 +49,7 @@ export default function LivePage() {
     return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="flex items-center justify-center h-[400px] text-txt-dim text-sm">
-          Unable to load live data. Please try again later.
+          {t('live_error')}
         </div>
       </div>
     );
@@ -97,7 +97,7 @@ export default function LivePage() {
 
       {/* Disclaimer */}
       <div className="mt-12 p-4 rounded-lg bg-bg-card border border-border text-txt-dim text-sm">
-        Backtest: 2024-01 ~ 2026-03. Paper Trading: 2026-03-19 ~.{' '}
+        {t('live_disclaimer_prefix')}{' '}
         {t('live_disclaimer')}
         <p className="text-txt-dim text-xs mt-1">{t('live_auto_refresh')}</p>
       </div>

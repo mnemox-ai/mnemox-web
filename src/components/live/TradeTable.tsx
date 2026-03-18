@@ -78,42 +78,42 @@ export default function TradeTable({ trades }: TradeTableProps) {
       <table className="w-full">
         <thead>
           <tr className="border-b border-border text-left text-xs uppercase tracking-wider text-txt-dim">
-            <th className="px-4 py-3">Time</th>
-            <th className="px-4 py-3">Dir</th>
-            <th className="px-4 py-3">Entry</th>
-            <th className="px-4 py-3">Exit</th>
-            <th className="px-4 py-3">PnL%</th>
-            <th className="px-4 py-3">R</th>
-            <th className="px-4 py-3">Reason</th>
-            <th className="px-4 py-3">Type</th>
+            <th className="px-4 py-3">{t('live_th_time')}</th>
+            <th className="px-4 py-3">{t('live_th_dir')}</th>
+            <th className="px-4 py-3">{t('live_th_entry')}</th>
+            <th className="px-4 py-3">{t('live_th_exit')}</th>
+            <th className="px-4 py-3">{t('live_th_pnl')}</th>
+            <th className="px-4 py-3">{t('live_th_r')}</th>
+            <th className="px-4 py-3">{t('live_th_reason')}</th>
+            <th className="px-4 py-3">{t('live_th_type')}</th>
           </tr>
         </thead>
         <tbody>
-          {trades.map((t, i) => (
+          {trades.map((trade, i) => (
             <tr
               key={i}
               className="border-b border-border transition-colors hover:bg-bg-card-hover"
             >
               <td className="whitespace-nowrap px-4 py-3 text-sm">
-                {formatTime(t.entry_time)}
+                {formatTime(trade.entry_time)}
               </td>
               <td className="px-4 py-3">
-                <DirectionBadge direction={t.direction} />
+                <DirectionBadge direction={trade.direction} />
               </td>
-              <td className="px-4 py-3 font-mono text-sm">{t.entry_price}</td>
-              <td className="px-4 py-3 font-mono text-sm">{t.exit_price}</td>
-              <td className={`px-4 py-3 font-mono text-sm ${pnlColor(t.pnl_pct)}`}>
-                {t.pnl_pct >= 0 ? '+' : ''}
-                {t.pnl_pct.toFixed(2)}%
+              <td className="px-4 py-3 font-mono text-sm">{trade.entry_price}</td>
+              <td className="px-4 py-3 font-mono text-sm">{trade.exit_price}</td>
+              <td className={`px-4 py-3 font-mono text-sm ${pnlColor(trade.pnl_pct)}`}>
+                {trade.pnl_pct >= 0 ? '+' : ''}
+                {trade.pnl_pct.toFixed(2)}%
               </td>
-              <td className={`px-4 py-3 font-mono text-sm ${t.pnl_r != null ? pnlColor(t.pnl_r) : 'text-txt-dim'}`}>
-                {t.pnl_r != null ? `${t.pnl_r >= 0 ? '+' : ''}${t.pnl_r.toFixed(2)}` : '—'}
-              </td>
-              <td className="px-4 py-3">
-                {t.exit_reason ? <ReasonBadge reason={t.exit_reason} /> : <span className="text-txt-dim">—</span>}
+              <td className={`px-4 py-3 font-mono text-sm ${trade.pnl_r != null ? pnlColor(trade.pnl_r) : 'text-txt-dim'}`}>
+                {trade.pnl_r != null ? `${trade.pnl_r >= 0 ? '+' : ''}${trade.pnl_r.toFixed(2)}` : '—'}
               </td>
               <td className="px-4 py-3">
-                <TypeLabel type={t.trade_type} />
+                {trade.exit_reason ? <ReasonBadge reason={trade.exit_reason} /> : <span className="text-txt-dim">—</span>}
+              </td>
+              <td className="px-4 py-3">
+                <TypeLabel type={trade.trade_type} />
               </td>
             </tr>
           ))}

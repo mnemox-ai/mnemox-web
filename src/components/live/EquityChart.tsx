@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { createChart, ColorType, LineSeries } from 'lightweight-charts';
 import type { IChartApi, UTCTimestamp } from 'lightweight-charts';
+import { useI18n } from '@/lib/i18n';
 
 interface EquityPoint {
   time: string;
@@ -15,6 +16,7 @@ interface EquityChartProps {
 }
 
 export default function EquityChart({ data }: EquityChartProps) {
+  const { t } = useI18n();
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<IChartApi | null>(null);
 
@@ -88,22 +90,22 @@ export default function EquityChart({ data }: EquityChartProps) {
   if (data.length === 0) {
     return (
       <div className="flex items-center justify-center h-[400px] text-txt-dim text-sm">
-        No equity data available
+        {t('live_no_equity')}
       </div>
     );
   }
 
   return (
     <div>
-      <div ref={containerRef} />
+      <div ref={containerRef} aria-label={t('live_strategy_name')} role="img" />
       <div className="flex items-center gap-4 mt-2 text-xs text-txt-dim">
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-2.5 h-2.5 rounded-full bg-txt-dim" />
-          Backtest
+          {t('live_legend_backtest')}
         </span>
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-2.5 h-2.5 rounded-full bg-cyan" />
-          Paper Trading
+          {t('live_legend_paper')}
         </span>
       </div>
     </div>

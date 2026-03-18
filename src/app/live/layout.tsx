@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Watch Strategy E (BTCUSDT) trade live with AI-powered memory. P100% vs 1000 random strategies.',
     url: 'https://www.mnemox.ai/live',
     siteName: 'Mnemox AI',
-    images: ['/og-home.png'],
+    images: ['/assets/og-home.png'],
   },
   twitter: {
     card: 'summary_large_image',
