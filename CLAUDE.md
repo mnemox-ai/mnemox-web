@@ -33,6 +33,7 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - Config: `src/lib/config.ts`
 
 ## Recent Changes
+- [2026-03-19] **Live Dashboard Step 2: Multi-Strategy**：2 策略卡片（E + C）、點擊切換、/api/live-summaries + /api/live-status?strategy= 、StrategySummaryCard、LiveBanner 聚合、i18n 中英、OG image 多策略、Strategy C 337 筆 backtest seeded
 - [2026-03-19] Dynamic OG image for /live：Satori ImageResponse 即時生成 1200×630 PNG，顯示 win rate / trades / paper / position 狀態，5 min ISR cache
 - [2026-03-19] Session 2.5: Nav top-level LIVE link + LiveBanner on /tradememory + 60s auto-refresh + sitemap /live + OG twitter card + code health (i18n keys 補全, TradeTable 修正) + security review PASS
 - [2026-03-18] fix: direction 欄位名對齊 Supabase（was side），Dir 欄位 LONG badge 正常顯示
@@ -45,7 +46,7 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - [2026-03-18] Phase 3: Clerk auth + Supabase + Dashboard + Webhooks + CTA auth gate
 
 ## Current Status
-- **Live Dashboard 完整上線**：/live 頁面 + 60s auto-refresh + Nav LIVE link + /tradememory LiveBanner
+- **Live Dashboard Step 2 完成**：多策略支持（Strategy E + C），Dashboard 總覽 UI，337 筆 Strategy C backtest seeded
 - Phase 3 完成 + Supabase live（4+2 tables: users/api_keys/subscriptions/usage_logs + live_trades/live_positions）
 - **Clerk production mode**，Email + Google OAuth（custom credentials）
 - Phase 4 OG + Schema.org 完成（6/6 pages 有完整 OG + schema，含 /live twitter card）
@@ -54,4 +55,4 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - GH Actions executor 已正常運行（每小時 :05），paper trades 會自動出現在 /live
 - /live 已加入 sitemap（hourly changeFrequency）
 - Dynamic OG image 上線：`src/app/live/opengraph-image.tsx`，即時數據 + 深色漸層 + glow 效果
-- Live Dashboard Step 1 全部完成，無待辦
+- **Live Dashboard Step 2 完成**，下一步：Step 3（推廣 + 更多策略）
