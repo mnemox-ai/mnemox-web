@@ -6,6 +6,7 @@ import { I18nProvider } from "@/lib/i18n";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { BackgroundEffects } from "@/components/shared/BackgroundEffects";
+import { Analytics } from "@vercel/analytics/react";
 import { GA_ID } from "@/lib/config";
 import "./globals.css";
 
@@ -111,6 +112,7 @@ export default function RootLayout({
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
         </Script>
+        <Analytics />
       </body>
     </html>
   );
