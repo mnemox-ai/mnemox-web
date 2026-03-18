@@ -52,6 +52,12 @@ export interface LiveStats {
   total_paper: number;
 }
 
+export interface StrategySummary {
+  strategy: StrategyInfo;
+  stats: LiveStats;
+  has_open_position: boolean;
+}
+
 export interface LiveData {
   strategy: StrategyInfo;
   current_position: Position | null;
@@ -61,21 +67,38 @@ export interface LiveData {
   updated_at: string;
 }
 
+// --- Constants ---
+
+export const STRATEGIES: Record<string, StrategyInfo> = {
+  strategy_e: {
+    id: 'strategy_e',
+    name: 'Strategy E: Afternoon Engine',
+    symbol: 'BTCUSDT',
+    timeframe: '1H',
+  },
+  strategy_c: {
+    id: 'strategy_c',
+    name: 'Strategy C: US Session Drain',
+    symbol: 'BTCUSDT',
+    timeframe: '1H',
+  },
+};
+
 // --- Fetcher ---
 
-export async function fetchLiveData(): Promise<LiveData> {
+export async function fetchLiveData(strategyId: string = 'strategy_e'): Promise<LiveData> {
   const supabase = createServiceSupabaseClient();
 
   const [tradesRes, positionsRes] = await Promise.all([
     supabase
       .from('live_trades')
       .select('*')
-      .eq('strategy_id', 'strategy_e')
+      .eq('strategy_id', strategyId)
       .order('entry_time', { ascending: true }),
     supabase
       .from('live_positions')
       .select('*')
-      .eq('strategy_id', 'strategy_e')
+      .eq('strategy_id', strategyId)
       .eq('status', 'open')
       .limit(1),
   ]);
@@ -101,9 +124,9 @@ export async function fetchLiveData(): Promise<LiveData> {
   const total_paper = trades.filter((t) => t.trade_type === 'paper').length;
 
   return {
-    strategy: {
-      id: 'strategy_e',
-      name: 'Strategy E: Afternoon Engine',
+    strategy: STRATEGIES[strategyId] ?? {
+      id: strategyId,
+      name: strategyId,
       symbol: 'BTCUSDT',
       timeframe: '1H',
     },
@@ -113,4 +136,48 @@ export async function fetchLiveData(): Promise<LiveData> {
     stats: { total_trades, win_rate, total_backtest, total_paper },
     updated_at: new Date().toISOString(),
   };
+}
+
+export async function fetchAllStrategySummaries(): Promise<StrategySummary[]> {
+  const supabase = createServiceSupabaseClient();
+
+  const results = await Promise.all(
+    Object.values(STRATEGIES).map(async (strategy): Promise<StrategySummary> => {
+      try {
+        const [tradesRes, positionsRes] = await Promise.all([
+          supabase
+            .from('live_trades')
+            .select('pnl_pct, trade_type')
+            .eq('strategy_id', strategy.id),
+          supabase
+            .from('live_positions')
+            .select('id')
+            .eq('strategy_id', strategy.id)
+            .eq('status', 'open')
+            .limit(1),
+        ]);
+
+        const trades = tradesRes.data ?? [];
+        const total_trades = trades.length;
+        const wins = trades.filter((t) => t.pnl_pct > 0).length;
+        const win_rate = total_trades > 0 ? wins / total_trades : 0;
+        const total_backtest = trades.filter((t) => t.trade_type === 'backtest').length;
+        const total_paper = trades.filter((t) => t.trade_type === 'paper').length;
+
+        return {
+          strategy,
+          stats: { total_trades, win_rate, total_backtest, total_paper },
+          has_open_position: (positionsRes.data?.length ?? 0) > 0,
+        };
+      } catch {
+        return {
+          strategy,
+          stats: { total_trades: 0, win_rate: 0, total_backtest: 0, total_paper: 0 },
+          has_open_position: false,
+        };
+      }
+    })
+  );
+
+  return results;
 }
