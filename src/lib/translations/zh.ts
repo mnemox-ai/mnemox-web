@@ -344,4 +344,5 @@ export const zh: Record<TranslationKey, string> = {
   live_strategy_name: 'Strategy E：午後引擎',
   live_no_trades: '尚無交易紀錄',
   live_countdown_expired: '已到期',
+  live_auto_refresh: '每 60 秒自動更新',
 };

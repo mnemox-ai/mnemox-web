@@ -23,11 +23,16 @@ export default function LivePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/live-status')
-      .then((r) => r.json())
-      .then((d) => setData(d))
-      .catch(() => setData(null))
-      .finally(() => setLoading(false));
+    const fetchData = () =>
+      fetch('/api/live-status')
+        .then((r) => r.json())
+        .then((d) => setData(d))
+        .catch(() => setData(null))
+        .finally(() => setLoading(false));
+
+    fetchData();
+    const interval = setInterval(fetchData, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   if (loading) {
@@ -94,6 +99,7 @@ export default function LivePage() {
       <div className="mt-12 p-4 rounded-lg bg-bg-card border border-border text-txt-dim text-sm">
         Backtest: 2024-01 ~ 2026-03. Paper Trading: 2026-03-19 ~.{' '}
         {t('live_disclaimer')}
+        <p className="text-txt-dim text-xs mt-1">{t('live_auto_refresh')}</p>
       </div>
     </div>
   );

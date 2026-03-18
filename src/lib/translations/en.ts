@@ -342,6 +342,7 @@ export const en = {
   live_strategy_name: 'Strategy E: Afternoon Engine',
   live_no_trades: 'No trades yet.',
   live_countdown_expired: 'Expired',
+  live_auto_refresh: 'Auto-refreshes every 60s',
 } as const;
 
 export type TranslationKey = keyof typeof en;
