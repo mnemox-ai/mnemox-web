@@ -11,14 +11,16 @@ export default async function OGImage() {
   let winRate = '—';
   let totalTrades = '—';
   let paperTrades = '—';
-  let status = 'WATCHING';
+  let status = 'FLAT';
 
   try {
     const data = await fetchLiveData();
     winRate = `${(data.stats.win_rate * 100).toFixed(1)}%`;
     totalTrades = `${data.stats.total_trades}`;
     paperTrades = `${data.stats.total_paper}`;
-    status = data.current_position ? 'IN POSITION' : 'WATCHING';
+    status = data.current_position
+      ? data.current_position.direction.toUpperCase()
+      : 'FLAT';
   } catch {
     // fallback to defaults
   }
@@ -304,13 +306,13 @@ export default async function OGImage() {
           >
             <span
               style={{
-                fontSize: '32px',
+                fontSize: '44px',
                 fontWeight: 700,
-                color: status === 'IN POSITION' ? '#00ff88' : 'rgba(255,255,255,0.5)',
+                color: status === 'LONG' ? '#00ff88' : status === 'SHORT' ? '#ff3366' : 'rgba(255,255,255,0.4)',
                 fontFamily: 'monospace',
               }}
             >
-              {status === 'IN POSITION' ? '●' : '○'}
+              {status}
             </span>
             <span
               style={{
@@ -321,7 +323,7 @@ export default async function OGImage() {
                 marginTop: '8px',
               }}
             >
-              {status}
+              Position
             </span>
           </div>
         </div>
