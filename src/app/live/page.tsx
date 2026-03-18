@@ -1,59 +1,61 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useI18n } from '@/lib/i18n';
 import EquityChart from '@/components/live/EquityChart';
 import { StatusCard } from '@/components/live/StatusCard';
 import { StatsCard } from '@/components/live/StatsCard';
 import TradeTable from '@/components/live/TradeTable';
-import type { Position, Trade } from '@/lib/live-data';
-
-interface LiveData {
-  strategy: { id: string; name: string; symbol: string; timeframe: string };
-  current_position: Position | null;
-  equity_curve: { time: string; equity: number; trade_type: string }[];
-  recent_trades: Trade[];
-  stats: { total_trades: number; win_rate: number; total_backtest: number; total_paper: number };
-  updated_at: string;
-}
+import StrategySummaryCard from '@/components/live/StrategySummaryCard';
+import type { StrategySummary, LiveData } from '@/lib/live-data';
 
 export default function LivePage() {
   const { t } = useI18n();
-  const [data, setData] = useState<LiveData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  useEffect(() => {
-    const fetchData = () =>
-      fetch('/api/live-status')
-        .then((r) => r.json())
-        .then((d) => setData(d))
-        .catch(() => setData(null))
-        .finally(() => setLoading(false));
+  const selectedId = searchParams.get('strategy') ?? 'strategy_e';
 
-    fetchData();
-    const interval = setInterval(fetchData, 60000);
-    return () => clearInterval(interval);
+  const [summaries, setSummaries] = useState<StrategySummary[]>([]);
+  const [detailData, setDetailData] = useState<LiveData | null>(null);
+  const [loadingSummaries, setLoadingSummaries] = useState(true);
+  const [loadingDetail, setLoadingDetail] = useState(true);
+
+  // Fetch summaries
+  const fetchSummaries = useCallback(() => {
+    fetch('/api/live-summaries')
+      .then((r) => r.json())
+      .then((d) => { if (Array.isArray(d)) setSummaries(d); })
+      .catch(() => {})
+      .finally(() => setLoadingSummaries(false));
   }, []);
 
-  if (loading) {
-    return (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <div className="flex items-center justify-center h-[400px] text-txt-dim text-sm">
-          {t('live_loading')}
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    fetchSummaries();
+    const interval = setInterval(fetchSummaries, 60000);
+    return () => clearInterval(interval);
+  }, [fetchSummaries]);
 
-  if (!data) {
-    return (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <div className="flex items-center justify-center h-[400px] text-txt-dim text-sm">
-          {t('live_error')}
-        </div>
-      </div>
-    );
-  }
+  // Fetch detail for selected strategy
+  const fetchDetail = useCallback(() => {
+    setLoadingDetail(true);
+    fetch(`/api/live-status?strategy=${selectedId}`)
+      .then((r) => r.json())
+      .then((d) => setDetailData(d))
+      .catch(() => setDetailData(null))
+      .finally(() => setLoadingDetail(false));
+  }, [selectedId]);
+
+  useEffect(() => {
+    fetchDetail();
+    const interval = setInterval(fetchDetail, 60000);
+    return () => clearInterval(interval);
+  }, [fetchDetail]);
+
+  const handleSelectStrategy = (id: string) => {
+    router.replace(`/live?strategy=${id}`, { scroll: false });
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
@@ -61,7 +63,7 @@ export default function LivePage() {
       <div>
         <div className="flex items-center gap-3">
           <h1 className="text-3xl font-display font-bold text-txt">
-            {t('live_strategy_name')}
+            {t('live_strategies_title') || 'Live Strategies'}
           </h1>
           <div className="flex items-center gap-1.5">
             <span className="relative flex h-2.5 w-2.5">
@@ -71,28 +73,57 @@ export default function LivePage() {
             <span className="text-xs font-bold text-neon-green">{t('live_badge')}</span>
           </div>
         </div>
-        <p className="mt-2 text-txt-dim">
-          {t('live_subtitle')}
-        </p>
+        <p className="mt-2 text-txt-dim">{t('live_subtitle')}</p>
       </div>
 
-      {/* Equity Chart */}
+      {/* Strategy Summary Cards */}
+      {loadingSummaries ? (
+        <div className="mt-6 text-txt-dim text-sm">{t('live_loading')}</div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+          {summaries.map((s) => (
+            <StrategySummaryCard
+              key={s.strategy.id}
+              strategy={s.strategy}
+              stats={s.stats}
+              hasOpenPosition={s.has_open_position}
+              selected={s.strategy.id === selectedId}
+              onClick={() => handleSelectStrategy(s.strategy.id)}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Detail Section */}
       <div className="mt-8">
-        <EquityChart data={data.equity_curve} />
-      </div>
+        {loadingDetail ? (
+          <div className="flex items-center justify-center h-[300px] text-txt-dim text-sm">
+            {t('live_loading')}
+          </div>
+        ) : detailData ? (
+          <>
+            {/* Equity Chart */}
+            <EquityChart data={detailData.equity_curve} />
 
-      {/* Status + Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-        <StatusCard
-          position={data.current_position}
-          strategyInfo={data.strategy}
-        />
-        <StatsCard stats={data.stats} />
-      </div>
+            {/* Status + Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <StatusCard
+                position={detailData.current_position}
+                strategyInfo={detailData.strategy}
+              />
+              <StatsCard stats={detailData.stats} />
+            </div>
 
-      {/* Trade Table */}
-      <div className="mt-8">
-        <TradeTable trades={data.recent_trades} />
+            {/* Trade Table */}
+            <div className="mt-8">
+              <TradeTable trades={detailData.recent_trades} />
+            </div>
+          </>
+        ) : (
+          <div className="flex items-center justify-center h-[300px] text-txt-dim text-sm">
+            {t('live_error')}
+          </div>
+        )}
       </div>
 
       {/* Disclaimer */}
