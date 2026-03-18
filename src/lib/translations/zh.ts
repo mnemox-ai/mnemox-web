@@ -359,4 +359,6 @@ export const zh: Record<TranslationKey, string> = {
   live_th_r: 'R',
   live_th_reason: '原因',
   live_th_type: '類型',
+  live_banner_view: '查看即時戰況 →',
+  live_banner_strategy: 'Strategy E',
 };

@@ -7,6 +7,7 @@ import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Architecture } from '@/components/tradememory/Architecture';
 import { InstallSection } from '@/components/tradememory/InstallSection';
 import { MCPTools } from '@/components/tradememory/MCPTools';
+import { LiveBanner } from '@/components/live/LiveBanner';
 import { useI18n } from '@/lib/i18n';
 
 const terminalLines = [
@@ -29,6 +30,11 @@ export default function TradeMemoryPage() {
 
   return (
     <>
+      {/* Live Banner */}
+      <div className="mx-auto max-w-5xl px-6 pt-6">
+        <LiveBanner />
+      </div>
+
       {/* Hero */}
       <section className="relative px-6 pt-20 pb-16 text-center">
         {/* Tag */}

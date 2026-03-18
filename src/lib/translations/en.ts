@@ -357,6 +357,8 @@ export const en = {
   live_th_r: 'R',
   live_th_reason: 'Reason',
   live_th_type: 'Type',
+  live_banner_view: 'View Live Dashboard →',
+  live_banner_strategy: 'Strategy E',
 } as const;
 
 export type TranslationKey = keyof typeof en;
