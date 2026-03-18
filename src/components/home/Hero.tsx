@@ -8,15 +8,19 @@ export function Hero() {
 
   return (
     <section className="relative flex flex-col items-center px-6 pb-16 pt-20 text-center md:pt-28">
-      {/* Mascot with floating animation */}
+      {/* Mascot with floating animation — mask fades edges into bg */}
       <div className="animate-float mb-8">
         <Image
           src="/mne-cat.png"
           alt="Mnemox AI mascot"
-          width={160}
-          height={160}
+          width={180}
+          height={180}
           priority
-          className="drop-shadow-[0_0_40px_rgba(0,229,255,0.25)]"
+          className="drop-shadow-[0_0_50px_rgba(0,229,255,0.3)]"
+          style={{
+            maskImage: 'radial-gradient(ellipse 70% 70% at 50% 45%, black 40%, transparent 72%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at 50% 45%, black 40%, transparent 72%)',
+          }}
         />
       </div>
 
