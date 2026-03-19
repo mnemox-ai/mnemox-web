@@ -132,17 +132,13 @@ export default function CheckPage() {
 
     const sources = isDeep ? SCAN_SOURCES_DEEP : SCAN_SOURCES_QUICK;
 
-    // Animate source indicators — light up immediately then stagger the rest
-    let idx = 1;
+    // Animate source indicators — light up one by one with staggered timeouts
     setActiveSources(new Set([sources[0]]));
-    const sourceTimer = setInterval(() => {
-      if (idx < sources.length) {
-        setActiveSources(prev => new Set([...prev, sources[idx]]));
-        idx++;
-      } else {
-        clearInterval(sourceTimer);
-      }
-    }, 400);
+    const sourceTimers = sources.slice(1).map((src, i) =>
+      setTimeout(() => {
+        setActiveSources(prev => new Set([...prev, src]));
+      }, (i + 1) * 400)
+    );
 
     try {
       const res = await fetch(`${API_BASE}/api/check`, {
@@ -151,7 +147,7 @@ export default function CheckPage() {
         body: JSON.stringify({ idea_text: trimmed, depth: isDeep ? 'deep' : 'quick', lang }),
       });
 
-      clearInterval(sourceTimer);
+      sourceTimers.forEach(clearTimeout);
       setActiveSources(new Set(sources));
 
       if (!res.ok) {
@@ -171,7 +167,7 @@ export default function CheckPage() {
       setPhase('results');
       trackEvent('check_result', { score: data.reality_signal, depth: isDeep ? 'deep' : 'quick' });
     } catch {
-      clearInterval(sourceTimer);
+      sourceTimers.forEach(clearTimeout);
       setErrorMsg(t('check_err_server'));
       setPhase('error');
       trackEvent('check_error', { status: 0 });
