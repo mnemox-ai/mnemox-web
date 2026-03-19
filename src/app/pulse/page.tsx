@@ -72,29 +72,28 @@ export default function PulsePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 15000);
+    let cancelled = false;
 
-    fetch(`${API_BASE}/api/pulse`, { signal: controller.signal })
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-      .then((data) => {
-        setPulseData(data);
-      })
-      .catch((err) => {
-        console.error('[Pulse] fetch failed:', err.message);
-      })
-      .finally(() => {
-        clearTimeout(timeout);
-        setLoading(false);
-      });
+    async function loadPulse(retries = 2) {
+      for (let i = 0; i <= retries; i++) {
+        try {
+          const r = await fetch(`${API_BASE}/api/pulse`);
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          const data = await r.json();
+          if (!cancelled) setPulseData(data);
+          return;
+        } catch (err) {
+          console.error(`[Pulse] attempt ${i + 1} failed:`, (err as Error).message);
+          if (i < retries) await new Promise((r) => setTimeout(r, 2000));
+        }
+      }
+    }
 
-    return () => {
-      controller.abort();
-      clearTimeout(timeout);
-    };
+    loadPulse().finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+
+    return () => { cancelled = true; };
   }, []);
 
   if (loading) {
