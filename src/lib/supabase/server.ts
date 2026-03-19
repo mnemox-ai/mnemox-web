@@ -26,6 +26,11 @@ export async function createServerSupabaseClient() {
  * Use only in webhooks and server-side admin operations.
  */
 export function createServiceSupabaseClient() {
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-  return createClient(supabaseUrl, serviceRoleKey);
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!serviceRoleKey) {
+    console.error('[Supabase] SUPABASE_SERVICE_ROLE_KEY is not set!');
+  }
+  return createClient(supabaseUrl, serviceRoleKey ?? '', {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
 }

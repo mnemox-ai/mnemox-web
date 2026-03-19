@@ -132,8 +132,9 @@ export default function CheckPage() {
 
     const sources = isDeep ? SCAN_SOURCES_DEEP : SCAN_SOURCES_QUICK;
 
-    // Animate source indicators
-    let idx = 0;
+    // Animate source indicators — light up immediately then stagger the rest
+    let idx = 1;
+    setActiveSources(new Set([sources[0]]));
     const sourceTimer = setInterval(() => {
       if (idx < sources.length) {
         setActiveSources(prev => new Set([...prev, sources[idx]]));
