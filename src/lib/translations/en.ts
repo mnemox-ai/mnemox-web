@@ -233,6 +233,7 @@ export const en = {
   check_crowd_title: 'Crowd Intelligence',
   check_crowd_desc: '{count} similar ideas found across {total} scans',
   check_crowd_unique: 'Your idea is unique — no similar ideas found in our database!',
+  check_crowd_no_data: 'Our crowd database hasn\'t tracked similar ideas yet — but external sources detected activity in this space.',
   check_crowd_density: 'Competition Density',
   check_crowd_you: 'You',
   check_crowd_avg: 'Average',

@@ -235,6 +235,7 @@ export const zh: Record<TranslationKey, string> = {
   check_crowd_title: '群眾智慧',
   check_crowd_desc: '在 {total} 次掃描中找到 {count} 個類似點子',
   check_crowd_unique: '你的點子很獨特 — 資料庫中未找到類似的點子！',
+  check_crowd_no_data: '我們的群眾資料庫尚未追蹤到類似的點子 — 但外部來源顯示這個領域有明顯的活動。',
   check_crowd_density: '競爭密度',
   check_crowd_you: '你的點子',
   check_crowd_avg: '平均',

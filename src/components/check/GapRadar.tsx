@@ -63,15 +63,15 @@ export function GapRadar({ ideaHash, score }: GapRadarProps) {
 
         <p className="mb-4 text-sm text-txt-dim">
           {crowdData.similar_count === 0
-            ? t('check_crowd_unique')
+            ? (score > 50 ? t('check_crowd_no_data') : t('check_crowd_unique'))
             : t('check_crowd_desc', {
                 count: String(crowdData.similar_count),
                 total: String(crowdData.similar_count + Math.round(crowdData.avg_score * 2)),
               })}
         </p>
 
-        {/* Competition Density */}
-        <div className="mb-4">
+        {/* Competition Density — hide when no crowd data */}
+        {crowdData.similar_count > 0 && <div className="mb-4">
           <p className="mb-2 text-xs font-medium uppercase tracking-wide text-txt-dim">
             {t('check_crowd_density')}
           </p>
@@ -105,7 +105,7 @@ export function GapRadar({ ideaHash, score }: GapRadarProps) {
               </div>
             </div>
           </div>
-        </div>
+        </div>}
 
         {/* Top Categories */}
         {crowdData.top_categories && crowdData.top_categories.length > 0 && (
