@@ -59,50 +59,55 @@ async function verifyPayPalWebhook(
     return false;
   }
 
-  const tokenRes = await fetch(`${PAYPAL_API_BASE}/v1/oauth2/token`, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: 'grant_type=client_credentials',
-  });
-
-  if (!tokenRes.ok) {
-    console.error('Failed to get PayPal access token');
-    return false;
-  }
-
-  const { access_token } = await tokenRes.json();
-
-  // Verify webhook signature via PayPal API
-  const verifyRes = await fetch(
-    `${PAYPAL_API_BASE}/v1/notifications/verify-webhook-signature`,
-    {
+  try {
+    const tokenRes = await fetch(`${PAYPAL_API_BASE}/v1/oauth2/token`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${access_token}`,
-        'Content-Type': 'application/json',
+        'Authorization': `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify({
-        auth_algo: req.headers.get('paypal-auth-algo'),
-        cert_url: req.headers.get('paypal-cert-url'),
-        transmission_id: req.headers.get('paypal-transmission-id'),
-        transmission_sig: req.headers.get('paypal-transmission-sig'),
-        transmission_time: transmissionTime,
-        webhook_id: webhookId,
-        webhook_event: JSON.parse(body),
-      }),
-    }
-  );
+      body: 'grant_type=client_credentials',
+    });
 
-  if (!verifyRes.ok) {
-    console.error('PayPal webhook verification request failed');
+    if (!tokenRes.ok) {
+      console.error('Failed to get PayPal access token');
+      return false;
+    }
+
+    const { access_token } = await tokenRes.json();
+
+    // Verify webhook signature via PayPal API
+    const verifyRes = await fetch(
+      `${PAYPAL_API_BASE}/v1/notifications/verify-webhook-signature`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          auth_algo: req.headers.get('paypal-auth-algo'),
+          cert_url: req.headers.get('paypal-cert-url'),
+          transmission_id: req.headers.get('paypal-transmission-id'),
+          transmission_sig: req.headers.get('paypal-transmission-sig'),
+          transmission_time: transmissionTime,
+          webhook_id: webhookId,
+          webhook_event: JSON.parse(body),
+        }),
+      }
+    );
+
+    if (!verifyRes.ok) {
+      console.error('PayPal webhook verification request failed');
+      return false;
+    }
+
+    const { verification_status } = await verifyRes.json();
+    return verification_status === 'SUCCESS';
+  } catch (err) {
+    console.error('PayPal webhook verification network error:', err instanceof Error ? err.message : err);
     return false;
   }
-
-  const { verification_status } = await verifyRes.json();
-  return verification_status === 'SUCCESS';
 }
 
 export async function POST(req: NextRequest) {
