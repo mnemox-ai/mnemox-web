@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { Gauge } from '@/components/check/Gauge';
 import { ShareBadge } from '@/components/check/ShareBadge';
+import { GapRadar } from '@/components/check/GapRadar';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { trackEvent } from '@/lib/analytics';
 import { API_BASE } from '@/lib/config';
@@ -383,6 +384,11 @@ export default function CheckPage() {
                 ))}
               </div>
             </section>
+          )}
+
+          {/* Crowd Intelligence */}
+          {result.idea_hash && (
+            <GapRadar ideaHash={result.idea_hash} score={result.reality_signal} />
           )}
 
           {/* Similar Projects */}
