@@ -382,6 +382,8 @@ export const zh: Record<TranslationKey, string> = {
   live_open_position: '持倉中',
   live_strategies_count: '個策略運行中',
   live_banner_strategies: '策略',
+  live_waiting_signal: '等待信號',
+  live_last_check: '最後檢查',
 
   // Pulse page
   pulse_title: 'Idea Pulse',

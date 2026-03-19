@@ -380,6 +380,8 @@ export const en = {
   live_open_position: 'Open',
   live_strategies_count: 'strategies live',
   live_banner_strategies: 'Strategies',
+  live_waiting_signal: 'Waiting for signal',
+  live_last_check: 'Last Check',
 
   // Pulse page
   pulse_title: 'Idea Pulse',

@@ -119,7 +119,7 @@ function LivePageContent() {
                 position={detailData.current_position}
                 strategyInfo={detailData.strategy}
               />
-              <StatsCard stats={detailData.stats} />
+              <StatsCard stats={detailData.stats} updatedAt={detailData.updated_at} />
             </div>
 
             {/* Trade Table */}
