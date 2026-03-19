@@ -44,10 +44,14 @@ export async function generateApiKey(): Promise<{
     user_id: userId,
     key_hash: hash,
     key_prefix: key.slice(0, 12), // mk_live_XXXX for display
+    is_active: true,
     created_at: new Date().toISOString(),
   });
 
-  if (error) return { key: null, error: error.message };
+  if (error) {
+    console.error('[generateApiKey] userId:', userId, 'error:', error.message, error.details);
+    return { key: null, error: error.message };
+  }
   return { key, error: null };
 }
 
@@ -70,7 +74,7 @@ export async function revokeApiKey(
 }
 
 export async function getApiKeys(): Promise<{
-  keys: Array<{ key_hash: string; key_prefix: string; created_at: string }>;
+  keys: Array<{ key_hash: string; key_prefix: string; created_at: string; is_active: boolean }>;
   error: string | null;
 }> {
   const { userId } = await auth();
@@ -80,11 +84,16 @@ export async function getApiKeys(): Promise<{
 
   const { data, error } = await supabase
     .from('api_keys')
-    .select('key_hash, key_prefix, created_at')
+    .select('key_hash, key_prefix, created_at, is_active')
     .eq('user_id', userId)
+    .eq('is_active', true)
     .order('created_at', { ascending: false });
 
-  if (error) return { keys: [], error: error.message };
+  if (error) {
+    console.error('[getApiKeys] userId:', userId, 'error:', error.message, error.details);
+    return { keys: [], error: error.message };
+  }
+  console.log('[getApiKeys] userId:', userId, 'rows returned:', data?.length ?? 0);
   return { keys: data ?? [], error: null };
 }
 
