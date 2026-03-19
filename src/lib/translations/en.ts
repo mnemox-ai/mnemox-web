@@ -232,6 +232,7 @@ export const en = {
   check_ev_top_stars: 'Top repo has {count} stars',
   check_crowd_title: 'Crowd Intelligence',
   check_crowd_desc: '{count} similar ideas found across {total} scans',
+  check_crowd_unique: 'Your idea is unique — no similar ideas found in our database!',
   check_crowd_density: 'Competition Density',
   check_crowd_you: 'You',
   check_crowd_avg: 'Average',
@@ -315,6 +316,9 @@ export const en = {
   check_download: 'Download PNG',
   check_copy_link: 'Copy Link',
   check_share_x: 'Share on X',
+  badge_cta_title: 'How does your idea score?',
+  badge_cta_desc: 'Scan your startup idea against GitHub, Hacker News, npm, PyPI & Product Hunt — free in 15 seconds.',
+  badge_cta_button: 'Check Your Idea',
   // Dashboard
   dash_api_keys: 'API Keys',
   dash_generate_key: 'Generate Key',

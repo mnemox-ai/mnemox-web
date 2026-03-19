@@ -16,7 +16,7 @@ export const zh: Record<TranslationKey, string> = {
   footer_pricing: '定價',
   social_stars: '{count} ★ 合計',
   social_tests: '{count} 測試通過',
-  social_license: 'MIT 授權',
+  social_license: 'MIT Licensed',
   nav_github: 'GitHub',
   footer_blog: '部落格',
 
@@ -234,6 +234,7 @@ export const zh: Record<TranslationKey, string> = {
   check_ev_top_stars: '最高星數 {count}',
   check_crowd_title: '群眾智慧',
   check_crowd_desc: '在 {total} 次掃描中找到 {count} 個類似點子',
+  check_crowd_unique: '你的點子很獨特 — 資料庫中未找到類似的點子！',
   check_crowd_density: '競爭密度',
   check_crowd_you: '你的點子',
   check_crowd_avg: '平均',
@@ -317,6 +318,9 @@ export const zh: Record<TranslationKey, string> = {
   check_download: '下載 PNG',
   check_copy_link: '複製連結',
   check_share_x: '分享到 X',
+  badge_cta_title: '你的點子能得幾分？',
+  badge_cta_desc: '掃描你的創業點子，同時比對 GitHub、Hacker News、npm、PyPI 和 Product Hunt — 免費，15 秒出結果。',
+  badge_cta_button: '開始檢測',
   // Dashboard
   dash_api_keys: 'API 金鑰',
   dash_generate_key: '產生金鑰',
@@ -379,7 +383,7 @@ export const zh: Record<TranslationKey, string> = {
   live_banner_strategies: '策略',
 
   // Pulse page
-  pulse_title: '點子脈搏',
+  pulse_title: 'Idea Pulse',
   pulse_subtitle: '來自 {total}+ 次掃描、{countries} 個國家的即時創業趨勢',
   pulse_stat_scans: '總掃描數',
   pulse_stat_countries: '國家',

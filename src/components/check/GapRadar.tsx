@@ -62,10 +62,12 @@ export function GapRadar({ ideaHash, score }: GapRadarProps) {
         </h3>
 
         <p className="mb-4 text-sm text-txt-dim">
-          {t('check_crowd_desc', {
-            count: String(crowdData.similar_count),
-            total: String(crowdData.similar_count + Math.round(crowdData.avg_score * 2)),
-          })}
+          {crowdData.similar_count === 0
+            ? t('check_crowd_unique')
+            : t('check_crowd_desc', {
+                count: String(crowdData.similar_count),
+                total: String(crowdData.similar_count + Math.round(crowdData.avg_score * 2)),
+              })}
         </p>
 
         {/* Competition Density */}

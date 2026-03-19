@@ -18,6 +18,45 @@ import {
 } from 'recharts';
 import { API_BASE } from '@/lib/config';
 
+const COUNTRY_NAMES: Record<string, { en: string; zh: string; flag: string }> = {
+  US: { en: 'US', zh: '美國', flag: '🇺🇸' },
+  CN: { en: 'China', zh: '中國', flag: '🇨🇳' },
+  GB: { en: 'UK', zh: '英國', flag: '🇬🇧' },
+  TW: { en: 'Taiwan', zh: '台灣', flag: '🇹🇼' },
+  IN: { en: 'India', zh: '印度', flag: '🇮🇳' },
+  ES: { en: 'Spain', zh: '西班牙', flag: '🇪🇸' },
+  BR: { en: 'Brazil', zh: '巴西', flag: '🇧🇷' },
+  DE: { en: 'Germany', zh: '德國', flag: '🇩🇪' },
+  FR: { en: 'France', zh: '法國', flag: '🇫🇷' },
+  CA: { en: 'Canada', zh: '加拿大', flag: '🇨🇦' },
+  HK: { en: 'Hong Kong', zh: '香港', flag: '🇭🇰' },
+  NZ: { en: 'New Zealand', zh: '紐西蘭', flag: '🇳🇿' },
+  IT: { en: 'Italy', zh: '義大利', flag: '🇮🇹' },
+  AT: { en: 'Austria', zh: '奧地利', flag: '🇦🇹' },
+  TR: { en: 'Turkey', zh: '土耳其', flag: '🇹🇷' },
+  RU: { en: 'Russia', zh: '俄羅斯', flag: '🇷🇺' },
+  NG: { en: 'Nigeria', zh: '奈及利亞', flag: '🇳🇬' },
+  MM: { en: 'Myanmar', zh: '緬甸', flag: '🇲🇲' },
+  IL: { en: 'Israel', zh: '以色列', flag: '🇮🇱' },
+  NO: { en: 'Norway', zh: '挪威', flag: '🇳🇴' },
+  CZ: { en: 'Czechia', zh: '捷克', flag: '🇨🇿' },
+  AU: { en: 'Australia', zh: '澳洲', flag: '🇦🇺' },
+  VN: { en: 'Vietnam', zh: '越南', flag: '🇻🇳' },
+  SG: { en: 'Singapore', zh: '新加坡', flag: '🇸🇬' },
+  PT: { en: 'Portugal', zh: '葡萄牙', flag: '🇵🇹' },
+  PL: { en: 'Poland', zh: '波蘭', flag: '🇵🇱' },
+  PK: { en: 'Pakistan', zh: '巴基斯坦', flag: '🇵🇰' },
+  NL: { en: 'Netherlands', zh: '荷蘭', flag: '🇳🇱' },
+  KR: { en: 'South Korea', zh: '韓國', flag: '🇰🇷' },
+  JP: { en: 'Japan', zh: '日本', flag: '🇯🇵' },
+  HR: { en: 'Croatia', zh: '克羅埃西亞', flag: '🇭🇷' },
+  GR: { en: 'Greece', zh: '希臘', flag: '🇬🇷' },
+  DZ: { en: 'Algeria', zh: '阿爾及利亞', flag: '🇩🇿' },
+};
+
+// Filter out dirty/invalid country codes from DB
+const INVALID_COUNTRIES = new Set(['HANS-CN', '419', '第一部分', 'undefined', 'null', '']);
+
 type PulseData = {
   weekly_volume: { week: string; count: number }[];
   top_keywords: { keyword: string; count: number }[];
@@ -28,7 +67,7 @@ type PulseData = {
 };
 
 export default function PulsePage() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [pulseData, setPulseData] = useState<PulseData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -194,19 +233,28 @@ export default function PulsePage() {
             {t('pulse_countries')}
           </h3>
           <div className="flex flex-wrap gap-2">
-            {pulseData.countries.map((c) => (
-              <span
-                key={c.country}
-                className="px-3 py-1.5 rounded-full border border-border text-sm"
-                style={{
-                  opacity: Math.max(0.4, c.count / maxCountryCount),
-                  color: '#e0e0e8',
-                }}
-              >
-                {c.country}{' '}
-                <span className="text-txt-dim text-xs">{c.count}</span>
-              </span>
-            ))}
+            {pulseData.countries
+              .filter((c) => !INVALID_COUNTRIES.has(c.country))
+              .map((c) => {
+                const info = COUNTRY_NAMES[c.country];
+                const displayName = info
+                  ? (lang === 'zh' ? info.zh : info.en)
+                  : c.country;
+                const flag = info?.flag ?? '🌐';
+                return (
+                  <span
+                    key={c.country}
+                    className="px-3 py-1.5 rounded-full border border-border text-sm"
+                    style={{
+                      opacity: Math.max(0.4, c.count / maxCountryCount),
+                      color: '#e0e0e8',
+                    }}
+                  >
+                    {flag} {displayName}{' '}
+                    <span className="text-txt-dim text-xs">{c.count}</span>
+                  </span>
+                );
+              })}
           </div>
         </div>
 

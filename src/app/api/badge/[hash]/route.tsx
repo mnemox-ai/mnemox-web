@@ -16,6 +16,12 @@ function gapColor(status: string): string {
   return '#ff3366';
 }
 
+function gapEmoji(status: string): string {
+  if (status === 'blue_ocean') return 'Blue Ocean';
+  if (status === 'moderate') return 'Moderate';
+  return 'Competitive';
+}
+
 export async function GET(
   _request: Request,
   { params }: { params: Promise<{ hash: string }> },
@@ -27,8 +33,10 @@ export async function GET(
   }
 
   let data: {
+    idea_text?: string;
     score: number;
     percentile: number;
+    total_ideas: number;
     gap_status: string;
     date: string;
   };
@@ -67,12 +75,8 @@ export async function GET(
 
   const sc = scoreColor(data.score);
   const gc = gapColor(data.gap_status);
-  const gapLabel =
-    data.gap_status === 'blue_ocean'
-      ? 'Blue Ocean'
-      : data.gap_status === 'moderate'
-        ? 'Moderate'
-        : 'Competitive';
+  const gapLabel = gapEmoji(data.gap_status);
+  const ideaText = (data.idea_text ?? '').slice(0, 50) + ((data.idea_text?.length ?? 0) > 50 ? '...' : '');
 
   return new ImageResponse(
     (
@@ -82,10 +86,38 @@ export async function GET(
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          background: 'linear-gradient(135deg, #04060b 0%, #0d1b2a 40%, #0b1120 100%)',
-          padding: '60px',
+          background: 'linear-gradient(135deg, #04060b 0%, #0a1628 35%, #0d1b2a 65%, #0b1120 100%)',
+          padding: '48px 56px',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
+        {/* Glow effects */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '-100px',
+            right: '-100px',
+            width: '400px',
+            height: '400px',
+            borderRadius: '50%',
+            background: `radial-gradient(circle, ${sc}15 0%, transparent 70%)`,
+            display: 'flex',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '-80px',
+            left: '-80px',
+            width: '300px',
+            height: '300px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, #00e5ff10 0%, transparent 70%)',
+            display: 'flex',
+          }}
+        />
+
         {/* Top bar */}
         <div
           style={{
@@ -95,73 +127,144 @@ export async function GET(
             width: '100%',
           }}
         >
-          <span
-            style={{
-              fontSize: '24px',
-              fontWeight: 700,
-              color: '#ffffff',
-              letterSpacing: '3px',
-            }}
-          >
-            MNEMOX
-          </span>
-          <span style={{ fontSize: '20px', color: '#6a6a80' }}>{String(data.date ?? '').replace(/<[^>]*>/g, '').slice(0, 20)}</span>
-        </div>
-
-        {/* Center score */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flex: 1,
-          }}
-        >
-          <span
-            style={{
-              fontSize: '120px',
-              fontWeight: 700,
-              color: sc,
-              lineHeight: 1,
-              fontFamily: 'monospace',
-            }}
-          >
-            {data.score}
-          </span>
-          <span
-            style={{
-              fontSize: '28px',
-              color: '#6a6a80',
-              marginTop: '8px',
-              letterSpacing: '2px',
-            }}
-          >
-            Reality Score
-          </span>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px',
-              marginTop: '20px',
-            }}
-          >
-            <span style={{ fontSize: '24px', color: '#00e5ff', fontWeight: 600 }}>
-              Top {data.percentile}%
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <span
+              style={{
+                fontSize: '22px',
+                fontWeight: 700,
+                color: '#ffffff',
+                letterSpacing: '4px',
+              }}
+            >
+              MNEMOX
             </span>
             <span
               style={{
-                fontSize: '18px',
-                color: gc,
-                background: `${gc}20`,
-                padding: '6px 16px',
-                borderRadius: '20px',
-                border: `1px solid ${gc}40`,
+                fontSize: '12px',
+                color: '#00e5ff',
+                letterSpacing: '3px',
+                border: '1px solid #00e5ff40',
+                padding: '4px 12px',
+                borderRadius: '12px',
               }}
             >
-              {gapLabel}
+              REALITY CHECK
             </span>
+          </div>
+          <span
+            style={{
+              fontSize: '14px',
+              color: gc,
+              background: `${gc}15`,
+              padding: '6px 18px',
+              borderRadius: '16px',
+              border: `1px solid ${gc}30`,
+              fontWeight: 600,
+            }}
+          >
+            {gapLabel}
+          </span>
+        </div>
+
+        {/* Idea text */}
+        {ideaText && (
+          <div style={{ display: 'flex', marginTop: '28px' }}>
+            <span
+              style={{
+                fontSize: '18px',
+                color: '#8a8aa0',
+                fontStyle: 'italic',
+                lineHeight: 1.4,
+              }}
+            >
+              &ldquo;{ideaText}&rdquo;
+            </span>
+          </div>
+        )}
+
+        {/* Center: Score + Stats */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 1,
+            gap: '60px',
+          }}
+        >
+          {/* Score circle area */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <span
+              style={{
+                fontSize: '140px',
+                fontWeight: 700,
+                color: sc,
+                lineHeight: 1,
+                fontFamily: 'monospace',
+                textShadow: `0 0 60px ${sc}40`,
+              }}
+            >
+              {data.score}
+            </span>
+            <span
+              style={{
+                fontSize: '16px',
+                color: '#6a6a80',
+                marginTop: '4px',
+                letterSpacing: '6px',
+                textTransform: 'uppercase',
+              }}
+            >
+              Reality Score
+            </span>
+          </div>
+
+          {/* Right stats */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                padding: '12px 20px',
+                borderRadius: '12px',
+                border: '1px solid #1a1a28',
+                background: '#0b112040',
+              }}
+            >
+              <span style={{ fontSize: '28px', fontWeight: 700, color: '#00e5ff' }}>
+                Top {data.percentile}%
+              </span>
+              <span style={{ fontSize: '13px', color: '#6a6a80' }}>
+                of {data.total_ideas.toLocaleString()} ideas scanned
+              </span>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 20px',
+                borderRadius: '12px',
+                border: '1px solid #1a1a28',
+                background: '#0b112040',
+              }}
+            >
+              <span style={{ fontSize: '13px', color: '#6a6a80' }}>
+                Scanned GitHub, HN, npm, PyPI, PH
+              </span>
+            </div>
           </div>
         </div>
 
@@ -172,12 +275,14 @@ export async function GET(
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
+            borderTop: '1px solid #1a1a28',
+            paddingTop: '16px',
           }}
         >
-          <span style={{ fontSize: '18px', color: '#ffffff', fontWeight: 500 }}>
-            Validated by Mnemox
+          <span style={{ fontSize: '15px', color: '#ffffff', fontWeight: 500 }}>
+            Check your idea free at mnemox.ai/check
           </span>
-          <span style={{ fontSize: '18px', color: '#6a6a80' }}>mnemox.ai/check</span>
+          <span style={{ fontSize: '14px', color: '#6a6a80' }}>Validated by Mnemox AI</span>
         </div>
       </div>
     ),
