@@ -141,7 +141,7 @@ export default function CheckPage() {
       } else {
         clearInterval(sourceTimer);
       }
-    }, 600);
+    }, 400);
 
     try {
       const res = await fetch(`${API_BASE}/api/check`, {
@@ -151,6 +151,7 @@ export default function CheckPage() {
       });
 
       clearInterval(sourceTimer);
+      setActiveSources(new Set(sources));
 
       if (!res.ok) {
         if (res.status === 503 || res.status === 0) {
