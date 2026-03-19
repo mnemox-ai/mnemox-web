@@ -147,7 +147,7 @@ export default function CheckPage() {
       const res = await fetch(`${API_BASE}/api/check`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ idea_text: trimmed, depth: isDeep ? 'deep' : 'quick' }),
+        body: JSON.stringify({ idea_text: trimmed, depth: isDeep ? 'deep' : 'quick', lang }),
       });
 
       clearInterval(sourceTimer);
