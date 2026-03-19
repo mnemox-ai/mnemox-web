@@ -1,5 +1,10 @@
 'use client';
 
+const SHARPE_RATIOS: Record<string, number> = {
+  strategy_e: 3.24,
+  strategy_c: 2.0,
+};
+
 interface StrategySummaryCardProps {
   strategy: { id: string; name: string; symbol: string; timeframe: string };
   stats: {
@@ -21,7 +26,7 @@ export default function StrategySummaryCard({
   onClick,
 }: StrategySummaryCardProps) {
   const winRatePct = (stats.win_rate * 100).toFixed(1);
-  const winRateColor = stats.win_rate > 0.5 ? 'text-neon-green' : 'text-danger';
+  const sharpe = SHARPE_RATIOS[strategy.id] ?? null;
 
   return (
     <button
@@ -55,7 +60,10 @@ export default function StrategySummaryCard({
 
       {/* Stats row */}
       <div className="flex items-center gap-4 mt-3 text-xs">
-        <span className={`font-mono font-bold ${winRateColor}`}>{winRatePct}%</span>
+        {sharpe !== null && (
+          <span className="font-mono font-bold text-cyan-400">Sharpe {sharpe.toFixed(2)}</span>
+        )}
+        <span className="font-mono text-txt-dim">{winRatePct}%</span>
         <span className="text-txt-dim">{stats.total_trades} trades</span>
         {stats.total_paper > 0 && (
           <span className="text-cyan-400">{stats.total_paper} paper</span>

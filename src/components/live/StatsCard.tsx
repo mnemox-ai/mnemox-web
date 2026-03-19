@@ -18,7 +18,7 @@ export function StatsCard({ stats }: StatsCardProps) {
     {
       label: t('live_win_rate'),
       value: `${(stats.win_rate * 100).toFixed(1)}%`,
-      color: stats.win_rate > 0.5 ? 'text-neon-green' : 'text-danger',
+      color: 'text-txt-dim',
     },
     { label: t('live_total_trades'), value: stats.total_trades, color: 'text-txt' },
     { label: t('live_backtest_trades'), value: stats.total_backtest, color: 'text-txt' },
