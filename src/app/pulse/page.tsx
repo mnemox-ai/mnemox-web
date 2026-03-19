@@ -72,13 +72,29 @@ export default function PulsePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/pulse`)
-      .then((r) => r.json())
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+
+    fetch(`${API_BASE}/api/pulse`, { signal: controller.signal })
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then((data) => {
         setPulseData(data);
-        setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        console.error('[Pulse] fetch failed:', err.message);
+      })
+      .finally(() => {
+        clearTimeout(timeout);
+        setLoading(false);
+      });
+
+    return () => {
+      controller.abort();
+      clearTimeout(timeout);
+    };
   }, []);
 
   if (loading) {
@@ -110,6 +126,12 @@ export default function PulsePage() {
           {t('pulse_title')}
         </h1>
         <p className="text-txt-dim mt-6 text-lg">{t('pulse_empty')}</p>
+        <button
+          onClick={() => { setLoading(true); location.reload(); }}
+          className="mt-4 px-4 py-2 rounded-lg border border-border text-txt-dim hover:text-white hover:border-cyan transition-colors text-sm"
+        >
+          {lang === 'zh' ? '重新載入' : 'Reload'}
+        </button>
       </div>
     );
   }
@@ -119,7 +141,9 @@ export default function PulsePage() {
       ? pulseData.weekly_volume[pulseData.weekly_volume.length - 1].count
       : 0;
 
-  const maxCountryCount = Math.max(...pulseData.countries.map((c) => c.count));
+  const maxCountryCount = pulseData.countries.length > 0
+    ? Math.max(...pulseData.countries.map((c) => c.count))
+    : 1;
 
   const scoreColor = (score: number) => {
     if (score >= 60) return '#00ff88';
