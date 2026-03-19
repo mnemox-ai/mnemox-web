@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { Gauge } from '@/components/check/Gauge';
+import { ShareBadge } from '@/components/check/ShareBadge';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { trackEvent } from '@/lib/analytics';
 import { API_BASE } from '@/lib/config';
 
@@ -457,6 +459,13 @@ export default function CheckPage() {
               {t('check_another')}
             </button>
           </div>
+
+          {/* Share Badge */}
+          {result.idea_hash && (
+            <ScrollReveal>
+              <ShareBadge ideaHash={result.idea_hash} score={result.reality_signal} />
+            </ScrollReveal>
+          )}
 
           {/* Agent CTA */}
           <div className="mt-8 text-center font-mono text-xs text-txt-dim">

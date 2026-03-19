@@ -305,6 +305,10 @@ export const en = {
   check_sc_compare_row5_feat: 'Price',
   check_sc_compare_row5_ir: 'Free',
   check_sc_compare_row5_manual: 'Your time',
+  check_share_title: 'Share Your Results',
+  check_download: 'Download PNG',
+  check_copy_link: 'Copy Link',
+  check_share_x: 'Share on X',
   // Dashboard
   dash_api_keys: 'API Keys',
   dash_generate_key: 'Generate Key',

@@ -307,6 +307,10 @@ export const zh: Record<TranslationKey, string> = {
   check_sc_compare_row5_feat: '價格',
   check_sc_compare_row5_ir: '免費',
   check_sc_compare_row5_manual: '你的時間',
+  check_share_title: '分享你的結果',
+  check_download: '下載 PNG',
+  check_copy_link: '複製連結',
+  check_share_x: '分享到 X',
   // Dashboard
   dash_api_keys: 'API 金鑰',
   dash_generate_key: '產生金鑰',
