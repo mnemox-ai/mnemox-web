@@ -22,7 +22,7 @@ export async function GET(
 ) {
   const { hash } = await params;
 
-  if (!/^[a-zA-Z0-9]+$/.test(hash)) {
+  if (!/^[a-f0-9]+$/.test(hash)) {
     return new Response('Invalid hash', { status: 400 });
   }
 
@@ -105,7 +105,7 @@ export async function GET(
           >
             MNEMOX
           </span>
-          <span style={{ fontSize: '20px', color: '#6a6a80' }}>{data.date}</span>
+          <span style={{ fontSize: '20px', color: '#6a6a80' }}>{String(data.date ?? '').replace(/<[^>]*>/g, '').slice(0, 20)}</span>
         </div>
 
         {/* Center score */}

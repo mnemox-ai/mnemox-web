@@ -21,7 +21,8 @@ export default async function Image() {
       totalScans = `${data.total_scans ?? data.weekly_volume ?? '—'}`;
       countries = `${data.countries?.length ?? data.country_distribution?.length ?? '—'}`;
       if (data.top_keywords?.length) {
-        topKeyword = data.top_keywords[0].keyword ?? data.top_keywords[0].name ?? '—';
+        const rawKw = String(data.top_keywords[0].keyword ?? data.top_keywords[0].name ?? '—');
+        topKeyword = rawKw.replace(/<[^>]*>/g, '').slice(0, 30);
       }
       weeklyVolume = `${data.weekly_volume ?? '—'}`;
     }

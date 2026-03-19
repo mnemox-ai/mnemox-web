@@ -222,7 +222,7 @@ export default function PulsePage() {
                 className="bg-bg-card border border-border rounded-lg p-4 flex justify-between items-center"
               >
                 <span className="text-txt text-sm truncate mr-4">
-                  {idea.idea_text}
+                  {String(idea.idea_text ?? '').slice(0, 60)}{idea.idea_text?.length > 60 ? '...' : ''}
                 </span>
                 <span
                   className="px-2 py-1 rounded text-xs font-mono shrink-0"
