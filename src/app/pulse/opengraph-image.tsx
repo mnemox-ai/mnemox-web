@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 const API_BASE = 'https://idea-reality-mcp.onrender.com';
 
 export const runtime = 'nodejs';
-export const revalidate = 300;
+export const dynamic = 'force-dynamic';
 export const alt = 'Idea Pulse - Startup Idea Trends | Mnemox AI';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
@@ -15,7 +15,13 @@ export default async function Image() {
   let weeklyVolume = '—';
 
   try {
-    const res = await fetch(`${API_BASE}/api/pulse`, { next: { revalidate: 300 } });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch(`${API_BASE}/api/pulse`, {
+      next: { revalidate: 300 },
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
     if (res.ok) {
       const data = await res.json();
       totalScans = `${data.total_scans ?? data.weekly_volume ?? '—'}`;

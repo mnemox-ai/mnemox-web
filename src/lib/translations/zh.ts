@@ -395,4 +395,5 @@ export const zh: Record<TranslationKey, string> = {
   pulse_keywords: '熱門關鍵字',
   pulse_countries: '全球分佈',
   pulse_trending: '趨勢點子',
+  pulse_empty: '目前沒有數據，請稍後再試。',
 };

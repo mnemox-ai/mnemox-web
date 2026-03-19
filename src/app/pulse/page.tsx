@@ -103,7 +103,16 @@ export default function PulsePage() {
     );
   }
 
-  if (!pulseData) return null;
+  if (!pulseData) {
+    return (
+      <div className="min-h-screen px-6 py-24 max-w-6xl mx-auto text-center">
+        <h1 className="text-4xl font-display text-white font-bold">
+          {t('pulse_title')}
+        </h1>
+        <p className="text-txt-dim mt-6 text-lg">{t('pulse_empty')}</p>
+      </div>
+    );
+  }
 
   const thisWeekCount =
     pulseData.weekly_volume.length > 0

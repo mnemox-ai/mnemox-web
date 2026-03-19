@@ -393,6 +393,7 @@ export const en = {
   pulse_keywords: 'Top Keywords',
   pulse_countries: 'Global Reach',
   pulse_trending: 'Trending Ideas',
+  pulse_empty: 'No data available right now. Check back later.',
 } as const;
 
 export type TranslationKey = keyof typeof en;
