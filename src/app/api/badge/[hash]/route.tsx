@@ -16,10 +16,21 @@ function gapColor(status: string): string {
   return '#ff3366';
 }
 
-function gapEmoji(status: string): string {
+function gapLabel(status: string): string {
   if (status === 'blue_ocean') return 'Blue Ocean';
   if (status === 'moderate') return 'Moderate';
   return 'Competitive';
+}
+
+/** Personality-driven verdict — this is what people share */
+function verdict(score: number): { text: string; sub: string } {
+  if (score <= 15) return { text: 'Ghost Town', sub: 'Uncharted territory' };
+  if (score <= 30) return { text: 'Early Signal', sub: 'Low competition, high potential' };
+  if (score <= 45) return { text: 'Rising Niche', sub: 'Emerging market opportunity' };
+  if (score <= 60) return { text: 'Getting Crowded', sub: 'Differentiation is key' };
+  if (score <= 75) return { text: 'Validated', sub: 'Proven demand exists' };
+  if (score <= 90) return { text: 'Red Ocean', sub: 'Highly competitive space' };
+  return { text: 'Shark Tank', sub: 'Dominated by incumbents' };
 }
 
 export async function GET(
@@ -75,7 +86,8 @@ export async function GET(
 
   const sc = scoreColor(data.score);
   const gc = gapColor(data.gap_status);
-  const gapLabel = gapEmoji(data.gap_status);
+  const gl = gapLabel(data.gap_status);
+  const vd = verdict(data.score);
   const ideaText = (data.idea_text ?? '').slice(0, 50) + ((data.idea_text?.length ?? 0) > 50 ? '...' : '');
 
   return new ImageResponse(
@@ -162,7 +174,7 @@ export async function GET(
               fontWeight: 600,
             }}
           >
-            {gapLabel}
+            {gl}
           </span>
         </div>
 
@@ -214,14 +226,25 @@ export async function GET(
             </span>
             <span
               style={{
-                fontSize: '16px',
-                color: '#6a6a80',
-                marginTop: '4px',
-                letterSpacing: '6px',
+                fontSize: '28px',
+                fontWeight: 700,
+                color: sc,
+                marginTop: '8px',
+                letterSpacing: '2px',
                 textTransform: 'uppercase',
               }}
             >
-              Reality Score
+              {vd.text}
+            </span>
+            <span
+              style={{
+                fontSize: '14px',
+                color: '#6a6a80',
+                marginTop: '4px',
+                letterSpacing: '1px',
+              }}
+            >
+              {vd.sub}
             </span>
           </div>
 
