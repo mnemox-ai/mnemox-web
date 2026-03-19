@@ -375,6 +375,17 @@ export const en = {
   live_open_position: 'Open',
   live_strategies_count: 'strategies live',
   live_banner_strategies: 'Strategies',
+
+  // Pulse page
+  pulse_title: 'Idea Pulse',
+  pulse_subtitle: 'Real-time startup idea trends from {total}+ scans across {countries} countries',
+  pulse_stat_scans: 'Total Scans',
+  pulse_stat_countries: 'Countries',
+  pulse_stat_week: 'This Week',
+  pulse_volume: 'Weekly Scan Volume',
+  pulse_keywords: 'Top Keywords',
+  pulse_countries: 'Global Reach',
+  pulse_trending: 'Trending Ideas',
 } as const;
 
 export type TranslationKey = keyof typeof en;

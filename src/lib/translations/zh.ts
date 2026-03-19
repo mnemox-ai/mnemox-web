@@ -377,4 +377,15 @@ export const zh: Record<TranslationKey, string> = {
   live_open_position: '持倉中',
   live_strategies_count: '個策略運行中',
   live_banner_strategies: '策略',
+
+  // Pulse page
+  pulse_title: '點子脈搏',
+  pulse_subtitle: '來自 {total}+ 次掃描、{countries} 個國家的即時創業趨勢',
+  pulse_stat_scans: '總掃描數',
+  pulse_stat_countries: '國家',
+  pulse_stat_week: '本週',
+  pulse_volume: '每週掃描量',
+  pulse_keywords: '熱門關鍵字',
+  pulse_countries: '全球分佈',
+  pulse_trending: '趨勢點子',
 };

@@ -94,6 +94,14 @@ export function Nav() {
           LIVE
         </Link>
 
+        {/* Pulse */}
+        <Link
+          href="/pulse"
+          className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
+        >
+          PULSE
+        </Link>
+
         {/* Pricing */}
         <Link
           href="/pricing"
