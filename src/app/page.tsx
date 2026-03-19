@@ -6,6 +6,7 @@ import { ProductCard } from '@/components/home/ProductCard';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { NumberTicker } from '@/components/magicui/number-ticker';
 import { useI18n } from '@/lib/i18n';
+import { PRODUCT_STATS, COMBINED_TESTS } from '@/lib/config';
 
 interface Stars {
   idea_reality: number;
@@ -39,7 +40,7 @@ export default function Home() {
             href="/check"
             accentColor="var(--color-accent)"
             stars={stars?.idea_reality ?? null}
-            tests={275}
+            tests={PRODUCT_STATS.ideaReality.tests}
             requireAuth
           />
           <ProductCard
@@ -49,7 +50,7 @@ export default function Home() {
             href="/tradememory"
             accentColor="var(--color-cyan)"
             stars={stars?.tradememory ?? null}
-            tests={1055}
+            tests={PRODUCT_STATS.tradeMemory.tests}
             requireAuth
           />
         </section>
@@ -71,7 +72,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3">
               <span className="font-mono text-lg font-bold text-cyan md:text-xl">
-                <NumberTicker value={1330} />
+                <NumberTicker value={COMBINED_TESTS} />
               </span>
               <span className="text-xs text-txt-dim md:text-sm">tests passing</span>
             </div>

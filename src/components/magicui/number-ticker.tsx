@@ -41,7 +41,7 @@ export function NumberTicker({
               const progress = Math.min(elapsed / duration, 1);
               // ease-out cubic
               const eased = 1 - Math.pow(1 - progress, 3);
-              const current = Math.round(from + (to - from) * eased);
+              const current = Math.max(0, Math.round(from + (to - from) * eased));
               setDisplay(current);
               if (progress < 1) requestAnimationFrame(tick);
             }

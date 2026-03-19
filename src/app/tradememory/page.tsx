@@ -9,6 +9,7 @@ import { InstallSection } from '@/components/tradememory/InstallSection';
 import { MCPTools } from '@/components/tradememory/MCPTools';
 import { LiveBanner } from '@/components/live/LiveBanner';
 import { useI18n } from '@/lib/i18n';
+import { PRODUCT_STATS } from '@/lib/config';
 
 const terminalLines = [
   { text: 'You: Store my XAUUSD trade: long 0.10 lots, +$1,175', className: 'text-txt' },
@@ -100,7 +101,7 @@ export default function TradeMemoryPage() {
         <section className="mx-auto max-w-3xl px-6 pb-16">
           <StatsBar
             items={[
-              { value: '1,055', label: t('tm_stat_tests') },
+              { value: PRODUCT_STATS.tradeMemory.tests.toLocaleString(), label: t('tm_stat_tests') },
               { value: '5', label: t('tm_stat_memory') },
               { value: '15', label: t('tm_stat_tools') },
               { value: 'MIT', label: t('tm_stat_license') },

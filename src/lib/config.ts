@@ -8,7 +8,7 @@ export const GITHUB_ORG = 'mnemox-ai';
 
 export const PRODUCT_STATS = {
   ideaReality: { tests: 275, repo: 'idea-reality-mcp' },
-  tradeMemory: { tests: 1055, repo: 'tradememory-protocol' },
+  tradeMemory: { tests: 1087, repo: 'tradememory-protocol' },
 } as const;
 
 export const COMBINED_TESTS = PRODUCT_STATS.ideaReality.tests + PRODUCT_STATS.tradeMemory.tests;
