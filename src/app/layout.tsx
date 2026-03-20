@@ -6,7 +6,7 @@ import { I18nProvider } from "@/lib/i18n";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { BackgroundEffects } from "@/components/shared/BackgroundEffects";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { GA_ID } from "@/lib/config";
 import "./globals.css";
 
