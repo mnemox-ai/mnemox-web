@@ -7,6 +7,7 @@ import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { BackgroundEffects } from "@/components/shared/BackgroundEffects";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GA_ID } from "@/lib/config";
 import "./globals.css";
 
@@ -113,6 +114,7 @@ export default function RootLayout({
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
         </Script>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
