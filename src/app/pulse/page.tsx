@@ -16,7 +16,7 @@ import {
   CartesianGrid,
   Cell,
 } from 'recharts';
-import { API_BASE } from '@/lib/config';
+
 
 const COUNTRY_NAMES: Record<string, { en: string; zh: string; flag: string }> = {
   US: { en: 'US', zh: '美國', flag: '🇺🇸' },
@@ -77,7 +77,7 @@ export default function PulsePage() {
     async function loadPulse(retries = 2) {
       for (let i = 0; i <= retries; i++) {
         try {
-          const r = await fetch(`${API_BASE}/api/pulse`);
+          const r = await fetch('/api/pulse');
           if (!r.ok) throw new Error(`HTTP ${r.status}`);
           const data = await r.json();
           if (!cancelled) setPulseData(data);
