@@ -102,6 +102,14 @@ export function Nav() {
           PULSE
         </Link>
 
+        {/* Blog */}
+        <Link
+          href="/blog"
+          className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline max-[600px]:hidden"
+        >
+          BLOG
+        </Link>
+
         {/* Pricing */}
         <Link
           href="/pricing"
