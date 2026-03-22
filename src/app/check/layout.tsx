@@ -25,7 +25,8 @@ export const metadata: Metadata = {
   other: {
     'application-ld+json': JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'WebApplication',
+      '@type': 'SoftwareApplication',
+      softwareVersion: '0.5.0',
       name: 'Idea Reality Check',
       url: 'https://www.mnemox.ai/check',
       description:
@@ -33,8 +34,7 @@ export const metadata: Metadata = {
       applicationCategory: 'DeveloperApplication',
       operatingSystem: 'Any',
       offers: [
-        { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Quick scan (GitHub + HN)' },
-        { '@type': 'Offer', price: '9.99', priceCurrency: 'USD', description: 'Deep scan (5 sources + AI analysis)' },
+        { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free — scans GitHub, HN, npm, PyPI, Product Hunt, and Stack Overflow' },
       ],
       creator: {
         '@type': 'Organization',
