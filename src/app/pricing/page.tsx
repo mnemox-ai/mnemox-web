@@ -50,31 +50,10 @@ export const metadata: Metadata = {
         offers: [
           {
             '@type': 'Offer',
-            name: 'Self-Hosted',
+            name: 'Free',
             price: '0',
             priceCurrency: 'USD',
-            description: 'Free forever — run your own instance',
-          },
-          {
-            '@type': 'Offer',
-            name: 'Starter',
-            price: '9',
-            priceCurrency: 'USD',
-            billingIncrement: 'P1M',
-            description: '1,000 API calls/month',
-          },
-          {
-            '@type': 'Offer',
-            name: 'Pro',
-            price: '29',
-            priceCurrency: 'USD',
-            billingIncrement: 'P1M',
-            description: '10,000 API calls/month + priority support',
-          },
-          {
-            '@type': 'Offer',
-            name: 'Enterprise',
-            description: 'Custom pricing — contact us',
+            description: 'Free forever — self-host or use the hosted API',
           },
         ],
       },

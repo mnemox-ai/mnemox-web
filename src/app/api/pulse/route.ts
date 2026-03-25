@@ -15,8 +15,11 @@ export async function GET() {
       count: Number(r.count),
     }));
 
-    // Top keywords (parse JSON from keywords column)
-    const kwResult = await turso.execute('SELECT keywords FROM score_history');
+    // Top keywords (parse JSON from keywords column, limited to recent 500 rows)
+    const kwResult = await turso.execute({
+      sql: 'SELECT keywords FROM score_history ORDER BY created_at DESC LIMIT ?',
+      args: [500],
+    });
     const freq: Record<string, number> = {};
     for (const row of kwResult.rows) {
       try {
