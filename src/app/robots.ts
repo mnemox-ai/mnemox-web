@@ -12,6 +12,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://mnemox.ai/sitemap.xml',
+    sitemap: 'https://www.mnemox.ai/sitemap.xml',
   };
 }
