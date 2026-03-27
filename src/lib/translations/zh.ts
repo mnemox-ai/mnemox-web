@@ -5,7 +5,7 @@ export const zh: Record<TranslationKey, string> = {
   nav_products: '產品',
   nav_pricing: '定價',
   hero_title: '開源 MCP Server：交易記憶 × 點子驗證',
-  hero_subtitle: '讓你的 AI 代理擁有持久交易記憶與建構前點子檢查。15 個 MCP 工具、1000+ 測試、35 國使用。',
+  hero_subtitle: '讓你的 AI 代理擁有持久交易記憶與建構前點子檢查。17 個 MCP 工具、1000+ 測試、35 國使用。',
   card_ir_name: 'Idea Reality',
   card_ir_desc: 'AI 代理的建構前市場現實檢查。同時掃描 5 個平台，在你建構之前。',
   card_ir_cta: '免費試用 →',
@@ -85,7 +85,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_owm_prospective_desc: '下一步做什麼 — 條件計畫',
 
   // TradeMemory page — MCP Tools (Part 2)
-  tm_tools_title: '15 個 MCP 工具',
+  tm_tools_title: '17 個 MCP 工具',
   tm_tools_subtitle: '透過 Model Context Protocol 的完整交易記憶介面。',
   tm_tools_group_core: '核心記憶',
   tm_tools_group_owm: 'OWM 認知記憶',

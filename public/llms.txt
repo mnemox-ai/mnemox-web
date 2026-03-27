@@ -8,7 +8,7 @@ Mnemox builds open-source infrastructure for AI-assisted decision making. We foc
    - Install: `pip install idea-reality-mcp`
    - When to use: Use when validating a software idea before building — checks if similar projects already exist.
 
-2. **TradeMemory Protocol** — An outcome-weighted memory system with 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective) for AI trading agents. Applies ACT-R cognitive architecture and Kelly Criterion to MCP-based trade recall. 15 MCP tools, 1215 tests. Accepts data from MT5, Binance, Alpaca, or any trading platform.
+2. **TradeMemory Protocol** — An outcome-weighted memory system with 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective) for AI trading agents. Applies ACT-R cognitive architecture and Kelly Criterion to MCP-based trade recall. 17 MCP tools, 1233 tests. Accepts data from MT5, Binance, Alpaca, or any trading platform.
    - Install: `pip install tradememory-protocol`
    - When to use: Use when building AI trading agents that need persistent memory across sessions.
 

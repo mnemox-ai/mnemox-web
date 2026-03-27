@@ -103,7 +103,7 @@ export default function TradeMemoryPage() {
             items={[
               { value: PRODUCT_STATS.tradeMemory.tests.toLocaleString(), label: t('tm_stat_tests') },
               { value: '5', label: t('tm_stat_memory') },
-              { value: '15', label: t('tm_stat_tools') },
+              { value: '17', label: t('tm_stat_tools') },
               { value: 'MIT', label: t('tm_stat_license') },
             ]}
           />

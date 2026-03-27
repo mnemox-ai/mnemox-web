@@ -36,9 +36,9 @@ const servers = [
     lang: 'Python',
     category: 'Trading Memory',
     description:
-      'Persistent memory layer for AI trading agents. Three-layer architecture (raw trades → pattern discovery → strategy adjustment) with 15 MCP tools, Outcome-Weighted Memory, and an Evolution Engine that discovers strategies from raw price data.',
+      'Persistent memory layer for AI trading agents. Three-layer architecture (raw trades → pattern discovery → strategy adjustment) with 17 MCP tools, Outcome-Weighted Memory, and an Evolution Engine that discovers strategies from raw price data.',
     platforms: 'MT5, Binance, Alpaca, any platform',
-    tools: 15,
+    tools: 17,
     highlight: true,
   },
   {

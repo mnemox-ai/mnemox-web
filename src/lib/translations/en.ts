@@ -3,7 +3,7 @@ export const en = {
   nav_products: 'Products',
   nav_pricing: 'Pricing',
   hero_title: 'Open-Source MCP Servers for Trading Memory & Idea Validation.',
-  hero_subtitle: 'Give your AI agent persistent trade memory and pre-build idea checks. 15 MCP tools, 1000+ tests, used in 35 countries.',
+  hero_subtitle: 'Give your AI agent persistent trade memory and pre-build idea checks. 17 MCP tools, 1000+ tests, used in 35 countries.',
   card_ir_name: 'Idea Reality',
   card_ir_desc: 'Pre-build market reality check for AI agents. Scans 5 platforms simultaneously before you build.',
   card_ir_cta: 'Try Free →',

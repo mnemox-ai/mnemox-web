@@ -37,12 +37,12 @@ export const metadata: Metadata = {
       name: 'TradeMemory Protocol',
       url: 'https://www.mnemox.ai/tradememory',
       description:
-        'Three-layer memory architecture for algorithmic trading. MCP server with 15 tools for MT5/forex.',
+        'Three-layer memory architecture for algorithmic trading. MCP server with 17 tools for MT5/forex.',
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Any',
       softwareVersion: '0.5.0',
       featureList:
-        '15 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Evolution Engine, Outcome-Weighted Memory',
+        '17 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Evolution Engine, Outcome-Weighted Memory, Decision Audit Trail with SHA-256 tamper detection',
       keywords:
         'MCP server, trading memory, AI agent, algorithmic trading, MT5, forex, decision intelligence',
       offers: {
