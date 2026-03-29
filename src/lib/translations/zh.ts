@@ -465,6 +465,28 @@ export const zh: Record<TranslationKey, string> = {
   svc_bottom_desc: '告訴我們你的交易環境，我們幫你規劃最適合的方案。第一次通話免費 — 不是推銷，是工程討論。',
   svc_bottom_cta: 'dev@mnemox.ai',
 
+  // Services — Social Proof (Dogfooding)
+  svc_dogfood_title: '我們用自己做的東西',
+  svc_dogfood_desc: '每套賣給客戶的系統，都先在我們自己的交易基礎設施上跑過。我們的開源工具驅動真實交易 — 不只是 demo。',
+  svc_dogfood_1: '我們的 XAUUSD 多策略 EA 全年 24/5 運行，使用的 Bloomberg 風格儀表板、決策審計追蹤和風控引擎，跟交付給客戶的完全一樣。',
+  svc_dogfood_2: 'TradeMemory Protocol — 我們的開源 MCP server — 擁有 680+ GitHub stars、3,000+ 次下載，被 35 個國家的開發者使用。',
+  svc_dogfood_3: '每個元件都有 1,500+ 自動化測試。我們每天部署到生產環境，監控系統做出的每一個決策。',
+
+  // Services — FAQ
+  svc_faq_title: '常見問題',
+  svc_faq1_q: 'Mnemox 是誰？',
+  svc_faq1_a: 'Mnemox AI 是一間位於台北的工作室，專注於 AI 交易基礎設施。創辦人打造並發布了多個全球使用的開源工具，並在自己的多策略交易系統上使用與交付給客戶相同的技術。',
+  svc_faq2_q: '原始碼歸我嗎？',
+  svc_faq2_a: '是的。所有客製化開發的程式碼都是你的。我們交付完整原始碼、文件和部署指南。我們的開源元件（TradeMemory Protocol）維持 MIT 授權 — 你可以自由使用、修改和散布。',
+  svc_faq3_q: '交付後出問題怎麼辦？',
+  svc_faq3_a: '每個專案包含部署後 30 天的支援期。戰情室客戶的月度顧問包含持續監控、優化和優先支援。我們也提供常見操作場景的 runbook。',
+  svc_faq4_q: '可以簽 NDA 嗎？',
+  svc_faq4_a: '當然。我們經常在 NDA 下工作。你的交易策略、系統架構和商業細節都會嚴格保密。',
+  svc_faq5_q: '支援哪些平台？',
+  svc_faq5_a: 'MetaTrader 5（XAUUSD、外匯）、Binance（加密貨幣）和 Interactive Brokers（股票、期貨）。我們可以整合任何提供 API 的平台 — 包括自建系統。',
+  svc_faq6_q: '多久可以看到成果？',
+  svc_faq6_a: '審計追蹤方案最快 2-3 週上線。完整 AI 交易系統通常 4 週內在 Demo 帳戶上線，驗證期通過後再切換到實盤。我們不會倉促上線 — 你的資金是有風險的。',
+
   // Services — Booking Form
   svc_form_title: '告訴我們你的需求',
   svc_form_subtitle: '填寫下方表單，我們會在 24 小時內回覆客製化方案。',

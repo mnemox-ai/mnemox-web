@@ -463,6 +463,28 @@ export const en = {
   svc_bottom_desc: 'Tell us about your trading setup and we\'ll scope the right solution. First call is free — no pitch deck, just engineering.',
   svc_bottom_cta: 'dev@mnemox.ai',
 
+  // Services — Social Proof (Dogfooding)
+  svc_dogfood_title: 'We Use What We Build',
+  svc_dogfood_desc: 'Every system we sell runs in our own trading infrastructure first. Our open-source tools power real trades — not just demos.',
+  svc_dogfood_1: 'Our XAUUSD multi-strategy EA runs 24/5 with the same Bloomberg-style dashboard, decision audit trail, and risk engine we deliver to clients.',
+  svc_dogfood_2: 'TradeMemory Protocol — our open-source MCP server — has 680+ GitHub stars, 3,000+ downloads, and is used by developers in 35 countries.',
+  svc_dogfood_3: 'Every component is backed by 1,500+ automated tests. We ship to production daily and monitor every decision our systems make.',
+
+  // Services — FAQ
+  svc_faq_title: 'Frequently Asked Questions',
+  svc_faq1_q: 'Who is behind Mnemox?',
+  svc_faq1_a: 'Mnemox AI is a Taipei-based studio specializing in AI trading infrastructure. Our founder has built and shipped multiple open-source tools used globally, and runs his own multi-strategy trading system on the same technology we deliver to clients.',
+  svc_faq2_q: 'Do I own the source code?',
+  svc_faq2_a: 'Yes. All custom-built code is yours. We deliver full source code, documentation, and deployment guides. Our open-source components (TradeMemory Protocol) remain MIT-licensed — you can use, modify, and distribute them freely.',
+  svc_faq3_q: 'What if something breaks after delivery?',
+  svc_faq3_a: 'Every project includes a 30-day support window after deployment. For War Room clients, ongoing monthly retainer covers continuous monitoring, optimization, and priority support. We also provide runbooks for common operational scenarios.',
+  svc_faq4_q: 'Can you sign an NDA?',
+  svc_faq4_a: 'Absolutely. We routinely work under NDA. Your trading strategies, system architecture, and business details are kept strictly confidential.',
+  svc_faq5_q: 'What platforms do you support?',
+  svc_faq5_a: 'MetaTrader 5 (XAUUSD, Forex), Binance (crypto), and Interactive Brokers (stocks, futures). We can integrate with any platform that offers an API — including custom in-house systems.',
+  svc_faq6_q: 'How long until I see results?',
+  svc_faq6_a: 'The Audit Trail tier can be live in 2-3 weeks. Full AI Trading Systems typically go live on demo within 4 weeks, then graduate to live after a validation period. We never rush to live — your capital is at stake.',
+
   // Services — Booking Form
   svc_form_title: 'Tell Us What You Need',
   svc_form_subtitle: 'Fill out the form below and we\'ll get back to you within 24 hours with a scoped proposal.',
