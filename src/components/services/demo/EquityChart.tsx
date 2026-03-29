@@ -53,7 +53,7 @@ export function EquityChart() {
               fontFamily: 'monospace',
             }}
             labelStyle={{ color: 'rgba(255,255,255,0.5)' }}
-            formatter={(value: number) => [`$${value.toLocaleString()}`, 'Equity']}
+            formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Equity']}
           />
           <Area
             type="monotone"
