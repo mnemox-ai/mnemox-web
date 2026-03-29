@@ -4,6 +4,7 @@ import { useI18n } from '@/lib/i18n';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { BookingForm } from '@/components/services/BookingForm';
 import { SocialProof } from '@/components/services/SocialProof';
+import { DemoPreview } from '@/components/services/DemoPreview';
 import { cn } from '@/lib/utils';
 
 const TIERS = [
@@ -118,8 +119,18 @@ export function ServicesContent() {
         </div>
       </ScrollReveal>
 
-      {/* Interactive Demo — placeholder for next session */}
-      {/* TODO: Mock dashboard preview (Recharts + fake data) goes here */}
+      {/* Interactive Demo */}
+      <ScrollReveal>
+        <div className="mt-20">
+          <h2 className="mb-6 text-center font-display text-2xl font-bold text-txt md:text-3xl">
+            {t('svc_demo_title')}
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-txt-dim">
+            {t('svc_demo_desc')}
+          </p>
+          <DemoPreview />
+        </div>
+      </ScrollReveal>
 
       {/* Tier Cards */}
       <ScrollReveal>

@@ -413,6 +413,9 @@ export const en = {
   svc_proof_4_val: '35',
   svc_proof_4_label: 'Countries Using Our Tools',
 
+  svc_demo_title: 'See What You Get',
+  svc_demo_desc: 'Interactive preview of a real trading dashboard. Click the tabs to explore decision audit trails and AI memory layers.',
+
   svc_tier1_name: 'Decision Audit Trail',
   svc_tier1_desc: 'Compliance-grade logging for your existing trading system. Every decision recorded, hashed, and queryable.',
   svc_tier1_f1: 'SHA-256 tamper-proof decision records',

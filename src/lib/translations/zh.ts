@@ -415,6 +415,9 @@ export const zh: Record<TranslationKey, string> = {
   svc_proof_4_val: '35',
   svc_proof_4_label: '國家使用我們的工具',
 
+  svc_demo_title: '看看你會得到什麼',
+  svc_demo_desc: '可互動的即時交易儀表板預覽。點擊 Tab 探索決策審計追蹤和 AI 記憶層。',
+
   svc_tier1_name: '決策審計追蹤',
   svc_tier1_desc: '為你現有的交易系統加上合規級別的紀錄。每筆決策都被記錄、雜湊、可查詢。',
   svc_tier1_f1: 'SHA-256 防篡改決策紀錄',

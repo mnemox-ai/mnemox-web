@@ -8,6 +8,7 @@ interface NumberTickerProps {
   direction?: 'up' | 'down';
   delay?: number;
   duration?: number;
+  decimalPlaces?: number;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ export function NumberTicker({
   direction = 'up',
   delay = 0,
   duration = 1200,
+  decimalPlaces = 0,
   className,
 }: NumberTickerProps) {
   const [display, setDisplay] = useState(direction === 'up' ? 0 : value);
@@ -36,12 +38,14 @@ export function NumberTicker({
             const from = direction === 'up' ? 0 : value;
             const to = direction === 'up' ? value : 0;
 
+            const factor = Math.pow(10, decimalPlaces);
+
             function tick(now: number) {
               const elapsed = now - start;
               const progress = Math.min(elapsed / duration, 1);
               // ease-out cubic
               const eased = 1 - Math.pow(1 - progress, 3);
-              const current = Math.max(0, Math.round(from + (to - from) * eased));
+              const current = Math.max(0, Math.round((from + (to - from) * eased) * factor) / factor);
               setDisplay(current);
               if (progress < 1) requestAnimationFrame(tick);
             }
@@ -61,7 +65,7 @@ export function NumberTicker({
 
   return (
     <span ref={ref} className={cn('tabular-nums', className)}>
-      {display.toLocaleString()}
+      {decimalPlaces > 0 ? display.toFixed(decimalPlaces) : display.toLocaleString()}
     </span>
   );
 }
