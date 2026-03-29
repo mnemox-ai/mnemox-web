@@ -53,7 +53,7 @@ export function PricingTable() {
             t('pricing_feat_pro_5'),
           ]}
           cta={t('pricing_cta_pro')}
-          ctaHref="/tradememory#waitlist"
+          ctaHref="mailto:dev@mnemox.ai"
         />
 
         {/* Team */}
@@ -70,7 +70,7 @@ export function PricingTable() {
             t('pricing_feat_team_5'),
           ]}
           cta={t('pricing_cta_team')}
-          ctaHref="/tradememory#waitlist"
+          ctaHref="mailto:dev@mnemox.ai"
         />
 
         {/* Enterprise */}

@@ -83,7 +83,7 @@ export function Nav() {
           href="/blog"
           className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline max-[600px]:hidden"
         >
-          BLOG
+          {t('footer_blog')}
         </Link>
 
         {/* GitHub */}

@@ -41,7 +41,6 @@ export default function Home() {
             accentColor="var(--color-accent)"
             stars={stars?.idea_reality ?? null}
             tests={PRODUCT_STATS.ideaReality.tests}
-            requireAuth
           />
           <ProductCard
             name={t('card_tm_name')}
@@ -51,7 +50,6 @@ export default function Home() {
             accentColor="var(--color-cyan)"
             stars={stars?.tradememory ?? null}
             tests={PRODUCT_STATS.tradeMemory.tests}
-            requireAuth
           />
         </section>
       </ScrollReveal>

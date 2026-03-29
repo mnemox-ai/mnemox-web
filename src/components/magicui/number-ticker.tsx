@@ -20,7 +20,7 @@ export function NumberTicker({
   decimalPlaces = 0,
   className,
 }: NumberTickerProps) {
-  const [display, setDisplay] = useState(direction === 'up' ? 0 : value);
+  const [display, setDisplay] = useState(value);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 

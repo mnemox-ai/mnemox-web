@@ -14,6 +14,8 @@ export const en = {
   card_tm_cta: 'Get Started →',
   footer_text: '© 2026 Mnemox · Built in Taipei · Tools for AI',
   footer_pricing: 'Pricing',
+  footer_privacy: 'Privacy',
+  footer_terms: 'Terms',
   social_stars: '{count} ★ combined',
   social_tests: '{count} tests passing',
   social_license: 'MIT licensed',
@@ -85,7 +87,7 @@ export const en = {
   tm_owm_prospective_desc: 'What to do next — conditional plans',
 
   // TradeMemory page — MCP Tools (Part 2)
-  tm_tools_title: '15 MCP Tools',
+  tm_tools_title: '17 MCP Tools',
   tm_tools_subtitle: 'Complete trading memory interface via Model Context Protocol.',
   tm_tools_group_core: 'Core Memory',
   tm_tools_group_owm: 'OWM Cognitive',

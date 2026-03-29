@@ -11,7 +11,7 @@ export function Footer() {
       <div className="font-mono text-xs text-txt-muted">
         {t('footer_text')}
       </div>
-      <div className="flex gap-6">
+      <div className="flex flex-wrap gap-6">
         <a
           href="https://github.com/mnemox-ai"
           target="_blank"
@@ -20,19 +20,35 @@ export function Footer() {
         >
           {t('nav_github')}
         </a>
-        <a
-          href="https://dev.to/mnemox"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/blog"
           className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
         >
           {t('footer_blog')}
-        </a>
+        </Link>
         <Link
           href="/services"
           className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
         >
           {t('nav_services')}
+        </Link>
+        <Link
+          href="/pricing"
+          className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
+        >
+          {t('footer_pricing')}
+        </Link>
+        <Link
+          href="/privacy"
+          className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
+        >
+          {t('footer_privacy')}
+        </Link>
+        <Link
+          href="/terms"
+          className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
+        >
+          {t('footer_terms')}
         </Link>
       </div>
     </footer>

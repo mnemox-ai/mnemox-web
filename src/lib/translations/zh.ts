@@ -16,6 +16,8 @@ export const zh: Record<TranslationKey, string> = {
   card_tm_cta: '開始使用 →',
   footer_text: '© 2026 Mnemox · 台北打造 · AI 工具',
   footer_pricing: '定價',
+  footer_privacy: '隱私權政策',
+  footer_terms: '服務條款',
   social_stars: '{count} ★ 合計',
   social_tests: '{count} 測試通過',
   social_license: 'MIT Licensed',
