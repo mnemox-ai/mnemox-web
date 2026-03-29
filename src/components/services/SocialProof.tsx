@@ -44,12 +44,12 @@ const COUNTRIES = [
 
 // Use case cards — real scenarios, not fake testimonials
 const USE_CASES = [
-  { key: 'svc_usecase_1' as const, role: 'svc_usecase_1_role' as const, accent: 'var(--color-cyan)' },
-  { key: 'svc_usecase_2' as const, role: 'svc_usecase_2_role' as const, accent: 'var(--color-accent)' },
-  { key: 'svc_usecase_3' as const, role: 'svc_usecase_3_role' as const, accent: 'var(--color-neon-green)' },
-  { key: 'svc_usecase_4' as const, role: 'svc_usecase_4_role' as const, accent: 'var(--color-amber)' },
-  { key: 'svc_usecase_5' as const, role: 'svc_usecase_5_role' as const, accent: 'var(--color-cyan)' },
-  { key: 'svc_usecase_6' as const, role: 'svc_usecase_6_role' as const, accent: 'var(--color-accent)' },
+  { key: 'svc_usecase_1' as const, role: 'svc_usecase_1_role' as const, meta: 'svc_usecase_1_meta' as const, accent: 'var(--color-cyan)' },
+  { key: 'svc_usecase_2' as const, role: 'svc_usecase_2_role' as const, meta: 'svc_usecase_2_meta' as const, accent: 'var(--color-accent)' },
+  { key: 'svc_usecase_3' as const, role: 'svc_usecase_3_role' as const, meta: 'svc_usecase_3_meta' as const, accent: 'var(--color-neon-green)' },
+  { key: 'svc_usecase_4' as const, role: 'svc_usecase_4_role' as const, meta: 'svc_usecase_4_meta' as const, accent: 'var(--color-amber)' },
+  { key: 'svc_usecase_5' as const, role: 'svc_usecase_5_role' as const, meta: 'svc_usecase_5_meta' as const, accent: 'var(--color-cyan)' },
+  { key: 'svc_usecase_6' as const, role: 'svc_usecase_6_role' as const, meta: 'svc_usecase_6_meta' as const, accent: 'var(--color-accent)' },
 ];
 
 function FlagEmoji({ code }: { code: string }) {
@@ -120,7 +120,7 @@ export function SocialProof() {
               </div>
               <div>
                 <p className="text-xs font-semibold text-txt">{t(uc.role)}</p>
-                <p className="text-[10px] text-txt-muted">{t('svc_usecase_tag')}</p>
+                <p className="text-[10px] text-txt-muted">{t(uc.meta)}</p>
               </div>
             </div>
           </div>
