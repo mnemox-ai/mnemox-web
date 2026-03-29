@@ -7,23 +7,23 @@ import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Architecture } from '@/components/tradememory/Architecture';
 import { InstallSection } from '@/components/tradememory/InstallSection';
 import { MCPTools } from '@/components/tradememory/MCPTools';
-import { LiveBanner } from '@/components/live/LiveBanner';
 import { useI18n } from '@/lib/i18n';
 import { PRODUCT_STATS } from '@/lib/config';
 
 const terminalLines = [
-  { text: 'You: Store my XAUUSD trade: long 0.10 lots, +$1,175', className: 'text-txt' },
-  { text: '✓ Trade stored: MT5-2350458751 | strategy=VolBreakout', className: 'text-neon-green' },
+  { text: 'You: Store my XAUUSD trade: long 0.10 lots, entry $3,045, exit $3,091', className: 'text-txt' },
+  { text: '✓ Trade stored: MT5-7047640363 | strategy=VolBreakout | pnl=+$460', className: 'text-neon-green' },
   { text: '' },
-  { text: 'You: Run a reflection on my last 73 trades', className: 'text-txt' },
-  { text: '✓ Analyzing 73 trades across 4 strategies...', className: 'text-neon-green' },
-  { text: '→ Pattern: IntradayMomentum BUY  PF=2.11 return=+166% n=73', className: 'text-cyan' },
-  { text: '→ Pattern: MeanReversion    SELL PF=0.79 return=−21%  n=36', className: 'text-amber' },
+  { text: 'You: Any similar trades in my memory?', className: 'text-txt' },
+  { text: '✓ Recalling from 5 memory layers...', className: 'text-neon-green' },
+  { text: '→ 3 similar trades found (OWM score: 0.82, 0.71, 0.65)', className: 'text-cyan' },
+  { text: '→ Win rate in this context: 75% | avg R: +1.8', className: 'text-cyan' },
   { text: '' },
-  { text: '✓ L3 Adjustment: MeanReversion SELL → disable (consistent losses)', className: 'text-danger' },
-  { text: '✓ L3 Adjustment: IntradayMomentum BUY → increase size 1.2x', className: 'text-neon-green' },
+  { text: 'You: Export my audit trail for compliance review', className: 'text-txt' },
+  { text: '✓ 14 decision records exported | SHA-256 verified', className: 'text-neon-green' },
+  { text: '→ All hashes intact — no tampering detected', className: 'text-cyan' },
   { text: '' },
-  { text: 'Memory updated. 3 layers synced. 10,169 trades analyzed.', className: 'text-txt-dim' },
+  { text: 'Memory updated. 5 layers synced.', className: 'text-txt-dim' },
 ];
 
 export default function TradeMemoryPage() {
@@ -31,11 +31,6 @@ export default function TradeMemoryPage() {
 
   return (
     <>
-      {/* Live Banner */}
-      <div className="mx-auto max-w-5xl px-6 pt-6">
-        <LiveBanner />
-      </div>
-
       {/* Hero */}
       <section className="relative px-6 pt-20 pb-16 text-center">
         {/* Tag */}
