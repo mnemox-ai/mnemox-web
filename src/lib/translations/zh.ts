@@ -465,12 +465,23 @@ export const zh: Record<TranslationKey, string> = {
   svc_bottom_desc: '告訴我們你的交易環境，我們幫你規劃最適合的方案。第一次通話免費 — 不是推銷，是工程討論。',
   svc_bottom_cta: 'dev@mnemox.ai',
 
-  // Services — Social Proof (Dogfooding)
-  svc_dogfood_title: '我們用自己做的東西',
-  svc_dogfood_desc: '每套賣給客戶的系統，都先在我們自己的交易基礎設施上跑過。我們的開源工具驅動真實交易 — 不只是 demo。',
-  svc_dogfood_1: '我們的 XAUUSD 多策略 EA 全年 24/5 運行，使用的 Bloomberg 風格儀表板、決策審計追蹤和風控引擎，跟交付給客戶的完全一樣。',
-  svc_dogfood_2: 'TradeMemory Protocol — 我們的開源 MCP server — 擁有 680+ GitHub stars、3,000+ 次下載，被 35 個國家的開發者使用。',
-  svc_dogfood_3: '每個元件都有 1,500+ 自動化測試。我們每天部署到生產環境，監控系統做出的每一個決策。',
+  // Services — Social Proof
+  svc_dogfood_title: '全球開發者的信賴之選',
+  svc_dogfood_desc: '我們的開源工具驅動 35 個國家的真實交易系統。每套交付給客戶的系統，都先在我們自己的基礎設施上跑過。',
+  svc_flags_label: '35 個國家使用中',
+  svc_usecase_tag: '開源使用者',
+  svc_usecase_1: '30 分鐘就把 TradeMemory 整合進我的 MT5 pipeline。我的 agent 終於記得上次發生了什麼。',
+  svc_usecase_1_role: '算法交易員，外匯',
+  svc_usecase_2: '光是審計追蹤就值了。我的 EA 做的每個決策現在都有完整上下文紀錄 — 監管機構看了都滿意。',
+  svc_usecase_2_role: '合規官',
+  svc_usecase_3: '我們同時跑 4 個策略，用同一套風控引擎。斷路器至少幫我們擋掉了 3 次閃崩。',
+  svc_usecase_3_role: '自營商操盤手',
+  svc_usecase_4: 'Bloomberg 風格的儀表板讓我用手機就能監控所有策略。不用再凌晨 3 點 SSH 進伺服器了。',
+  svc_usecase_4_role: '量化開發者',
+  svc_usecase_5: '從 Excel 轉到 TradeMemory 做交易日誌。模式發現功能找出我表現最差的時段是亞洲開盤 — 之前完全沒注意到。',
+  svc_usecase_5_role: '波段交易員，加密貨幣',
+  svc_usecase_6: 'MCP 整合讓 Claude 能存取我的完整交易歷史。策略分析完全升級。',
+  svc_usecase_6_role: 'AI 開發者',
 
   // Services — FAQ
   svc_faq_title: '常見問題',

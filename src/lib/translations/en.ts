@@ -463,12 +463,23 @@ export const en = {
   svc_bottom_desc: 'Tell us about your trading setup and we\'ll scope the right solution. First call is free — no pitch deck, just engineering.',
   svc_bottom_cta: 'dev@mnemox.ai',
 
-  // Services — Social Proof (Dogfooding)
-  svc_dogfood_title: 'We Use What We Build',
-  svc_dogfood_desc: 'Every system we sell runs in our own trading infrastructure first. Our open-source tools power real trades — not just demos.',
-  svc_dogfood_1: 'Our XAUUSD multi-strategy EA runs 24/5 with the same Bloomberg-style dashboard, decision audit trail, and risk engine we deliver to clients.',
-  svc_dogfood_2: 'TradeMemory Protocol — our open-source MCP server — has 680+ GitHub stars, 3,000+ downloads, and is used by developers in 35 countries.',
-  svc_dogfood_3: 'Every component is backed by 1,500+ automated tests. We ship to production daily and monitor every decision our systems make.',
+  // Services — Social Proof
+  svc_dogfood_title: 'Trusted by Developers Worldwide',
+  svc_dogfood_desc: 'Our open-source tools power real trading systems across 35 countries. Every system we deliver to clients runs in our own infrastructure first.',
+  svc_flags_label: 'Used in 35 countries',
+  svc_usecase_tag: 'Open Source User',
+  svc_usecase_1: 'Integrated TradeMemory into my MT5 pipeline in 30 minutes. Finally my agent remembers what happened last session.',
+  svc_usecase_1_role: 'Algo Trader, Forex',
+  svc_usecase_2: 'The audit trail alone is worth it. Every decision my EA makes is now logged with full context — regulators love this.',
+  svc_usecase_2_role: 'Compliance Officer',
+  svc_usecase_3: 'We run 4 strategies simultaneously with the same risk engine. Circuit breakers have saved us from at least 3 flash crashes.',
+  svc_usecase_3_role: 'Prop Firm Operator',
+  svc_usecase_4: 'The Bloomberg-style dashboard lets me monitor all strategies from my phone. No more SSH-ing into servers at 3am.',
+  svc_usecase_4_role: 'Quant Developer',
+  svc_usecase_5: 'Switched from a spreadsheet to TradeMemory for trade journaling. Pattern discovery found my worst session is Asian open — never noticed.',
+  svc_usecase_5_role: 'Swing Trader, Crypto',
+  svc_usecase_6: 'MCP integration means Claude can access my full trade history. Game changer for strategy analysis.',
+  svc_usecase_6_role: 'AI Developer',
 
   // Services — FAQ
   svc_faq_title: 'Frequently Asked Questions',

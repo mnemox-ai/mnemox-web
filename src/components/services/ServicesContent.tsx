@@ -3,6 +3,7 @@
 import { useI18n } from '@/lib/i18n';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { BookingForm } from '@/components/services/BookingForm';
+import { SocialProof } from '@/components/services/SocialProof';
 import { cn } from '@/lib/utils';
 
 const TIERS = [
@@ -223,24 +224,10 @@ export function ServicesContent() {
         </div>
       </ScrollReveal>
 
-      {/* Social Proof — Dogfooding */}
+      {/* Social Proof — Flags + Use Cases */}
       <ScrollReveal>
-        <div className="mt-24 rounded-xl border border-border bg-bg-card p-8 md:p-10">
-          <h2 className="text-center font-display text-2xl font-bold text-txt md:text-3xl">
-            {t('svc_dogfood_title')}
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-txt-dim">
-            {t('svc_dogfood_desc')}
-          </p>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {(['svc_dogfood_1', 'svc_dogfood_2', 'svc_dogfood_3'] as const).map((key) => (
-              <div key={key} className="rounded-lg border border-border bg-bg/50 p-5">
-                <div className="text-sm leading-relaxed text-txt-dim">
-                  {t(key)}
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="mt-24">
+          <SocialProof />
         </div>
       </ScrollReveal>
 
