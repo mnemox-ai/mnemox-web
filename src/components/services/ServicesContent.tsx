@@ -111,9 +111,19 @@ export function ServicesContent() {
         </div>
       </ScrollReveal>
 
+      {/* Social Proof — Flags + Testimonials (BEFORE pricing = trust first) */}
+      <ScrollReveal>
+        <div className="mt-20">
+          <SocialProof />
+        </div>
+      </ScrollReveal>
+
+      {/* Interactive Demo — placeholder for next session */}
+      {/* TODO: Mock dashboard preview (Recharts + fake data) goes here */}
+
       {/* Tier Cards */}
       <ScrollReveal>
-        <div className="mt-20 grid gap-6 md:grid-cols-3">
+        <div className="mt-24 grid gap-6 md:grid-cols-3">
           {TIERS.map((tier) => (
             <div
               key={tier.nameKey}
@@ -221,13 +231,6 @@ export function ServicesContent() {
               </div>
             ))}
           </div>
-        </div>
-      </ScrollReveal>
-
-      {/* Social Proof — Flags + Use Cases */}
-      <ScrollReveal>
-        <div className="mt-24">
-          <SocialProof />
         </div>
       </ScrollReveal>
 
