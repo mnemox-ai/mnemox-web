@@ -460,6 +460,32 @@ export const en = {
   svc_bottom_title: 'Ready to Build?',
   svc_bottom_desc: 'Tell us about your trading setup and we\'ll scope the right solution. First call is free — no pitch deck, just engineering.',
   svc_bottom_cta: 'dev@mnemox.ai',
+
+  // Services — Booking Form
+  svc_form_title: 'Tell Us What You Need',
+  svc_form_subtitle: 'Fill out the form below and we\'ll get back to you within 24 hours with a scoped proposal.',
+  svc_form_name: 'Name',
+  svc_form_email: 'Email',
+  svc_form_platform: 'Trading Platform',
+  svc_form_platform_mt5: 'MetaTrader 5',
+  svc_form_platform_binance: 'Binance',
+  svc_form_platform_ib: 'Interactive Brokers',
+  svc_form_platform_other: 'Other',
+  svc_form_tier: 'What do you need?',
+  svc_form_tier_audit: 'Audit Trail ($5K)',
+  svc_form_tier_system: 'AI System ($20K)',
+  svc_form_tier_warroom: 'War Room ($50K+)',
+  svc_form_tier_unsure: 'Not Sure Yet',
+  svc_form_desc: 'Tell us about your setup',
+  svc_form_desc_placeholder: 'What strategies do you run? What platform? What problems are you trying to solve?',
+  svc_form_submit: 'Submit Inquiry',
+  svc_form_submitting: 'Submitting...',
+  svc_form_success_title: 'Got It!',
+  svc_form_success_desc: 'We\'ll review your inquiry and reply within 24 hours. Check your email.',
+  svc_form_err_required: 'Please fill in all required fields.',
+  svc_form_err_email: 'Please enter a valid email address.',
+  svc_form_err_limit: 'Too many submissions today. Please try again tomorrow.',
+  svc_form_err_generic: 'Something went wrong. Please try again or email dev@mnemox.ai directly.',
 } as const;
 
 export type TranslationKey = keyof typeof en;

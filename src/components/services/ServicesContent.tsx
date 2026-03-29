@@ -2,6 +2,7 @@
 
 import { useI18n } from '@/lib/i18n';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { BookingForm } from '@/components/services/BookingForm';
 import { cn } from '@/lib/utils';
 
 const TIERS = [
@@ -179,9 +180,13 @@ export function ServicesContent() {
 
               {/* CTA */}
               <a
-                href="mailto:dev@mnemox.ai?subject=Service%20Inquiry"
+                href="#booking"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className={cn(
-                  'mt-6 block rounded-lg py-3 text-center text-sm font-semibold transition-colors no-underline hover:no-underline',
+                  'mt-6 block cursor-pointer rounded-lg py-3 text-center text-sm font-semibold transition-colors no-underline hover:no-underline',
                   tier.highlight
                     ? 'bg-cyan text-bg hover:bg-cyan/90'
                     : 'border border-border-bright text-txt hover:bg-bg-card-hover'
@@ -218,21 +223,10 @@ export function ServicesContent() {
         </div>
       </ScrollReveal>
 
-      {/* Bottom CTA */}
+      {/* Booking Form */}
       <ScrollReveal>
-        <div className="mt-24 rounded-xl border border-cyan/20 bg-cyan/5 p-10 text-center">
-          <h2 className="font-display text-2xl font-bold text-txt md:text-3xl">
-            {t('svc_bottom_title')}
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-txt-dim">
-            {t('svc_bottom_desc')}
-          </p>
-          <a
-            href="mailto:dev@mnemox.ai?subject=Service%20Inquiry"
-            className="mt-8 inline-block rounded-lg bg-cyan px-8 py-3 font-semibold text-bg transition-colors hover:bg-cyan/90 no-underline hover:no-underline"
-          >
-            {t('svc_bottom_cta')}
-          </a>
+        <div className="mt-24">
+          <BookingForm />
         </div>
       </ScrollReveal>
     </div>
