@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import { useI18n } from '@/lib/i18n';
 
@@ -33,6 +34,14 @@ export function Hero() {
       <p className="mt-5 max-w-xl text-base leading-relaxed text-txt-dim md:text-lg">
         {t('hero_subtitle')}
       </p>
+
+      {/* Services CTA */}
+      <Link
+        href="/services"
+        className="mt-8 inline-block rounded-lg bg-cyan px-8 py-3 font-semibold text-bg transition-colors hover:bg-cyan/90 no-underline hover:no-underline"
+      >
+        {t('hero_services_cta')}
+      </Link>
     </section>
   );
 }

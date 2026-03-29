@@ -29,10 +29,10 @@ export function Footer() {
           {t('footer_blog')}
         </a>
         <Link
-          href="/pricing"
+          href="/services"
           className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
         >
-          {t('footer_pricing')}
+          {t('nav_services')}
         </Link>
       </div>
     </footer>

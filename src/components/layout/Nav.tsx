@@ -28,14 +28,22 @@ export function Nav() {
       </Link>
 
       <div className="flex items-center gap-8 max-md:gap-4">
-        {/* Products dropdown */}
+        {/* Services — primary CTA */}
+        <Link
+          href="/services"
+          className="font-mono text-xs tracking-[1.5px] uppercase text-cyan no-underline transition-colors hover:text-txt hover:no-underline"
+        >
+          {t('nav_services')}
+        </Link>
+
+        {/* Technology dropdown (was "Products") */}
         <div
           className="relative"
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
         >
-          <span className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim cursor-pointer transition-colors hover:text-cyan">
-            {t('nav_products')}
+          <span className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim cursor-pointer transition-colors hover:text-cyan max-[600px]:hidden">
+            {t('nav_technology')}
           </span>
 
           <div
@@ -46,15 +54,14 @@ export function Nav() {
             }`}
           >
             <Link
-              href="/live"
+              href="/tradememory"
               className="flex items-center justify-between px-4 py-2.5 rounded-md transition-colors hover:bg-bg-card-hover no-underline hover:no-underline"
             >
-              <span className="font-display text-sm font-semibold text-txt flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                {t('live_title')}
+              <span className="font-display text-sm font-semibold text-txt">
+                TradeMemory
+              </span>
+              <span className="font-mono text-[11px] text-txt-dim">
+                {stars ? `${stars.tradememory} ★` : '★'}
               </span>
             </Link>
             <Link
@@ -68,47 +75,8 @@ export function Nav() {
                 {stars ? `${stars.idea_reality} ★` : '★'}
               </span>
             </Link>
-            <Link
-              href="/tradememory"
-              className="flex items-center justify-between px-4 py-2.5 rounded-md transition-colors hover:bg-bg-card-hover no-underline hover:no-underline"
-            >
-              <span className="font-display text-sm font-semibold text-txt">
-                TradeMemory
-              </span>
-              <span className="font-mono text-[11px] text-txt-dim">
-                {stars ? `${stars.tradememory} ★` : '★'}
-              </span>
-            </Link>
           </div>
         </div>
-
-        {/* LIVE top-level */}
-        <Link
-          href="/live"
-          className="font-mono text-xs tracking-[1.5px] uppercase text-neon-green no-underline transition-colors hover:text-cyan hover:no-underline flex items-center gap-1.5"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
-          </span>
-          LIVE
-        </Link>
-
-        {/* Pulse */}
-        <Link
-          href="/pulse"
-          className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
-        >
-          PULSE
-        </Link>
-
-        {/* Services */}
-        <Link
-          href="/services"
-          className="font-mono text-xs tracking-[1.5px] uppercase text-amber no-underline transition-colors hover:text-cyan hover:no-underline max-[600px]:hidden"
-        >
-          {t('nav_services')}
-        </Link>
 
         {/* Blog */}
         <Link
@@ -118,20 +86,12 @@ export function Nav() {
           BLOG
         </Link>
 
-        {/* Pricing */}
-        <Link
-          href="/pricing"
-          className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline max-[600px]:hidden"
-        >
-          {t('nav_pricing')}
-        </Link>
-
         {/* GitHub */}
         <a
           href="https://github.com/mnemox-ai"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-[11px] tracking-[1.5px] uppercase px-5 py-2 border border-cyan text-cyan no-underline transition-all hover:bg-cyan hover:text-bg hover:no-underline"
+          className="font-mono text-[11px] tracking-[1.5px] uppercase px-5 py-2 border border-border-bright text-txt-dim no-underline transition-all hover:border-cyan hover:text-cyan hover:no-underline max-[600px]:hidden"
         >
           {t('nav_github')}
         </a>
