@@ -102,6 +102,14 @@ export function Nav() {
           PULSE
         </Link>
 
+        {/* Services */}
+        <Link
+          href="/services"
+          className="font-mono text-xs tracking-[1.5px] uppercase text-amber no-underline transition-colors hover:text-cyan hover:no-underline max-[600px]:hidden"
+        >
+          {t('nav_services')}
+        </Link>
+
         {/* Blog */}
         <Link
           href="/blog"
