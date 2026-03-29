@@ -47,7 +47,7 @@ export function InstallSection() {
 
   return (
     <ScrollReveal>
-      <section className="mx-auto max-w-3xl px-6 pb-20">
+      <section id="install" className="mx-auto max-w-3xl px-6 pb-20 scroll-mt-24">
         <h2 className="mb-3 text-center font-display text-2xl font-bold text-txt sm:text-3xl">
           {t('tm_install_title')}
         </h2>

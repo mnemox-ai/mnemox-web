@@ -7,7 +7,7 @@ export function PricingTable() {
   const { t } = useI18n();
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-24 sm:px-10">
+    <section className="mx-auto max-w-4xl px-5 py-24 sm:px-10">
       {/* Hero */}
       <div className="text-center">
         <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
@@ -18,13 +18,13 @@ export function PricingTable() {
         </p>
       </div>
 
-      {/* 4-tier grid */}
-      <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* 2-tier grid */}
+      <div className="mt-16 grid gap-6 sm:grid-cols-2">
         {/* Free */}
         <PricingCard
           tier={t('pricing_tier_free')}
           price="$0"
-          period={t('pricing_tier_period')}
+          period=""
           description={t('pricing_tier_free_desc')}
           features={[
             t('pricing_feat_free_1'),
@@ -37,48 +37,14 @@ export function PricingTable() {
           ctaHref="https://github.com/mnemox-ai/tradememory-protocol"
         />
 
-        {/* Pro */}
-        <PricingCard
-          tier={t('pricing_tier_pro')}
-          price="$29"
-          period={t('pricing_tier_period')}
-          description={t('pricing_tier_pro_desc')}
-          badge={t('pricing_badge_popular')}
-          highlight
-          features={[
-            t('pricing_feat_pro_1'),
-            t('pricing_feat_pro_2'),
-            t('pricing_feat_pro_3'),
-            t('pricing_feat_pro_4'),
-            t('pricing_feat_pro_5'),
-          ]}
-          cta={t('pricing_cta_pro')}
-          ctaHref="mailto:dev@mnemox.ai"
-        />
-
-        {/* Team */}
-        <PricingCard
-          tier={t('pricing_tier_team')}
-          price="$79"
-          period={t('pricing_tier_period')}
-          description={t('pricing_tier_team_desc')}
-          features={[
-            t('pricing_feat_team_1'),
-            t('pricing_feat_team_2'),
-            t('pricing_feat_team_3'),
-            t('pricing_feat_team_4'),
-            t('pricing_feat_team_5'),
-          ]}
-          cta={t('pricing_cta_team')}
-          ctaHref="mailto:dev@mnemox.ai"
-        />
-
-        {/* Enterprise */}
+        {/* Custom / Enterprise */}
         <PricingCard
           tier={t('pricing_tier_enterprise')}
-          price="$299"
-          period={t('pricing_tier_period')}
+          price={t('pricing_custom_price')}
+          period=""
           description={t('pricing_tier_enterprise_desc')}
+          highlight
+          badge={t('pricing_badge_popular')}
           features={[
             t('pricing_feat_enterprise_1'),
             t('pricing_feat_enterprise_2'),
@@ -87,7 +53,7 @@ export function PricingTable() {
             t('pricing_feat_enterprise_5'),
           ]}
           cta={t('pricing_cta_enterprise')}
-          ctaHref="mailto:dev@mnemox.ai"
+          ctaHref="/services"
         />
       </div>
     </section>

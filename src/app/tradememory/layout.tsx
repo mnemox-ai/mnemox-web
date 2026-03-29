@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         'Three-layer memory architecture for algorithmic trading. MCP server with 17 tools for MT5/forex.',
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Any',
-      softwareVersion: '0.5.0',
+      softwareVersion: '0.5.1',
       featureList:
         '17 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Evolution Engine, Outcome-Weighted Memory, Decision Audit Trail with SHA-256 tamper detection',
       keywords:

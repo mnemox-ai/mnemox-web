@@ -24,6 +24,8 @@ const toolGroups: ToolGroup[] = [
       { name: 'recall_trades', descKey: 'tm_tool_recall_trades' },
       { name: 'get_performance', descKey: 'tm_tool_get_performance' },
       { name: 'run_reflection', descKey: 'tm_tool_run_reflection' },
+      { name: 'export_audit_trail', descKey: 'tm_tool_export_audit' },
+      { name: 'verify_audit_hash', descKey: 'tm_tool_verify_hash' },
     ],
   },
   {

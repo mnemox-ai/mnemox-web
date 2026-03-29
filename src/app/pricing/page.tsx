@@ -1,19 +1,15 @@
 import type { Metadata } from 'next';
 import { PricingTable } from '@/components/pricing/PricingTable';
-import { ComparisonSection } from '@/components/pricing/ComparisonSection';
-import { BillingTable } from '@/components/pricing/BillingTable';
 import { FAQ } from '@/components/pricing/FAQ';
 
 export const metadata: Metadata = {
-  title: 'Pricing — TradeMemory Protocol',
+  title: 'Pricing — Mnemox AI',
   description:
-    'Simple, transparent pricing for TradeMemory Protocol. Free forever for self-hosting, or use our hosted API with guaranteed uptime and zero infrastructure.',
-  keywords:
-    'pricing, AI trading, MCP, memory, MT5, forex, XAUUSD, trading bot, algorithmic trading',
+    'TradeMemory Protocol is free and open source. For custom AI trading systems, contact us for a quote.',
   openGraph: {
-    title: 'Pricing — TradeMemory Protocol',
+    title: 'Pricing — Mnemox AI',
     description:
-      'Simple, transparent pricing. Free forever for self-hosting, or use our hosted API.',
+      'Free open-source tools. Custom AI trading infrastructure from $5K.',
     url: 'https://www.mnemox.ai/pricing',
     type: 'website',
     siteName: 'Mnemox AI',
@@ -28,36 +24,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pricing — TradeMemory Protocol',
+    title: 'Pricing — Mnemox AI',
     description:
-      'Simple, transparent pricing. Free forever for self-hosting.',
+      'Free open-source tools. Custom trading systems from $5K.',
     images: ['/assets/og-home.png'],
   },
   alternates: {
     canonical: 'https://www.mnemox.ai/pricing',
-  },
-  other: {
-    'application-ld+json': JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'TradeMemory Protocol Pricing',
-      url: 'https://www.mnemox.ai/pricing',
-      description:
-        'Pricing for TradeMemory Protocol. Free self-hosted, or hosted API plans.',
-      mainEntity: {
-        '@type': 'Product',
-        name: 'TradeMemory Protocol',
-        offers: [
-          {
-            '@type': 'Offer',
-            name: 'Free',
-            price: '0',
-            priceCurrency: 'USD',
-            description: 'Free forever — self-host or use the hosted API',
-          },
-        ],
-      },
-    }),
   },
 };
 
@@ -65,8 +38,6 @@ export default function PricingPage() {
   return (
     <>
       <PricingTable />
-      <ComparisonSection />
-      <BillingTable />
       <FAQ />
     </>
   );

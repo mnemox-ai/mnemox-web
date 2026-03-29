@@ -69,9 +69,7 @@ export default function TradeMemoryPage() {
         {/* CTAs */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://github.com/mnemox-ai/tradememory-protocol"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#install"
             className="inline-flex items-center gap-2 rounded-lg bg-cyan px-6 py-3 font-display text-sm font-semibold text-bg transition-opacity hover:opacity-90"
           >
             {t('tm_hero_cta1')}
