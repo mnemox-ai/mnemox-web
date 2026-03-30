@@ -12,6 +12,7 @@ export interface SolutionComponent {
 
 export interface CaseStudy {
   id: string;
+  slug: string;
   nameKey: TranslationKey;
   taglineKey: TranslationKey;
   challengeKey: TranslationKey;
@@ -26,6 +27,11 @@ export interface CaseStudy {
   solutions: SolutionComponent[];
   results: CaseStudyMetric[];
   githubUrl: string;
+  techStack: string[];
+  screenshots: string[];
+  impactNumbers: CaseStudyMetric[];
+  metaTitle: string;
+  metaDescription: string;
 }
 
 export interface SecondaryProject {
@@ -41,6 +47,7 @@ export interface SecondaryProject {
 export const FEATURED_CASES: CaseStudy[] = [
   {
     id: 'tradememory',
+    slug: 'tradememory',
     nameKey: 'p_tm_name',
     taglineKey: 'p_tm_tagline',
     challengeKey: 'p_tm_challenge',
@@ -73,9 +80,20 @@ export const FEATURED_CASES: CaseStudy[] = [
       { val: 'p_tm_r3_val', lbl: 'p_tm_r3_lbl' },
     ],
     githubUrl: 'https://github.com/mnemox-ai/tradememory-protocol',
+    techStack: ['Python', 'FastAPI', 'SQLite', 'MCP', 'Claude API', 'SHA-256', 'PostgreSQL', 'pytest'],
+    screenshots: ['/portfolio/tradememory-hub.webp'],
+    impactNumbers: [
+      { val: 'p_tm_i1_val', lbl: 'p_tm_i1_lbl' },
+      { val: 'p_tm_i2_val', lbl: 'p_tm_i2_lbl' },
+      { val: 'p_tm_i3_val', lbl: 'p_tm_i3_lbl' },
+      { val: 'p_tm_i4_val', lbl: 'p_tm_i4_lbl' },
+    ],
+    metaTitle: 'TradeMemory Protocol — AI Trading Memory & Audit Trail | Mnemox AI',
+    metaDescription: "The industry's first MCP-native memory layer for AI trading agents. 5 memory types, SHA-256 tamper-proof audit trail, 1,233 tests. Open source, MIT licensed.",
   },
   {
     id: 'nexusos',
+    slug: 'nexusos',
     nameKey: 'p_nx_name',
     taglineKey: 'p_nx_tagline',
     challengeKey: 'p_nx_challenge',
@@ -107,9 +125,20 @@ export const FEATURED_CASES: CaseStudy[] = [
       { val: 'p_nx_r3_val', lbl: 'p_nx_r3_lbl' },
     ],
     githubUrl: 'https://github.com/mnemox-ai/nexusos',
+    techStack: ['Next.js', 'React', 'TypeScript', 'Python', 'Claude Agent SDK', 'WebSocket', 'Supabase', 'SSE'],
+    screenshots: ['/portfolio/nexusos-hub.webp'],
+    impactNumbers: [
+      { val: 'p_nx_i1_val', lbl: 'p_nx_i1_lbl' },
+      { val: 'p_nx_i2_val', lbl: 'p_nx_i2_lbl' },
+      { val: 'p_nx_i3_val', lbl: 'p_nx_i3_lbl' },
+      { val: 'p_nx_i4_val', lbl: 'p_nx_i4_lbl' },
+    ],
+    metaTitle: 'NexusOS — AI War Room for Agent Fleet Management | Mnemox AI',
+    metaDescription: 'Enterprise command center for AI agent fleets. Real-time WebSocket streaming, stateful Claude SDK sessions, decision queue, and memory pipeline visualization.',
   },
   {
     id: 'ng-gold',
+    slug: 'ng-gold',
     nameKey: 'p_ng_name',
     taglineKey: 'p_ng_tagline',
     challengeKey: 'p_ng_challenge',
@@ -141,6 +170,16 @@ export const FEATURED_CASES: CaseStudy[] = [
       { val: 'p_ng_r3_val', lbl: 'p_ng_r3_lbl' },
     ],
     githubUrl: 'https://github.com/mnemox-ai/NG_Gold',
+    techStack: ['MQL5', 'MetaTrader 5', 'Python', 'FastAPI', 'Textual TUI', 'SQLite', 'Discord API'],
+    screenshots: ['/portfolio/ng-gold-hub.webp'],
+    impactNumbers: [
+      { val: 'p_ng_i1_val', lbl: 'p_ng_i1_lbl' },
+      { val: 'p_ng_i2_val', lbl: 'p_ng_i2_lbl' },
+      { val: 'p_ng_i3_val', lbl: 'p_ng_i3_lbl' },
+      { val: 'p_ng_i4_val', lbl: 'p_ng_i4_lbl' },
+    ],
+    metaTitle: 'NG_Gold — Multi-Strategy XAUUSD Expert Advisor | Mnemox AI',
+    metaDescription: 'Production XAUUSD EA with 9-layer risk architecture. 4 independent strategies on a shared risk engine with portfolio drawdown caps, circuit breakers, and real-time Bloomberg-style monitoring.',
   },
 ];
 
