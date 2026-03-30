@@ -33,6 +33,9 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - Config: `src/lib/config.ts`
 
 ## Recent Changes
+- [2026-03-31] **Portfolio Case Studies**：/portfolio hub page（challenge-outcome storytelling × 3 featured + 3 secondary）+ /portfolio/[slug] detail pages（TradeMemory, NexusOS, NG_Gold）。MetricsBar + CaseStudyCard + StickyCtaBar + ImpactNumbers + SolutionGrid。Nav/Footer/Sitemap 更新。i18n EN+ZH 完整。Placeholder SVGs（待替換真實截圖）。
+- [2026-03-30] **Content Audit Round 2**：MCPTools 補齊 2 audit tools（15→17）、版本 0.5.0→0.5.1、/pricing 簡化為 Free+Enterprise（移除 $29/$79 vaporware）、social proof 數字更新（1510+ tests, 780+ stars）、TradeMemory CTA 區分（開始使用→#install）、清理 8 個空翻譯 key。
+- [2026-03-30] **Site Audit 修復**：P0（NumberTicker SSR 0→actual, MCP tools 15→17, pricing CTA #waitlist→mailto）、P1（移除 requireAuth gate, Blog i18n, 刪 PayPal webhook）、P2（Footer 重建加 Privacy/Terms/Pricing 連結, blog 改指 /blog）、新增 /privacy + /terms 頁面、sitemap 更新。
 - [2026-03-22] **GEO Sprint 完成**：robots.ts 加 AI crawler（GPTBot/ClaudeBot/PerplexityBot）、check/tradememory JSON-LD 修正（SoftwareApplication + $9.99 移除 + featureList/keywords）、llms.txt 加 install 指令 + when-to-use、hero text 改問答式、/blog 基礎建設（layout + index + Nav link + sitemap）、2 篇 GEO 文章（mcp-servers-finance + check-startup-idea）
 - [2026-03-22] fix: branch 統一為 `main`（GitHub default + Vercel production branch），刪除 remote `master`
 - [2026-03-19] fix: 掃描動畫 HN 不亮 — setInterval+mutable idx closure race condition，改用 setTimeout map
@@ -52,9 +55,10 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - [2026-03-18] Phase 3: Clerk auth + Supabase + Dashboard + Webhooks + CTA auth gate
 
 ## Current Status
-- **Default branch: `main`**（已統一，Vercel 需確認 Production Branch 設為 main）
-- **GEO Sprint 完成**：robots/JSON-LD/llms.txt/hero/blog，2-4 週後重測基線
-- /blog: 2 篇文章（mcp-servers-finance, check-startup-idea），Nav 有 BLOG link
+- **2026-03-31 Portfolio 上線**：/portfolio hub + 3 case study detail pages。待替換 placeholder 截圖為真實截圖。
+- **2026-03-30 全站審計 3 輪完成**：P0/P1/P2 bug fixes + Privacy/Terms + MCPTools 17 tools + pricing 簡化 Free+Enterprise + terminal demo 重寫 + LiveBanner 移除。3 commits pushed, Vercel deployed。
+- **Default branch: `main`**
+- /blog: 2 篇文章，Nav 用 i18n（不再硬編碼 "BLOG"）
 - **Idea Reality v2 完成**：Badge + GapRadar + Pulse + PayPal 移除 + verdict labels
 - **8 個 production users**，2,691 筆掃描，35 國（Clerk production）
 - /check: 全免費、ShareBadge（download/copy/share X）、GapRadar（智慧 fallback）、中文 pivot hints
