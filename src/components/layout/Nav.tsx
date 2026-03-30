@@ -36,6 +36,14 @@ export function Nav() {
           {t('nav_services')}
         </Link>
 
+        {/* Portfolio */}
+        <Link
+          href="/portfolio"
+          className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
+        >
+          {t('nav_portfolio')}
+        </Link>
+
         {/* Technology dropdown (was "Products") */}
         <div
           className="relative"

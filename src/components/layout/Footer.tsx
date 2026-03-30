@@ -27,6 +27,12 @@ export function Footer() {
           {t('footer_blog')}
         </Link>
         <Link
+          href="/portfolio"
+          className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
+        >
+          {t('nav_portfolio')}
+        </Link>
+        <Link
           href="/services"
           className="font-mono text-xs text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline"
         >

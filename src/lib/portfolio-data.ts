@@ -81,7 +81,7 @@ export const FEATURED_CASES: CaseStudy[] = [
     ],
     githubUrl: 'https://github.com/mnemox-ai/tradememory-protocol',
     techStack: ['Python', 'FastAPI', 'SQLite', 'MCP', 'Claude API', 'SHA-256', 'PostgreSQL', 'pytest'],
-    screenshots: ['/portfolio/tradememory-hub.webp'],
+    screenshots: ['/portfolio/tradememory-hub.svg'],
     impactNumbers: [
       { val: 'p_tm_i1_val', lbl: 'p_tm_i1_lbl' },
       { val: 'p_tm_i2_val', lbl: 'p_tm_i2_lbl' },
@@ -126,7 +126,7 @@ export const FEATURED_CASES: CaseStudy[] = [
     ],
     githubUrl: 'https://github.com/mnemox-ai/nexusos',
     techStack: ['Next.js', 'React', 'TypeScript', 'Python', 'Claude Agent SDK', 'WebSocket', 'Supabase', 'SSE'],
-    screenshots: ['/portfolio/nexusos-hub.webp'],
+    screenshots: ['/portfolio/nexusos-hub.svg'],
     impactNumbers: [
       { val: 'p_nx_i1_val', lbl: 'p_nx_i1_lbl' },
       { val: 'p_nx_i2_val', lbl: 'p_nx_i2_lbl' },
@@ -171,7 +171,7 @@ export const FEATURED_CASES: CaseStudy[] = [
     ],
     githubUrl: 'https://github.com/mnemox-ai/NG_Gold',
     techStack: ['MQL5', 'MetaTrader 5', 'Python', 'FastAPI', 'Textual TUI', 'SQLite', 'Discord API'],
-    screenshots: ['/portfolio/ng-gold-hub.webp'],
+    screenshots: ['/portfolio/ng-gold-hub.svg'],
     impactNumbers: [
       { val: 'p_ng_i1_val', lbl: 'p_ng_i1_lbl' },
       { val: 'p_ng_i2_val', lbl: 'p_ng_i2_lbl' },
