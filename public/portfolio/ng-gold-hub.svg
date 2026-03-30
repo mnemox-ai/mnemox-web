@@ -1,5 +1,98 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600">
-  <rect width="100%" height="100%" fill="#14110b" />
-  <text x="50%" y="44%" text-anchor="middle" fill="rgba(255,180,0,0.25)" font-family="monospace" font-size="28" font-weight="bold">NG_Gold</text>
-  <text x="50%" y="54%" text-anchor="middle" fill="rgba(255,255,255,0.12)" font-family="monospace" font-size="14">960×600 — screenshot placeholder</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#0a0e14" rx="8"/>
+  <!-- Terminal header -->
+  <rect width="960" height="32" fill="#060a10" rx="8"/>
+  <rect y="24" width="960" height="8" fill="#060a10"/>
+  <circle cx="20" cy="16" r="5" fill="#ff5f57"/>
+  <circle cx="38" cy="16" r="5" fill="#febc2e"/>
+  <circle cx="56" cy="16" r="5" fill="#28c840"/>
+  <text x="480" y="20" fill="#6a6a80" font-family="monospace" font-size="11" text-anchor="middle">ng-gold-dashboard · XAUUSD · FXTM Demo</text>
+
+  <!-- Top bar: price + P&L -->
+  <rect x="16" y="44" width="928" height="48" fill="#0d1218" rx="4"/>
+  <text x="32" y="68" fill="#ffaa00" font-family="monospace" font-size="28" font-weight="bold">XAUUSD</text>
+  <text x="220" y="68" fill="#e0e0e8" font-family="monospace" font-size="28" font-weight="bold">5,175.42</text>
+  <text x="480" y="60" fill="#6a6a80" font-family="monospace" font-size="10">DAILY P&amp;L</text>
+  <text x="480" y="78" fill="#28c840" font-family="monospace" font-size="18" font-weight="bold">+$127.50</text>
+  <text x="640" y="60" fill="#6a6a80" font-family="monospace" font-size="10">EQUITY</text>
+  <text x="640" y="78" fill="#e0e0e8" font-family="monospace" font-size="18" font-weight="bold">$11,127.50</text>
+  <text x="800" y="60" fill="#6a6a80" font-family="monospace" font-size="10">DRAWDOWN</text>
+  <text x="800" y="78" fill="#28c840" font-family="monospace" font-size="18" font-weight="bold">-0.4%</text>
+
+  <!-- Strategy cards -->
+  <text x="24" y="116" fill="#6a6a80" font-family="monospace" font-size="10" letter-spacing="2">STRATEGIES</text>
+
+  <!-- VB -->
+  <rect x="16" y="126" width="224" height="100" fill="#0d1218" rx="4" stroke="#1a1a28" stroke-width="1"/>
+  <text x="28" y="146" fill="#00e5ff" font-family="monospace" font-size="12" font-weight="bold">VolBreakout</text>
+  <text x="200" y="146" fill="#28c840" font-family="monospace" font-size="10">ACTIVE</text>
+  <text x="28" y="168" fill="#6a6a80" font-family="monospace" font-size="9">Magic: 260112</text>
+  <text x="28" y="186" fill="#6a6a80" font-family="monospace" font-size="9">Win Rate: <tspan fill="#28c840">67%</tspan>  |  PF: <tspan fill="#28c840">1.17</tspan></text>
+  <text x="28" y="204" fill="#6a6a80" font-family="monospace" font-size="9">Daily DD: <tspan fill="#28c840">-0.2%</tspan>  |  Lot: 0.01</text>
+
+  <!-- IM -->
+  <rect x="252" y="126" width="224" height="100" fill="#0d1218" rx="4" stroke="#1a1a28" stroke-width="1"/>
+  <text x="264" y="146" fill="#ffaa00" font-family="monospace" font-size="12" font-weight="bold">IntradayMomentum</text>
+  <text x="436" y="146" fill="#28c840" font-family="monospace" font-size="10">ACTIVE</text>
+  <text x="264" y="168" fill="#6a6a80" font-family="monospace" font-size="9">Magic: 260118</text>
+  <text x="264" y="186" fill="#6a6a80" font-family="monospace" font-size="9">Win Rate: <tspan fill="#28c840">58%</tspan>  |  PF: <tspan fill="#28c840">1.78</tspan></text>
+  <text x="264" y="204" fill="#6a6a80" font-family="monospace" font-size="9">Daily DD: <tspan fill="#28c840">-0.1%</tspan>  |  Lot: 0.01</text>
+
+  <!-- PB -->
+  <rect x="488" y="126" width="224" height="100" fill="#0d1218" rx="4" stroke="#1a1a28" stroke-width="1"/>
+  <text x="500" y="146" fill="#00ff88" font-family="monospace" font-size="12" font-weight="bold">PullbackEntry</text>
+  <text x="672" y="146" fill="#28c840" font-family="monospace" font-size="10">ACTIVE</text>
+  <text x="500" y="168" fill="#6a6a80" font-family="monospace" font-size="9">Magic: 20260217</text>
+  <text x="500" y="186" fill="#6a6a80" font-family="monospace" font-size="9">Win Rate: <tspan fill="#28c840">52%</tspan>  |  PF: <tspan fill="#28c840">1.45</tspan></text>
+  <text x="500" y="204" fill="#6a6a80" font-family="monospace" font-size="9">Daily DD: <tspan fill="#28c840">-0.1%</tspan>  |  Lot: 0.01</text>
+
+  <!-- Risk Panel -->
+  <rect x="724" y="126" width="220" height="100" fill="#0d1218" rx="4" stroke="#ffaa00" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="736" y="146" fill="#ffaa00" font-family="monospace" font-size="12" font-weight="bold">RISK ENGINE</text>
+  <text x="736" y="168" fill="#6a6a80" font-family="monospace" font-size="9">Daily Limit:   <tspan fill="#28c840">-3.0%</tspan></text>
+  <text x="736" y="186" fill="#6a6a80" font-family="monospace" font-size="9">Weekly Limit:  <tspan fill="#28c840">-5.0%</tspan></text>
+  <text x="736" y="204" fill="#6a6a80" font-family="monospace" font-size="9">Kill Switch:   <tspan fill="#ff5f57">-50%</tspan></text>
+  <text x="736" y="218" fill="#6a6a80" font-family="monospace" font-size="9">Portfolio:     <tspan fill="#28c840">1/3 pos</tspan></text>
+
+  <!-- Regime -->
+  <text x="24" y="252" fill="#6a6a80" font-family="monospace" font-size="10" letter-spacing="2">REGIME DETECTION</text>
+  <rect x="16" y="260" width="928" height="36" fill="#0d1218" rx="4"/>
+  <text x="32" y="283" fill="#6a6a80" font-family="monospace" font-size="10">ATR(H1): <tspan fill="#e0e0e8">$32.40</tspan>  |  ATR(D1): <tspan fill="#e0e0e8">$158.70</tspan>  |  Ratio: <tspan fill="#28c840">0.204</tspan>  |  Regime: <tspan fill="#00e5ff">TRENDING_UP</tspan>  |  Shadow Mode</text>
+
+  <!-- Activity Feed -->
+  <text x="24" y="324" fill="#6a6a80" font-family="monospace" font-size="10" letter-spacing="2">ACTIVITY FEED</text>
+  <text x="900" y="324" fill="#28c840" font-family="monospace" font-size="10">● LIVE</text>
+
+  <text x="24" y="348" fill="#00e5ff" font-family="monospace" font-size="10">14:32:05</text>
+  <text x="110" y="348" fill="#e0e0e8" font-family="monospace" font-size="10">VB  TRADE_OPEN  long  0.01 lot  @ 5174.80  SL:5170.20  TP:5190.90</text>
+
+  <text x="24" y="366" fill="#00e5ff" font-family="monospace" font-size="10">14:31:58</text>
+  <text x="110" y="366" fill="#28c840" font-family="monospace" font-size="10">VB  DECISION    score=78/100  spread_ok=true  asia_range=$18.40</text>
+
+  <text x="24" y="384" fill="#00e5ff" font-family="monospace" font-size="10">14:30:00</text>
+  <text x="110" y="384" fill="#6a6a80" font-family="monospace" font-size="10">SYS HEARTBEAT   3 strategies active  |  0 positions  |  DD: -0.0%</text>
+
+  <text x="24" y="402" fill="#00e5ff" font-family="monospace" font-size="10">14:25:12</text>
+  <text x="110" y="402" fill="#28c840" font-family="monospace" font-size="10">IM  TRADE_CLOSE long  0.01 lot  @ 5176.30  P&amp;L: +$12.50  (+0.6R)</text>
+
+  <text x="24" y="420" fill="#00e5ff" font-family="monospace" font-size="10">14:20:00</text>
+  <text x="110" y="420" fill="#6a6a80" font-family="monospace" font-size="10">SYS HEARTBEAT   3 strategies active  |  1 position   |  DD: -0.1%</text>
+
+  <text x="24" y="438" fill="#00e5ff" font-family="monospace" font-size="10">13:45:30</text>
+  <text x="110" y="438" fill="#ffaa00" font-family="monospace" font-size="10">PB  SKIP        spread_gate=FAIL  spread=$4.20 > limit=$3.80</text>
+
+  <text x="24" y="456" fill="#00e5ff" font-family="monospace" font-size="10">13:30:00</text>
+  <text x="110" y="456" fill="#6a6a80" font-family="monospace" font-size="10">SYS REGIME_UPDATE  TRENDING_UP  ATR_ratio=0.204  confidence=HIGH</text>
+
+  <text x="24" y="474" fill="#00e5ff" font-family="monospace" font-size="10">12:58:44</text>
+  <text x="110" y="474" fill="#28c840" font-family="monospace" font-size="10">VB  TRADE_CLOSE short 0.01 lot  @ 5168.90  P&amp;L: +$45.00  (+2.3R)</text>
+
+  <text x="24" y="492" fill="#00e5ff" font-family="monospace" font-size="10">12:15:00</text>
+  <text x="110" y="492" fill="#ff5f57" font-family="monospace" font-size="10">IM  TRADE_CLOSE long  0.01 lot  @ 5162.10  P&amp;L: -$18.00  (-0.9R)</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="520" width="960" height="80" fill="#060a10"/>
+  <text x="24" y="545" fill="#6a6a80" font-family="monospace" font-size="9">RampUpMode: ON (0.01 lot) | FixedRisk: 1.0% | Spread Gate: ATR-based | MaxHold: 288 bars</text>
+  <text x="24" y="565" fill="#6a6a80" font-family="monospace" font-size="9">Terminal A: FXTM Demo | Server: GMT+2 | Account: $11,000 | Leverage: 1:500</text>
+  <text x="24" y="585" fill="#6a6a80" font-family="monospace" font-size="9">TradeMemory: <tspan fill="#28c840">CONNECTED</tspan> | Discord: <tspan fill="#28c840">CONNECTED</tspan> | Last Sync: 2s ago</text>
 </svg>

@@ -1,5 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600">
-  <rect width="100%" height="100%" fill="#0b1120" />
-  <text x="50%" y="44%" text-anchor="middle" fill="rgba(0,180,255,0.25)" font-family="monospace" font-size="28" font-weight="bold">TradeMemory — Detail</text>
-  <text x="50%" y="54%" text-anchor="middle" fill="rgba(255,255,255,0.12)" font-family="monospace" font-size="14">960×600 — screenshot placeholder</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#0b1120" rx="8"/>
+  <!-- Terminal header -->
+  <rect width="960" height="32" fill="#080d18" rx="8"/>
+  <rect y="24" width="960" height="8" fill="#080d18"/>
+  <circle cx="20" cy="16" r="5" fill="#ff5f57"/>
+  <circle cx="38" cy="16" r="5" fill="#febc2e"/>
+  <circle cx="56" cy="16" r="5" fill="#28c840"/>
+  <text x="480" y="20" fill="#6a6a80" font-family="monospace" font-size="11" text-anchor="middle">tradememory demo --fast</text>
+
+  <!-- Title -->
+  <text x="24" y="60" fill="#00e5ff" font-family="monospace" font-size="13" font-weight="bold">TradeMemory Protocol — Interactive Demo</text>
+  <text x="24" y="82" fill="#6a6a80" font-family="monospace" font-size="10">Simulating 30 XAUUSD trades over 7 days</text>
+
+  <text x="24" y="112" fill="#00e5ff" font-family="monospace" font-size="10">Step 1: L1 — Recording trades to TradeJournal</text>
+
+  <!-- Trade log -->
+  <text x="24" y="138" fill="#ff5f57" font-family="monospace" font-size="10">DEMO-001  asian     Pullback    long   conf:0.60    -$15.00  (-1.0R)</text>
+  <text x="24" y="156" fill="#28c840" font-family="monospace" font-size="10">DEMO-002  london    VolBreakout long   conf:0.78    +$42.00  (+2.1R)</text>
+  <text x="24" y="174" fill="#28c840" font-family="monospace" font-size="10">DEMO-003  london    VolBreakout short  conf:0.72    +$28.50  (+1.5R)</text>
+  <text x="24" y="192" fill="#ff5f57" font-family="monospace" font-size="10">DEMO-004  asian     Pullback    long   conf:0.55    -$20.00  (-1.0R)</text>
+  <text x="24" y="210" fill="#28c840" font-family="monospace" font-size="10">DEMO-006  london    VolBreakout long   conf:0.82    +$55.00  (+2.8R)</text>
+  <text x="24" y="228" fill="#28c840" font-family="monospace" font-size="10">DEMO-010  london    VolBreakout long   conf:0.85    +$60.00  (+3.0R)</text>
+  <text x="24" y="246" fill="#28c840" font-family="monospace" font-size="10">DEMO-019  london    VolBreakout long   conf:0.90    +$65.00  (+3.3R)</text>
+  <text x="24" y="264" fill="#28c840" font-family="monospace" font-size="10">DEMO-027  london    VolBreakout long   conf:0.92    +$70.00  (+3.5R)</text>
+
+  <text x="24" y="290" fill="#e0e0e8" font-family="monospace" font-size="11">Total: 30 trades | Winners: 19 | Win rate: 63% | Net P&amp;L: +$499.50</text>
+
+  <!-- Pattern discovery -->
+  <text x="24" y="320" fill="#00e5ff" font-family="monospace" font-size="10">Step 2: L2 — Reflection Engine discovers patterns</text>
+
+  <text x="24" y="348" fill="#28c840" font-family="monospace" font-size="10">London session    Win: 100% (14/14)  P&amp;L: +$608.50  HIGH EDGE</text>
+  <text x="24" y="366" fill="#ff5f57" font-family="monospace" font-size="10">Asian session     Win:  10%  (1/10)  P&amp;L: -$156.00  WEAK</text>
+  <text x="24" y="384" fill="#febc2e" font-family="monospace" font-size="10">Newyork session   Win:  67%  (4/6)   P&amp;L:  +$47.00  MODERATE</text>
+
+  <!-- Audit TDR -->
+  <text x="24" y="420" fill="#00e5ff" font-family="monospace" font-size="10">Phase 6: Audit — Trading Decision Record (TDR)</text>
+
+  <text x="24" y="448" fill="#6a6a80" font-family="monospace" font-size="10">Record ID:    <tspan fill="#e0e0e8">DEMO-001</tspan></text>
+  <text x="24" y="466" fill="#6a6a80" font-family="monospace" font-size="10">Strategy:     <tspan fill="#e0e0e8">Pullback</tspan></text>
+  <text x="24" y="484" fill="#6a6a80" font-family="monospace" font-size="10">Confidence:   <tspan fill="#e0e0e8">0.6</tspan></text>
+  <text x="24" y="502" fill="#6a6a80" font-family="monospace" font-size="10">Anti-Res:     <tspan fill="#28c840">True</tspan></text>
+  <text x="24" y="520" fill="#6a6a80" font-family="monospace" font-size="10">Data Hash:    <tspan fill="#00e5ff">61a132b9d66396039028dcca3b57ae50...</tspan></text>
+
+  <text x="24" y="556" fill="#febc2e" font-family="monospace" font-size="10">Key insight: London session (100% WR) >> Asian session (10% WR)</text>
+  <text x="24" y="574" fill="#28c840" font-family="monospace" font-size="10">Action taken: Asian lot size reduced 0.05 → 0.025</text>
 </svg>

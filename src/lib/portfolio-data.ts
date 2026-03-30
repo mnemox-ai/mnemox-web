@@ -126,7 +126,7 @@ export const FEATURED_CASES: CaseStudy[] = [
     ],
     githubUrl: 'https://github.com/mnemox-ai/nexusos',
     techStack: ['Next.js', 'React', 'TypeScript', 'Python', 'Claude Agent SDK', 'WebSocket', 'Supabase', 'SSE'],
-    screenshots: ['/portfolio/nexusos-hub.svg'],
+    screenshots: ['/portfolio/nexusos-hub.png'],
     impactNumbers: [
       { val: 'p_nx_i1_val', lbl: 'p_nx_i1_lbl' },
       { val: 'p_nx_i2_val', lbl: 'p_nx_i2_lbl' },
