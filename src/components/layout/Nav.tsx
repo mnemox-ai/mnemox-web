@@ -46,11 +46,11 @@ export function Nav() {
 
         {/* Technology dropdown (was "Products") */}
         <div
-          className="relative"
+          className="relative flex items-center"
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
         >
-          <span className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim cursor-pointer transition-colors hover:text-cyan max-[600px]:hidden leading-none">
+          <span className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim cursor-pointer transition-colors hover:text-cyan max-[600px]:hidden">
             {t('nav_technology')}
           </span>
 
