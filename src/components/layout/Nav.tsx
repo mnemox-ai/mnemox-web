@@ -50,7 +50,7 @@ export function Nav() {
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
         >
-          <span className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim cursor-pointer transition-colors hover:text-cyan max-[600px]:hidden">
+          <span className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim cursor-pointer transition-colors hover:text-cyan max-[600px]:hidden leading-none">
             {t('nav_technology')}
           </span>
 
@@ -99,7 +99,7 @@ export function Nav() {
           href="https://github.com/mnemox-ai"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-[11px] tracking-[1.5px] uppercase px-5 py-2 border border-border-bright text-txt-dim no-underline transition-all hover:border-cyan hover:text-cyan hover:no-underline max-[600px]:hidden"
+          className="font-mono text-xs tracking-[1.5px] uppercase text-txt-dim no-underline transition-colors hover:text-cyan hover:no-underline max-[600px]:hidden"
         >
           {t('nav_github')}
         </a>
