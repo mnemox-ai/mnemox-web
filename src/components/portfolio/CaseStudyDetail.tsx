@@ -131,13 +131,22 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
           {caseStudy.screenshots.length === 1 ? (
             <BrowserFrame title={t(caseStudy.nameKey)}>
               <div className="relative w-full" style={{ aspectRatio: '16/10' }}>
-                <Image
-                  src={caseStudy.screenshots[0]}
-                  alt={t(caseStudy.nameKey)}
-                  fill
-                  className="object-cover rounded"
-                  sizes="(max-width: 768px) 100vw, 960px"
-                />
+                {caseStudy.screenshots[0].endsWith('.svg') ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={caseStudy.screenshots[0]}
+                    alt={t(caseStudy.nameKey)}
+                    className="absolute inset-0 w-full h-full object-cover rounded"
+                  />
+                ) : (
+                  <Image
+                    src={caseStudy.screenshots[0]}
+                    alt={t(caseStudy.nameKey)}
+                    fill
+                    className="object-cover rounded"
+                    sizes="(max-width: 768px) 100vw, 960px"
+                  />
+                )}
               </div>
             </BrowserFrame>
           ) : (
@@ -145,13 +154,22 @@ export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
               {caseStudy.screenshots.map((src, i) => (
                 <BrowserFrame key={i} title={`${t(caseStudy.nameKey)} ${i + 1}`}>
                   <div className="relative w-full" style={{ aspectRatio: '16/10' }}>
-                    <Image
-                      src={src}
-                      alt={`${t(caseStudy.nameKey)} screenshot ${i + 1}`}
-                      fill
-                      className="object-cover rounded"
-                      sizes="(max-width: 768px) 100vw, 480px"
-                    />
+                    {src.endsWith('.svg') ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={src}
+                        alt={`${t(caseStudy.nameKey)} screenshot ${i + 1}`}
+                        className="absolute inset-0 w-full h-full object-cover rounded"
+                      />
+                    ) : (
+                      <Image
+                        src={src}
+                        alt={`${t(caseStudy.nameKey)} screenshot ${i + 1}`}
+                        fill
+                        className="object-cover rounded"
+                        sizes="(max-width: 768px) 100vw, 480px"
+                      />
+                    )}
                   </div>
                 </BrowserFrame>
               ))}

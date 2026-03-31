@@ -58,12 +58,10 @@ export function CaseStudyCard({ caseStudy, reversed }: CaseStudyCardProps) {
         )}
 
         <Link
-          href={caseStudy.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-cyan hover:underline mt-4 inline-block"
+          href={`/portfolio/${caseStudy.id}`}
+          className="text-sm text-cyan hover:underline mt-4 inline-block no-underline hover:no-underline"
         >
-          View on GitHub →
+          {t('p_detail_back').includes('Back') ? 'Read full case study →' : '閱讀完整案例 →'}
         </Link>
       </div>
 
@@ -77,13 +75,23 @@ export function CaseStudyCard({ caseStudy, reversed }: CaseStudyCardProps) {
               boxShadow: `0 0 40px ${accent}22`,
             }}
           >
-            <Image
-              src={`/portfolio/${caseStudy.id}-hub.webp`}
-              alt={t(caseStudy.nameKey)}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            {/* Use <img> for SVGs (next/image doesn't render SVG content), Image for raster */}
+            {caseStudy.screenshots[0]?.endsWith('.svg') ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={caseStudy.screenshots[0]}
+                alt={t(caseStudy.nameKey)}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src={caseStudy.screenshots[0] ?? '/portfolio/placeholder.svg'}
+                alt={t(caseStudy.nameKey)}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            )}
           </div>
         </BrowserFrame>
       </div>
