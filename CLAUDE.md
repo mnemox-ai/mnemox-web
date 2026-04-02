@@ -33,6 +33,7 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - Config: `src/lib/config.ts`
 
 ## Recent Changes
+- [2026-04-03] **Strategy Validator 產品**：/validate 頁面（CSV upload + 4-test validation + Bloomberg-style results + HTML report download）+ /api/validate route（TypeScript DSR/WF/Regime/CPCV 引擎）+ Portfolio case study #4（/portfolio/strategy-validator）。i18n EN+ZH，build pass。
 - [2026-03-31] **Portfolio Case Studies**：/portfolio hub page（challenge-outcome storytelling × 3 featured + 3 secondary）+ /portfolio/[slug] detail pages（TradeMemory, NexusOS, NG_Gold）。MetricsBar + CaseStudyCard + StickyCtaBar + ImpactNumbers + SolutionGrid。Nav/Footer/Sitemap 更新。i18n EN+ZH 完整。Placeholder SVGs（待替換真實截圖）。
 - [2026-03-30] **Content Audit Round 2**：MCPTools 補齊 2 audit tools（15→17）、版本 0.5.0→0.5.1、/pricing 簡化為 Free+Enterprise（移除 $29/$79 vaporware）、social proof 數字更新（1510+ tests, 780+ stars）、TradeMemory CTA 區分（開始使用→#install）、清理 8 個空翻譯 key。
 - [2026-03-30] **Site Audit 修復**：P0（NumberTicker SSR 0→actual, MCP tools 15→17, pricing CTA #waitlist→mailto）、P1（移除 requireAuth gate, Blog i18n, 刪 PayPal webhook）、P2（Footer 重建加 Privacy/Terms/Pricing 連結, blog 改指 /blog）、新增 /privacy + /terms 頁面、sitemap 更新。
@@ -55,7 +56,8 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - [2026-03-18] Phase 3: Clerk auth + Supabase + Dashboard + Webhooks + CTA auth gate
 
 ## Current Status
-- **2026-03-31 Portfolio 上線**：/portfolio hub + 3 case study detail pages。待替換 placeholder 截圖為真實截圖。
+- **2026-04-03 Strategy Validator 上線**：/validate 頁面 + /api/validate + portfolio #4。Ray Chou 客戶產品三層完成（MCP + Skill + Web UI）。
+- **2026-03-31 Portfolio 上線**：/portfolio hub + 4 case study detail pages。待替換 placeholder 截圖為真實截圖。
 - **2026-03-30 全站審計 3 輪完成**：P0/P1/P2 bug fixes + Privacy/Terms + MCPTools 17 tools + pricing 簡化 Free+Enterprise + terminal demo 重寫 + LiveBanner 移除。3 commits pushed, Vercel deployed。
 - **Default branch: `main`**
 - /blog: 2 篇文章，Nav 用 i18n（不再硬編碼 "BLOG"）
