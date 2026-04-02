@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#0b1120" rx="8"/>
+  <!-- Terminal header -->
+  <rect width="960" height="32" fill="#080d18" rx="8"/>
+  <rect y="24" width="960" height="8" fill="#080d18"/>
+  <circle cx="20" cy="16" r="5" fill="#ff5f57"/>
+  <circle cx="38" cy="16" r="5" fill="#febc2e"/>
+  <circle cx="56" cy="16" r="5" fill="#28c840"/>
+  <text x="480" y="20" fill="#6a6a80" font-family="monospace" font-size="11" text-anchor="middle">strategy-validator validate --strategy momentum_v3</text>
+
+  <!-- Title -->
+  <text x="24" y="60" fill="#a855f7" font-family="monospace" font-size="13" font-weight="bold">Strategy Validator — 4-Layer Statistical Pipeline</text>
+  <text x="24" y="82" fill="#6a6a80" font-family="monospace" font-size="10">Validating: momentum_v3 | Backtest Sharpe: 2.14 | 247 trades</text>
+
+  <!-- Layer 1 -->
+  <text x="24" y="115" fill="#a855f7" font-family="monospace" font-size="10">Layer 1: Deflated Sharpe Ratio (DSR)</text>
+  <text x="24" y="135" fill="#6a6a80" font-family="monospace" font-size="10">  Trials tested: 127 | Haircut: -0.82</text>
+  <text x="24" y="153" fill="#28c840" font-family="monospace" font-size="10">  DSR: 1.32 &gt; 1.0 threshold</text>
+  <text x="700" y="153" fill="#28c840" font-family="monospace" font-size="12" font-weight="bold">PASS</text>
+
+  <!-- Layer 2 -->
+  <text x="24" y="185" fill="#a855f7" font-family="monospace" font-size="10">Layer 2: Walk-Forward Validation</text>
+  <text x="24" y="205" fill="#6a6a80" font-family="monospace" font-size="10">  Windows: 8 | OOS Sharpe avg: 0.91 | Degradation: -18%</text>
+  <text x="24" y="223" fill="#28c840" font-family="monospace" font-size="10">  OOS degradation &lt; 30% threshold</text>
+  <text x="700" y="223" fill="#28c840" font-family="monospace" font-size="12" font-weight="bold">PASS</text>
+
+  <!-- Layer 3 -->
+  <text x="24" y="255" fill="#a855f7" font-family="monospace" font-size="10">Layer 3: Regime Analysis (20 years)</text>
+  <text x="24" y="275" fill="#6a6a80" font-family="monospace" font-size="10">  Bull: +1.21  Bear: +0.43  Crisis: -0.12  Ranging: +0.67</text>
+  <text x="24" y="293" fill="#febc2e" font-family="monospace" font-size="10">  Crisis Sharpe &lt; 0 — weak but within tolerance</text>
+  <text x="700" y="293" fill="#febc2e" font-family="monospace" font-size="12" font-weight="bold">WARN</text>
+
+  <!-- Layer 4 -->
+  <text x="24" y="325" fill="#a855f7" font-family="monospace" font-size="10">Layer 4: CPCV (45-fold)</text>
+  <text x="24" y="345" fill="#6a6a80" font-family="monospace" font-size="10">  Folds: 45 | Positive PBO: 0.87 | p-value: 0.023</text>
+  <text x="24" y="363" fill="#28c840" font-family="monospace" font-size="10">  PBO &gt; 0.5 and p &lt; 0.05</text>
+  <text x="700" y="363" fill="#28c840" font-family="monospace" font-size="12" font-weight="bold">PASS</text>
+
+  <!-- Divider -->
+  <line x1="24" y1="385" x2="936" y2="385" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Final verdict -->
+  <text x="24" y="415" fill="#e0e0e8" font-family="monospace" font-size="12" font-weight="bold">VERDICT</text>
+  <rect x="24" y="430" width="912" height="50" fill="#28c84011" stroke="#28c840" stroke-width="1" rx="6"/>
+  <text x="48" y="460" fill="#28c840" font-family="monospace" font-size="13" font-weight="bold">VALIDATED — Strategy has statistical edge beyond overfitting</text>
+
+  <!-- Stats row -->
+  <text x="24" y="510" fill="#a855f7" font-family="monospace" font-size="11">4 tests</text>
+  <text x="120" y="510" fill="#6a6a80" font-family="monospace" font-size="11">|</text>
+  <text x="140" y="510" fill="#a855f7" font-family="monospace" font-size="11">3 PASS</text>
+  <text x="230" y="510" fill="#6a6a80" font-family="monospace" font-size="11">|</text>
+  <text x="250" y="510" fill="#febc2e" font-family="monospace" font-size="11">1 WARN</text>
+  <text x="350" y="510" fill="#6a6a80" font-family="monospace" font-size="11">|</text>
+  <text x="370" y="510" fill="#a855f7" font-family="monospace" font-size="11">0 FAIL</text>
+  <text x="460" y="510" fill="#6a6a80" font-family="monospace" font-size="11">|</text>
+  <text x="480" y="510" fill="#e0e0e8" font-family="monospace" font-size="11">Time: 24.7s</text>
+
+  <!-- Quote -->
+  <text x="24" y="555" fill="#6a6a80" font-family="monospace" font-size="9" font-style="italic">"50 strategies in. 3 validated out. 47 money-losers caught." — Ray C.</text>
+  <text x="24" y="575" fill="#a855f740" font-family="monospace" font-size="9">mnemox.ai/validate</text>
+</svg>

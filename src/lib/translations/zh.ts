@@ -657,6 +657,48 @@ export const zh: Record<TranslationKey, string> = {
   p_ng_r3_val: '24/7',
   p_ng_r3_lbl: '自動風控監控',
 
+  // Portfolio — Strategy Validator
+  p_sv_name: 'Strategy Validator',
+  p_sv_tagline: '別再猜了。開始驗證。',
+  p_sv_challenge: '數百個回測策略，無法分辨哪些是真的',
+  p_sv_challenge_desc: '演算法交易者使用 QuantConnect 等工具產生數百個策略，卻無法區分真正的市場優勢和過擬合假象。用過擬合的策略上線交易，意味著真金白銀的虧損。',
+  p_sv_m1_val: '4',
+  p_sv_m1_lbl: '統計檢定',
+  p_sv_m2_val: '<30秒',
+  p_sv_m2_lbl: '每次驗證',
+  p_sv_overview: '專業級策略驗證管線，將真正的交易優勢與過擬合分離。四層統計檢定 — Deflated Sharpe Ratio、Walk-Forward、市況分析和 45 折 CPCV — 為上線前需要統計嚴謹性的交易者而建。',
+  p_sv_i1_val: '4',
+  p_sv_i1_lbl: '統計檢定',
+  p_sv_i2_val: '20 年',
+  p_sv_i2_lbl: '市況數據',
+  p_sv_i3_val: '45 折',
+  p_sv_i3_lbl: '交叉驗證',
+  p_sv_i4_val: '<30秒',
+  p_sv_i4_lbl: '每次驗證',
+  p_sv_problem_h: '回測會騙人 — 交易者付出代價',
+  p_sv_problem_desc: '大多數演算法交易者跑數百次回測，挑最好看的權益曲線就上線。但若不修正多重測試偏差、不做樣本外驗證、不檢查市況穩健性，那條漂亮的回測曲線很可能是過擬合的。結果：真實資本虧損在只有事後看才有效的策略上。',
+  p_sv_solution_h: '四層統計驗證管線',
+  p_sv_s1_title: 'Deflated Sharpe Ratio',
+  p_sv_s1_desc: '修正多重測試偏差 — 虛假回測的第一大成因',
+  p_sv_s2_title: 'Walk-Forward 驗證',
+  p_sv_s2_desc: '透過滾動視窗測試樣本外預測能力',
+  p_sv_s3_title: '市況分析',
+  p_sv_s3_desc: '驗證在多頭、空頭和危機市場條件下的表現',
+  p_sv_s4_title: 'CPCV（45 折）',
+  p_sv_s4_desc: '組合清除交叉驗證，確保最大穩健性',
+  p_sv_r1_val: '94%',
+  p_sv_r1_lbl: '過擬合策略被攔截',
+  p_sv_r2_val: '20 年',
+  p_sv_r2_lbl: '市況覆蓋範圍',
+  p_sv_r3_val: '<30 秒',
+  p_sv_r3_lbl: '完整驗證管線',
+  p_sv_quote: '「我在 QuantConnect 有 50 個策略。驗證後只有 3 個通過全部測試。這讓我免於部署 47 個潛在的虧錢機器。」— Ray C.，量化交易者',
+
+  // Portfolio — Tags (Strategy Validator)
+  p_tag_validation: 'VALIDATION',
+  p_tag_statistics: 'STATISTICS',
+  p_tag_backtesting: 'BACKTESTING',
+
   // Portfolio — Secondary projects
   p_sec_ir_desc: 'AI 代理的建構前現實檢查。同時掃描 5 個平台。',
   p_sec_ir_stat: '457 ★',
@@ -685,4 +727,66 @@ export const zh: Record<TranslationKey, string> = {
   p_detail_cta_primary: '預約探索通話',
   p_detail_cta_github: '在 GitHub 查看 →',
   p_detail_back: '← 返回作品集',
+
+  // Strategy Validator — /validate
+  val_title: '你的策略是真的嗎？',
+  val_subtitle: '上傳你的回測結果，獲得嚴謹的統計驗證 — Deflated Sharpe、Walk-Forward、市況分析和 CPCV。在投入資金之前先確認。',
+  val_analyzing: '正在執行驗證管線',
+  val_err_generic: '發生錯誤，請重試。',
+  val_err_server: '伺服器暫時無法使用，請稍後再試。',
+  val_try_again: '重試',
+
+  // Validate form
+  val_drop_csv: '拖放你的 CSV 檔案到這裡，或點擊瀏覽',
+  val_drop_hint: '支援每日報酬 CSV 或 QuantConnect 交易紀錄',
+  val_remove_file: '移除',
+  val_format_label: 'CSV 格式',
+  val_format_daily: '每日報酬',
+  val_format_qc: 'QuantConnect',
+  val_strategy_name: '策略名稱',
+  val_strategy_placeholder: '例如：均值回歸 XAUUSD',
+  val_num_strategies: '測試過的策略數',
+  val_num_strategies_hint: '你測試了多少個策略變體？（影響 DSR）',
+  val_csv_hint: '你的數據留在瀏覽器中，不會被儲存。',
+  val_btn_validate: '驗證策略',
+
+  // Validate results
+  val_section_summary: '摘要統計',
+  val_section_tests: '驗證測試',
+  val_download_report: '下載報告',
+  val_copy_results: '複製結果',
+  val_copied: '已複製！',
+  val_validate_another: '驗證另一個',
+
+  // Stats labels
+  val_stat_sharpe: 'Sharpe',
+  val_stat_win_rate: '勝率',
+  val_stat_max_dd: '最大回撤',
+  val_stat_pf: '獲利因子',
+  val_stat_trades: '交易數',
+  val_stat_avg_pnl: '平均損益',
+  val_stat_total_pnl: '總損益',
+  val_stat_hold_time: '平均持倉',
+
+  // Test details
+  val_wf_windows: 'Walk-Forward 視窗',
+  val_regime_breakdown: '市況分析',
+  val_regime: '市況',
+
+  // How it works section
+  val_how_title: '什麼是策略驗證？',
+  val_how_desc: '大多數回測策略在實盤交易中失敗，因為它們對歷史數據過擬合。策略驗證透過嚴謹的統計測試來判斷你的優勢是真實的還是只是噪音。我們測試多重測試偏差、樣本外穩定性、市況穩健性和交叉驗證一致性。',
+  val_tests_title: '四項測試',
+  val_test_dsr_name: 'Deflated Sharpe Ratio',
+  val_test_dsr_desc: '根據你測試的策略數量調整 Sharpe 比率。如果你嘗試了 100 個變體，1.5 的 Sharpe 可能只是運氣。',
+  val_test_wf_name: 'Walk-Forward 分析',
+  val_test_wf_desc: '將你的數據分成滾動的樣本內和樣本外期間。測試策略是否能推廣到訓練數據之外。',
+  val_test_regime_name: '市況分析',
+  val_test_regime_desc: '評估不同市場條件下的表現 — 低/中/高波動率和趨勢/盤整市況。真正的優勢在多種市況下都有效。',
+  val_test_cpcv_name: 'CPCV（交叉驗證）',
+  val_test_cpcv_desc: '組合清除交叉驗證測試每一種可能的訓練/測試分割。檢測交易策略過擬合的黃金標準。',
+
+  // Disclaimer
+  val_disclaimer: '策略驗證不構成財務建議。統計測試有其局限性。請將結果作為決策過程中的一個參考。',
+  val_powered_by: '技術支援',
 };

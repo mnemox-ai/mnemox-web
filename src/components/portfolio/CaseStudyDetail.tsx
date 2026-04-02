@@ -18,6 +18,7 @@ const ACCENT_COLORS: Record<string, string> = {
   tradememory: '#00e5ff',
   nexusos: '#00ff88',
   'ng-gold': '#ffaa00',
+  'strategy-validator': '#a855f7',
 };
 
 const TAG_COLORS: Record<string, string> = {
@@ -30,6 +31,9 @@ const TAG_COLORS: Record<string, string> = {
   p_tag_mt5: '#ef4444',
   p_tag_risk: '#f97316',
   p_tag_xauusd: '#eab308',
+  p_tag_validation: '#a855f7',
+  p_tag_statistics: '#6366f1',
+  p_tag_backtesting: '#ec4899',
 };
 
 export function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {

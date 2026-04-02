@@ -15,6 +15,7 @@ const ACCENT_COLORS: Record<string, string> = {
   tradememory: '#00e5ff',
   nexusos: '#00ff88',
   'ng-gold': '#ffaa00',
+  'strategy-validator': '#a855f7',
 };
 
 export function CaseStudyCard({ caseStudy, reversed }: CaseStudyCardProps) {

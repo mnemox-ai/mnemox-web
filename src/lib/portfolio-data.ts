@@ -181,6 +181,51 @@ export const FEATURED_CASES: CaseStudy[] = [
     metaTitle: 'NG_Gold — Multi-Strategy XAUUSD Expert Advisor | Mnemox AI',
     metaDescription: 'Production XAUUSD EA with 9-layer risk architecture. 4 independent strategies on a shared risk engine with portfolio drawdown caps, circuit breakers, and real-time Bloomberg-style monitoring.',
   },
+  {
+    id: 'strategy-validator',
+    slug: 'strategy-validator',
+    nameKey: 'p_sv_name',
+    taglineKey: 'p_sv_tagline',
+    challengeKey: 'p_sv_challenge',
+    challengeDescKey: 'p_sv_challenge_desc',
+    overviewKey: 'p_sv_overview',
+    tags: ['p_tag_validation', 'p_tag_statistics', 'p_tag_backtesting'],
+    heroMetrics: [
+      { val: 'p_sv_m1_val', lbl: 'p_sv_m1_lbl' },
+      { val: 'p_sv_m2_val', lbl: 'p_sv_m2_lbl' },
+    ],
+    infoMetrics: [
+      { val: 'p_sv_i1_val', lbl: 'p_sv_i1_lbl' },
+      { val: 'p_sv_i2_val', lbl: 'p_sv_i2_lbl' },
+      { val: 'p_sv_i3_val', lbl: 'p_sv_i3_lbl' },
+      { val: 'p_sv_i4_val', lbl: 'p_sv_i4_lbl' },
+    ],
+    problemHeadKey: 'p_sv_problem_h',
+    problemDescKey: 'p_sv_problem_desc',
+    solutionHeadKey: 'p_sv_solution_h',
+    solutions: [
+      { title: 'p_sv_s1_title', desc: 'p_sv_s1_desc' },
+      { title: 'p_sv_s2_title', desc: 'p_sv_s2_desc' },
+      { title: 'p_sv_s3_title', desc: 'p_sv_s3_desc' },
+      { title: 'p_sv_s4_title', desc: 'p_sv_s4_desc' },
+    ],
+    results: [
+      { val: 'p_sv_r1_val', lbl: 'p_sv_r1_lbl' },
+      { val: 'p_sv_r2_val', lbl: 'p_sv_r2_lbl' },
+      { val: 'p_sv_r3_val', lbl: 'p_sv_r3_lbl' },
+    ],
+    githubUrl: 'https://github.com/mnemox-ai/strategy-validator',
+    techStack: ['Python', 'FastMCP', 'Next.js', 'Supabase', 'Tailwind CSS'],
+    screenshots: ['/portfolio/strategy-validator-hub.svg'],
+    impactNumbers: [
+      { val: 'p_sv_i1_val', lbl: 'p_sv_i1_lbl' },
+      { val: 'p_sv_i2_val', lbl: 'p_sv_i2_lbl' },
+      { val: 'p_sv_i3_val', lbl: 'p_sv_i3_lbl' },
+      { val: 'p_sv_i4_val', lbl: 'p_sv_i4_lbl' },
+    ],
+    metaTitle: 'Strategy Validator — Statistical Strategy Validation Pipeline | Mnemox AI',
+    metaDescription: 'Professional-grade strategy validation: Deflated Sharpe Ratio, Walk-Forward, Regime Analysis, and 45-fold CPCV. Stop deploying overfitted strategies. Validate before you trade.',
+  },
 ];
 
 export const SECONDARY_PROJECTS: SecondaryProject[] = [

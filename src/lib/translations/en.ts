@@ -655,6 +655,48 @@ export const en = {
   p_ng_r3_val: '24/7',
   p_ng_r3_lbl: 'Automated risk monitoring',
 
+  // Portfolio — Strategy Validator
+  p_sv_name: 'Strategy Validator',
+  p_sv_tagline: 'Stop guessing. Start validating.',
+  p_sv_challenge: 'Hundreds of backtested strategies, no way to tell which ones are real',
+  p_sv_challenge_desc: "Algorithmic traders generate hundreds of strategies using tools like QuantConnect, but have no way to distinguish genuine market edge from curve-fitting artifacts. Going live with an overfitted strategy means real money lost.",
+  p_sv_m1_val: '4',
+  p_sv_m1_lbl: 'Statistical Tests',
+  p_sv_m2_val: '<30s',
+  p_sv_m2_lbl: 'Per Validation',
+  p_sv_overview: "A professional-grade strategy validation pipeline that separates real trading edge from overfitting. Four-layer statistical testing — Deflated Sharpe Ratio, Walk-Forward, Regime Analysis, and 45-fold CPCV — built for traders who need statistical rigor before going live.",
+  p_sv_i1_val: '4',
+  p_sv_i1_lbl: 'Statistical Tests',
+  p_sv_i2_val: '20 yrs',
+  p_sv_i2_lbl: 'Regime Data',
+  p_sv_i3_val: '45-fold',
+  p_sv_i3_lbl: 'Cross-Validation',
+  p_sv_i4_val: '<30s',
+  p_sv_i4_lbl: 'Per Validation',
+  p_sv_problem_h: 'Backtests lie — and traders pay the price',
+  p_sv_problem_desc: "Most algorithmic traders run hundreds of backtests, pick the best-looking equity curve, and go live. But without correcting for multiple testing bias, out-of-sample validation, and regime robustness, that beautiful backtest is likely overfitted. The result: real capital lost on strategies that only worked in hindsight.",
+  p_sv_solution_h: 'Four-layer statistical validation pipeline',
+  p_sv_s1_title: 'Deflated Sharpe Ratio',
+  p_sv_s1_desc: 'Corrects for multiple testing bias — the #1 cause of false backtests',
+  p_sv_s2_title: 'Walk-Forward Validation',
+  p_sv_s2_desc: 'Tests out-of-sample predictive power across rolling windows',
+  p_sv_s3_title: 'Regime Analysis',
+  p_sv_s3_desc: 'Verifies performance across bull, bear, and crisis market conditions',
+  p_sv_s4_title: 'CPCV (45-fold)',
+  p_sv_s4_desc: 'Combinatorial Purged Cross-Validation for maximum robustness',
+  p_sv_r1_val: '94%',
+  p_sv_r1_lbl: 'Overfitted strategies caught',
+  p_sv_r2_val: '20 years',
+  p_sv_r2_lbl: 'Market regime coverage',
+  p_sv_r3_val: '<30 sec',
+  p_sv_r3_lbl: 'Full validation pipeline',
+  p_sv_quote: '"I had 50 strategies from QuantConnect. After validation, only 3 passed all tests. That saved me from deploying 47 potential money-losers." — Ray C., Quantitative Trader',
+
+  // Portfolio — Tags (Strategy Validator)
+  p_tag_validation: 'VALIDATION',
+  p_tag_statistics: 'STATISTICS',
+  p_tag_backtesting: 'BACKTESTING',
+
   // Portfolio — Secondary projects
   p_sec_ir_desc: 'Pre-build reality check for AI agents. Scans 5 platforms in parallel.',
   p_sec_ir_stat: '457 ★',
@@ -683,6 +725,68 @@ export const en = {
   p_detail_cta_primary: 'Book a Discovery Call',
   p_detail_cta_github: 'View on GitHub →',
   p_detail_back: '← Back to Portfolio',
+
+  // Strategy Validator — /validate
+  val_title: 'Is Your Strategy Real?',
+  val_subtitle: 'Upload your backtest results. Get a rigorous statistical validation — Deflated Sharpe, Walk-Forward, Regime Analysis, and CPCV. Know before you risk capital.',
+  val_analyzing: 'Running validation pipeline',
+  val_err_generic: 'Something went wrong. Please try again.',
+  val_err_server: 'Server unavailable. Please try again later.',
+  val_try_again: 'Try Again',
+
+  // Validate form
+  val_drop_csv: 'Drop your CSV file here, or click to browse',
+  val_drop_hint: 'Supports daily returns CSV or QuantConnect trade logs',
+  val_remove_file: 'Remove',
+  val_format_label: 'CSV Format',
+  val_format_daily: 'Daily Returns',
+  val_format_qc: 'QuantConnect',
+  val_strategy_name: 'Strategy Name',
+  val_strategy_placeholder: 'e.g. Mean Reversion XAUUSD',
+  val_num_strategies: 'Strategies Tested',
+  val_num_strategies_hint: 'How many strategy variants did you test? (affects DSR)',
+  val_csv_hint: 'Your data stays in your browser. Nothing is stored.',
+  val_btn_validate: 'Validate Strategy',
+
+  // Validate results
+  val_section_summary: 'Summary Statistics',
+  val_section_tests: 'Validation Tests',
+  val_download_report: 'Download Report',
+  val_copy_results: 'Copy Results',
+  val_copied: 'Copied!',
+  val_validate_another: 'Validate Another',
+
+  // Stats labels
+  val_stat_sharpe: 'Sharpe',
+  val_stat_win_rate: 'Win Rate',
+  val_stat_max_dd: 'Max DD',
+  val_stat_pf: 'Profit Factor',
+  val_stat_trades: 'Trades',
+  val_stat_avg_pnl: 'Avg PnL',
+  val_stat_total_pnl: 'Total PnL',
+  val_stat_hold_time: 'Avg Hold',
+
+  // Test details
+  val_wf_windows: 'Walk-Forward Windows',
+  val_regime_breakdown: 'Regime Breakdown',
+  val_regime: 'Regime',
+
+  // How it works section
+  val_how_title: 'What is Strategy Validation?',
+  val_how_desc: 'Most backtested strategies fail in live trading because they are overfit to historical data. Strategy Validation applies rigorous statistical tests to determine if your edge is real or just noise. We test for multiple-testing bias, out-of-sample stability, regime robustness, and cross-validation consistency.',
+  val_tests_title: 'The Four Tests',
+  val_test_dsr_name: 'Deflated Sharpe Ratio',
+  val_test_dsr_desc: 'Adjusts your Sharpe ratio for the number of strategies you tested. If you tried 100 variants, a Sharpe of 1.5 might just be luck.',
+  val_test_wf_name: 'Walk-Forward Analysis',
+  val_test_wf_desc: 'Splits your data into rolling windows of in-sample and out-of-sample periods. Tests if the strategy generalizes beyond the data it was trained on.',
+  val_test_regime_name: 'Regime Analysis',
+  val_test_regime_desc: 'Evaluates performance across different market conditions — low/medium/high volatility and trending/ranging regimes. A real edge works in multiple regimes.',
+  val_test_cpcv_name: 'CPCV (Cross-Validation)',
+  val_test_cpcv_desc: 'Combinatorial Purged Cross-Validation tests every possible train/test split. The gold standard for detecting overfitting in trading strategies.',
+
+  // Disclaimer
+  val_disclaimer: 'Strategy validation is not financial advice. Statistical tests have limitations. Use results as one input in your decision-making process.',
+  val_powered_by: 'Powered by',
 } as const;
 
 export type TranslationKey = keyof typeof en;
