@@ -83,6 +83,17 @@ export function Nav() {
                 {stars ? `${stars.idea_reality} ★` : '★'}
               </span>
             </Link>
+            <Link
+              href="/validate"
+              className="flex items-center justify-between px-4 py-2.5 rounded-md transition-colors hover:bg-bg-card-hover no-underline hover:no-underline"
+            >
+              <span className="font-display text-sm font-semibold text-txt">
+                Strategy Validator
+              </span>
+              <span className="font-mono text-[11px] text-neon-green">
+                NEW
+              </span>
+            </Link>
           </div>
         </div>
 
