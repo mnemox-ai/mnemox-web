@@ -2,8 +2,47 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Technical articles about MCP servers, AI trading, and developer tools by Mnemox AI.',
+  title: 'Blog — AI Trading & Developer Tools Articles',
+  description: 'Technical articles about MCP servers, AI trading, and developer tools by Mnemox AI. Guides for algorithmic traders and startup founders.',
+  alternates: {
+    canonical: 'https://www.mnemox.ai/blog',
+  },
+  openGraph: {
+    title: 'Mnemox AI Blog — Technical Articles',
+    description: 'Technical articles about MCP servers, AI trading, and developer tools.',
+    url: 'https://www.mnemox.ai/blog',
+    type: 'website',
+  },
+  other: {
+    'application-ld+json': JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Mnemox AI Blog',
+      description: 'Technical articles about MCP servers, AI trading, and developer tools.',
+      url: 'https://www.mnemox.ai/blog',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Mnemox AI',
+        url: 'https://www.mnemox.ai',
+      },
+      blogPost: [
+        {
+          '@type': 'BlogPosting',
+          headline: 'MCP Servers for Finance and Trading: A Complete List (2026)',
+          url: 'https://www.mnemox.ai/blog/mcp-servers-finance',
+          datePublished: '2026-03-22',
+          author: { '@type': 'Organization', name: 'Mnemox AI' },
+        },
+        {
+          '@type': 'BlogPosting',
+          headline: 'How to Check If Your Startup Idea Already Exists (Before You Build)',
+          url: 'https://www.mnemox.ai/blog/check-startup-idea',
+          datePublished: '2026-03-22',
+          author: { '@type': 'Organization', name: 'Mnemox AI' },
+        },
+      ],
+    }),
+  },
 };
 
 const posts = [

@@ -93,16 +93,62 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'Mnemox AI',
-              url: 'https://www.mnemox.ai',
-              logo: 'https://www.mnemox.ai/assets/og-home.png',
-              description:
-                'AI-powered tools for traders and developers.',
-              sameAs: ['https://github.com/mnemox-ai'],
-            }),
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                '@id': 'https://www.mnemox.ai/#organization',
+                name: 'Mnemox AI',
+                url: 'https://www.mnemox.ai',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://www.mnemox.ai/assets/og-home.png',
+                  width: 1200,
+                  height: 630,
+                },
+                description:
+                  'AI-powered tools for traders and developers. Open-source MCP servers for trading memory and idea validation.',
+                sameAs: [
+                  'https://github.com/mnemox-ai',
+                  'https://pypi.org/user/mnemox-ai/',
+                ],
+                foundingLocation: {
+                  '@type': 'Place',
+                  name: 'Taiwan',
+                },
+                knowsAbout: [
+                  'Artificial Intelligence',
+                  'Algorithmic Trading',
+                  'MCP Servers',
+                  'Model Context Protocol',
+                  'AI Agents',
+                  'Trading Memory Systems',
+                ],
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                '@id': 'https://www.mnemox.ai/#website',
+                name: 'Mnemox AI',
+                url: 'https://www.mnemox.ai',
+                description: 'AI-powered tools for traders and developers.',
+                publisher: {
+                  '@id': 'https://www.mnemox.ai/#organization',
+                },
+                potentialAction: {
+                  '@type': 'SearchAction',
+                  target: {
+                    '@type': 'EntryPoint',
+                    urlTemplate: 'https://www.mnemox.ai/check?q={search_term_string}',
+                  },
+                  'query-input': 'required name=search_term_string',
+                },
+                speakable: {
+                  '@type': 'SpeakableSpecification',
+                  cssSelector: ['h1', 'h2', '.hero-description'],
+                },
+              },
+            ]),
           }}
         />
         <Script
