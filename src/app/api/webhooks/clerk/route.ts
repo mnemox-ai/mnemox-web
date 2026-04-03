@@ -18,7 +18,10 @@ interface ClerkUserEvent {
 export async function POST(req: NextRequest) {
   const webhookSecret = process.env.CLERK_WEBHOOK_SECRET;
   if (!webhookSecret) {
-    console.error('CLERK_WEBHOOK_SECRET not configured');
+    // Log only in development to avoid leaking info
+    if (process.env.NODE_ENV === 'development') {
+      console.error('CLERK_WEBHOOK_SECRET not configured');
+    }
     return NextResponse.json({ error: 'Server misconfigured' }, { status: 500 });
   }
 
@@ -43,7 +46,9 @@ export async function POST(req: NextRequest) {
       'svix-signature': svixSignature,
     }) as ClerkUserEvent;
   } catch (err) {
-    console.error('Clerk webhook signature verification failed:', err);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Clerk webhook signature verification failed:', err);
+    }
     return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
   }
 
@@ -69,7 +74,9 @@ export async function POST(req: NextRequest) {
           );
 
         if (error) {
-          console.error(`Clerk webhook ${event.type} error:`, error);
+          if (process.env.NODE_ENV === 'development') {
+            console.error(`Clerk webhook ${event.type} error:`, error);
+          }
           return NextResponse.json({ error: 'Database error' }, { status: 500 });
         }
         break;
@@ -82,7 +89,9 @@ export async function POST(req: NextRequest) {
           .eq('id', userData.id);
 
         if (error) {
-          console.error('Clerk webhook user.deleted error:', error);
+          if (process.env.NODE_ENV === 'development') {
+            console.error('Clerk webhook user.deleted error:', error);
+          }
           return NextResponse.json({ error: 'Database error' }, { status: 500 });
         }
         break;
@@ -93,7 +102,9 @@ export async function POST(req: NextRequest) {
         break;
     }
   } catch (err) {
-    console.error('Clerk webhook handler error:', err);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Clerk webhook handler error:', err);
+    }
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });
   }
 

@@ -77,7 +77,10 @@ export async function GET() {
       total_countries: countries.length,
     });
   } catch (error) {
-    console.error('[api/pulse]', error instanceof Error ? error.message : error);
+    // Log errors only in development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[api/pulse]', error instanceof Error ? error.message : error);
+    }
     return NextResponse.json({ error: 'Failed to fetch pulse data' }, { status: 500 });
   }
 }

@@ -1,29 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Hero } from '@/components/home/Hero';
 import { ProductCard } from '@/components/home/ProductCard';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { NumberTicker } from '@/components/magicui/number-ticker';
 import { useI18n } from '@/lib/i18n';
+import { useGitHubStars } from '@/hooks/useGitHubStars';
 import { PRODUCT_STATS, COMBINED_TESTS } from '@/lib/config';
-
-interface Stars {
-  idea_reality: number;
-  tradememory: number;
-  combined: number;
-}
 
 export default function Home() {
   const { t } = useI18n();
-  const [stars, setStars] = useState<Stars | null>(null);
-
-  useEffect(() => {
-    fetch('/api/github-stars')
-      .then((r) => r.json())
-      .then(setStars)
-      .catch(() => {});
-  }, []);
+  const { stars } = useGitHubStars();
 
   return (
     <>
@@ -66,7 +53,7 @@ export default function Home() {
                   '—'
                 )}
               </span>
-              <span className="text-xs text-txt-dim md:text-sm">★ combined</span>
+              <span className="text-xs text-txt-dim md:text-sm">combined</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="font-mono text-lg font-bold text-cyan md:text-xl">

@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
         }),
       });
 
-      if (!insertRes.ok) {
+      if (!insertRes.ok && process.env.NODE_ENV === 'development') {
         console.error('Supabase insert failed:', insertRes.status, await insertRes.text());
       }
     }
@@ -123,13 +123,17 @@ export async function POST(req: NextRequest) {
           ],
         }),
       }).catch((err) => {
-        console.error('Discord webhook failed:', err);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Discord webhook failed:', err);
+        }
       });
     }
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error('Booking API error:', err);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Booking API error:', err);
+    }
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }

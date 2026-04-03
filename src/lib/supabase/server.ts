@@ -27,7 +27,7 @@ export async function createServerSupabaseClient() {
  */
 export function createServiceSupabaseClient() {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!serviceRoleKey) {
+  if (!serviceRoleKey && process.env.NODE_ENV === 'development') {
     console.error('[Supabase] SUPABASE_SERVICE_ROLE_KEY is not set!');
   }
   return createClient(supabaseUrl, serviceRoleKey ?? '', {

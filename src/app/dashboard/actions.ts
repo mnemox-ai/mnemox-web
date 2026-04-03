@@ -49,7 +49,10 @@ export async function generateApiKey(): Promise<{
   });
 
   if (error) {
-    console.error('[generateApiKey] userId:', userId, 'error:', error.message, error.details);
+    // Log errors only in development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[generateApiKey] userId:', userId, 'error:', error.message, error.details);
+    }
     return { key: null, error: error.message };
   }
   return { key, error: null };
@@ -90,10 +93,12 @@ export async function getApiKeys(): Promise<{
     .order('created_at', { ascending: false });
 
   if (error) {
-    console.error('[getApiKeys] userId:', userId, 'error:', error.message, error.details);
+    // Log errors only in development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[getApiKeys] userId:', userId, 'error:', error.message, error.details);
+    }
     return { keys: [], error: error.message };
   }
-  console.log('[getApiKeys] userId:', userId, 'rows returned:', data?.length ?? 0);
   return { keys: data ?? [], error: null };
 }
 
