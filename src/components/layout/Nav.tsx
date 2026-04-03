@@ -1,22 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { SignInButton, UserButton, useUser } from '@clerk/nextjs';
 import { useI18n } from '@/lib/i18n';
+import { useGitHubStars } from '@/hooks/useGitHubStars';
 
 export function Nav() {
   const { t, toggleLang } = useI18n();
   const { isSignedIn } = useUser();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [stars, setStars] = useState<{ idea_reality: number; tradememory: number } | null>(null);
-
-  useEffect(() => {
-    fetch('/api/github-stars')
-      .then((r) => r.json())
-      .then(setStars)
-      .catch(() => {});
-  }, []);
+  const { stars } = useGitHubStars();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-10 py-4 bg-[rgba(5,5,8,0.85)] backdrop-blur-[20px] border-b border-border max-md:px-5 max-md:py-3">

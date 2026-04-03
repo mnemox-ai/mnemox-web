@@ -1,32 +1,77 @@
-# Mnemox
+# Mnemox AI
 
-> Trading Decision Intelligence. Open-source MCP tools for AI agents — memory systems and pre-build validation. Built in Taiwan.
+> AI-powered tools for traders and developers. Open-source MCP infrastructure for trading memory and idea validation. Built in Taiwan.
 
 Mnemox builds open-source infrastructure for AI-assisted decision making. We focus on two product lines:
 
-1. **Idea Reality Check** (idea-reality-mcp) — An MCP tool that scans GitHub, Hacker News, npm, PyPI, and Product Hunt before you build. Returns a 0-100 reality signal with evidence of existing competitors. Used by AI coding agents to prevent reinventing the wheel.
-   - Install: `pip install idea-reality-mcp`
-   - When to use: Use when validating a software idea before building — checks if similar projects already exist.
-
-2. **TradeMemory Protocol** — An outcome-weighted memory system with 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective) for AI trading agents. Applies ACT-R cognitive architecture and Kelly Criterion to MCP-based trade recall. 17 MCP tools, 1233 tests. Accepts data from MT5, Binance, Alpaca, or any trading platform.
-   - Install: `pip install tradememory-protocol`
-   - When to use: Use when building AI trading agents that need persistent memory across sessions.
-
 ## Products
 
-- [Idea Reality Check — Web Demo](https://mnemox.ai/check): Try the idea scanner in your browser. Free, no signup required.
-- [idea-reality-mcp on PyPI](https://pypi.org/project/idea-reality-mcp/): Install the MCP server locally via pip. MIT license.
-- [idea-reality-mcp on GitHub](https://github.com/mnemox-ai/idea-reality-mcp): Source code, documentation, and examples.
-- [TradeMemory Protocol on GitHub](https://github.com/mnemox-ai/tradememory-protocol): Source code for the trading memory system.
-- [TradeMemory Protocol on PyPI](https://pypi.org/project/tradememory-protocol/): Install via pip.
+### 1. TradeMemory Protocol
+Persistent memory layer for AI trading agents. 5-layer cognitive architecture with Outcome-Weighted Memory (OWM).
+
+- **Install**: `pip install tradememory-protocol`
+- **Tools**: 17 MCP tools for Claude Desktop, Cursor, and custom agents
+- **Tests**: 1,233 passing tests
+- **License**: MIT (fully open source)
+- **Platforms**: MT5, Binance, Alpaca, any platform with API
+- **GitHub**: https://github.com/mnemox-ai/tradememory-protocol
+- **PyPI**: https://pypi.org/project/tradememory-protocol/
+
+**Key Features:**
+- Outcome-Weighted Memory (profitable trades get higher recall priority)
+- Pattern discovery from trade history
+- Strategy Evolution Engine (discovers strategies from raw OHLCV)
+- Bias detection (loss aversion, overtrading, revenge trading)
+- Kelly Criterion position sizing from historical data
+- SHA-256 verified audit trails for compliance
+
+**When to use**: Building AI trading bots that need to remember and learn from past trades.
+
+### 2. Idea Reality Check (idea-reality-mcp)
+AI scanner that checks if your idea already exists before you build.
+
+- **Install**: `pip install idea-reality-mcp`
+- **Web Demo**: https://mnemox.ai/check (free, no signup)
+- **License**: MIT
+- **GitHub**: https://github.com/mnemox-ai/idea-reality-mcp
+- **PyPI**: https://pypi.org/project/idea-reality-mcp/
+
+**Features:**
+- Scans GitHub, Hacker News, npm, PyPI, Product Hunt
+- Returns 0-100 reality score with competitor evidence
+- Gap radar visualization for market opportunities
+
+**When to use**: Validating startup ideas before investing development time.
+
+## Services
+
+Custom AI trading infrastructure development:
+- Decision audit trails (compliance-grade)
+- Real-time dashboards
+- Multi-strategy Expert Advisors (MT5/MT4)
+- AI war rooms
+
+**Starting at**: $5,000
+**URL**: https://www.mnemox.ai/services
 
 ## Developer Resources
 
-- [idea-check-action](https://github.com/mnemox-ai/idea-check-action): GitHub Action for CI/CD integration. Runs idea reality check on every PR.
-- [REST API](https://idea-reality-mcp.onrender.com/health): Public API endpoint for idea checking. POST /api/check with {idea_text, depth}.
-- [MCP Registry](https://registry.modelcontextprotocol.io): Listed as io.github.mnemox-ai/idea-reality-mcp.
+- [idea-check-action](https://github.com/mnemox-ai/idea-check-action): GitHub Action for CI/CD
+- [REST API](https://idea-reality-mcp.onrender.com/health): Public API for idea checking
+- [MCP Registry](https://registry.modelcontextprotocol.io): Listed as io.github.mnemox-ai/idea-reality-mcp
 
-## Optional
+## FAQ
 
-- [Smithery Marketplace](https://smithery.ai): idea-reality-mcp listed for one-click MCP installation.
-- [Glama.ai](https://glama.ai/mcp/servers/@mnemox-ai/idea-reality-mcp): Alternative MCP marketplace listing.
+**Q: Is TradeMemory Protocol free?**
+A: Yes, fully open source under MIT license.
+
+**Q: Does TradeMemory execute trades?**
+A: No, it's a memory layer only. You need a separate execution layer.
+
+**Q: Which AI clients work with these MCP servers?**
+A: Claude Desktop, Cursor, Windsurf, and any MCP-compatible client.
+
+## Contact
+
+- Website: https://www.mnemox.ai
+- GitHub: https://github.com/mnemox-ai

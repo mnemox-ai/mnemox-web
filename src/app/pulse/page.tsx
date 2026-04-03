@@ -83,7 +83,10 @@ export default function PulsePage() {
           if (!cancelled) setPulseData(data);
           return;
         } catch (err) {
-          console.error(`[Pulse] attempt ${i + 1} failed:`, (err as Error).message);
+          // Log errors only in development
+          if (process.env.NODE_ENV === 'development') {
+            console.error(`[Pulse] attempt ${i + 1} failed:`, (err as Error).message);
+          }
           if (i < retries) await new Promise((r) => setTimeout(r, 2000));
         }
       }

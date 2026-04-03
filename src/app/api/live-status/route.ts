@@ -14,7 +14,10 @@ export async function GET(request: NextRequest) {
     const data = await fetchLiveData(strategy);
     return NextResponse.json(data);
   } catch (error) {
-    console.error('[live-status]', error instanceof Error ? error.message : error);
+    // Log errors only in development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[live-status]', error instanceof Error ? error.message : error);
+    }
     return NextResponse.json({ error: 'Failed to fetch live data' }, { status: 500 });
   }
 }
