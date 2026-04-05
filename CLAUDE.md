@@ -33,6 +33,7 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - Config: `src/lib/config.ts`
 
 ## Recent Changes
+- [2026-04-05] **/tradememory 商業重寫**：7 段落新版 landing page（Hero amnesia hook → Problem 3欄 → How It Works 3步 → Use Cases 3卡 → Stats Bar → Pricing 3層表格 → CTA footer）。AAPL Terminal demo、layout metadata 更新（19 tools, pricing offers in JSON-LD）、en.ts + zh.ts 全 tm_* key 替換為商業版文案。Build pass，commit e11f170 pushed。
 - [2026-04-03] **Strategy Validator 產品**：/validate 頁面（CSV upload + 4-test validation + Bloomberg-style results + HTML report download）+ /api/validate route（TypeScript DSR/WF/Regime/CPCV 引擎）+ Portfolio case study #4（/portfolio/strategy-validator）。i18n EN+ZH，build pass。
 - [2026-03-31] **Portfolio Case Studies**：/portfolio hub page（challenge-outcome storytelling × 3 featured + 3 secondary）+ /portfolio/[slug] detail pages（TradeMemory, NexusOS, NG_Gold）。MetricsBar + CaseStudyCard + StickyCtaBar + ImpactNumbers + SolutionGrid。Nav/Footer/Sitemap 更新。i18n EN+ZH 完整。Placeholder SVGs（待替換真實截圖）。
 - [2026-03-30] **Content Audit Round 2**：MCPTools 補齊 2 audit tools（15→17）、版本 0.5.0→0.5.1、/pricing 簡化為 Free+Enterprise（移除 $29/$79 vaporware）、social proof 數字更新（1510+ tests, 780+ stars）、TradeMemory CTA 區分（開始使用→#install）、清理 8 個空翻譯 key。
@@ -56,6 +57,7 @@ Mnemox AI 官方網站。Next.js 14 + Tailwind + Magic UI + Clerk + Supabase。
 - [2026-03-18] Phase 3: Clerk auth + Supabase + Dashboard + Webhooks + CTA auth gate
 
 ## Current Status
+- **2026-04-05 /tradememory 商業重寫完成**：新版 7 段落 landing page，商業定位（amnesia hook + 3層 pricing）。Vercel 自動部署中。
 - **2026-04-03 Strategy Validator 上線**：/validate 頁面 + /api/validate + portfolio #4。Ray Chou 客戶產品三層完成（MCP + Skill + Web UI）。
 - **2026-03-31 Portfolio 上線**：/portfolio hub + 4 case study detail pages。待替換 placeholder 截圖為真實截圖。
 - **2026-03-30 全站審計 3 輪完成**：P0/P1/P2 bug fixes + Privacy/Terms + MCPTools 17 tools + pricing 簡化 Free+Enterprise + terminal demo 重寫 + LiveBanner 移除。3 commits pushed, Vercel deployed。
