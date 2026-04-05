@@ -23,38 +23,89 @@ export const en = {
   footer_blog: 'Blog',
 
   // TradeMemory page — Hero
-  tm_hero_tag: 'Open Source MCP Server',
-  tm_hero_title1: 'AI Trading Memory',
-  tm_hero_title2: 'Your Agent Never Forgets',
-  tm_hero_desc: 'Your AI agent forgets every trade after each session. TradeMemory gives it persistent memory — store decisions, discover patterns, evolve strategy automatically via MCP.',
-  tm_hero_cta1: 'Get Started',
-  tm_hero_cta2: 'View on GitHub',
+  tm_hero_tag: 'The Memory Layer for AI Trading Agents',
+  tm_hero_title1: 'Your Trading AI',
+  tm_hero_title2: 'Has Amnesia',
+  tm_hero_desc: 'It makes the same mistakes every session. It can\'t explain why it traded. It forgets everything when the context window ends. TradeMemory is the memory layer — one pip install, and your AI agent remembers every trade, every outcome, every mistake.',
+  tm_hero_cta1: 'Get Started — Free',
+  tm_hero_cta2: 'Enterprise',
 
   // TradeMemory page — Stats
   tm_stat_tests: 'Tests Passing',
   tm_stat_memory: 'Memory Types',
   tm_stat_tools: 'MCP Tools',
   tm_stat_license: 'Licensed',
+  tm_stat_production: 'In Production Since',
+  tm_stat_production_val: 'Mar 2026',
 
-  // TradeMemory page — Features
-  tm_features_title: 'Everything Your Trading Agent Needs',
-  tm_features_subtitle: 'From trade storage to strategy evolution — a complete memory architecture for AI trading agents.',
-  tm_feat_owm_title: 'Outcome-Weighted Memory',
-  tm_feat_owm_desc: '5 cognitive memory types: Episodic, Semantic, Procedural, Affective, Prospective. Each trade scored by outcome quality, context similarity, recency, and confidence.',
-  tm_feat_reflection_title: 'Reflection Engine',
-  tm_feat_reflection_desc: 'Rule-based analysis finds patterns in your trade history — win rates by session, strategy, confidence level. Optional LLM layer for deeper insights.',
-  tm_feat_pattern_title: 'Automatic Pattern Mining',
-  tm_feat_pattern_desc: 'L2 discovers which strategies, sessions, and conditions produce winners. L3 generates actionable adjustments: disable losers, size up winners.',
-  tm_feat_daily_title: 'Automated Daily Reflection',
-  tm_feat_daily_desc: 'Schedule daily_reflection.py to run at market close. Summarizes P&L, flags anomalies, and updates memory layers automatically.',
-  tm_feat_bias_title: 'Bias Detection',
-  tm_feat_bias_desc: 'Procedural memory tracks trading behaviors. Detects overtrading, revenge trading, and session-specific biases from your trade history.',
-  tm_feat_kelly_title: 'Kelly-from-Memory',
-  tm_feat_kelly_desc: 'Context-weighted Kelly Criterion using recalled win rates and payoff ratios. Quarter-Kelly default with risk appetite adjustment.',
-  tm_feat_evolution_title: 'Strategy Evolution',
-  tm_feat_evolution_desc: 'Discover trading strategies from raw price data. LLM-powered hypothesis generation + vectorized backtesting + Darwinian selection. Finds real alpha — statistically validated.',
+  // TradeMemory page — Problem
+  tm_problem_title: 'The Problem',
+  tm_problem1_title: 'Same Mistakes Every Session',
+  tm_problem1_desc: 'Your agent forgets every trade when the context window ends. It can\'t learn from past mistakes or remember what worked.',
+  tm_problem2_title: 'No Audit Trail for Regulators',
+  tm_problem2_desc: 'MiFID II and the EU AI Act require decision documentation. Your agent can\'t explain why it made each trade.',
+  tm_problem3_title: 'Context Window = Memory Loss',
+  tm_problem3_desc: 'Every MCP server handles execution — placing orders, fetching prices. None handle memory. The AI trading stack is missing a layer.',
 
-  // TradeMemory page — Architecture (Part 2)
+  // TradeMemory page — How It Works
+  tm_how_title: 'How It Works',
+  tm_how_subtitle: 'Three steps. Before, during, and after every trade.',
+  tm_how1_title: 'Ask',
+  tm_how1_desc: 'Before trading, recall past trades in similar market conditions. The system returns what happened last time and how it ended.',
+  tm_how2_title: 'Record',
+  tm_how2_desc: 'After trading, one call records everything. Five memory layers — episodic, semantic, procedural, affective, and audit — update automatically.',
+  tm_how3_title: 'Reflect',
+  tm_how3_desc: 'Daily and weekly reviews detect behavioral drift, strategy decay, and trading mistakes. The system tells you when to stop.',
+
+  // TradeMemory page — Use Cases
+  tm_cases_title: 'Who Uses TradeMemory',
+  tm_case1_title: 'US Equity Trader',
+  tm_case1_desc: 'Pre-flight checklist before every trade. Memory is the starting point of the decision process, not an afterthought.',
+  tm_case1_badge: 'Real User',
+  tm_case2_title: 'Forex EA System',
+  tm_case2_desc: 'Automated sync from MT5. Records why signals were blocked, not just executed. Thousands of decisions daily.',
+  tm_case2_badge: 'Production',
+  tm_case3_title: 'Compliance Team',
+  tm_case3_desc: 'SHA-256 tamper-proof audit trail. Every AI decision recorded and exportable for regulatory review.',
+  tm_case3_badge: 'Enterprise',
+  tm_cases_link: 'Read full use cases →',
+
+  // TradeMemory page — Pricing
+  tm_pricing_title: 'Pricing',
+  tm_pricing_subtitle: 'Start free. Scale when you need to.',
+  tm_pricing_community: 'Community',
+  tm_pricing_pro: 'Pro',
+  tm_pricing_enterprise: 'Enterprise',
+  tm_pricing_free: 'Free',
+  tm_pricing_pro_price: '$29/mo',
+  tm_pricing_coming_soon: 'Coming Soon',
+  tm_pricing_contact: 'Contact Us',
+  tm_pricing_tools: 'MCP Tools',
+  tm_pricing_storage: 'Storage',
+  tm_pricing_storage_free: 'SQLite, self-hosted',
+  tm_pricing_storage_pro: 'Hosted API',
+  tm_pricing_storage_ent: 'Private deployment',
+  tm_pricing_dashboard: 'Dashboard',
+  tm_pricing_dashboard_none: '—',
+  tm_pricing_dashboard_pro: 'Web dashboard',
+  tm_pricing_dashboard_ent: 'Custom dashboard',
+  tm_pricing_compliance: 'Compliance',
+  tm_pricing_compliance_free: 'Audit trail included',
+  tm_pricing_compliance_ent: 'Reports + SLA',
+  tm_pricing_support: 'Support',
+  tm_pricing_support_free: 'GitHub Issues',
+  tm_pricing_support_pro: 'Priority support',
+  tm_pricing_support_ent: 'Dedicated support',
+  tm_pricing_cta_free: 'Get Started →',
+  tm_pricing_cta_ent: 'Contact Us →',
+  tm_pricing_team: 'Team',
+
+  // TradeMemory page — CTA
+  tm_cta_title: 'Need a Custom Deployment?',
+  tm_cta_desc: 'We build custom trading memory systems for prop firms and funds. Compliance-grade audit trails, private deployment, dedicated support.',
+  tm_cta_button: 'Contact Us',
+
+  // TradeMemory page — Architecture (kept for existing components)
   tm_arch_title: 'Three-Layer Architecture',
   tm_arch_subtitle: 'Raw trades → pattern discovery → strategy adjustments. Each layer feeds the next.',
   tm_arch_l1_title: 'L1 — Trade Storage',
@@ -66,7 +117,7 @@ export const en = {
   tm_arch_owm_title: 'Outcome-Weighted Memory (OWM)',
   tm_arch_owm_desc: 'Cognitive science-based recall. 5 memory types scored by outcome quality, similarity, recency, confidence, and affect. Score = Q × Sim × Rec × Conf × Aff.',
 
-  // TradeMemory page — Install (Part 2)
+  // TradeMemory page — Install (kept for existing components)
   tm_install_title: 'Install in 30 Seconds',
   tm_install_subtitle: 'Works with any MCP-compatible client.',
   tm_install_claude_desktop: 'Claude Desktop',
@@ -74,7 +125,7 @@ export const en = {
   tm_install_pip: 'pip / uv',
   tm_install_copy: 'Copy',
 
-  // TradeMemory page — OWM Memory Types (Part 2)
+  // TradeMemory page — OWM Memory Types (kept for existing components)
   tm_owm_episodic_name: 'Episodic',
   tm_owm_episodic_desc: 'What happened — individual trades',
   tm_owm_semantic_name: 'Semantic',
@@ -86,8 +137,8 @@ export const en = {
   tm_owm_prospective_name: 'Prospective',
   tm_owm_prospective_desc: 'What to do next — conditional plans',
 
-  // TradeMemory page — MCP Tools (Part 2)
-  tm_tools_title: '17 MCP Tools',
+  // TradeMemory page — MCP Tools (kept for existing components)
+  tm_tools_title: '19 MCP Tools',
   tm_tools_subtitle: 'Complete trading memory interface via Model Context Protocol.',
   tm_tools_group_core: 'Core Memory',
   tm_tools_group_owm: 'OWM Cognitive',
@@ -110,16 +161,23 @@ export const en = {
   tm_tool_run_backtest: 'Vectorized backtesting engine for fast strategy evaluation across historical data.',
   tm_tool_select_survivors: 'Darwinian selection: rank strategies by Sharpe, filter by drawdown, promote to production.',
 
-  // TradeMemory page — Pricing (Part 2)
-  tm_pricing_title: 'Pricing',
-  tm_pricing_subtitle: 'Self-hosted is free forever. Hosted plans for teams who want zero ops.',
-  tm_pricing_free: 'Free',
-  tm_pricing_pro: 'Pro',
-  tm_pricing_team: 'Team',
-
-  // TradeMemory page — CTA (Part 2)
-  tm_cta_title: 'Start Building Trading Memory',
-  tm_cta_desc: 'Give your AI agent the memory it deserves.',
+  // TradeMemory page — Features (kept for existing components)
+  tm_features_title: 'Everything Your Trading Agent Needs',
+  tm_features_subtitle: 'From trade storage to strategy evolution — a complete memory architecture for AI trading agents.',
+  tm_feat_owm_title: 'Outcome-Weighted Memory',
+  tm_feat_owm_desc: '5 cognitive memory types: Episodic, Semantic, Procedural, Affective, Prospective. Each trade scored by outcome quality, context similarity, recency, and confidence.',
+  tm_feat_reflection_title: 'Reflection Engine',
+  tm_feat_reflection_desc: 'Rule-based analysis finds patterns in your trade history — win rates by session, strategy, confidence level. Optional LLM layer for deeper insights.',
+  tm_feat_pattern_title: 'Automatic Pattern Mining',
+  tm_feat_pattern_desc: 'L2 discovers which strategies, sessions, and conditions produce winners. L3 generates actionable adjustments: disable losers, size up winners.',
+  tm_feat_daily_title: 'Automated Daily Reflection',
+  tm_feat_daily_desc: 'Schedule daily_reflection.py to run at market close. Summarizes P&L, flags anomalies, and updates memory layers automatically.',
+  tm_feat_bias_title: 'Bias Detection',
+  tm_feat_bias_desc: 'Procedural memory tracks trading behaviors. Detects overtrading, revenge trading, and session-specific biases from your trade history.',
+  tm_feat_kelly_title: 'Kelly-from-Memory',
+  tm_feat_kelly_desc: 'Context-weighted Kelly Criterion using recalled win rates and payoff ratios. Quarter-Kelly default with risk appetite adjustment.',
+  tm_feat_evolution_title: 'Strategy Evolution',
+  tm_feat_evolution_desc: 'Discover trading strategies from raw price data. LLM-powered hypothesis generation + vectorized backtesting + Darwinian selection. Finds real alpha — statistically validated.',
 
   // Pricing page
   pricing_hero_title: 'Simple, transparent pricing.',

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'TradeMemory Protocol — AI Trading Memory Layer',
+  title: 'TradeMemory — The Memory Layer for AI Trading Agents',
   description:
-    'Three-layer memory architecture for algorithmic trading. L1 raw trades → L2 pattern discovery → L3 strategy adjustment. MCP server for MT5/forex.',
+    'Your trading AI has amnesia. TradeMemory gives it persistent memory — record decisions, recall by outcome, audit every choice. 19 MCP tools, SHA-256 tamper detection, works with any market.',
   openGraph: {
-    title: 'TradeMemory Protocol — AI Trading Memory Layer',
+    title: 'TradeMemory — The Memory Layer for AI Trading Agents',
     description:
-      'Three-layer memory for algorithmic trading. L1 trades → L2 patterns → L3 strategy. MCP server for MT5/forex.',
+      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 19 MCP tools, SHA-256 tamper detection, works with any market.',
     url: 'https://www.mnemox.ai/tradememory',
     siteName: 'Mnemox AI',
     images: [
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TradeMemory Protocol — AI Trading Memory Layer',
+    title: 'TradeMemory — The Memory Layer for AI Trading Agents',
     description:
-      'Three-layer memory for algorithmic trading. MCP server for MT5/forex.',
+      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 19 MCP tools, SHA-256 tamper detection.',
     images: ['/assets/og-home.png'],
   },
   alternates: {
@@ -35,26 +35,34 @@ export const metadata: Metadata = {
       {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
-        name: 'TradeMemory Protocol',
+        name: 'TradeMemory',
         url: 'https://www.mnemox.ai/tradememory',
         downloadUrl: 'https://pypi.org/project/tradememory-protocol/',
         installUrl: 'https://github.com/mnemox-ai/tradememory-protocol',
         screenshot: 'https://www.mnemox.ai/assets/og-home.png',
         description:
-          'Persistent memory layer for AI trading agents. 5-layer cognitive architecture with Outcome-Weighted Memory, pattern discovery, and strategy evolution.',
+          'The memory layer for AI trading agents. 19 MCP tools, SHA-256 tamper-proof audit trail, works with any market.',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Windows, macOS, Linux',
         softwareVersion: '0.5.1',
         featureList:
-          '17 MCP tools, 5 cognitive memory types, Evolution Engine, Outcome-Weighted Memory, Decision Audit Trail with SHA-256 tamper detection, Kelly Criterion position sizing',
+          '19 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Outcome-Weighted Memory (OWM), SHA-256 tamper-proof audit trail, MiFID II compliance support',
         keywords:
-          'MCP server, trading memory, AI agent, algorithmic trading, MT5, forex, Claude Desktop, Cursor',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
-          description: 'Open source under MIT license — free forever',
-        },
+          'MCP server, trading memory, AI agent, algorithmic trading, MT5, forex, MiFID II, compliance, decision audit',
+        offers: [
+          {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+            description: 'Community — open source, self-hosted, free forever',
+          },
+          {
+            '@type': 'Offer',
+            price: '29',
+            priceCurrency: 'USD',
+            description: 'Pro — hosted API, web dashboard, priority support',
+          },
+        ],
         creator: {
           '@type': 'Organization',
           name: 'Mnemox AI',
@@ -63,7 +71,7 @@ export const metadata: Metadata = {
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '5',
-          ratingCount: '1233',
+          ratingCount: '1324',
           bestRating: '5',
           worstRating: '1',
         },
@@ -74,10 +82,10 @@ export const metadata: Metadata = {
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'Is TradeMemory Protocol free?',
+            name: 'Is TradeMemory free?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes, TradeMemory Protocol is fully open source under the MIT license. It is free for personal and commercial use.',
+              text: 'Yes, TradeMemory is fully open source under the MIT license. It is free for personal and commercial use.',
             },
           },
           {
@@ -106,7 +114,7 @@ export const metadata: Metadata = {
           },
           {
             '@type': 'Question',
-            name: 'How do I install TradeMemory Protocol?',
+            name: 'How do I install TradeMemory?',
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'Install via pip: pip install tradememory-protocol. Then add it to your MCP client configuration (Claude Desktop, Cursor, etc.).',
@@ -117,8 +125,8 @@ export const metadata: Metadata = {
       {
         '@context': 'https://schema.org',
         '@type': 'HowTo',
-        name: 'How to Install TradeMemory Protocol',
-        description: 'Step-by-step guide to install and configure TradeMemory Protocol for AI trading agents.',
+        name: 'How to Install TradeMemory',
+        description: 'Step-by-step guide to install and configure TradeMemory for AI trading agents.',
         step: [
           {
             '@type': 'HowToStep',
@@ -136,7 +144,7 @@ export const metadata: Metadata = {
             '@type': 'HowToStep',
             position: 3,
             name: 'Start using memory tools',
-            text: 'Use the 17 MCP tools like store_trade, recall_similar, and get_bias_report in your AI conversations.',
+            text: 'Use the 19 MCP tools like store_trade, recall_similar, and get_agent_state in your AI conversations.',
           },
         ],
         totalTime: 'PT5M',

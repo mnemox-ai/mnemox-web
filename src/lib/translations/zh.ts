@@ -25,38 +25,89 @@ export const zh: Record<TranslationKey, string> = {
   footer_blog: '部落格',
 
   // TradeMemory page — Hero
-  tm_hero_tag: '開源 MCP 伺服器',
-  tm_hero_title1: 'AI 交易記憶',
-  tm_hero_title2: '你的代理永不遺忘',
-  tm_hero_desc: '你的 AI 代理每次對話結束就忘記所有交易。TradeMemory 賦予它持久記憶 — 儲存決策、發現模式、透過 MCP 自動演化策略。',
-  tm_hero_cta1: '開始使用',
-  tm_hero_cta2: '在 GitHub 查看',
+  tm_hero_tag: 'AI 交易代理的記憶層',
+  tm_hero_title1: '你的交易 AI',
+  tm_hero_title2: '患有失憶症',
+  tm_hero_desc: '它每次對話都犯同樣的錯誤。它無法解釋為什麼進行交易。當 context window 結束，它忘記一切。TradeMemory 是記憶層 — 一個 pip install，你的 AI 代理就能記住每筆交易、每個結果、每個錯誤。',
+  tm_hero_cta1: '免費開始使用',
+  tm_hero_cta2: '企業版',
 
   // TradeMemory page — Stats
   tm_stat_tests: '測試通過',
   tm_stat_memory: '記憶類型',
   tm_stat_tools: 'MCP 工具',
   tm_stat_license: '授權',
+  tm_stat_production: '上線時間',
+  tm_stat_production_val: '2026 年 3 月',
 
-  // TradeMemory page — Features
-  tm_features_title: '交易代理需要的一切',
-  tm_features_subtitle: '從交易儲存到策略演化 — 為 AI 交易代理打造的完整記憶架構。',
-  tm_feat_owm_title: '結果加權記憶',
-  tm_feat_owm_desc: '5 種認知記憶類型：情節、語意、程序、情感、前瞻。每筆交易依結果品質、上下文相似度、時近性和信心度評分。',
-  tm_feat_reflection_title: '反思引擎',
-  tm_feat_reflection_desc: '規則式分析發現交易歷史中的模式 — 按交易時段、策略、信心度統計勝率。可選 LLM 層提供更深入洞察。',
-  tm_feat_pattern_title: '自動模式挖掘',
-  tm_feat_pattern_desc: 'L2 發現哪些策略、時段和條件產出贏家。L3 生成可執行調整：停用虧損策略、加碼贏家策略。',
-  tm_feat_daily_title: '每日自動覆盤',
-  tm_feat_daily_desc: '排程 daily_reflection.py 在收盤時執行。自動彙整損益、標記異常、更新記憶層。',
-  tm_feat_bias_title: '偏差偵測',
-  tm_feat_bias_desc: '程序記憶追蹤交易行為。從交易歷史中偵測過度交易、報復性交易和特定時段偏差。',
-  tm_feat_kelly_title: 'Kelly 記憶公式',
-  tm_feat_kelly_desc: '使用回憶的勝率和報酬比，進行上下文加權 Kelly 準則計算。預設四分之一 Kelly，可調風險偏好。',
-  tm_feat_evolution_title: '策略演化',
-  tm_feat_evolution_desc: '從原始價格數據發現交易策略。LLM 驅動的假設生成 + 向量化回測 + 達爾文式篩選。找到真正的 alpha — 經統計驗證。',
+  // TradeMemory page — Problem
+  tm_problem_title: '問題所在',
+  tm_problem1_title: '每次對話重複同樣錯誤',
+  tm_problem1_desc: '你的代理在 context window 結束後忘記所有交易。它無法從過去的錯誤中學習，也無法記住什麼策略有效。',
+  tm_problem2_title: '監管機構要求的審計追蹤',
+  tm_problem2_desc: 'MiFID II 和 EU AI Act 要求決策文件。你的代理無法解釋每筆交易的原因。',
+  tm_problem3_title: 'Context Window = 記憶清空',
+  tm_problem3_desc: '每個 MCP server 負責執行 — 下單、獲取價格。沒有任何一個負責記憶。AI 交易技術棧缺少一層。',
 
-  // TradeMemory page — Architecture (Part 2)
+  // TradeMemory page — How It Works
+  tm_how_title: '運作方式',
+  tm_how_subtitle: '三個步驟。每筆交易的前、中、後。',
+  tm_how1_title: '詢問',
+  tm_how1_desc: '交易前，回憶在相似市場條件下的過去交易。系統返回上次發生了什麼以及結果如何。',
+  tm_how2_title: '記錄',
+  tm_how2_desc: '交易後，一次呼叫記錄所有內容。五個記憶層 — 情節、語意、程序、情感、審計 — 自動更新。',
+  tm_how3_title: '反思',
+  tm_how3_desc: '每日和每週回顧偵測行為漂移、策略衰退和交易錯誤。系統告訴你何時應該停止。',
+
+  // TradeMemory page — Use Cases
+  tm_cases_title: '誰在使用 TradeMemory',
+  tm_case1_title: '美股交易者',
+  tm_case1_desc: '每筆交易前的起飛前檢查清單。記憶是決策過程的起點，而非事後補充。',
+  tm_case1_badge: '真實用戶',
+  tm_case2_title: 'Forex EA 系統',
+  tm_case2_desc: '從 MT5 自動同步。記錄信號被阻擋的原因，而不只是執行的部分。每天數千個決策。',
+  tm_case2_badge: '生產環境',
+  tm_case3_title: '合規團隊',
+  tm_case3_desc: 'SHA-256 防竄改審計追蹤。每個 AI 決策都被記錄並可匯出供監管審查。',
+  tm_case3_badge: '企業版',
+  tm_cases_link: '查看完整使用案例 →',
+
+  // TradeMemory page — Pricing
+  tm_pricing_title: '定價',
+  tm_pricing_subtitle: '免費開始。需要時再升級。',
+  tm_pricing_community: '社群版',
+  tm_pricing_pro: '專業版',
+  tm_pricing_enterprise: '企業版',
+  tm_pricing_free: '免費',
+  tm_pricing_pro_price: '$29/月',
+  tm_pricing_coming_soon: '即將推出',
+  tm_pricing_contact: '聯絡我們',
+  tm_pricing_tools: 'MCP 工具',
+  tm_pricing_storage: '儲存',
+  tm_pricing_storage_free: 'SQLite，自架',
+  tm_pricing_storage_pro: 'Hosted API',
+  tm_pricing_storage_ent: '私有部署',
+  tm_pricing_dashboard: 'Dashboard',
+  tm_pricing_dashboard_none: '—',
+  tm_pricing_dashboard_pro: 'Web dashboard',
+  tm_pricing_dashboard_ent: '客製 dashboard',
+  tm_pricing_compliance: '合規',
+  tm_pricing_compliance_free: '審計追蹤已包含',
+  tm_pricing_compliance_ent: '報告 + SLA',
+  tm_pricing_support: '支援',
+  tm_pricing_support_free: 'GitHub Issues',
+  tm_pricing_support_pro: '優先支援',
+  tm_pricing_support_ent: '專屬支援',
+  tm_pricing_cta_free: '立即開始 →',
+  tm_pricing_cta_ent: '聯絡我們 →',
+  tm_pricing_team: '團隊版',
+
+  // TradeMemory page — CTA
+  tm_cta_title: '需要客製化部署？',
+  tm_cta_desc: '我們為自營商和基金打造客製化交易記憶系統。合規級審計追蹤、私有部署、專屬支援。',
+  tm_cta_button: '聯絡我們',
+
+  // TradeMemory page — Architecture (kept for existing components)
   tm_arch_title: '三層架構',
   tm_arch_subtitle: '原始交易 → 模式發現 → 策略調整。每層餵給下一層。',
   tm_arch_l1_title: 'L1 — 交易儲存',
@@ -68,7 +119,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_arch_owm_title: '結果加權記憶 (OWM)',
   tm_arch_owm_desc: '基於認知科學的回憶系統。5 種記憶類型依結果品質、相似度、時近性、信心度和情感評分。Score = Q × Sim × Rec × Conf × Aff。',
 
-  // TradeMemory page — Install (Part 2)
+  // TradeMemory page — Install (kept for existing components)
   tm_install_title: '30 秒安裝',
   tm_install_subtitle: '支援任何 MCP 相容客戶端。',
   tm_install_claude_desktop: 'Claude Desktop',
@@ -76,7 +127,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_install_pip: 'pip / uv',
   tm_install_copy: '複製',
 
-  // TradeMemory page — OWM Memory Types (Part 2)
+  // TradeMemory page — OWM Memory Types (kept for existing components)
   tm_owm_episodic_name: '情節記憶',
   tm_owm_episodic_desc: '發生了什麼 — 個別交易',
   tm_owm_semantic_name: '語意記憶',
@@ -88,8 +139,8 @@ export const zh: Record<TranslationKey, string> = {
   tm_owm_prospective_name: '前瞻記憶',
   tm_owm_prospective_desc: '下一步做什麼 — 條件計畫',
 
-  // TradeMemory page — MCP Tools (Part 2)
-  tm_tools_title: '17 個 MCP 工具',
+  // TradeMemory page — MCP Tools (kept for existing components)
+  tm_tools_title: '19 個 MCP 工具',
   tm_tools_subtitle: '透過 Model Context Protocol 的完整交易記憶介面。',
   tm_tools_group_core: '核心記憶',
   tm_tools_group_owm: 'OWM 認知記憶',
@@ -112,16 +163,23 @@ export const zh: Record<TranslationKey, string> = {
   tm_tool_run_backtest: '向量化回測引擎，快速評估歷史數據上的策略表現。',
   tm_tool_select_survivors: '達爾文式篩選：按 Sharpe 排名、回撤過濾、晉升至生產環境。',
 
-  // TradeMemory page — Pricing (Part 2)
-  tm_pricing_title: '定價',
-  tm_pricing_subtitle: '自架版永久免費。託管方案給不想維運的團隊。',
-  tm_pricing_free: '免費',
-  tm_pricing_pro: '專業版',
-  tm_pricing_team: '團隊版',
-
-  // TradeMemory page — CTA (Part 2)
-  tm_cta_title: '開始建構交易記憶',
-  tm_cta_desc: '給你的 AI 代理應有的記憶。',
+  // TradeMemory page — Features (kept for existing components)
+  tm_features_title: '交易代理需要的一切',
+  tm_features_subtitle: '從交易儲存到策略演化 — 為 AI 交易代理打造的完整記憶架構。',
+  tm_feat_owm_title: '結果加權記憶',
+  tm_feat_owm_desc: '5 種認知記憶類型：情節、語意、程序、情感、前瞻。每筆交易依結果品質、上下文相似度、時近性和信心度評分。',
+  tm_feat_reflection_title: '反思引擎',
+  tm_feat_reflection_desc: '規則式分析發現交易歷史中的模式 — 按交易時段、策略、信心度統計勝率。可選 LLM 層提供更深入洞察。',
+  tm_feat_pattern_title: '自動模式挖掘',
+  tm_feat_pattern_desc: 'L2 發現哪些策略、時段和條件產出贏家。L3 生成可執行調整：停用虧損策略、加碼贏家策略。',
+  tm_feat_daily_title: '每日自動覆盤',
+  tm_feat_daily_desc: '排程 daily_reflection.py 在收盤時執行。自動彙整損益、標記異常、更新記憶層。',
+  tm_feat_bias_title: '偏差偵測',
+  tm_feat_bias_desc: '程序記憶追蹤交易行為。從交易歷史中偵測過度交易、報復性交易和特定時段偏差。',
+  tm_feat_kelly_title: 'Kelly 記憶公式',
+  tm_feat_kelly_desc: '使用回憶的勝率和報酬比，進行上下文加權 Kelly 準則計算。預設四分之一 Kelly，可調風險偏好。',
+  tm_feat_evolution_title: '策略演化',
+  tm_feat_evolution_desc: '從原始價格數據發現交易策略。LLM 驅動的假設生成 + 向量化回測 + 達爾文式篩選。找到真正的 alpha — 經統計驗證。',
 
   // Pricing page
   pricing_hero_title: '簡單透明的定價',
