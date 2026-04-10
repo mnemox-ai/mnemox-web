@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs/server';
 import { rateLimitRequest } from '@/lib/rate-limit';
+import { getSubscriptionStatus, logValidationUsage } from '@/lib/subscription';
 import {
   computeStats,
   computeMaxDrawdown,
@@ -46,6 +48,24 @@ export async function POST(req: NextRequest) {
           },
         }
       );
+    }
+
+    // Plan-based gating (signed-in users)
+    const { userId } = await auth();
+    if (userId) {
+      const status = await getSubscriptionStatus(userId);
+      if (!status.canValidate) {
+        return NextResponse.json(
+          {
+            error: 'Monthly validation limit reached. Upgrade to Pro for unlimited validations.',
+            plan: status.plan,
+            used: status.validationsThisMonth,
+            limit: status.maxValidations,
+            upgradeUrl: '/pricing',
+          },
+          { status: 402 }
+        );
+      }
     }
 
     const formData = await req.formData();
@@ -121,6 +141,11 @@ export async function POST(req: NextRequest) {
       },
       tests,
     };
+
+    // Log usage for signed-in users
+    if (userId) {
+      logValidationUsage(userId).catch(() => {});
+    }
 
     return NextResponse.json(result);
   } catch (err) {

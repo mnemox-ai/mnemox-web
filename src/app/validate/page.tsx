@@ -104,12 +104,25 @@ export default function ValidatePage() {
 
   return (
     <div className="mx-auto max-w-[880px] px-6 pb-20 pt-16">
+      {/* Hero copy */}
+      <section className="mb-16 text-center">
+        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          {t('validate_hero_title')}
+        </h1>
+        <p className="mx-auto mt-4 max-w-xl text-lg text-txt-dim">
+          {t('validate_hero_subtitle')}
+        </p>
+        <span className="mt-4 inline-block rounded-full border border-border-bright bg-bg-card px-4 py-1.5 font-mono text-xs text-txt-dim">
+          {t('validate_hero_badge')}
+        </span>
+      </section>
+
       {/* Header */}
       <header className="mb-12 text-center">
         <p className="font-mono text-[11px] uppercase tracking-[3px] text-cyan mb-4">
           Strategy Validator
         </p>
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl mb-3">
+        <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl mb-3">
           {t('val_title')}
         </h1>
         <p className="text-txt-dim text-base max-w-[560px] mx-auto">

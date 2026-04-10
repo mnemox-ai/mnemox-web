@@ -24,6 +24,7 @@
     "react-dom": "19.2.3",
     "recharts": "^3.8.0",
     "shadcn": "^4.0.8",
+    "stripe": "^22.0.1",
     "svix": "^1.88.0",
     "swr": "^2.4.1",
     "tailwind-merge": "^3.5.0",

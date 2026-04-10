@@ -191,22 +191,20 @@ export const en = {
   pricing_tier_period: '/mo',
   pricing_badge_popular: 'Most Popular',
 
-  pricing_tier_free_desc: 'For developers who want full control and don\'t mind self-hosting.',
-  pricing_tier_pro_desc: 'For individual traders who want cloud sync across devices.',
+  pricing_tier_free_desc: 'Try strategy validation with basic reports. No credit card required.',
+  pricing_tier_pro_desc: 'Unlimited validations with detailed breakdowns and priority support.',
   pricing_tier_team_desc: 'For teams running multiple strategies across accounts.',
   pricing_tier_enterprise_desc: 'Custom AI trading infrastructure built to your specifications. Audit trails, dashboards, EAs, and more.',
 
-  pricing_feat_free_1: 'MCP stdio (local)',
-  pricing_feat_free_2: 'Unlimited trades',
-  pricing_feat_free_3: 'Local storage only',
-  pricing_feat_free_4: '1 agent/device',
-  pricing_feat_free_5: 'Community support',
+  pricing_feat_free_1: '3 strategy validations per month',
+  pricing_feat_free_2: '4 statistical tests (DSR, Walk-Forward, Regime, CPCV)',
+  pricing_feat_free_3: 'Basic report',
 
-  pricing_feat_pro_1: 'Hosted API (mcp.mnemox.ai)',
-  pricing_feat_pro_2: '1,000 trades/month',
-  pricing_feat_pro_3: 'Cloud storage + sync',
-  pricing_feat_pro_4: '1 agent',
-  pricing_feat_pro_5: 'Email support',
+  pricing_feat_pro_1: 'Unlimited strategy validations',
+  pricing_feat_pro_2: 'All 4 statistical tests',
+  pricing_feat_pro_3: 'Detailed breakdown & recommendations',
+  pricing_feat_pro_4: 'Priority support',
+  pricing_feat_pro_5: 'API access (coming soon)',
 
   pricing_feat_team_1: 'All Pro features',
   pricing_feat_team_2: '10,000 trades/month',
@@ -220,8 +218,8 @@ export const en = {
   pricing_feat_enterprise_4: 'TradeMemory integration',
   pricing_feat_enterprise_5: 'Dedicated support + source code ownership',
 
-  pricing_cta_free: 'Start Free \u2192',
-  pricing_cta_pro: 'Get Pro \u2192',
+  pricing_cta_free: 'Sign Up Free',
+  pricing_cta_pro: 'Subscribe',
   pricing_cta_team: 'Get Team \u2192',
   pricing_cta_enterprise: 'View Services \u2192',
 
@@ -785,6 +783,10 @@ export const en = {
   p_detail_back: '← Back to Portfolio',
 
   // Strategy Validator — /validate
+  validate_hero_title: 'Is your backtest real — or overfitted?',
+  validate_hero_subtitle: 'Upload your trade log. 4 statistical tests. Verdict in 10 seconds.',
+  validate_hero_badge: 'Free: 3/month \u00b7 Pro: unlimited ($29/mo)',
+
   val_title: 'Is Your Strategy Real?',
   val_subtitle: 'Upload your backtest results. Get a rigorous statistical validation — Deflated Sharpe, Walk-Forward, Regime Analysis, and CPCV. Know before you risk capital.',
   val_analyzing: 'Running validation pipeline',

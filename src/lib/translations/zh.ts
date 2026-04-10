@@ -193,22 +193,20 @@ export const zh: Record<TranslationKey, string> = {
   pricing_tier_period: '/月',
   pricing_badge_popular: '最受歡迎',
 
-  pricing_tier_free_desc: '適合想要完全控制且不介意自架的開發者。',
-  pricing_tier_pro_desc: '適合需要跨設備雲端同步的個人交易員。',
+  pricing_tier_free_desc: '免費體驗策略驗證，基礎報告。無需信用卡。',
+  pricing_tier_pro_desc: '無限驗證，詳細分析與優先支援。',
   pricing_tier_team_desc: '適合跨帳戶運行多策略的團隊。',
   pricing_tier_enterprise_desc: '客製化 AI 交易基礎設施。審計追蹤、儀表板、EA、全部按需打造。',
 
-  pricing_feat_free_1: 'MCP stdio（本機）',
-  pricing_feat_free_2: '無限交易',
-  pricing_feat_free_3: '僅本機儲存',
-  pricing_feat_free_4: '1 個代理/設備',
-  pricing_feat_free_5: '社群支援',
+  pricing_feat_free_1: '每月 3 次策略驗證',
+  pricing_feat_free_2: '4 項統計測試（DSR、Walk-Forward、市況、CPCV）',
+  pricing_feat_free_3: '基礎報告',
 
-  pricing_feat_pro_1: '託管 API（mcp.mnemox.ai）',
-  pricing_feat_pro_2: '1,000 筆交易/月',
-  pricing_feat_pro_3: '雲端儲存 + 同步',
-  pricing_feat_pro_4: '1 個代理',
-  pricing_feat_pro_5: 'Email 支援',
+  pricing_feat_pro_1: '無限策略驗證',
+  pricing_feat_pro_2: '全部 4 項統計測試',
+  pricing_feat_pro_3: '詳細分析與建議',
+  pricing_feat_pro_4: '優先支援',
+  pricing_feat_pro_5: 'API 存取（即將推出）',
 
   pricing_feat_team_1: '包含專業版所有功能',
   pricing_feat_team_2: '10,000 筆交易/月',
@@ -222,8 +220,8 @@ export const zh: Record<TranslationKey, string> = {
   pricing_feat_enterprise_4: 'TradeMemory 整合',
   pricing_feat_enterprise_5: '專屬支援 + 原始碼所有權',
 
-  pricing_cta_free: '免費開始 \u2192',
-  pricing_cta_pro: '取得專業版 \u2192',
+  pricing_cta_free: '免費註冊',
+  pricing_cta_pro: '訂閱',
   pricing_cta_team: '取得團隊版 \u2192',
   pricing_cta_enterprise: '查看服務 \u2192',
 
@@ -787,6 +785,10 @@ export const zh: Record<TranslationKey, string> = {
   p_detail_back: '← 返回作品集',
 
   // Strategy Validator — /validate
+  validate_hero_title: '你的回測是真的 — 還是過擬合？',
+  validate_hero_subtitle: '上傳你的交易紀錄。4 項統計測試。10 秒出結果。',
+  validate_hero_badge: '免費：3 次/月 \u00b7 Pro：無限（$29/月）',
+
   val_title: '你的策略是真的嗎？',
   val_subtitle: '上傳你的回測結果，獲得嚴謹的統計驗證 — Deflated Sharpe、Walk-Forward、市況分析和 CPCV。在投入資金之前先確認。',
   val_analyzing: '正在執行驗證管線',

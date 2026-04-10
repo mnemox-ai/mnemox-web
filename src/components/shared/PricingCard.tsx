@@ -8,6 +8,7 @@ interface PricingCardProps {
   features: string[];
   cta: string;
   ctaHref?: string;
+  onClick?: () => void;
   badge?: string;
   highlight?: boolean;
   className?: string;
@@ -21,6 +22,7 @@ export function PricingCard({
   features,
   cta,
   ctaHref = '#',
+  onClick,
   badge,
   highlight = false,
   className,
@@ -76,17 +78,32 @@ export function PricingCard({
       </ul>
 
       {/* CTA */}
-      <a
-        href={ctaHref}
-        className={cn(
-          'mt-8 block rounded-lg py-2.5 text-center text-sm font-semibold transition-colors',
-          highlight
-            ? 'bg-cyan text-bg hover:bg-cyan/90'
-            : 'border border-border-bright text-txt hover:bg-bg-card-hover'
-        )}
-      >
-        {cta}
-      </a>
+      {onClick ? (
+        <button
+          type="button"
+          onClick={onClick}
+          className={cn(
+            'mt-8 block w-full rounded-lg py-2.5 text-center text-sm font-semibold transition-colors',
+            highlight
+              ? 'bg-cyan text-bg hover:bg-cyan/90'
+              : 'border border-border-bright text-txt hover:bg-bg-card-hover'
+          )}
+        >
+          {cta}
+        </button>
+      ) : (
+        <a
+          href={ctaHref}
+          className={cn(
+            'mt-8 block rounded-lg py-2.5 text-center text-sm font-semibold transition-colors',
+            highlight
+              ? 'bg-cyan text-bg hover:bg-cyan/90'
+              : 'border border-border-bright text-txt hover:bg-bg-card-hover'
+          )}
+        >
+          {cta}
+        </a>
+      )}
     </div>
   );
 }
