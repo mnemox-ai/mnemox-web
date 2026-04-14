@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { after } from 'next/server';
 import { createHash } from 'crypto';
 import { API_BASE } from '@/lib/config';
 
@@ -136,11 +137,13 @@ export async function POST(req: NextRequest) {
       }).catch(() => {});
     }
 
-    // 3. Report generation + email — runs in background, does NOT block response
+    // 3. Report generation + email — runs AFTER response via next/server `after()`
+    //    This keeps the serverless function alive until the email is sent.
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
-      // Intentionally not awaited — runs after response is sent
-      sendReportEmail(trimmedEmail, trimmedIdea, score, resendKey).catch(() => {});
+      after(async () => {
+        await sendReportEmail(trimmedEmail, trimmedIdea, score, resendKey).catch(() => {});
+      });
     }
 
     // Return immediately — user sees success in <200ms
