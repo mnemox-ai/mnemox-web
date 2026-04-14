@@ -69,7 +69,7 @@ async function sendReportEmail(
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Mnemox AI <onboarding@resend.dev>',
+      from: 'Mnemox AI <noreply@mnemox.ai>',
       to: [trimmedEmail],
       subject: `Your Idea Reality Report: ${ideaPreview}`,
       html: `
