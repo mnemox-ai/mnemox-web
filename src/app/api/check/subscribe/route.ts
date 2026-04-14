@@ -7,6 +7,26 @@ function hashIP(ip: string): string {
   return createHash('sha256').update(ip + (process.env.IP_HASH_SALT || 'mnemox')).digest('hex').slice(0, 16);
 }
 
+/** Fetch with abort timeout + retry for Render cold start. */
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit,
+  { timeoutMs = 45000, retries = 1 } = {},
+): Promise<Response> {
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      const res = await fetch(url, { ...options, signal: controller.signal });
+      clearTimeout(timer);
+      if (res.ok) return res;
+    } catch {
+      if (i < retries) await new Promise((r) => setTimeout(r, 3000)); // wait for Render to wake
+    }
+  }
+  throw new Error('Failed after retries');
+}
+
 /** Background: generate report + send email. Does not block the response. */
 async function sendReportEmail(
   trimmedEmail: string,
@@ -14,19 +34,21 @@ async function sendReportEmail(
   score: number | null,
   resendKey: string,
 ) {
-  // 1. Try to generate report (may take 5-10s on Render free tier)
+  // 1. Try to generate report (Render free tier: cold start 10-30s + generation 5-10s)
   let reportId: string | undefined;
   try {
-    const res = await fetch(`${API_BASE}/api/unlock-report`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ idea_text: trimmedIdea, language: 'en' }),
-    });
-    if (res.ok) {
-      const data = await res.json();
-      reportId = data.report_id;
-    }
-  } catch { /* report gen failed — still send email without it */ }
+    const res = await fetchWithRetry(
+      `${API_BASE}/api/unlock-report`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idea_text: trimmedIdea, language: 'en' }),
+      },
+      { timeoutMs: 45000, retries: 1 },
+    );
+    const data = await res.json();
+    reportId = data.report_id;
+  } catch { /* report gen failed — still send email with fallback CTA */ }
 
   const reportUrl = reportId
     ? `${API_BASE}/report/${reportId}/pdf`
@@ -72,8 +94,9 @@ async function sendReportEmail(
           </div>
           ` : `
           <div style="text-align: center; margin-bottom: 32px;">
+            <p style="color: #6a6a80; font-size: 13px; margin-bottom: 16px;">Your detailed report is still being generated. Try again shortly:</p>
             <a href="https://mnemox.ai/check" style="display: inline-block; background: #00e5ff; color: #000; font-weight: 700; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-size: 15px;">
-              Check Another Idea
+              View Your Results
             </a>
           </div>
           `}

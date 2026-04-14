@@ -34,10 +34,12 @@ function verdict(score: number): { text: string; sub: string } {
 }
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ hash: string }> },
 ) {
   const { hash } = await params;
+  const url = new URL(request.url);
+  const scoreOverride = url.searchParams.get('score');
 
   if (!/^[a-f0-9]+$/.test(hash)) {
     return new Response('Invalid hash', { status: 400 });
@@ -58,6 +60,10 @@ export async function GET(
     });
     if (!res.ok) throw new Error(`API ${res.status}`);
     data = await res.json();
+    // Override score with query param if provided (fixes stale score from old scans)
+    if (scoreOverride && !isNaN(Number(scoreOverride))) {
+      data.score = Math.max(0, Math.min(100, Number(scoreOverride)));
+    }
   } catch {
     return new ImageResponse(
       (

@@ -13,7 +13,7 @@ export function ShareBadge({ ideaHash, score }: ShareBadgeProps) {
   const [loaded, setLoaded] = useState(false);
   const [copyText, setCopyText] = useState<string | null>(null);
 
-  const badgeUrl = `/api/badge/${ideaHash}`;
+  const badgeUrl = `/api/badge/${ideaHash}?score=${score}`;
   const publicUrl = `https://www.mnemox.ai/badge/${ideaHash}`;
 
   const handleDownload = async () => {
