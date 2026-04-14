@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Mnemox AI <noreply@mnemox.ai>',
+          from: 'Mnemox AI <onboarding@resend.dev>',
           to: [trimmedEmail],
           subject: `Your Idea Reality Report: ${ideaPreview}`,
           html: `
