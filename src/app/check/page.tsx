@@ -5,6 +5,7 @@ import { useI18n } from '@/lib/i18n';
 import { Gauge } from '@/components/check/Gauge';
 import { ShareBadge } from '@/components/check/ShareBadge';
 import { GapRadar } from '@/components/check/GapRadar';
+import { EmailGate } from '@/components/check/EmailGate';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { trackEvent } from '@/lib/analytics';
 import { API_BASE } from '@/lib/config';
@@ -84,6 +85,7 @@ export default function CheckPage() {
   const [activeSources, setActiveSources] = useState<Set<string>>(new Set());
   const [stats, setStats] = useState<StatsData | null>(null);
   const [copied, setCopied] = useState(false);
+  const [gateUnlocked, setGateUnlocked] = useState(false);
 
   // Placeholder rotation
   const [placeholderIdx, setPlaceholderIdx] = useState(0);
@@ -96,6 +98,10 @@ export default function CheckPage() {
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data) setStats(data); })
       .catch(() => {});
+    // Restore gate state from localStorage
+    if (typeof window !== 'undefined' && localStorage.getItem('emailGateUnlocked') === 'true') {
+      setGateUnlocked(true);
+    }
     trackEvent('check_page_view');
   }, []);
 
@@ -429,46 +435,58 @@ export default function CheckPage() {
             </section>
           )}
 
-          {/* Pivot Hints */}
-          {result.pivot_hints && result.pivot_hints.length > 0 && (
-            <section className="mb-8">
-              <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[2px] text-cyan">
-                {t('check_pivot_hints')}
-              </h3>
-              <ul className="space-y-2">
-                {result.pivot_hints.map((hint, i) => (
-                  <li
-                    key={i}
-                    className="rounded-lg border border-border bg-bg-card p-4 text-sm text-txt-dim"
-                  >
-                    {hint}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+          {/* Email Gate OR Pivot Hints */}
+          {!gateUnlocked && result.idea_hash ? (
+            <EmailGate
+              ideaHash={result.idea_hash}
+              score={result.reality_signal}
+              ideaText={idea}
+              onUnlock={() => setGateUnlocked(true)}
+            />
+          ) : (
+            <>
+              {/* Pivot Hints (unlocked) */}
+              {result.pivot_hints && result.pivot_hints.length > 0 && (
+                <section className="mb-8">
+                  <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[2px] text-cyan">
+                    {t('check_pivot_hints')}
+                  </h3>
+                  <ul className="space-y-2">
+                    {result.pivot_hints.map((hint, i) => (
+                      <li
+                        key={i}
+                        className="rounded-lg border border-border bg-bg-card p-4 text-sm text-txt-dim"
+                      >
+                        {hint}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
-          {/* Action Buttons */}
-          <div className="flex justify-center gap-4 mt-8">
-            <button
-              onClick={handleCopyToAI}
-              className="rounded-lg border border-cyan-dim bg-cyan-glow px-6 py-2.5 font-mono text-sm text-cyan transition-colors hover:bg-cyan hover:text-black"
-            >
-              {copied ? t('check_copied') : t('check_copy_to_ai')}
-            </button>
-            <button
-              onClick={handleReset}
-              className="rounded-lg border border-border px-6 py-2.5 font-mono text-sm text-txt-dim transition-colors hover:border-cyan hover:text-cyan"
-            >
-              {t('check_another')}
-            </button>
-          </div>
+              {/* Action Buttons (unlocked) */}
+              <div className="flex justify-center gap-4 mt-8">
+                <button
+                  onClick={handleCopyToAI}
+                  className="rounded-lg border border-cyan-dim bg-cyan-glow px-6 py-2.5 font-mono text-sm text-cyan transition-colors hover:bg-cyan hover:text-black"
+                >
+                  {copied ? t('check_copied') : t('check_copy_to_ai')}
+                </button>
+                <button
+                  onClick={handleReset}
+                  className="rounded-lg border border-border px-6 py-2.5 font-mono text-sm text-txt-dim transition-colors hover:border-cyan hover:text-cyan"
+                >
+                  {t('check_another')}
+                </button>
+              </div>
 
-          {/* Share Badge */}
-          {result.idea_hash && (
-            <ScrollReveal>
-              <ShareBadge ideaHash={result.idea_hash} score={result.reality_signal} />
-            </ScrollReveal>
+              {/* Share Badge (unlocked) */}
+              {result.idea_hash && (
+                <ScrollReveal>
+                  <ShareBadge ideaHash={result.idea_hash} score={result.reality_signal} />
+                </ScrollReveal>
+              )}
+            </>
           )}
 
           {/* Agent CTA */}
