@@ -44,3 +44,13 @@ next-env.d.ts
 
 # clerk configuration (can include secrets)
 /.clerk/
+.env*.local
+
+# one-off migration tools for brokerage-ops / source-code-tw
+# (借用 mnemox-web 的 Supabase env 跑，不屬於此 repo 的產品 code)
+create_repos.py
+query_ud.py
+sync_*.py
+ud_key.txt
+all_projects.json
+profiles.json
