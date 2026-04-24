@@ -51,6 +51,7 @@ next-env.d.ts
 create_repos.py
 query_ud.py
 sync_*.py
+update_readmes.py
 ud_key.txt
 all_projects.json
 profiles.json
