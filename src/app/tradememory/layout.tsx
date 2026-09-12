@@ -3,11 +3,11 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'TradeMemory — The Memory Layer for AI Trading Agents',
   description:
-    'Your trading AI has amnesia. TradeMemory gives it persistent memory — record decisions, recall by outcome, audit every choice. 19 MCP tools, SHA-256 tamper detection, works with any market.',
+    'Your trading AI has amnesia. TradeMemory gives it persistent memory — record decisions, recall by outcome, audit every choice. 20 MCP tools, SHA-256 tamper detection, works with any market.',
   openGraph: {
     title: 'TradeMemory — The Memory Layer for AI Trading Agents',
     description:
-      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 19 MCP tools, SHA-256 tamper detection, works with any market.',
+      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 20 MCP tools, SHA-256 tamper detection, works with any market.',
     url: 'https://www.mnemox.ai/tradememory',
     siteName: 'Mnemox AI',
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'TradeMemory — The Memory Layer for AI Trading Agents',
     description:
-      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 19 MCP tools, SHA-256 tamper detection.',
+      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 20 MCP tools, SHA-256 tamper detection.',
     images: ['/assets/og-home.png'],
   },
   alternates: {
@@ -41,12 +41,12 @@ export const metadata: Metadata = {
         installUrl: 'https://github.com/mnemox-ai/tradememory-protocol',
         screenshot: 'https://www.mnemox.ai/assets/og-home.png',
         description:
-          'The memory layer for AI trading agents. 19 MCP tools, SHA-256 tamper-proof audit trail, works with any market.',
+          'The memory layer for AI trading agents. 20 MCP tools, SHA-256 tamper-evident audit trail, works with any market.',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Windows, macOS, Linux',
-        softwareVersion: '0.5.1',
+        softwareVersion: '0.5.5',
         featureList:
-          '19 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Outcome-Weighted Memory (OWM), SHA-256 tamper-proof audit trail, MiFID II compliance support',
+          '20 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Outcome-Weighted Memory (OWM), SHA-256 tamper-evident audit trail, MiFID II compliance support',
         keywords:
           'MCP server, trading memory, AI agent, algorithmic trading, MT5, forex, MiFID II, compliance, decision audit',
         offers: [
@@ -54,26 +54,13 @@ export const metadata: Metadata = {
             '@type': 'Offer',
             price: '0',
             priceCurrency: 'USD',
-            description: 'Community — open source, self-hosted, free forever',
-          },
-          {
-            '@type': 'Offer',
-            price: '29',
-            priceCurrency: 'USD',
-            description: 'Pro — hosted API, web dashboard, priority support',
+            description: 'Open source, self-hosted, MIT licensed. No paid tier.',
           },
         ],
         creator: {
           '@type': 'Organization',
           name: 'Mnemox AI',
           url: 'https://www.mnemox.ai',
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '5',
-          ratingCount: '1324',
-          bestRating: '5',
-          worstRating: '1',
         },
       },
       {
@@ -144,7 +131,7 @@ export const metadata: Metadata = {
             '@type': 'HowToStep',
             position: 3,
             name: 'Start using memory tools',
-            text: 'Use the 19 MCP tools like store_trade, recall_similar, and get_agent_state in your AI conversations.',
+            text: 'Use the 20 MCP tools like remember_trade, recall_memories, and get_agent_state in your AI conversations.',
           },
         ],
         totalTime: 'PT5M',

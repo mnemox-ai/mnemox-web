@@ -208,7 +208,7 @@ export default function TradeMemoryPage() {
           <StatsBar
             items={[
               { value: PRODUCT_STATS.tradeMemory.tests.toLocaleString(), label: t('tm_stat_tests') },
-              { value: '19', label: t('tm_stat_tools') },
+              { value: '20', label: t('tm_stat_tools') },
               { value: 'MIT', label: t('tm_stat_license') },
               { value: t('tm_stat_production_val'), label: t('tm_stat_production') },
             ]}
@@ -216,98 +216,52 @@ export default function TradeMemoryPage() {
         </section>
       </ScrollReveal>
 
-      {/* Pricing */}
+      {/* Status */}
       <ScrollReveal>
-        <section className="mx-auto max-w-5xl px-6 pb-20">
+        <section className="mx-auto max-w-3xl px-6 pb-20">
           <h2 className="mb-3 text-center font-display text-2xl font-bold text-txt sm:text-3xl">
-            {t('tm_pricing_title')}
+            {t('tm_status_title')}
           </h2>
           <p className="mx-auto mb-10 max-w-xl text-center text-sm text-txt-dim">
-            {t('tm_pricing_subtitle')}
+            {t('tm_status_subtitle')}
           </p>
 
-          <div className="overflow-x-auto rounded-xl border border-border">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="px-6 py-4 text-left font-display text-xs font-semibold uppercase tracking-wider text-txt-dim" />
-                  <th className="px-6 py-4 text-center">
-                    <div className="font-display text-base font-bold text-txt">{t('tm_pricing_community')}</div>
-                    <div className="mt-1 font-mono text-xl font-bold text-cyan">{t('tm_pricing_free')}</div>
-                  </th>
-                  <th className="relative px-6 py-4 text-center">
-                    <div className="absolute inset-x-0 top-0 h-0.5 bg-cyan" />
-                    <div className="font-display text-base font-bold text-txt">{t('tm_pricing_pro')}</div>
-                    <div className="mt-1 font-mono text-xl font-bold text-cyan">{t('tm_pricing_pro_price')}</div>
-                    <div className="mt-1 inline-block rounded-full bg-cyan-glow px-2 py-0.5 font-mono text-xs text-cyan">
-                      {t('tm_pricing_coming_soon')}
-                    </div>
-                  </th>
-                  <th className="px-6 py-4 text-center">
-                    <div className="font-display text-base font-bold text-txt">{t('tm_pricing_enterprise')}</div>
-                    <div className="mt-1 font-mono text-xl font-bold text-txt">{t('tm_pricing_contact')}</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-border">
-                  <td className="px-6 py-4 font-mono text-xs text-txt-dim uppercase tracking-wider">{t('tm_pricing_tools')}</td>
-                  <td className="px-6 py-4 text-center font-mono text-sm text-cyan">19</td>
-                  <td className="px-6 py-4 text-center font-mono text-sm text-cyan">19</td>
-                  <td className="px-6 py-4 text-center font-mono text-sm text-cyan">19</td>
-                </tr>
-                <tr className="border-b border-border">
-                  <td className="px-6 py-4 font-mono text-xs text-txt-dim uppercase tracking-wider">{t('tm_pricing_storage')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_storage_free')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_storage_pro')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_storage_ent')}</td>
-                </tr>
-                <tr className="border-b border-border">
-                  <td className="px-6 py-4 font-mono text-xs text-txt-dim uppercase tracking-wider">{t('tm_pricing_dashboard')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_dashboard_none')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_dashboard_pro')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_dashboard_ent')}</td>
-                </tr>
-                <tr className="border-b border-border">
-                  <td className="px-6 py-4 font-mono text-xs text-txt-dim uppercase tracking-wider">{t('tm_pricing_compliance')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_compliance_free')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_compliance_free')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_compliance_ent')}</td>
-                </tr>
-                <tr className="border-b border-border">
-                  <td className="px-6 py-4 font-mono text-xs text-txt-dim uppercase tracking-wider">{t('tm_pricing_support')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_support_free')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_support_pro')}</td>
-                  <td className="px-6 py-4 text-center text-txt-dim">{t('tm_pricing_support_ent')}</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4" />
-                  <td className="px-6 py-4 text-center">
-                    <a
-                      href="https://github.com/mnemox-ai/tradememory-protocol#getting-started"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block rounded-lg bg-cyan px-4 py-2 font-display text-xs font-semibold text-bg transition-opacity hover:opacity-90"
-                    >
-                      {t('tm_pricing_cta_free')}
-                    </a>
-                  </td>
-                  <td className="px-6 py-4 text-center">
-                    <span className="inline-block rounded-lg border border-border px-4 py-2 font-display text-xs font-semibold text-txt-dim cursor-not-allowed">
-                      {t('tm_pricing_coming_soon')}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 text-center">
-                    <a
-                      href="mailto:dev@mnemox.ai"
-                      className="inline-block rounded-lg border border-border-bright px-4 py-2 font-display text-xs font-semibold text-txt transition-colors hover:border-cyan hover:text-cyan"
-                    >
-                      {t('tm_pricing_cta_ent')}
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="rounded-xl border border-border p-8">
+            <p className="text-sm leading-relaxed text-txt-dim">
+              {t('tm_status_body')}
+            </p>
+
+            <div className="mt-8 border-t border-border pt-6">
+              <div className="font-display text-sm font-semibold text-txt">
+                {t('tm_status_preview_title')}
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-txt-dim">
+                {t('tm_status_preview_note')}
+              </p>
+              <a
+                href="https://tradememory-dashboard.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block rounded-lg bg-cyan px-4 py-2 font-display text-xs font-semibold text-bg transition-opacity hover:opacity-90"
+              >
+                {t('tm_status_preview_cta')}
+              </a>
+            </div>
+
+            <div className="mt-8 border-t border-border pt-6">
+              <div className="font-display text-sm font-semibold text-txt">
+                {t('tm_status_service_title')}
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-txt-dim">
+                {t('tm_status_service_note')}
+              </p>
+              <a
+                href="mailto:dev@mnemox.ai"
+                className="mt-4 inline-block rounded-lg border border-border-bright px-4 py-2 font-display text-xs font-semibold text-txt transition-colors hover:border-cyan hover:text-cyan"
+              >
+                {t('tm_status_service_cta')}
+              </a>
+            </div>
           </div>
         </section>
       </ScrollReveal>

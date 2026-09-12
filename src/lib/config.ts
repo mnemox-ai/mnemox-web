@@ -8,7 +8,8 @@ export const GITHUB_ORG = 'mnemox-ai';
 
 export const PRODUCT_STATS = {
   ideaReality: { tests: 277, repo: 'idea-reality-mcp' },
-  tradeMemory: { tests: 1233, repo: 'tradememory-protocol' },
+  // 1,514 collected by pytest at v0.5.5 (2026-09-12). CI badge is authoritative.
+  tradeMemory: { tests: 1514, repo: 'tradememory-protocol' },
 } as const;
 
 export const COMBINED_STARS_APPROX = '780+';

@@ -17,25 +17,22 @@ interface ToolGroup {
 
 const toolGroups: ToolGroup[] = [
   {
-    labelKey: 'tm_tools_group_core',
+    labelKey: 'tm_tools_group_memory',
     color: 'var(--color-cyan)',
-    tools: [
-      { name: 'store_trade', descKey: 'tm_tool_store_trade' },
-      { name: 'recall_trades', descKey: 'tm_tool_recall_trades' },
-      { name: 'get_performance', descKey: 'tm_tool_get_performance' },
-      { name: 'run_reflection', descKey: 'tm_tool_run_reflection' },
-      { name: 'export_audit_trail', descKey: 'tm_tool_export_audit' },
-      { name: 'verify_audit_hash', descKey: 'tm_tool_verify_hash' },
-    ],
-  },
-  {
-    labelKey: 'tm_tools_group_owm',
-    color: 'var(--color-amber)',
     tools: [
       { name: 'remember_trade', descKey: 'tm_tool_remember_trade' },
       { name: 'recall_memories', descKey: 'tm_tool_recall_memories' },
       { name: 'get_behavioral_analysis', descKey: 'tm_tool_get_behavioral_analysis' },
       { name: 'get_agent_state', descKey: 'tm_tool_get_agent_state' },
+    ],
+  },
+  {
+    labelKey: 'tm_tools_group_risk',
+    color: 'var(--color-amber)',
+    tools: [
+      { name: 'compute_dqs', descKey: 'tm_tool_compute_dqs' },
+      { name: 'check_trade_legitimacy', descKey: 'tm_tool_check_trade_legitimacy' },
+      { name: 'validate_strategy', descKey: 'tm_tool_validate_strategy' },
       { name: 'create_trading_plan', descKey: 'tm_tool_create_trading_plan' },
       { name: 'check_active_plans', descKey: 'tm_tool_check_active_plans' },
     ],
@@ -44,11 +41,23 @@ const toolGroups: ToolGroup[] = [
     labelKey: 'tm_tools_group_evolution',
     color: 'var(--color-neon-green)',
     tools: [
-      { name: 'evolve_strategies', descKey: 'tm_tool_evolve_strategies' },
-      { name: 'discover_signals', descKey: 'tm_tool_discover_signals' },
-      { name: 'generate_hypothesis', descKey: 'tm_tool_generate_hypothesis' },
-      { name: 'run_backtest', descKey: 'tm_tool_run_backtest' },
-      { name: 'select_survivors', descKey: 'tm_tool_select_survivors' },
+      { name: 'evolution_fetch_market_data', descKey: 'tm_tool_evo_fetch' },
+      { name: 'evolution_discover_patterns', descKey: 'tm_tool_evo_discover' },
+      { name: 'evolution_run_backtest', descKey: 'tm_tool_evo_backtest' },
+      { name: 'evolution_evolve_strategy', descKey: 'tm_tool_evo_evolve' },
+      { name: 'evolution_get_log', descKey: 'tm_tool_evo_log' },
+    ],
+  },
+  {
+    labelKey: 'tm_tools_group_audit',
+    color: 'var(--color-cyan)',
+    tools: [
+      { name: 'export_audit_trail', descKey: 'tm_tool_export_audit' },
+      { name: 'verify_audit_hash', descKey: 'tm_tool_verify_hash' },
+      { name: 'verify_audit_chain', descKey: 'tm_tool_verify_chain' },
+      { name: 'get_daily_root', descKey: 'tm_tool_daily_root' },
+      { name: 'get_strategy_performance', descKey: 'tm_tool_strategy_perf' },
+      { name: 'get_trade_reflection', descKey: 'tm_tool_trade_reflection' },
     ],
   },
 ];

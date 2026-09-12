@@ -89,7 +89,7 @@ export const FEATURED_CASES: CaseStudy[] = [
       { val: 'p_tm_i4_val', lbl: 'p_tm_i4_lbl' },
     ],
     metaTitle: 'TradeMemory Protocol — AI Trading Memory & Audit Trail | Mnemox AI',
-    metaDescription: "The industry's first MCP-native memory layer for AI trading agents. 5 memory types, SHA-256 tamper-proof audit trail, 1,233 tests. Open source, MIT licensed.",
+    metaDescription: "The industry's first MCP-native memory layer for AI trading agents. 5 memory types, SHA-256 tamper-evident audit trail, 1,514 tests. Open source, MIT licensed.",
   },
   {
     id: 'nexusos',

@@ -4,7 +4,7 @@ import { PortfolioHub } from '@/components/portfolio/PortfolioHub';
 export const metadata: Metadata = {
   title: 'Portfolio — AI Trading Systems Built on Real Capital | Mnemox AI',
   description:
-    'Explore Mnemox AI shipped systems: TradeMemory Protocol (1,233 tests), NexusOS AI War Room, and NG_Gold multi-strategy EA. Open source tools built by a founder who trades real capital.',
+    'Explore Mnemox AI shipped systems: TradeMemory Protocol (1,514 tests), NexusOS AI War Room, and NG_Gold multi-strategy EA. Open source tools built by a founder who trades real capital.',
   openGraph: {
     title: 'Portfolio — Mnemox AI',
     description:
