@@ -99,7 +99,7 @@ export const metadata: Metadata = {
             '@type': 'HowToStep',
             position: 2,
             name: 'Run the scan',
-            text: 'Click "Check Reality" to scan 5 databases simultaneously for existing competitors.',
+            text: 'Click "Check Reality" to scan 4 databases simultaneously for existing competitors.',
           },
           {
             '@type': 'HowToStep',

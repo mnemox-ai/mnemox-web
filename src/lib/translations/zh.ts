@@ -232,7 +232,7 @@ export const zh: Record<TranslationKey, string> = {
   check_deep: '深度',
   check_llm_hint: '由 Claude 驅動 \u2014 理解你的意圖，不只是匹配關鍵字。',
   check_depth_desc_quick: '免費 \u2014 GitHub + Hacker News',
-  check_depth_desc_deep: '掃描 5 個來源 + AI 分析 \u2014 免費',
+  check_depth_desc_deep: '掃描 4 個來源 + AI 分析 \u2014 免費',
   check_btn: '開始檢測',
   check_reality_signal: '現實信號',
   check_evidence: '證據',

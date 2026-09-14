@@ -223,14 +223,14 @@ export const en = {
 
   // Check page
   check_nav_home: 'Home',
-  check_title: 'Idea Reality Check \u2014 Validate Your Idea Against 5 Databases',
+  check_title: 'Idea Reality Check \u2014 Validate Your Idea Against 4 Databases',
   check_subtitle: 'Is your idea already built? Scan GitHub, Hacker News, npm and PyPI in seconds.',
   check_placeholder: 'Describe your product idea...\n\ne.g. An MCP server that checks npm for package name conflicts',
   check_quick: 'Quick',
   check_deep: 'Deep',
   check_llm_hint: 'Powered by Claude \u2014 understands your intent, not just keywords.',
   check_depth_desc_quick: 'Free \u2014 GitHub + Hacker News',
-  check_depth_desc_deep: 'Scans 5 sources with AI analysis \u2014 Free',
+  check_depth_desc_deep: 'Scans 4 sources with AI analysis \u2014 Free',
   check_btn: 'Check Reality',
   check_reality_signal: 'Reality Signal',
   check_evidence: 'Evidence',
