@@ -12,7 +12,7 @@ export const PRODUCT_STATS = {
   tradeMemory: { tests: 1514, repo: 'tradememory-protocol' },
 } as const;
 
-export const COMBINED_STARS_APPROX = '780+';
+export const COMBINED_STARS_APPROX = '2,200+';
 export const COMBINED_TESTS_APPROX = '1,500+';
 
 export const COMBINED_TESTS = PRODUCT_STATS.ideaReality.tests + PRODUCT_STATS.tradeMemory.tests;

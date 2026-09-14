@@ -4,11 +4,11 @@ import { PortfolioHub } from '@/components/portfolio/PortfolioHub';
 export const metadata: Metadata = {
   title: 'Portfolio — AI Trading Systems Built on Real Capital | Mnemox AI',
   description:
-    'Explore Mnemox AI shipped systems: TradeMemory Protocol (1,514 tests), NexusOS AI War Room, and NG_Gold multi-strategy EA. Open source tools built by a founder who trades real capital.',
+    'Explore Mnemox AI shipped systems: TradeMemory Protocol (1,514 tests), NexusOS AI War Room, and NG_Gold multi-strategy EA. Open source tools, with the validation limits documented in each repo.',
   openGraph: {
     title: 'Portfolio — Mnemox AI',
     description:
-      '4 shipped AI trading systems. 1,510+ tests. Built on real capital, not slide decks.',
+      'Open-source AI trading tools. 1,510+ tests. Limitations documented in-repo.',
     url: 'https://www.mnemox.ai/portfolio',
     images: [{ url: '/assets/og-home.png', width: 1200, height: 630 }],
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Portfolio — Mnemox AI',
     description:
-      '4 shipped AI trading systems. 1,510+ tests. Built on real capital, not slide decks.',
+      'Open-source AI trading tools. 1,510+ tests. Limitations documented in-repo.',
     images: ['/assets/og-home.png'],
   },
   alternates: { canonical: 'https://www.mnemox.ai/portfolio' },

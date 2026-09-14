@@ -88,7 +88,7 @@ export const metadata: Metadata = {
             name: 'Does TradeMemory execute trades?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'No, TradeMemory is a memory layer only. It stores and recalls trade information but does not execute orders. You need a separate execution layer like MT5, Binance API, or Alpaca.',
+              text: 'No, TradeMemory is a memory layer only. It stores and recalls trade information but does not execute orders. You need a separate execution layer such as MT5 or the Binance API.',
             },
           },
           {
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
             name: 'What trading platforms are supported?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'TradeMemory supports MetaTrader 5 (MT5), Binance, Alpaca, and any platform with API access. The memory layer is platform-agnostic.',
+              text: 'TradeMemory ships adapters for MetaTrader 5 and Binance. The memory layer itself is platform-agnostic, so other venues can be added, but only those two are built today.',
             },
           },
           {

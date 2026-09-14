@@ -3,7 +3,6 @@
 import { useI18n } from '@/lib/i18n';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { BookingForm } from '@/components/services/BookingForm';
-import { SocialProof } from '@/components/services/SocialProof';
 import { DemoPreview } from '@/components/services/DemoPreview';
 import { cn } from '@/lib/utils';
 
@@ -109,13 +108,6 @@ export function ServicesContent() {
               <div className="mt-1 text-xs text-txt-dim">{t(stat.labelKey)}</div>
             </div>
           ))}
-        </div>
-      </ScrollReveal>
-
-      {/* Social Proof — Flags + Testimonials (BEFORE pricing = trust first) */}
-      <ScrollReveal>
-        <div className="mt-20">
-          <SocialProof />
         </div>
       </ScrollReveal>
 

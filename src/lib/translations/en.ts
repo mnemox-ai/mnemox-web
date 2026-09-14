@@ -35,7 +35,7 @@ export const en = {
   tm_stat_memory: 'Memory Types',
   tm_stat_tools: 'MCP Tools',
   tm_stat_license: 'Licensed',
-  tm_stat_production: 'In Production Since',
+  tm_stat_production: 'First Released',
   tm_stat_production_val: 'Mar 2026',
 
   // TradeMemory page — Problem
@@ -63,11 +63,11 @@ export const en = {
   tm_case1_desc: 'Pre-flight checklist before every trade. Memory is the starting point of the decision process, not an afterthought.',
   tm_case1_badge: 'Real User',
   tm_case2_title: 'Forex EA System',
-  tm_case2_desc: 'Automated sync from MT5. Records why signals were blocked, not just executed. Thousands of decisions daily.',
-  tm_case2_badge: 'Production',
+  tm_case2_desc: 'Automated sync from MT5. Records why signals were blocked, not just executed. Run first-party on a demo account.',
+  tm_case2_badge: 'First-party',
   tm_case3_title: 'Compliance Team',
   tm_case3_desc: 'SHA-256 tamper-evident audit trail. Every AI decision recorded and exportable for regulatory review.',
-  tm_case3_badge: 'Enterprise',
+  tm_case3_badge: 'Design goal',
   tm_cases_link: 'Read full use cases →',
 
   // TradeMemory page — Status
@@ -224,7 +224,7 @@ export const en = {
   // Check page
   check_nav_home: 'Home',
   check_title: 'Idea Reality Check \u2014 Validate Your Idea Against 5 Databases',
-  check_subtitle: 'Is your idea already built? Scan GitHub, Hacker News, npm, PyPI, and Product Hunt in seconds.',
+  check_subtitle: 'Is your idea already built? Scan GitHub, Hacker News, npm and PyPI in seconds.',
   check_placeholder: 'Describe your product idea...\n\ne.g. An MCP server that checks npm for package name conflicts',
   check_quick: 'Quick',
   check_deep: 'Deep',
@@ -301,7 +301,7 @@ export const en = {
   check_sc_what_desc: 'Pre-build validation for developers and AI agents. Scans 5 live sources, scores your idea 0-100, and tells you whether the market is accelerating, stable, or declining \u2014 in 15 seconds.',
   check_sc_how_title: 'How It Works',
   check_sc_how_1: 'Enter your idea \u2014 Describe your software concept in plain English.',
-  check_sc_how_2: 'We scan 5 sources in parallel \u2014 GitHub repos, Hacker News, npm, PyPI, Product Hunt.',
+  check_sc_how_2: 'We scan 4 sources in parallel — GitHub repos, Hacker News, npm, PyPI.',
   check_sc_how_3: 'Get your reality signal \u2014 A 0-100 score with sub-dimension breakdown, market momentum tracking, and trend detection.',
 
   // Check — PayPal capture
@@ -349,7 +349,7 @@ export const en = {
   check_copy_link: 'Copy Link',
   check_share_x: 'Share on X',
   badge_cta_title: 'How does your idea score?',
-  badge_cta_desc: 'Scan your startup idea against GitHub, Hacker News, npm, PyPI & Product Hunt — free in 15 seconds.',
+  badge_cta_desc: 'Scan your startup idea against GitHub, Hacker News, npm & PyPI — free in 15 seconds.',
   badge_cta_button: 'Check Your Idea',
   // Dashboard
   dash_api_keys: 'API Keys',
@@ -435,12 +435,12 @@ export const en = {
 
   svc_proof_1_val: '1,510+',
   svc_proof_1_label: 'Tests Across Projects',
-  svc_proof_2_val: '780+',
+  svc_proof_2_val: '2,200+',
   svc_proof_2_label: 'GitHub Stars',
-  svc_proof_3_val: '4',
-  svc_proof_3_label: 'Production Systems Live',
-  svc_proof_4_val: '35',
-  svc_proof_4_label: 'Countries Using Our Tools',
+  svc_proof_3_val: '20',
+  svc_proof_3_label: 'MCP Tools Shipped',
+  svc_proof_4_val: '167',
+  svc_proof_4_label: 'GitHub Forks',
 
   svc_demo_title: 'See What You Get',
   svc_demo_desc: 'Interactive preview of a real trading dashboard. Click the tabs to explore decision audit trails and AI memory layers.',
@@ -496,8 +496,6 @@ export const en = {
   svc_bottom_cta: 'dev@mnemox.ai',
 
   // Services — Social Proof
-  svc_dogfood_title: 'Trusted by Developers Worldwide',
-  svc_dogfood_desc: 'Our open-source tools power real trading systems across 35 countries. Every system we deliver to clients runs in our own infrastructure first.',
   svc_flags_label: 'Developers in 35+ countries trust our open-source tools',
 
   // Services — FAQ
@@ -511,7 +509,7 @@ export const en = {
   svc_faq4_q: 'Can you sign an NDA?',
   svc_faq4_a: 'Absolutely. We routinely work under NDA. Your trading strategies, system architecture, and business details are kept strictly confidential.',
   svc_faq5_q: 'What platforms do you support?',
-  svc_faq5_a: 'MetaTrader 5 (XAUUSD, Forex), Binance (crypto), and Interactive Brokers (stocks, futures). We can integrate with any platform that offers an API — including custom in-house systems.',
+  svc_faq5_a: 'MetaTrader 5 (XAUUSD, Forex) and Binance (crypto) have shipped adapters today. Other venues, including IBKR and Alpaca, are on the roadmap and would be built as part of an engagement rather than picked off a shelf.',
   svc_faq6_q: 'How long until I see results?',
   svc_faq6_a: 'The Audit Trail tier can be live in 2-3 weeks. Full AI Trading Systems typically go live on demo within 4 weeks, then graduate to live after a validation period. We never rush to live — your capital is at stake.',
 
@@ -547,7 +545,7 @@ export const en = {
   // Portfolio page — Hero
   p_hero_eyebrow: 'OUR WORK',
   p_hero_title1: 'AI trading systems',
-  p_hero_title2: 'built on real capital, not slide decks.',
+  p_hero_title2: 'shipped as open source, with the limitations written down.',
   p_hero_desc: 'Every system here solves a problem we hit ourselves — then hardened to production grade. We ship infrastructure that trades, remembers, and protects.',
   p_hero_founder: 'Sean Peng',
   p_hero_founder_role: 'CEO, Mnemox AI · Taipei',
@@ -608,12 +606,12 @@ export const en = {
   p_tm_s3_desc: 'EWMA confidence tracking + drawdown-linked risk appetite',
   p_tm_s4_title: 'Audit Trail',
   p_tm_s4_desc: 'SHA-256 tamper-evident decision records aligned with MiFID II',
-  p_tm_r1_val: '6 months',
-  p_tm_r1_lbl: 'Dev time saved vs in-house build',
+  p_tm_r1_val: '20',
+  p_tm_r1_lbl: 'MCP tools exposed',
   p_tm_r2_val: '100%',
   p_tm_r2_lbl: 'Decision audit coverage',
-  p_tm_r3_val: '0',
-  p_tm_r3_lbl: 'Compliance gaps',
+  p_tm_r3_val: '1,519',
+  p_tm_r3_lbl: 'Tests passing in CI',
 
   // Portfolio — NexusOS case study
   p_nx_name: 'NexusOS',
@@ -660,7 +658,7 @@ export const en = {
   p_ng_m1_lbl: 'Risk Control',
   p_ng_m2_val: '-3%/day',
   p_ng_m2_lbl: 'Max Drawdown Cap',
-  p_ng_overview: 'Production XAUUSD Expert Advisor running 4 independent strategies on a shared risk engine. Per-strategy drawdown caps, portfolio correlation limits, circuit breakers, and Bloomberg-style real-time monitoring. Battle-tested on real capital.',
+  p_ng_overview: 'Production XAUUSD Expert Advisor running 4 independent strategies on a shared risk engine. Per-strategy drawdown caps, portfolio correlation limits, circuit breakers, and Bloomberg-style real-time monitoring.',
   p_ng_i1_val: '4',
   p_ng_i1_lbl: 'Strategies',
   p_ng_i2_val: '9',
@@ -716,8 +714,8 @@ export const en = {
   p_sv_s3_desc: 'Verifies performance across bull, bear, and crisis market conditions',
   p_sv_s4_title: 'CPCV (45-fold)',
   p_sv_s4_desc: 'Combinatorial Purged Cross-Validation for maximum robustness',
-  p_sv_r1_val: '94%',
-  p_sv_r1_lbl: 'Overfitted strategies caught',
+  p_sv_r1_val: '4',
+  p_sv_r1_lbl: 'Statistical tests per run',
   p_sv_r2_val: '20 years',
   p_sv_r2_lbl: 'Market regime coverage',
   p_sv_r3_val: '<30 sec',

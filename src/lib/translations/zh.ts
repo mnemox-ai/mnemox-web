@@ -37,7 +37,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_stat_memory: '記憶類型',
   tm_stat_tools: 'MCP 工具',
   tm_stat_license: '授權',
-  tm_stat_production: '上線時間',
+  tm_stat_production: '首次發布',
   tm_stat_production_val: '2026 年 3 月',
 
   // TradeMemory page — Problem
@@ -226,7 +226,7 @@ export const zh: Record<TranslationKey, string> = {
   // Check page
   check_nav_home: '首頁',
   check_title: '現實檢測',
-  check_subtitle: '你的點子有人做過了嗎？同時掃描 GitHub、Hacker News、npm、PyPI、Product Hunt 五大平台。',
+  check_subtitle: '你的點子有人做過了嗎？同時掃描 GitHub、Hacker News、npm、PyPI 四大平台。',
   check_placeholder: '描述你的產品想法...\n\n例如：一個能檢查 npm 套件名稱衝突的 MCP Server',
   check_quick: '快速',
   check_deep: '深度',
@@ -303,7 +303,7 @@ export const zh: Record<TranslationKey, string> = {
   check_sc_what_desc: '開發者和 AI Agent 的預建驗證工具。同時掃描 5 個即時來源，為你的點子評分 0-100，並告訴你市場正在加速、穩定還是衰退 — 只要 15 秒。',
   check_sc_how_title: '運作方式',
   check_sc_how_1: '輸入你的點子 \u2014 用自然語言描述你的軟體概念。',
-  check_sc_how_2: '同時掃描 5 個來源 \u2014 GitHub 儲存庫、Hacker News、npm、PyPI、Product Hunt。',
+  check_sc_how_2: '同時掃描 4 個來源 — GitHub 儲存庫、Hacker News、npm、PyPI。',
   check_sc_how_3: '取得現實信號 \u2014 0-100 分數，含子維度拆分、市場動能追蹤和趨勢偵測。',
 
   // Check — PayPal capture
@@ -351,7 +351,7 @@ export const zh: Record<TranslationKey, string> = {
   check_copy_link: '複製連結',
   check_share_x: '分享到 X',
   badge_cta_title: '你的點子能得幾分？',
-  badge_cta_desc: '掃描你的創業點子，同時比對 GitHub、Hacker News、npm、PyPI 和 Product Hunt — 免費，15 秒出結果。',
+  badge_cta_desc: '掃描你的創業點子，同時比對 GitHub、Hacker News、npm 和 PyPI — 免費，15 秒出結果。',
   badge_cta_button: '開始檢測',
   // Dashboard
   dash_api_keys: 'API 金鑰',
@@ -437,12 +437,12 @@ export const zh: Record<TranslationKey, string> = {
 
   svc_proof_1_val: '1,510+',
   svc_proof_1_label: '跨專案測試數',
-  svc_proof_2_val: '780+',
+  svc_proof_2_val: '2,200+',
   svc_proof_2_label: 'GitHub Stars',
-  svc_proof_3_val: '4',
-  svc_proof_3_label: '正在運行的系統',
-  svc_proof_4_val: '35',
-  svc_proof_4_label: '國家使用我們的工具',
+  svc_proof_3_val: '20',
+  svc_proof_3_label: '已發布 MCP 工具',
+  svc_proof_4_val: '167',
+  svc_proof_4_label: 'GitHub Forks',
 
   svc_demo_title: '看看你會得到什麼',
   svc_demo_desc: '可互動的即時交易儀表板預覽。點擊 Tab 探索決策審計追蹤和 AI 記憶層。',
@@ -498,8 +498,6 @@ export const zh: Record<TranslationKey, string> = {
   svc_bottom_cta: 'dev@mnemox.ai',
 
   // Services — Social Proof
-  svc_dogfood_title: '全球開發者的信賴之選',
-  svc_dogfood_desc: '我們的開源工具驅動 35 個國家的真實交易系統。每套交付給客戶的系統，都先在我們自己的基礎設施上跑過。',
   svc_flags_label: '35+ 個國家的開發者信賴我們的開源工具',
 
   // Services — FAQ
@@ -513,7 +511,7 @@ export const zh: Record<TranslationKey, string> = {
   svc_faq4_q: '可以簽 NDA 嗎？',
   svc_faq4_a: '當然。我們經常在 NDA 下工作。你的交易策略、系統架構和商業細節都會嚴格保密。',
   svc_faq5_q: '支援哪些平台？',
-  svc_faq5_a: 'MetaTrader 5（XAUUSD、外匯）、Binance（加密貨幣）和 Interactive Brokers（股票、期貨）。我們可以整合任何提供 API 的平台 — 包括自建系統。',
+  svc_faq5_a: '目前已有 adapter 的是 MetaTrader 5（XAUUSD、外匯）與 Binance（加密貨幣）。其他券商（含 IBKR、Alpaca）在 roadmap 上，會在專案中實作，不是現成的。',
   svc_faq6_q: '多久可以看到成果？',
   svc_faq6_a: '審計追蹤方案最快 2-3 週上線。完整 AI 交易系統通常 4 週內在 Demo 帳戶上線，驗證期通過後再切換到實盤。我們不會倉促上線 — 你的資金是有風險的。',
 
@@ -549,7 +547,7 @@ export const zh: Record<TranslationKey, string> = {
   // Portfolio page — Hero
   p_hero_eyebrow: '我們的作品',
   p_hero_title1: 'AI 交易系統',
-  p_hero_title2: '建立在真實資本上，不是投影片。',
+  p_hero_title2: '開源發布，並把限制寫清楚。',
   p_hero_desc: '每個系統都是為了解決我們自己遇到的問題而生，再淬煉至生產等級。我們交付的基礎設施能交易、記憶、保護。',
   p_hero_founder: 'Sean Peng',
   p_hero_founder_role: 'CEO, Mnemox AI · 台北',
@@ -610,12 +608,12 @@ export const zh: Record<TranslationKey, string> = {
   p_tm_s3_desc: 'EWMA 信心追蹤 + 回撤連動風險偏好',
   p_tm_s4_title: '審計追蹤',
   p_tm_s4_desc: 'SHA-256 竄改可偵測的決策記錄，符合 MiFID II',
-  p_tm_r1_val: '6 個月',
-  p_tm_r1_lbl: '相比自建節省的開發時間',
+  p_tm_r1_val: '20',
+  p_tm_r1_lbl: '對外提供的 MCP 工具',
   p_tm_r2_val: '100%',
   p_tm_r2_lbl: '決策審計覆蓋率',
-  p_tm_r3_val: '0',
-  p_tm_r3_lbl: '合規缺口',
+  p_tm_r3_val: '1,519',
+  p_tm_r3_lbl: 'CI 通過的測試數',
 
   // Portfolio — NexusOS case study
   p_nx_name: 'NexusOS',
@@ -662,7 +660,7 @@ export const zh: Record<TranslationKey, string> = {
   p_ng_m1_lbl: '風控',
   p_ng_m2_val: '-3%/天',
   p_ng_m2_lbl: '最大回撤上限',
-  p_ng_overview: '生產環境 XAUUSD Expert Advisor，在共享風控引擎上跑 4 個獨立策略。每策略回撤上限、投資組合相關性限制、熔斷機制，以及彭博風格的即時監控。已在真實資本上實戰驗證。',
+  p_ng_overview: '生產環境 XAUUSD Expert Advisor，在共享風控引擎上跑 4 個獨立策略。每策略回撤上限、投資組合相關性限制、熔斷機制，以及彭博風格的即時監控。',
   p_ng_i1_val: '4',
   p_ng_i1_lbl: '策略數',
   p_ng_i2_val: '9',
@@ -718,8 +716,8 @@ export const zh: Record<TranslationKey, string> = {
   p_sv_s3_desc: '驗證在多頭、空頭和危機市場條件下的表現',
   p_sv_s4_title: 'CPCV（45 折）',
   p_sv_s4_desc: '組合清除交叉驗證，確保最大穩健性',
-  p_sv_r1_val: '94%',
-  p_sv_r1_lbl: '過擬合策略被攔截',
+  p_sv_r1_val: '4',
+  p_sv_r1_lbl: '每次執行的統計檢定數',
   p_sv_r2_val: '20 年',
   p_sv_r2_lbl: '市況覆蓋範圍',
   p_sv_r3_val: '<30 秒',

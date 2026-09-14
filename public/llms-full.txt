@@ -31,11 +31,11 @@ TradeMemory Protocol is an open-source MCP (Model Context Protocol) server that 
 #### 2. Outcome-Weighted Memory (OWM)
 Memories are weighted by their trading outcomes. Profitable patterns get higher recall priority. Losing patterns are still stored but flagged for reflection.
 
-#### 3. 17 MCP Tools
+#### 3. 20 MCP Tools
 Complete toolkit for AI agents:
-- `store_trade` - Record trades with full context
-- `recall_similar` - Find historically similar setups
-- `get_bias_report` - Detect cognitive biases
+- `remember_trade` - Record a trade across five memory layers
+- `recall_memories` - Outcome-weighted recall of similar setups
+- `get_behavioral_analysis` - Detect behavioural bias from procedural memory
 - `calculate_kelly` - Position sizing from historical win rates
 - `export_audit_trail` - Compliance-ready trade logs with SHA-256 verification
 - And 12 more tools for pattern mining, reflection, and strategy evolution
@@ -50,10 +50,10 @@ pip install tradememory-protocol
 ```
 
 ### Supported Platforms
-- MetaTrader 5 (MT5)
-- Binance
-- Alpaca
-- Any platform with API access
+- MetaTrader 5 (MT5) — shipped adapter
+- Binance — shipped adapter
+
+Other venues (IBKR, Alpaca, CCXT) are on the roadmap, not built today.
 
 ### Use Cases
 - Building AI trading bots that learn from experience

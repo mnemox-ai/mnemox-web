@@ -10,10 +10,10 @@ Mnemox builds open-source infrastructure for AI-assisted decision making. We foc
 Persistent memory layer for AI trading agents. 5-layer cognitive architecture with Outcome-Weighted Memory (OWM).
 
 - **Install**: `pip install tradememory-protocol`
-- **Tools**: 17 MCP tools for Claude Desktop, Cursor, and custom agents
-- **Tests**: 1,233 passing tests
+- **Tools**: 20 MCP tools for Claude Desktop, Cursor, and custom agents
+- **Tests**: 1,519 passing tests
 - **License**: MIT (fully open source)
-- **Platforms**: MT5, Binance, Alpaca, any platform with API
+- **Platforms**: MT5 and Binance adapters shipped; other venues via custom integration
 - **GitHub**: https://github.com/mnemox-ai/tradememory-protocol
 - **PyPI**: https://pypi.org/project/tradememory-protocol/
 
@@ -37,7 +37,7 @@ AI scanner that checks if your idea already exists before you build.
 - **PyPI**: https://pypi.org/project/idea-reality-mcp/
 
 **Features:**
-- Scans GitHub, Hacker News, npm, PyPI, Product Hunt
+- Scans GitHub, Hacker News, npm, PyPI
 - Returns 0-100 reality score with competitor evidence
 - Gap radar visualization for market opportunities
 

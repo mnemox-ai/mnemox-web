@@ -34,7 +34,7 @@ const SUGGESTIONS = {
 };
 
 const SCAN_SOURCES_QUICK = ['GitHub', 'HN'];
-const SCAN_SOURCES_DEEP = ['GitHub', 'HN', 'npm', 'PyPI', 'Product Hunt'];
+const SCAN_SOURCES_DEEP = ['GitHub', 'HN', 'npm', 'PyPI'];
 
 // --- Types ---
 interface EvidenceItem {

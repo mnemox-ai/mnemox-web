@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Idea Reality Check — Validate Your Idea Against 5 Databases | Mnemox',
+  title: 'Idea Reality Check — Validate Your Idea Against 4 Databases | Mnemox',
   description:
-    'Pre-build validation for developers and AI agents. Scans GitHub, Hacker News, npm, PyPI, and Product Hunt simultaneously. Get a 0-100 reality signal in 15 seconds.',
+    'Pre-build validation for developers and AI agents. Scans GitHub, Hacker News, npm and PyPI simultaneously. Get a 0-100 reality signal in 15 seconds.',
   openGraph: {
-    title: 'Idea Reality Check — Validate Your Idea Against 5 Databases',
+    title: 'Idea Reality Check — Validate Your Idea Against 4 Databases',
     description:
       'Scans 5 live sources, scores your idea 0-100, and tells you whether the market is accelerating, stable, or declining — in 15 seconds.',
     url: 'https://www.mnemox.ai/check',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Idea Reality Check — Validate Your Idea Against 5 Databases',
+    title: 'Idea Reality Check — Validate Your Idea Against 4 Databases',
     description: 'Scans 5 live sources in parallel. Get a 0-100 reality signal in 15 seconds.',
     images: ['/assets/og-check.png'],
   },
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
         downloadUrl: 'https://pypi.org/project/idea-reality-mcp/',
         screenshot: 'https://www.mnemox.ai/assets/og-check.png',
         description:
-          'Pre-build validation tool. Scans GitHub, Hacker News, npm, PyPI, and Product Hunt to score your software idea 0-100.',
+          'Pre-build validation tool. Scans GitHub, Hacker News, npm and PyPI to score your software idea 0-100.',
         applicationCategory: 'DeveloperApplication',
         operatingSystem: 'Any',
         offers: [
-          { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free — scans GitHub, HN, npm, PyPI, Product Hunt, and Stack Overflow' },
+          { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free — scans GitHub, HN, npm and PyPI' },
         ],
         creator: {
           '@type': 'Organization',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
             name: 'What databases does Idea Reality Check scan?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Idea Reality Check scans GitHub repositories, Hacker News discussions, npm packages, PyPI packages, and Product Hunt launches simultaneously.',
+              text: 'Idea Reality Check scans GitHub repositories, Hacker News discussions, npm packages and PyPI packages simultaneously.',
             },
           },
           {
