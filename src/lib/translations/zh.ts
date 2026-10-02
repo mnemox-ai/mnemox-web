@@ -30,7 +30,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_hero_title2: '患有失憶症',
   tm_hero_desc: '它每次對話都犯同樣的錯誤。它無法解釋為什麼進行交易。當 context window 結束，它忘記一切。TradeMemory 是記憶層 — 一個 pip install，你的 AI 代理就能記住每筆交易、每個結果、每個錯誤。',
   tm_hero_cta1: '免費開始使用',
-  tm_hero_cta2: '企業版',
+  tm_hero_cta2: '免費幫你接上',
 
   // TradeMemory page — Stats
   tm_stat_tests: '測試通過',
@@ -44,8 +44,8 @@ export const zh: Record<TranslationKey, string> = {
   tm_problem_title: '問題所在',
   tm_problem1_title: '每次對話重複同樣錯誤',
   tm_problem1_desc: '你的代理在 context window 結束後忘記所有交易。它無法從過去的錯誤中學習，也無法記住什麼策略有效。',
-  tm_problem2_title: '監管機構要求的審計追蹤',
-  tm_problem2_desc: 'MiFID II 和 EU AI Act 要求決策文件。你的代理無法解釋每筆交易的原因。',
+  tm_problem2_title: '沒有「為什麼」的紀錄',
+  tm_problem2_desc: '你的 agent 說不出每筆交易為什麼下，也拿不出上次做同一件事的結果。',
   tm_problem3_title: 'Context Window = 記憶清空',
   tm_problem3_desc: '每個 MCP server 負責執行 — 下單、獲取價格。沒有任何一個負責記憶。AI 交易技術棧缺少一層。',
 
@@ -68,25 +68,22 @@ export const zh: Record<TranslationKey, string> = {
   tm_case2_desc: '從 MT5 自動同步。記錄信號被阻擋的原因，而不只是執行的部分。每天數千個決策。',
   tm_case2_badge: '生產環境',
   tm_case3_title: '合規團隊',
-  tm_case3_desc: 'SHA-256 竄改可偵測的審計追蹤。每個 AI 決策都被記錄並可匯出供監管審查。',
+  tm_case3_desc: 'SHA-256 竄改可偵測的審計追蹤。每個 AI 決策都被記錄並可匯出審查。',
   tm_case3_badge: '企業版',
   tm_cases_link: '查看完整使用案例 →',
 
   // TradeMemory page — Status
   tm_status_title: '開源、自架',
   tm_status_subtitle: 'MIT 授權。沒有訂閱制，也沒有代管服務。',
-  tm_status_body: 'TradeMemory 功能已完備，目前是維護模式：我們修 bug 與安全性問題、回覆 GitHub issue，但不再新增功能。它完全跑在你自己的機器上，資料存在本機 SQLite。沒有付費方案，本頁不販售任何東西。',
-  tm_status_preview_title: '看看介面長什麼樣',
-  tm_status_preview_note: '我們架了一個跑在示範資料集上的儀表板預覽。裡面的交易是合成的，畫面上每個數字都有標註。它展示的是介面做得到什麼，不是它賺了多少。',
-  tm_status_preview_cta: '打開儀表板 →',
-  tm_status_service_title: '交易紀錄統計分析',
-  tm_status_service_note: '另外我們承接付費的單次分析：針對你既有的交易紀錄做描述性統計，交付一份報告。這不是投資建議，也不包含訊號或代操。',
-  tm_status_service_cta: '詢問分析服務 →',
+  tm_status_body: 'TradeMemory 是開源專案，持續開發中。它跑在你自己的電腦上，資料存在本機 SQLite。沒有付費方案，本頁不販售任何東西。',
+  tm_status_service_title: '免費幫你接上',
+  tm_status_service_note: '我們免費幫你把歷史同步進來、把煞車裝在券商前面。之後要做什麼，由用的人決定。',
+  tm_status_service_cta: '提出整合需求 →',
 
   // TradeMemory page — CTA
-  tm_cta_title: '需要客製化部署？',
-  tm_cta_desc: '我們為自營商和基金打造客製化交易記憶系統。合規級審計追蹤、私有部署、專屬支援。',
-  tm_cta_button: '聯絡我們',
+  tm_cta_title: '你的 agent 已經在對券商下單？',
+  tm_cta_desc: '告訴我們它交易什麼、在哪裡交易。幫你接上不收費，之後要做什麼由第一批使用者決定。',
+  tm_cta_button: '提出整合需求',
 
   // TradeMemory page — Architecture (kept for existing components)
   tm_arch_title: '三層架構',
@@ -445,7 +442,7 @@ export const zh: Record<TranslationKey, string> = {
   svc_proof_4_label: 'GitHub Forks',
 
   svc_demo_title: '看看你會得到什麼',
-  svc_demo_desc: '可互動的即時交易儀表板預覽。點擊 Tab 探索決策審計追蹤和 AI 記憶層。',
+  svc_demo_desc: '儀表板介面的互動預覽，裡面每個數字都是模擬的。點擊 Tab 探索決策審計追蹤和 AI 記憶層。',
 
   svc_tier1_name: '決策審計追蹤',
   svc_tier1_desc: '為你現有的交易系統加上合規級別的紀錄。每筆決策都被記錄、雜湊、可查詢。',
@@ -598,7 +595,7 @@ export const zh: Record<TranslationKey, string> = {
   p_tm_i4_val: 'SHA-256',
   p_tm_i4_lbl: '竄改偵測',
   p_tm_problem_h: 'AI 交易代理每次對話都從零開始',
-  p_tm_problem_desc: '沒有過去交易的記憶。決策沒有上下文。合規沒有審計追蹤。每次對話都是空白，重複同樣的錯誤。自營商需要合規級的記錄，但現有工具年費 $100K+，且從未為 AI 代理設計。',
+  p_tm_problem_desc: '沒有過去交易的記憶。決策沒有上下文。沒有紀錄說明一筆交易為什麼下。每次對話都是空白，重複同樣的錯誤。',
   p_tm_solution_h: '5 層結果加權記憶架構',
   p_tm_s1_title: '情節記憶',
   p_tm_s1_desc: '每筆交易附完整決策上下文，採冪律衰減',
@@ -607,7 +604,7 @@ export const zh: Record<TranslationKey, string> = {
   p_tm_s3_title: '情感狀態',
   p_tm_s3_desc: 'EWMA 信心追蹤 + 回撤連動風險偏好',
   p_tm_s4_title: '審計追蹤',
-  p_tm_s4_desc: 'SHA-256 竄改可偵測的決策記錄，符合 MiFID II',
+  p_tm_s4_desc: 'SHA-256 竄改可偵測的決策記錄',
   p_tm_r1_val: '20',
   p_tm_r1_lbl: '對外提供的 MCP 工具',
   p_tm_r2_val: '100%',

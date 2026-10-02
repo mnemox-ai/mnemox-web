@@ -21,7 +21,7 @@ export function DemoPreview() {
   const [activeTab, setActiveTab] = useState<TabId>('dashboard');
 
   return (
-    <BrowserFrame title="AI Trading Dashboard — Mnemox">
+    <BrowserFrame title="AI Trading Dashboard — Mnemox" badge="Simulated data">
       {/* Tab bar */}
       <div className="mb-4 flex gap-1 rounded-lg border border-border bg-bg/60 p-1">
         {TABS.map((tab) => (
