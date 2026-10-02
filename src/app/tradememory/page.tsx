@@ -59,7 +59,7 @@ export default function TradeMemoryPage() {
         {/* CTAs */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://github.com/mnemox-ai/tradememory-protocol#getting-started"
+            href="https://github.com/mnemox-ai/tradememory-protocol#start-with-your-own-history"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg bg-cyan px-6 py-3 font-display text-sm font-semibold text-bg transition-opacity hover:opacity-90"
@@ -67,7 +67,9 @@ export default function TradeMemoryPage() {
             {t('tm_hero_cta1')}
           </a>
           <a
-            href="mailto:dev@mnemox.ai"
+            href="https://github.com/mnemox-ai/tradememory-protocol/issues/new?template=brake_integration.yml"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border-bright px-6 py-3 font-display text-sm font-semibold text-txt transition-colors hover:border-cyan hover:text-cyan"
           >
             {t('tm_hero_cta2')}
@@ -233,30 +235,15 @@ export default function TradeMemoryPage() {
 
             <div className="mt-8 border-t border-border pt-6">
               <div className="font-display text-sm font-semibold text-txt">
-                {t('tm_status_preview_title')}
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-txt-dim">
-                {t('tm_status_preview_note')}
-              </p>
-              <a
-                href="https://tradememory-dashboard.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block rounded-lg bg-cyan px-4 py-2 font-display text-xs font-semibold text-bg transition-opacity hover:opacity-90"
-              >
-                {t('tm_status_preview_cta')}
-              </a>
-            </div>
-
-            <div className="mt-8 border-t border-border pt-6">
-              <div className="font-display text-sm font-semibold text-txt">
                 {t('tm_status_service_title')}
               </div>
               <p className="mt-2 text-sm leading-relaxed text-txt-dim">
                 {t('tm_status_service_note')}
               </p>
               <a
-                href="mailto:dev@mnemox.ai"
+                href="https://github.com/mnemox-ai/tradememory-protocol/issues/new?template=brake_integration.yml"
+            target="_blank"
+            rel="noopener noreferrer"
                 className="mt-4 inline-block rounded-lg border border-border-bright px-4 py-2 font-display text-xs font-semibold text-txt transition-colors hover:border-cyan hover:text-cyan"
               >
                 {t('tm_status_service_cta')}
@@ -277,7 +264,9 @@ export default function TradeMemoryPage() {
               {t('tm_cta_desc')}
             </p>
             <a
-              href="mailto:dev@mnemox.ai"
+              href="https://github.com/mnemox-ai/tradememory-protocol/issues/new?template=brake_integration.yml"
+            target="_blank"
+            rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-cyan px-8 py-3 font-display text-sm font-semibold text-bg transition-opacity hover:opacity-90"
             >
               {t('tm_cta_button')}

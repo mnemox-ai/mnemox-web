@@ -46,9 +46,9 @@ export const metadata: Metadata = {
         operatingSystem: 'Windows, macOS, Linux',
         softwareVersion: '0.5.5',
         featureList:
-          '20 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Outcome-Weighted Memory (OWM), SHA-256 tamper-evident audit trail, MiFID II compliance support',
+          '20 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Outcome-Weighted Memory (OWM), SHA-256 tamper-evident audit trail',
         keywords:
-          'MCP server, trading memory, AI agent, algorithmic trading, MT5, forex, MiFID II, compliance, decision audit',
+          'MCP server, trading memory, AI agent, algorithmic trading, MT5, forex, Hyperliquid, Alpaca, decision audit',
         offers: [
           {
             '@type': 'Offer',

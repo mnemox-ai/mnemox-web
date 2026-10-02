@@ -28,7 +28,7 @@ export const en = {
   tm_hero_title2: 'Has Amnesia',
   tm_hero_desc: 'It makes the same mistakes every session. It can\'t explain why it traded. It forgets everything when the context window ends. TradeMemory is the memory layer — one pip install, and your AI agent remembers every trade, every outcome, every mistake.',
   tm_hero_cta1: 'Get Started — Free',
-  tm_hero_cta2: 'Enterprise',
+  tm_hero_cta2: 'Free setup help',
 
   // TradeMemory page — Stats
   tm_stat_tests: 'Tests Passing',
@@ -42,8 +42,8 @@ export const en = {
   tm_problem_title: 'The Problem',
   tm_problem1_title: 'Same Mistakes Every Session',
   tm_problem1_desc: 'Your agent forgets every trade when the context window ends. It can\'t learn from past mistakes or remember what worked.',
-  tm_problem2_title: 'No Audit Trail for Regulators',
-  tm_problem2_desc: 'MiFID II and the EU AI Act require decision documentation. Your agent can\'t explain why it made each trade.',
+  tm_problem2_title: 'No Record of Why',
+  tm_problem2_desc: 'Your agent can\'t explain why it made each trade, or show what happened the last time it tried the same thing.',
   tm_problem3_title: 'Context Window = Memory Loss',
   tm_problem3_desc: 'Every MCP server handles execution — placing orders, fetching prices. None handle memory. The AI trading stack is missing a layer.',
 
@@ -66,25 +66,22 @@ export const en = {
   tm_case2_desc: 'Automated sync from MT5. Records why signals were blocked, not just executed. Run first-party on a demo account.',
   tm_case2_badge: 'First-party',
   tm_case3_title: 'Compliance Team',
-  tm_case3_desc: 'SHA-256 tamper-evident audit trail. Every AI decision recorded and exportable for regulatory review.',
+  tm_case3_desc: 'SHA-256 tamper-evident audit trail. Every AI decision recorded and exportable for review.',
   tm_case3_badge: 'Design goal',
   tm_cases_link: 'Read full use cases →',
 
   // TradeMemory page — Status
   tm_status_title: 'Open Source, Self-Hosted',
   tm_status_subtitle: 'MIT licensed. No subscription, no hosted service.',
-  tm_status_body: 'TradeMemory is feature-complete and in maintenance mode: we fix bugs and security issues and answer GitHub issues, but no new features are planned. It runs entirely on your own machine against a local SQLite database. There is no paid tier and nothing is sold on this page.',
-  tm_status_preview_title: 'See the interface',
-  tm_status_preview_note: 'A hosted preview of the dashboard runs on an illustrative demo dataset. The trades are synthetic and every figure on it is labelled as such — it shows what the interface does, not what it earned.',
-  tm_status_preview_cta: 'Open the dashboard →',
-  tm_status_service_title: 'Trading record analysis',
-  tm_status_service_note: 'Separately, we take paid one-off engagements analysing existing trading records: descriptive statistics over your own history, delivered as a report. This is not investment advice, and does not include signals or managed trading.',
-  tm_status_service_cta: 'Ask about analysis →',
+  tm_status_body: 'TradeMemory is open source and under active development. It runs on your own machine against a local SQLite database. There is no paid tier and nothing is sold on this page.',
+  tm_status_service_title: 'Free setup help',
+  tm_status_service_note: 'We help you sync your history and put the brake in front of your broker, at no charge. The people who use it decide what gets built next.',
+  tm_status_service_cta: 'Open an integration request →',
 
   // TradeMemory page — CTA
-  tm_cta_title: 'Need a Custom Deployment?',
-  tm_cta_desc: 'We build custom trading memory systems for prop firms and funds. Compliance-grade audit trails, private deployment, dedicated support.',
-  tm_cta_button: 'Contact Us',
+  tm_cta_title: 'Running an Agent Against a Broker?',
+  tm_cta_desc: 'Tell us what it trades and where. Setup help is free, and the first users shape what gets built next.',
+  tm_cta_button: 'Open an integration request',
 
   // TradeMemory page — Architecture (kept for existing components)
   tm_arch_title: 'Three-Layer Architecture',
@@ -443,7 +440,7 @@ export const en = {
   svc_proof_4_label: 'GitHub Forks',
 
   svc_demo_title: 'See What You Get',
-  svc_demo_desc: 'Interactive preview of a real trading dashboard. Click the tabs to explore decision audit trails and AI memory layers.',
+  svc_demo_desc: 'Interactive preview of the dashboard interface. Every number in it is simulated. Click the tabs to explore decision audit trails and AI memory layers.',
 
   svc_tier1_name: 'Decision Audit Trail',
   svc_tier1_desc: 'Compliance-grade logging for your existing trading system. Every decision recorded, hashed, and queryable.',
@@ -596,7 +593,7 @@ export const en = {
   p_tm_i4_val: 'SHA-256',
   p_tm_i4_lbl: 'Tamper Detection',
   p_tm_problem_h: 'AI trading agents start every session from zero',
-  p_tm_problem_desc: "No memory of past trades. No context for decisions. No audit trail for compliance. Every session is a blank slate, repeating the same mistakes. Prop firms need compliance-grade logging, but existing tools cost $100K+/year and were never designed for AI agents.",
+  p_tm_problem_desc: "No memory of past trades. No context for decisions. No record of why a trade was taken. Every session is a blank slate, repeating the same mistakes.",
   p_tm_solution_h: '5-layer outcome-weighted memory architecture',
   p_tm_s1_title: 'Episodic Memory',
   p_tm_s1_desc: 'Every trade stored with full decision context and power-law decay',
@@ -605,7 +602,7 @@ export const en = {
   p_tm_s3_title: 'Affective State',
   p_tm_s3_desc: 'EWMA confidence tracking + drawdown-linked risk appetite',
   p_tm_s4_title: 'Audit Trail',
-  p_tm_s4_desc: 'SHA-256 tamper-evident decision records aligned with MiFID II',
+  p_tm_s4_desc: 'SHA-256 tamper-evident decision records',
   p_tm_r1_val: '20',
   p_tm_r1_lbl: 'MCP tools exposed',
   p_tm_r2_val: '100%',
