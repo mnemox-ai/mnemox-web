@@ -28,7 +28,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_hero_tag: 'AI 交易代理的記憶層',
   tm_hero_title1: '你的交易 AI',
   tm_hero_title2: '患有失憶症',
-  tm_hero_desc: '它每次對話都犯同樣的錯誤。它無法解釋為什麼進行交易。當 context window 結束，它忘記一切。TradeMemory 是記憶層 — 一個 pip install，你的 AI 代理就能記住每筆交易、每個結果、每個錯誤。',
+  tm_hero_desc: '它每次對話都犯同樣的錯誤。它無法解釋為什麼進行交易。當 context window 結束，它忘記一切。TradeMemory 是記憶層：一個 pip install，你的 AI 代理就能記住每筆交易、每個結果、每個錯誤。',
   tm_hero_cta1: '免費開始使用',
   tm_hero_cta2: '免費幫你接上',
 
@@ -47,7 +47,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_problem2_title: '沒有「為什麼」的紀錄',
   tm_problem2_desc: '你的 agent 說不出每筆交易為什麼下，也拿不出上次做同一件事的結果。',
   tm_problem3_title: 'Context Window = 記憶清空',
-  tm_problem3_desc: '每個 MCP server 負責執行 — 下單、獲取價格。沒有任何一個負責記憶。AI 交易技術棧缺少一層。',
+  tm_problem3_desc: '多數交易 MCP server 負責執行：下單、取得價格。它們不記得上一筆交易的結果。',
 
   // TradeMemory page — How It Works
   tm_how_title: '運作方式',
@@ -55,7 +55,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_how1_title: '詢問',
   tm_how1_desc: '交易前，回憶在相似市場條件下的過去交易。系統返回上次發生了什麼以及結果如何。',
   tm_how2_title: '記錄',
-  tm_how2_desc: '交易後，一次呼叫記錄所有內容。五個記憶層 — 情節、語意、程序、情感、審計 — 自動更新。',
+  tm_how2_desc: '交易後，一次呼叫記錄所有內容。五個記憶層（情節、語意、程序、情感、審計）自動更新。',
   tm_how3_title: '反思',
   tm_how3_desc: '每日和每週回顧偵測行為漂移、策略衰退和交易錯誤。系統告訴你何時應該停止。',
 
@@ -65,11 +65,11 @@ export const zh: Record<TranslationKey, string> = {
   tm_case1_desc: '每筆交易前的起飛前檢查清單。記憶是決策過程的起點，而非事後補充。',
   tm_case1_badge: '真實用戶',
   tm_case2_title: 'Forex EA 系統',
-  tm_case2_desc: '從 MT5 自動同步。記錄信號被阻擋的原因，而不只是執行的部分。每天數千個決策。',
-  tm_case2_badge: '生產環境',
+  tm_case2_desc: '從 MT5 自動同步。記錄信號被阻擋的原因，而不只是執行的部分。在維護者自己的模擬帳戶上執行。',
+  tm_case2_badge: '第一方',
   tm_case3_title: '合規團隊',
   tm_case3_desc: 'SHA-256 竄改可偵測的審計追蹤。每個 AI 決策都被記錄並可匯出審查。',
-  tm_case3_badge: '企業版',
+  tm_case3_badge: '設計目標',
   tm_cases_link: '查看完整使用案例 →',
 
   // TradeMemory page — Status
@@ -161,7 +161,7 @@ export const zh: Record<TranslationKey, string> = {
   tm_feat_kelly_title: 'Kelly 記憶公式',
   tm_feat_kelly_desc: '使用回憶的勝率和報酬比，進行上下文加權 Kelly 準則計算。預設四分之一 Kelly，可調風險偏好。',
   tm_feat_evolution_title: '策略演化',
-  tm_feat_evolution_desc: '從原始價格數據發現交易策略。LLM 驅動的假設生成 + 向量化回測 + 達爾文式篩選。找到真正的 alpha — 經統計驗證。',
+  tm_feat_evolution_desc: '從原始價格數據發現交易策略。LLM 驅動的假設生成 + 向量化回測 + 達爾文式篩選。',
 
   // Pricing page
   pricing_hero_title: '簡單透明的定價',

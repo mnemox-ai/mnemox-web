@@ -45,7 +45,7 @@ export const en = {
   tm_problem2_title: 'No Record of Why',
   tm_problem2_desc: 'Your agent can\'t explain why it made each trade, or show what happened the last time it tried the same thing.',
   tm_problem3_title: 'Context Window = Memory Loss',
-  tm_problem3_desc: 'Every MCP server handles execution — placing orders, fetching prices. None handle memory. The AI trading stack is missing a layer.',
+  tm_problem3_desc: 'Most trading MCP servers handle execution: placing orders, fetching prices. They do not remember how the last trade went.',
 
   // TradeMemory page — How It Works
   tm_how_title: 'How It Works',
@@ -159,7 +159,7 @@ export const en = {
   tm_feat_kelly_title: 'Kelly-from-Memory',
   tm_feat_kelly_desc: 'Context-weighted Kelly Criterion using recalled win rates and payoff ratios. Quarter-Kelly default with risk appetite adjustment.',
   tm_feat_evolution_title: 'Strategy Evolution',
-  tm_feat_evolution_desc: 'Discover trading strategies from raw price data. LLM-powered hypothesis generation + vectorized backtesting + Darwinian selection. Finds real alpha — statistically validated.',
+  tm_feat_evolution_desc: 'Discover trading strategies from raw price data. LLM-powered hypothesis generation + vectorized backtesting + Darwinian selection.',
 
   // Pricing page
   pricing_hero_title: 'Simple, transparent pricing.',
