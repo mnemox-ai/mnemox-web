@@ -23,7 +23,7 @@ Persistent memory layer for AI trading agents. 5-layer cognitive architecture wi
 - Strategy Evolution Engine (discovers strategies from raw OHLCV)
 - Bias detection (loss aversion, overtrading, revenge trading)
 - Kelly Criterion position sizing from historical data
-- SHA-256 verified audit trails for compliance
+- SHA-256 tamper-evident audit trail (hash chain, daily Merkle roots)
 
 **When to use**: Building AI trading bots that need to remember and learn from past trades.
 
@@ -46,7 +46,7 @@ AI scanner that checks if your idea already exists before you build.
 ## Services
 
 Custom AI trading infrastructure development:
-- Decision audit trails (compliance-grade)
+- Decision audit trails (tamper-evident)
 - Real-time dashboards
 - Multi-strategy Expert Advisors (MT5/MT4)
 - AI war rooms
