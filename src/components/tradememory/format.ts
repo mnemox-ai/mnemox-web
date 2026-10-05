@@ -1,5 +1,10 @@
-/** Display formatting for the address page. Parity-sensitive strings live in `@/lib/tradememory/pyfmt`. */
-import { pyPercent0 } from '@/lib/tradememory/pyfmt';
+/**
+ * Display formatting for the address page. Every number is rounded the way
+ * the Python report rounds it (half-even on the exact value, `pyfmt.ts`), so
+ * the page, the rule sentence and `tradememory sync` print the same figures:
+ * -1234.5 is -$1,234 everywhere, 150 s is 2 minutes everywhere.
+ */
+import { pyFixed, pyFixedGrouped, pyPercent0 } from '@/lib/tradememory/pyfmt';
 
 export type Lang = 'en' | 'zh';
 
@@ -7,13 +12,12 @@ const MINUS = '−';
 const DASH = '–';
 
 export function fmtInt(n: number): string {
-  return n.toLocaleString('en-US');
+  return pyFixedGrouped(n, 0);
 }
 
-/** Whole USDC with a true minus sign: −$97,790. */
+/** Whole USDC with a true minus sign: −$97,790. Same rounding as the report's `_money`. */
 export function fmtMoney(x: number): string {
-  const abs = Math.abs(x).toLocaleString('en-US', { maximumFractionDigits: 0 });
-  return `${x < 0 ? MINUS : ''}$${abs}`;
+  return `${x < 0 ? MINUS : ''}$${pyFixedGrouped(Math.abs(x), 0)}`;
 }
 
 /** The report's `:.0%` rounding, so the page and the CLI agree on "46%". */
@@ -27,11 +31,12 @@ export interface DurationUnits {
   m: string;
 }
 
+/** The report's `_dur` thresholds and rounding, with the page's unit labels. */
 export function fmtDuration(seconds: number | null, units: DurationUnits): string {
   if (seconds === null) return DASH;
-  if (seconds >= 86400) return `${(seconds / 86400).toFixed(1)} ${units.d}`;
-  if (seconds >= 3600) return `${(seconds / 3600).toFixed(1)} ${units.h}`;
-  return `${Math.round(seconds / 60)} ${units.m}`;
+  if (seconds >= 86400) return `${pyFixed(seconds / 86400, 1)} ${units.d}`;
+  if (seconds >= 3600) return `${pyFixed(seconds / 3600, 1)} ${units.h}`;
+  return `${pyFixed(seconds / 60, 0)} ${units.m}`;
 }
 
 export function fmtDate(ms: number, lang: Lang): string {

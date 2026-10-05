@@ -128,7 +128,8 @@ export const en = {
   tm_rule_why_not_more: 'Sizing up after a streak was not clearly more frequent than this account\'s usual rate.',
   tm_rule_why_no_loss: 'The sized-up trades after a streak made money in total, so there is nothing to hold.',
   tm_rule_position_note: 'The limit is the position an order could leave the account with, valued at the price it would fill, so two small orders that add up to a big position are held too.',
-  tm_rule_sentence: 'After {streak} losses in a row, orders that take a position to ${amount} or more are held for your approval.',
+  tm_rule_sentence: 'After {streak} losses in a row, orders that take a position to {amount} or more are held for your approval.',
+  tm_rule_sentence_deny: 'After {streak} losses in a row, orders that take a position to {amount} or more are refused.',
   tm_rule_evidence: 'In {trades} closed trades ({source}), {sized} of the {after} trades after {streak} losses in a row were 1.5x the usual size or more ({share}, against {usual} of all trades); together they made {pnl}.',
 
   tm_sec_loop: 'How the loop works',

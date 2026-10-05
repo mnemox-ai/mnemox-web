@@ -54,9 +54,9 @@ export interface RetryNotice {
   status: number | null;
 }
 
-export const REQUEST_TIMEOUT_MS = 30_000; // the reference's urlopen timeout
-const HTTP_RETRIES = 6; // 1+2+4+8+16+30 s: about a minute, the span of the per-minute weight limit
-const NETWORK_RETRIES = 4; // 1+2+4+8 s. A 429 served without CORS headers reaches a browser as a
+export const REQUEST_TIMEOUT_MS = 30_000; // the reference's urlopen timeout, covering headers and body
+export const HTTP_RETRIES = 6; // 1+2+4+8+16+30 s: about a minute, the span of the per-minute weight limit
+export const NETWORK_RETRIES = 4; // 1+2+4+8 s. A 429 served without CORS headers reaches a browser as a
 // network failure rather than a status, so this path backs off too instead of giving up at once.
 
 export interface FetchOptions {
@@ -118,10 +118,11 @@ function requestSignal(userSignal: AbortSignal | undefined, timeoutMs: number): 
 /**
  * POST with the reference's backoff: 429 (the per-IP weight limit, counted
  * per minute) and 5xx back off for up to about a minute in total before
- * giving up. Each request times out after 30 s like the reference's
- * urlopen; a timeout or any other network failure backs off on its own,
- * shorter, schedule and then surfaces as `NetworkError`. Only the caller's
- * own abort stops the retries.
+ * giving up. Each request, headers and body together, times out after 30 s
+ * like the reference's urlopen; a timeout, a dropped connection or a body
+ * that cannot be read as JSON backs off on its own, shorter, schedule and
+ * then surfaces as `NetworkError`. Only the caller's own abort stops the
+ * retries.
  */
 export function makeBrowserPost(opts: { onRetry?: (r: RetryNotice) => void; signal?: AbortSignal } = {}): Post {
   return async (body) => {
@@ -130,9 +131,12 @@ export function makeBrowserPost(opts: { onRetry?: (r: RetryNotice) => void; sign
     for (;;) {
       if (opts.signal?.aborted) throw opts.signal.reason ?? new DOMException('aborted', 'AbortError');
       const { signal, clear } = requestSignal(opts.signal, REQUEST_TIMEOUT_MS);
-      let response: Response;
+      let status = 0;
+      let parsed: unknown;
+      let failed = false;
+      let failure: unknown;
       try {
-        response = await fetch(API_URL, {
+        const response = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
@@ -141,19 +145,25 @@ export function makeBrowserPost(opts: { onRetry?: (r: RetryNotice) => void; sign
           referrerPolicy: 'no-referrer',
           cache: 'no-store',
         });
+        status = response.status;
+        // The body is read inside the same timeout and abort window.
+        if (response.ok) parsed = await response.json();
       } catch (err) {
+        failed = true;
+        failure = err;
+      } finally {
         clear();
-        if (opts.signal?.aborted) throw err; // the person cancelled
-        if (networkAttempt >= NETWORK_RETRIES) throw new NetworkError(err);
+      }
+      if (failed) {
+        if (opts.signal?.aborted) throw failure; // the person cancelled
+        if (networkAttempt >= NETWORK_RETRIES) throw new NetworkError(failure);
         const waitMs = Math.min(2 ** networkAttempt, 30) * 1000;
         opts.onRetry?.({ attempt: networkAttempt, waitMs, status: null });
         networkAttempt += 1;
         await sleep(waitMs, opts.signal);
         continue;
       }
-      clear();
-      if (response.ok) return response.json();
-      const status = response.status;
+      if (status >= 200 && status < 300) return parsed;
       if (![429, 500, 502, 503].includes(status) || httpAttempt >= HTTP_RETRIES) {
         throw new HyperliquidHttpError(status);
       }

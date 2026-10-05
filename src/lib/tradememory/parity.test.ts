@@ -19,13 +19,24 @@
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { analyzeFills } from './analyze';
 import { D } from './decimal';
-import { pyIso } from './pyfmt';
+import { dur, money as reportMoney, pyIso } from './pyfmt';
 import { describeEvidence, describeRule, money, suggestSizeRule, type SuggestedRule } from './suggest';
 import type { Patterns } from './report';
-import { isPerp, perpFills, toFill, type RawFill } from './hyperliquid';
+import {
+  HTTP_RETRIES,
+  HyperliquidHttpError,
+  NETWORK_RETRIES,
+  NetworkError,
+  isPerp,
+  makeBrowserPost,
+  perpFills,
+  toFill,
+  type RawFill,
+} from './hyperliquid';
+import { fmtDuration, fmtMoney } from '@/components/tradememory/format';
 
 interface RawFixture {
   address: string;
@@ -248,6 +259,126 @@ describe('money() formats a limit exactly, like the Python helper', () => {
     ['1234567.5', '$1,234,567.5'],
   ])('%s -> %s', (input, out) => {
     expect(money(input)).toBe(out);
+  });
+});
+
+describe('page formatting rounds .5 ties like the report (half-even), not like Intl or Math.round', () => {
+  const units = { d: 'd', h: 'h', m: 'min' };
+
+  it.each([
+    [-1234.5, '−$1,234', '-$1,234'],
+    [1234.5, '$1,234', '$1,234'],
+    [-1235.5, '−$1,236', '-$1,236'],
+    [0.5, '$0', '$0'],
+    [-97789.732566, '−$97,790', '-$97,790'],
+  ])('money %s', (x, page, cli) => {
+    expect(fmtMoney(x)).toBe(page);
+    expect(reportMoney(x)).toBe(cli);
+  });
+
+  it.each([
+    [150, '2 min', '2m'],
+    [90, '2 min', '2m'],
+    [8100, '2.2 h', '2.2h'],
+    [5400, '1.5 h', '1.5h'],
+    [108000, '1.2 d', '1.2d'],
+    [19638, '5.5 h', '5.5h'],
+  ])('duration %s s', (s, page, cli) => {
+    expect(fmtDuration(s, units)).toBe(page);
+    expect(dur(s)).toBe(cli);
+  });
+});
+
+describe('makeBrowserPost retries', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.useRealTimers();
+  });
+
+  it('a 200 whose body is not JSON takes the network retry path and ends in NetworkError', async () => {
+    vi.useFakeTimers();
+    let calls = 0;
+    const retries: (number | null)[] = [];
+    vi.stubGlobal('fetch', async () => {
+      calls += 1;
+      return new Response('<html>not json</html>', { status: 200, headers: { 'content-type': 'text/html' } });
+    });
+    const post = makeBrowserPost({ onRetry: (r) => retries.push(r.status) });
+    const outcome = post({ type: 'userFillsByTime' }).then(
+      () => 'resolved',
+      (err: unknown) => err,
+    );
+    await vi.runAllTimersAsync();
+    expect(await outcome).toBeInstanceOf(NetworkError);
+    expect(calls).toBe(NETWORK_RETRIES + 1);
+    expect(retries).toEqual(Array(NETWORK_RETRIES).fill(null));
+  });
+
+  it('a request that never answers is cut off by the 30 s timeout, retried, and ends in NetworkError', async () => {
+    vi.useFakeTimers();
+    let calls = 0;
+    vi.stubGlobal(
+      'fetch',
+      (_url: string, init: RequestInit) =>
+        new Promise((_resolve, reject) => {
+          calls += 1;
+          init.signal?.addEventListener('abort', () => reject(init.signal?.reason));
+        }),
+    );
+    const post = makeBrowserPost();
+    const outcome = post({ type: 'userFillsByTime' }).then(
+      () => 'resolved',
+      (err: unknown) => err,
+    );
+    await vi.runAllTimersAsync();
+    expect(await outcome).toBeInstanceOf(NetworkError);
+    expect(calls).toBe(NETWORK_RETRIES + 1);
+  });
+
+  it("the caller's own abort stops the retries at once", async () => {
+    vi.useFakeTimers();
+    let calls = 0;
+    vi.stubGlobal(
+      'fetch',
+      (_url: string, init: RequestInit) =>
+        new Promise((_resolve, reject) => {
+          calls += 1;
+          init.signal?.addEventListener('abort', () => reject(init.signal?.reason));
+        }),
+    );
+    const ac = new AbortController();
+    const post = makeBrowserPost({ signal: ac.signal });
+    const outcome = post({ type: 'userFillsByTime' }).then(
+      () => 'resolved',
+      (err: unknown) => err,
+    );
+    ac.abort(new Error('cancelled by the person'));
+    await vi.runAllTimersAsync();
+    const err = await outcome;
+    expect(err).toBeInstanceOf(Error);
+    expect((err as Error).message).toBe('cancelled by the person');
+    expect(calls).toBe(1);
+  });
+
+  it('429 backs off for the reference schedule and then surfaces the status', async () => {
+    vi.useFakeTimers();
+    let calls = 0;
+    const waits: number[] = [];
+    vi.stubGlobal('fetch', async () => {
+      calls += 1;
+      return new Response('rate limited', { status: 429 });
+    });
+    const post = makeBrowserPost({ onRetry: (r) => waits.push(r.waitMs) });
+    const outcome = post({ type: 'userFillsByTime' }).then(
+      () => 'resolved',
+      (err: unknown) => err,
+    );
+    await vi.runAllTimersAsync();
+    const err = await outcome;
+    expect(err).toBeInstanceOf(HyperliquidHttpError);
+    expect((err as HyperliquidHttpError).status).toBe(429);
+    expect(calls).toBe(HTTP_RETRIES + 1);
+    expect(waits).toEqual([1000, 2000, 4000, 8000, 16000, 30000]);
   });
 });
 

@@ -130,7 +130,8 @@ export const zh: Record<TranslationKey, string> = {
   tm_rule_why_not_more: '連虧後加碼的頻率，看不出明顯高於這個帳戶平常的比例。',
   tm_rule_why_no_loss: '連虧後加碼的那些交易合計是賺的，沒有東西需要攔。',
   tm_rule_position_note: '上限看的是訂單成交後帳戶會變成多大的部位，用成交價計算，所以兩張小單加起來變成大部位也會被攔。',
-  tm_rule_sentence: '連續虧損 {streak} 次之後，會把部位拉到 ${amount} 以上的訂單會先攔下來等你確認。',
+  tm_rule_sentence: '連虧 {streak} 筆之後，會讓部位達到 {amount} 以上的單，先停下來等你核准。',
+  tm_rule_sentence_deny: '連虧 {streak} 筆之後，會讓部位達到 {amount} 以上的單會直接拒絕。',
   tm_rule_evidence: '在 {trades} 趟平倉交易裡（{source}），連虧 {streak} 次之後的 {after} 趟交易中，有 {sized} 趟是平常規模的 1.5 倍以上（{share}，全部交易是 {usual}）；這些交易合計 {pnl}。',
 
   tm_sec_loop: '這個迴圈怎麼運作',

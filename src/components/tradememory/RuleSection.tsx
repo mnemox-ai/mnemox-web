@@ -20,7 +20,11 @@ export function RuleSection({ analysis }: { analysis: Analysis }) {
   if (rule) {
     if (lang === 'zh') {
       const e = rule.evidence;
-      sentence = t('tm_rule_sentence', { streak: rule.streak, amount: money(rule.max_notional).slice(1) });
+      // `money()` already carries the "$"; the sentence takes the whole figure.
+      sentence = t(rule.action === 'deny' ? 'tm_rule_sentence_deny' : 'tm_rule_sentence', {
+        streak: rule.streak,
+        amount: money(rule.max_notional),
+      });
       evidence = t('tm_rule_evidence', {
         trades: e.history_trades,
         source: rule.source,
