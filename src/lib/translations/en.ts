@@ -506,7 +506,7 @@ export const en = {
   svc_faq4_q: 'Can you sign an NDA?',
   svc_faq4_a: 'Absolutely. We routinely work under NDA. Your trading strategies, system architecture, and business details are kept strictly confidential.',
   svc_faq5_q: 'What platforms do you support?',
-  svc_faq5_a: 'MetaTrader 5 (XAUUSD, Forex) and Binance (crypto) have shipped adapters today. Other venues, including IBKR and Alpaca, are on the roadmap and would be built as part of an engagement rather than picked off a shelf.',
+  svc_faq5_a: 'MetaTrader 5 (XAUUSD, Forex) and Binance (crypto) have shipped adapters today. Since TradeMemory 0.5.6, Alpaca and Hyperliquid fills can be synced into memory, and a preview brake can sit in front of Alpaca\'s official MCP server. IBKR is on the roadmap and would be built as part of an engagement rather than picked off a shelf.',
   svc_faq6_q: 'How long until I see results?',
   svc_faq6_a: 'The Audit Trail tier can be live in 2-3 weeks. Full AI Trading Systems typically go live on demo within 4 weeks, then graduate to live after a validation period. We never rush to live — your capital is at stake.',
 
