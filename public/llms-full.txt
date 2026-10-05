@@ -37,7 +37,7 @@ Complete toolkit for AI agents:
 - `recall_memories` - Outcome-weighted recall of similar setups
 - `get_behavioral_analysis` - Detect behavioural bias from procedural memory
 - `calculate_kelly` - Position sizing from historical win rates
-- `export_audit_trail` - Compliance-ready trade logs with SHA-256 verification
+- `export_audit_trail` - Export decision records as JSON, each with its SHA-256 hash
 - And 12 more tools for pattern mining, reflection, and strategy evolution
 
 #### 4. Strategy Evolution Engine (NEW)
@@ -57,7 +57,7 @@ Other venues (IBKR, Alpaca, CCXT) are on the roadmap, not built today.
 
 ### Use Cases
 - Building AI trading bots that learn from experience
-- Creating compliance-ready audit trails
+- Keeping tamper-evident records of why each trade was made
 - Backtesting with context-aware position sizing
 - Detecting and correcting trading biases
 
@@ -100,9 +100,9 @@ Mnemox AI offers custom development services for AI trading infrastructure:
 ### Service Offerings
 
 1. **Decision Audit Trails**
-   - Compliance-grade logging of every AI decision
+   - Tamper-evident logging of every AI decision
    - SHA-256 hash verification for tamper detection
-   - Export formats for regulatory review
+   - JSON export of every decision record
 
 2. **Real-Time Dashboards**
    - Live P&L tracking

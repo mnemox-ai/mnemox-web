@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI Trading Services — Mnemox AI',
     description:
-      'Custom AI trading systems with compliance-grade audit trails. From $5,000.',
+      'Custom AI trading systems with tamper-evident audit trails. From $5,000.',
     url: 'https://www.mnemox.ai/services',
     images: [{ url: '/assets/og-home.png', width: 1200, height: 630 }],
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AI Trading Services — Mnemox AI',
     description:
-      'Custom AI trading systems with compliance-grade audit trails.',
+      'Custom AI trading systems with tamper-evident audit trails.',
     images: ['/assets/og-home.png'],
   },
   alternates: { canonical: 'https://www.mnemox.ai/services' },
