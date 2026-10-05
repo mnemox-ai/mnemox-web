@@ -218,7 +218,7 @@ export function AddressAnalyzer() {
                       ? t('tm_rate_limited', { seconds, attempt: retry.attempt })
                       : retry.status === null
                         ? t('tm_conn_retry', { seconds, attempt: retry.attempt })
-                        : t('tm_err_http_title', { status: retry.status }) + ' ' + t('tm_rate_limited', { seconds, attempt: retry.attempt })}
+                        : t('tm_server_retry', { status: retry.status, seconds, attempt: retry.attempt })}
                   </p>
                 )}
                 <p className="mt-2 text-sm text-[var(--tm-dim)]">{t('tm_fetch_note')}</p>

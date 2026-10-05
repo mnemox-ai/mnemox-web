@@ -106,7 +106,7 @@ export function Results({
                 </div>
               )}
             </dl>
-            <p className="mt-5 text-sm text-[var(--tm-muted)]">{t('tm_usual_size', { amount: fmtInt(Math.round(p.median_notional)) })}</p>
+            <p className="mt-5 text-sm text-[var(--tm-muted)]">{t('tm_usual_size', { amount: fmtInt(p.median_notional) })}</p>
           </>
         ) : (
           <p className="tm-lede mt-5">{t('tm_streak_not_enough', { n: fmtInt(streak.trades_after_streak) })}</p>

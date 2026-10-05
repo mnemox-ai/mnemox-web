@@ -14,8 +14,8 @@ const RULES = `tradememory rules list
 tradememory rules approve <id>`;
 
 const BRAKE = `pip install "tradememory-protocol[proxy]"
-tradememory proxy init --account-id <alpaca account id> --symbols AAPL,MSFT
-tradememory proxy run`;
+tradememory proxy init --account-id <ALPACA_ACCOUNT_ID> --symbols AAPL,MSFT
+tradememory proxy run --env-file ~/.secrets/alpaca-paper.env`;
 
 export function InstallSection() {
   const { t } = useI18n();
