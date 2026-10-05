@@ -52,8 +52,10 @@ pip install tradememory-protocol
 ### Supported Platforms
 - MetaTrader 5 (MT5) — shipped adapter
 - Binance — shipped adapter
+- Alpaca — fill sync, plus a pre-trade brake in front of Alpaca's official MCP server (preview, since 0.5.6)
+- Hyperliquid — fill sync from public history, no API key (since 0.5.6)
 
-Other venues (IBKR, Alpaca, CCXT) are on the roadmap, not built today.
+Other venues (IBKR, CCXT) are on the roadmap, not built today.
 
 ### Use Cases
 - Building AI trading bots that learn from experience

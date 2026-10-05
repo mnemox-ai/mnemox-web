@@ -446,7 +446,7 @@ export const zh: Record<TranslationKey, string> = {
 
   svc_tier1_name: '決策審計追蹤',
   svc_tier1_desc: '為你現有的交易系統加上竄改可偵測的紀錄。每筆決策都被記錄、雜湊、可查詢。',
-  svc_tier1_f1: 'SHA-256 防篡改決策紀錄',
+  svc_tier1_f1: 'SHA-256 竄改可偵測的決策紀錄',
   svc_tier1_f2: '完整決策鏈：條件、過濾器、指標、執行',
   svc_tier1_f3: 'REST API + MCP 整合',
   svc_tier1_f4: '即時決策監控儀表板',
@@ -508,7 +508,7 @@ export const zh: Record<TranslationKey, string> = {
   svc_faq4_q: '可以簽 NDA 嗎？',
   svc_faq4_a: '當然。我們經常在 NDA 下工作。你的交易策略、系統架構和商業細節都會嚴格保密。',
   svc_faq5_q: '支援哪些平台？',
-  svc_faq5_a: '目前已有 adapter 的是 MetaTrader 5（XAUUSD、外匯）與 Binance（加密貨幣）。其他券商（含 IBKR、Alpaca）在 roadmap 上，會在專案中實作，不是現成的。',
+  svc_faq5_a: '目前已有 adapter 的是 MetaTrader 5（XAUUSD、外匯）與 Binance（加密貨幣）。TradeMemory 0.5.6 起也能同步 Alpaca 與 Hyperliquid 的成交紀錄，並可在 Alpaca 官方 MCP server 前面加一道下單煞車（預覽版）。IBKR 在 roadmap 上，會在專案中實作，不是現成的。',
   svc_faq6_q: '多久可以看到成果？',
   svc_faq6_a: '審計追蹤方案最快 2-3 週上線。完整 AI 交易系統通常 4 週內在 Demo 帳戶上線，驗證期通過後再切換到實盤。我們不會倉促上線 — 你的資金是有風險的。',
 
