@@ -1,13 +1,26 @@
 import type { Metadata } from 'next';
+import { Mona_Sans } from 'next/font/google';
+
+// TradeMemory's own face (see tradememory-protocol/assets and the promo
+// video): Mona Sans, normal width for text and 125% wide for emphasis.
+const mona = Mona_Sans({
+  subsets: ['latin'],
+  weight: 'variable',
+  axes: ['wdth'],
+  variable: '--font-mona',
+  display: 'swap',
+});
+
+const TITLE = 'TradeMemory remembers what it cost';
+const DESCRIPTION =
+  'Paste a Hyperliquid address. Your browser rebuilds its closed trades, shows where the account loses money, and writes the rule TradeMemory would propose. Nothing is stored or sent to us.';
 
 export const metadata: Metadata = {
-  title: 'TradeMemory — The Memory Layer for AI Trading Agents',
-  description:
-    'Your trading AI has amnesia. TradeMemory gives it persistent memory — record decisions, recall by outcome, audit every choice. 20 MCP tools, SHA-256 tamper detection, works with any market.',
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: 'TradeMemory — The Memory Layer for AI Trading Agents',
-    description:
-      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 20 MCP tools, SHA-256 tamper detection, works with any market.',
+    title: TITLE,
+    description: DESCRIPTION,
     url: 'https://www.mnemox.ai/tradememory',
     siteName: 'Mnemox AI',
     images: [
@@ -15,16 +28,15 @@ export const metadata: Metadata = {
         url: '/assets/og-home.png',
         width: 1200,
         height: 630,
-        alt: 'TradeMemory Protocol',
+        alt: 'TradeMemory',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TradeMemory — The Memory Layer for AI Trading Agents',
-    description:
-      'Your trading AI has amnesia. TradeMemory gives it persistent memory — 20 MCP tools, SHA-256 tamper detection.',
+    title: TITLE,
+    description: DESCRIPTION,
     images: ['/assets/og-home.png'],
   },
   alternates: {
@@ -39,16 +51,11 @@ export const metadata: Metadata = {
         url: 'https://www.mnemox.ai/tradememory',
         downloadUrl: 'https://pypi.org/project/tradememory-protocol/',
         installUrl: 'https://github.com/mnemox-ai/tradememory-protocol',
-        screenshot: 'https://www.mnemox.ai/assets/og-home.png',
         description:
-          'The memory layer for AI trading agents. 20 MCP tools, SHA-256 tamper-evident audit trail, works with any market.',
+          'Memory and a brake for AI trading agents. Syncs fill history from Hyperliquid and Alpaca into local memory, reports where the history loses money, proposes rules the owner approves, and holds orders that break them before they reach the broker.',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Windows, macOS, Linux',
-        softwareVersion: '0.5.5',
-        featureList:
-          '20 MCP tools, 5 cognitive memory types (Episodic, Semantic, Procedural, Affective, Prospective), Outcome-Weighted Memory (OWM), SHA-256 tamper-evident audit trail',
-        keywords:
-          'MCP server, trading memory, AI agent, algorithmic trading, MT5, forex, Hyperliquid, Alpaca, decision audit',
+        license: 'https://opensource.org/license/mit',
         offers: [
           {
             '@type': 'Offer',
@@ -69,18 +76,10 @@ export const metadata: Metadata = {
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'Is TradeMemory free?',
+            name: 'What does the address page do with my address?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes, TradeMemory is fully open source under the MIT license. It is free for personal and commercial use.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Which AI assistants work with TradeMemory?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'TradeMemory works with any MCP-compatible client including Claude Desktop, Cursor, Windsurf, and custom agents built with the MCP SDK.',
+              text: 'It sends the address to Hyperliquid\'s public info API from your browser, rebuilds the closed trades locally, and shows descriptive statistics of that history. Nothing is stored or sent to Mnemox; the address is not put in the URL or in analytics.',
             },
           },
           {
@@ -88,15 +87,23 @@ export const metadata: Metadata = {
             name: 'Does TradeMemory execute trades?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'No, TradeMemory is a memory layer only. It stores and recalls trade information but does not execute orders. You need a separate execution layer such as MT5 or the Binance API.',
+              text: 'No. TradeMemory syncs history into memory and, with the optional brake in front of a broker MCP server, holds or refuses orders that break a rule the owner approved. It never places orders itself.',
             },
           },
           {
             '@type': 'Question',
-            name: 'What trading platforms are supported?',
+            name: 'Which venues are supported?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'TradeMemory ships adapters for MetaTrader 5 and Binance. The memory layer itself is platform-agnostic, so other venues can be added, but only those two are built today.',
+              text: 'History sync from Hyperliquid (public API, no key) and Alpaca (read-only key). The brake currently fronts Alpaca\'s official MCP server, in preview.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is TradeMemory free?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. TradeMemory is open source under the MIT license and runs on your own machine. The brake\'s policy engine, Mnemox Control, is AGPL-3.0.',
             },
           },
           {
@@ -104,46 +111,15 @@ export const metadata: Metadata = {
             name: 'How do I install TradeMemory?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Install via pip: pip install tradememory-protocol. Then add it to your MCP client configuration (Claude Desktop, Cursor, etc.).',
+              text: 'pip install tradememory-protocol, then tradememory sync hyperliquid --address 0x... to sync a history. The brake needs pip install "tradememory-protocol[proxy]" on Python 3.12 or newer.',
             },
           },
         ],
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        name: 'How to Install TradeMemory',
-        description: 'Step-by-step guide to install and configure TradeMemory for AI trading agents.',
-        step: [
-          {
-            '@type': 'HowToStep',
-            position: 1,
-            name: 'Install the package',
-            text: 'Run pip install tradememory-protocol in your terminal.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 2,
-            name: 'Configure your MCP client',
-            text: 'Add TradeMemory to your Claude Desktop or Cursor MCP configuration file.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 3,
-            name: 'Start using memory tools',
-            text: 'Use the 20 MCP tools like remember_trade, recall_memories, and get_agent_state in your AI conversations.',
-          },
-        ],
-        totalTime: 'PT5M',
       },
     ]),
   },
 };
 
-export default function TradeMemoryLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+export default function TradeMemoryLayout({ children }: { children: React.ReactNode }) {
+  return <div className={mona.variable}>{children}</div>;
 }

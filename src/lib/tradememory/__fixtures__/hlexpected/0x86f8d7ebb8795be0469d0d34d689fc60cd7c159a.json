@@ -1,0 +1,451 @@
+{
+ "address": "0x86f8d7ebb8795be0469d0d34d689fc60cd7c159a",
+ "summary": {
+  "fills_fetched": 1400,
+  "spot_fills_skipped": 0,
+  "closed_trades": 51,
+  "open_positions": {
+   "ASTER": "67188.0"
+  },
+  "trades_dropped_for_missing_history": 1,
+  "fills_with_fee_in_another_token_not_netted": 0
+ },
+ "patterns": {
+  "trades": 51,
+  "win_rate": 0.6078431372549019,
+  "net_pnl": 13523.217565,
+  "fees": 1840.161965,
+  "median_notional": 41932.99744,
+  "after_losing_streak": {
+   "trades_after_streak": 12,
+   "sized_up": 4,
+   "sized_up_share": 0.3333333333333333,
+   "baseline_sized_up_share": 0.29411764705882354,
+   "sized_up_p_value": 0.48928448945934516,
+   "sized_up_result": {
+    "trades": 4,
+    "win_rate": 0.5,
+    "net_pnl": 345.4631209292497
+   },
+   "after_streak_result": {
+    "trades": 12,
+    "win_rate": 0.4166666666666667,
+    "net_pnl": 1556.377176
+   },
+   "enough_data": true,
+   "more_often_than_usual": false
+  },
+  "holding": {
+   "median_hold_winners_s": 23318,
+   "median_hold_losers_s": 6200.5,
+   "enough_data": true
+  },
+  "worst_symbols": [
+   {
+    "symbol": "TAO",
+    "trades": 1,
+    "win_rate": 0.0,
+    "net_pnl": -319.170598
+   },
+   {
+    "symbol": "ETH",
+    "trades": 16,
+    "win_rate": 0.5,
+    "net_pnl": -152.533015
+   },
+   {
+    "symbol": "XRP",
+    "trades": 2,
+    "win_rate": 0.5,
+    "net_pnl": -148.053352
+   }
+  ],
+  "worst_entry_hours_utc": [
+   {
+    "hour_utc": 17,
+    "trades": 5,
+    "win_rate": 0.4,
+    "net_pnl": -1767.38313278803
+   }
+  ],
+  "biggest_losses": [
+   {
+    "symbol": "LINK",
+    "direction": "long",
+    "entry_time": "2026-02-09T17:39:52.908000+00:00",
+    "net_pnl": -2494.45396078803,
+    "notional": 65490.07366,
+    "hold_seconds": 168127
+   },
+   {
+    "symbol": "LINK",
+    "direction": "short",
+    "entry_time": "2026-02-12T00:58:58.112000+00:00",
+    "net_pnl": -1772.18962,
+    "notional": 83967.43305,
+    "hold_seconds": 592333
+   },
+   {
+    "symbol": "HYPE",
+    "direction": "short",
+    "entry_time": "2026-01-30T17:32:25.641000+00:00",
+    "net_pnl": -1482.950448,
+    "notional": 49117.0188,
+    "hold_seconds": 249882
+   }
+  ]
+ },
+ "suggested_rule": null,
+ "trips_head": [
+  {
+   "symbol": "ASTER",
+   "direction": "short",
+   "entry_time": "2026-01-24T23:36:53.689000+00:00",
+   "exit_time": "2026-01-25T11:08:06.341000+00:00",
+   "net_pnl": "335.930335",
+   "notional": "10093.07973000000000000000000",
+   "fees": "8.928575",
+   "max_position": "15275.0",
+   "avg_entry": "0.6607580837970540098199672668",
+   "avg_exit": "0.6381813957446808510638297872",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "XMR",
+   "direction": "long",
+   "entry_time": "2026-01-25T20:42:05.821000+00:00",
+   "exit_time": "2026-01-26T04:24:09.008000+00:00",
+   "net_pnl": "313.806759",
+   "notional": "20266.20402000000000000000000",
+   "fees": "18.389061",
+   "max_position": "44.687",
+   "avg_entry": "453.5145348759146955490411082",
+   "avg_exit": "460.9483706670843869581757558",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "XRP",
+   "direction": "short",
+   "entry_time": "2026-01-26T16:43:09.342000+00:00",
+   "exit_time": "2026-01-26T20:49:32.427000+00:00",
+   "net_pnl": "124.736605",
+   "notional": "10053.97320000000000000000000",
+   "fees": "8.988395",
+   "max_position": "5238.0",
+   "avg_entry": "1.919429782359679266895761741",
+   "avg_exit": "1.8939",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-01-28T14:56:06.382000+00:00",
+   "exit_time": "2026-01-28T19:15:38.722000+00:00",
+   "net_pnl": "280.444962",
+   "notional": "11644.21165000000000000000000",
+   "fees": "10.348918",
+   "max_position": "344.87",
+   "avg_entry": "33.76406080552092092672601270",
+   "avg_exit": "32.92086226694116623655290399",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "ZEC",
+   "direction": "short",
+   "entry_time": "2026-01-26T16:35:19.489000+00:00",
+   "exit_time": "2026-01-29T03:01:48.739000+00:00",
+   "net_pnl": "945.688953",
+   "notional": "35642.62170000000000000000000",
+   "fees": "31.638547",
+   "max_position": "95.64",
+   "avg_entry": "372.6748400250941028858218319",
+   "avg_exit": "362.4560246758678377248013384",
+   "adds": 4,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-01-28T21:07:22.565000+00:00",
+   "exit_time": "2026-01-30T01:18:20.852000+00:00",
+   "net_pnl": "1208.071743",
+   "notional": "12800.57547000000000000000000",
+   "fees": "10.971937",
+   "max_position": "388.01",
+   "avg_entry": "32.99032362567975052189376562",
+   "avg_exit": "29.84853944485966856524316384",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-01-30T04:22:16.331000+00:00",
+   "exit_time": "2026-01-30T14:28:12.651000+00:00",
+   "net_pnl": "284.691890",
+   "notional": "20403.25866000000000000000000",
+   "fees": "12.108390",
+   "max_position": "685.15",
+   "avg_entry": "29.77925806027877107202802306",
+   "avg_exit": "29.34606783915930818069035978",
+   "adds": 1,
+   "fees_complete": true
+  },
+  {
+   "symbol": "XMR",
+   "direction": "short",
+   "entry_time": "2026-01-31T15:23:30.146000+00:00",
+   "exit_time": "2026-01-31T16:47:59.848000+00:00",
+   "net_pnl": "68.896628",
+   "notional": "10560.82531000000000000000000",
+   "fees": "9.469472",
+   "max_position": "22.347",
+   "avg_entry": "472.5835821363046493936546293",
+   "avg_exit": "469.0767982279500604107933951",
+   "adds": 1,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-01-30T17:32:25.641000+00:00",
+   "exit_time": "2026-02-02T14:57:08.205000+00:00",
+   "net_pnl": "-1482.950448",
+   "notional": "49117.01880000000000000000001",
+   "fees": "43.589368",
+   "max_position": "1578.07",
+   "avg_entry": "31.12474022064927411331563239",
+   "avg_exit": "32.03684239609142813690140488",
+   "adds": 8,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-02-02T15:19:24.998000+00:00",
+   "exit_time": "2026-02-02T15:20:18.758000+00:00",
+   "net_pnl": "-311.510886",
+   "notional": "49655.96446000000000000000000",
+   "fees": "44.810356",
+   "max_position": "1556.66",
+   "avg_entry": "31.89904311795767861960864929",
+   "avg_exit": "32.07037181529685351971528786",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-02-02T15:21:47.499000+00:00",
+   "exit_time": "2026-02-02T15:36:15.398000+00:00",
+   "net_pnl": "-50.840744",
+   "notional": "11052.85570000000000000000000",
+   "fees": "9.965954",
+   "max_position": "344.24",
+   "avg_entry": "32.10799355101092261213107135",
+   "avg_exit": "32.22673277364629328375551941",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-02-02T15:37:23.347000+00:00",
+   "exit_time": "2026-02-02T15:37:31.127000+00:00",
+   "net_pnl": "-22.394741",
+   "notional": "11079.51979",
+   "fees": "9.977151",
+   "max_position": "343.37",
+   "avg_entry": "32.267",
+   "avg_exit": "32.30316387570259486850918834",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-02-02T19:47:36.403000+00:00",
+   "exit_time": "2026-02-03T17:50:27.244000+00:00",
+   "net_pnl": "1643.171085",
+   "notional": "43082.84099000000000000000000",
+   "fees": "35.064005",
+   "max_position": "1265.61",
+   "avg_entry": "34.04116670222264362639359676",
+   "avg_exit": "32.71513807571052693957854315",
+   "adds": 6,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-02-03T19:21:39.064000+00:00",
+   "exit_time": "2026-02-03T19:47:36.312000+00:00",
+   "net_pnl": "315.548522",
+   "notional": "10253.76013000000000000000000",
+   "fees": "9.082298",
+   "max_position": "296.33",
+   "avg_entry": "34.60250440387405932575169574",
+   "avg_exit": "33.507",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "HYPE",
+   "direction": "short",
+   "entry_time": "2026-02-04T05:13:41.674000+00:00",
+   "exit_time": "2026-02-06T16:06:44.441000+00:00",
+   "net_pnl": "1426.796892",
+   "notional": "23858.23424000000000000000000",
+   "fees": "15.334668",
+   "max_position": "686.61",
+   "avg_entry": "34.74786886296441939383347169",
+   "avg_exit": "32.64750393964550472611817480",
+   "adds": 2,
+   "fees_complete": true
+  },
+  {
+   "symbol": "LINK",
+   "direction": "short",
+   "entry_time": "2026-02-06T17:27:44.110000+00:00",
+   "exit_time": "2026-02-07T07:16:14.994000+00:00",
+   "net_pnl": "2245.323229",
+   "notional": "73060.60555000000000000000000",
+   "fees": "61.360611",
+   "max_position": "8184.7",
+   "avg_entry": "8.926485460676628343128031571",
+   "avg_exit": "8.644656702139357581829511161",
+   "adds": 1,
+   "fees_complete": true
+  },
+  {
+   "symbol": "LINK",
+   "direction": "short",
+   "entry_time": "2026-02-07T16:03:35.179000+00:00",
+   "exit_time": "2026-02-08T13:26:07.661000+00:00",
+   "net_pnl": "-185.275352",
+   "notional": "13036.60438000000000000000000",
+   "fees": "11.810992",
+   "max_position": "1467.1",
+   "avg_entry": "8.885968495671733351509781201",
+   "avg_exit": "9.004204716788221661781746302",
+   "adds": 1,
+   "fees_complete": true
+  },
+  {
+   "symbol": "LINK",
+   "direction": "short",
+   "entry_time": "2026-02-08T23:26:22.033000+00:00",
+   "exit_time": "2026-02-09T17:13:34.679000+00:00",
+   "net_pnl": "68.956223",
+   "notional": "23057.95260000000000000000000",
+   "fees": "19.284927",
+   "max_position": "2615.8",
+   "avg_entry": "8.814875984402477253612661518",
+   "avg_exit": "8.781142078905115069959477024",
+   "adds": 2,
+   "fees_complete": true
+  },
+  {
+   "symbol": "LINK",
+   "direction": "long",
+   "entry_time": "2026-02-09T17:39:52.908000+00:00",
+   "exit_time": "2026-02-11T16:22:00.602000+00:00",
+   "net_pnl": "-2494.453960788029925187032419",
+   "notional": "65490.07366000000000000000000",
+   "fees": "52.45204078802992518703241895",
+   "max_position": "7579.1",
+   "avg_entry": "8.640877368025227269728595744",
+   "avg_exit": "8.318675270150809462864983969",
+   "adds": 5,
+   "fees_complete": true
+  },
+  {
+   "symbol": "LINK",
+   "direction": "short",
+   "entry_time": "2026-02-11T16:22:00.602000+00:00",
+   "exit_time": "2026-02-11T16:39:50.194000+00:00",
+   "net_pnl": "606.7133917880299251870324190",
+   "notional": "62843.20321000000000000000000",
+   "fees": "56.26052821197007481296758105",
+   "max_position": "7559.9",
+   "avg_entry": "8.312702973584306670723157714",
+   "avg_exit": "8.225006850619717192026349555",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "BTC",
+   "direction": "short",
+   "entry_time": "2026-02-11T19:35:25.370000+00:00",
+   "exit_time": "2026-02-11T21:38:54.809000+00:00",
+   "net_pnl": "-793.6125467053704962610469069",
+   "notional": "63611.041930",
+   "fees": "57.58114670537049626104690687",
+   "max_position": "0.94363",
+   "avg_entry": "67411.0",
+   "avg_exit": "68191.0",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "BTC",
+   "direction": "long",
+   "entry_time": "2026-02-11T21:38:54.809000+00:00",
+   "exit_time": "2026-02-11T21:46:35.807000+00:00",
+   "net_pnl": "-328.4903142946295037389530931",
+   "notional": "62808.684370",
+   "fees": "56.40536429462950373895309313",
+   "max_position": "0.92107",
+   "avg_entry": "68191.0",
+   "avg_exit": "67895.59905327499538580129632",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "ETH",
+   "direction": "short",
+   "entry_time": "2026-02-13T15:34:15.861000+00:00",
+   "exit_time": "2026-02-14T01:02:23.505000+00:00",
+   "net_pnl": "-221.805803",
+   "notional": "61792.72688",
+   "fees": "55.688203",
+   "max_position": "30.2032",
+   "avg_entry": "2045.9",
+   "avg_exit": "2051.4",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "ETH",
+   "direction": "long",
+   "entry_time": "2026-02-14T02:23:26.839000+00:00",
+   "exit_time": "2026-02-14T15:45:58.020000+00:00",
+   "net_pnl": "36.584787",
+   "notional": "2044.62845",
+   "fees": "1.857463",
+   "max_position": "0.9985",
+   "avg_entry": "2047.7",
+   "avg_exit": "2086.2",
+   "adds": 0,
+   "fees_complete": true
+  },
+  {
+   "symbol": "ETH",
+   "direction": "short",
+   "entry_time": "2026-02-14T15:49:51.330000+00:00",
+   "exit_time": "2026-02-14T16:25:34.536000+00:00",
+   "net_pnl": "96.682631",
+   "notional": "14375.94093",
+   "fees": "12.889039",
+   "max_position": "6.8913",
+   "avg_entry": "2086.1",
+   "avg_exit": "2070.2",
+   "adds": 0,
+   "fees_complete": true
+  }
+ ]
+}

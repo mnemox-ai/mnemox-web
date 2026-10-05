@@ -1,0 +1,16 @@
+{
+ "address": "0x40ddc73ddd148c54abad4b7461da2e1dd10f1bc5",
+ "summary": {
+  "fills_fetched": 300,
+  "spot_fills_skipped": 300,
+  "closed_trades": 0,
+  "open_positions": {},
+  "trades_dropped_for_missing_history": 0,
+  "fills_with_fee_in_another_token_not_netted": 0
+ },
+ "patterns": {
+  "trades": 0
+ },
+ "suggested_rule": null,
+ "trips_head": []
+}
