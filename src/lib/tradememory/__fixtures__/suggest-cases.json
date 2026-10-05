@@ -1,0 +1,697 @@
+[
+ {
+  "address": "0x86f8d7ebb8795be0469d0d34d689fc60cd7c159a",
+  "patterns": {
+   "trades": 131,
+   "win_rate": 0.5190839694656488,
+   "net_pnl": -166254.481373,
+   "fees": 17409.16708,
+   "median_notional": 62843.20321,
+   "after_losing_streak": {
+    "trades_after_streak": 41,
+    "sized_up": 19,
+    "sized_up_share": 0.4634146341463415,
+    "baseline_sized_up_share": 0.3053435114503817,
+    "sized_up_p_value": 0.0239894392671798,
+    "sized_up_result": {
+     "trades": 19,
+     "win_rate": 0.3157894736842105,
+     "net_pnl": -102785.825011
+    },
+    "after_streak_result": {
+     "trades": 41,
+     "win_rate": 0.3902439024390244,
+     "net_pnl": -97789.732566
+    },
+    "enough_data": true,
+    "more_often_than_usual": true
+   },
+   "holding": {
+    "median_hold_winners_s": 7719.5,
+    "median_hold_losers_s": 2430,
+    "enough_data": true
+   },
+   "worst_symbols": [
+    {
+     "symbol": "BTC",
+     "trades": 44,
+     "win_rate": 0.45454545454545453,
+     "net_pnl": -56946.583958
+    },
+    {
+     "symbol": "ETH",
+     "trades": 30,
+     "win_rate": 0.4,
+     "net_pnl": -49652.604476
+    },
+    {
+     "symbol": "HYPE",
+     "trades": 16,
+     "win_rate": 0.5625,
+     "net_pnl": -26427.744808
+    }
+   ],
+   "worst_entry_hours_utc": [
+    {
+     "hour_utc": 0,
+     "trades": 9,
+     "win_rate": 0.3333333333333333,
+     "net_pnl": -39197.372546
+    },
+    {
+     "hour_utc": 23,
+     "trades": 9,
+     "win_rate": 0.4444444444444444,
+     "net_pnl": -37037.148239157905
+    },
+    {
+     "hour_utc": 16,
+     "trades": 10,
+     "win_rate": 0.5,
+     "net_pnl": -35949.59176021197
+    }
+   ],
+   "biggest_losses": [
+    {
+     "symbol": "BTC",
+     "direction": "short",
+     "entry_time": "2026-04-10T23:07:06.171000+00:00",
+     "net_pnl": -40287.409196,
+     "notional": 373767.8763,
+     "hold_seconds": 2090821
+    },
+    {
+     "symbol": "ETH",
+     "direction": "short",
+     "entry_time": "2026-04-07T16:09:37.668000+00:00",
+     "net_pnl": -38055.104826,
+     "notional": 258873.25583,
+     "hold_seconds": 2375065
+    },
+    {
+     "symbol": "HYPE",
+     "direction": "short",
+     "entry_time": "2026-05-20T13:09:55.246000+00:00",
+     "net_pnl": -24603.145017,
+     "notional": 199935.3305,
+     "hold_seconds": 43162
+    }
+   ]
+  },
+  "suggested_rule": {
+   "kind": "size_after_losing_streak",
+   "streak": 2,
+   "max_notional": "94264",
+   "action": "escalate",
+   "source": "Hyperliquid 0x86f8d7ebb8795be0469d0d34d689fc60cd7c159a",
+   "evidence": {
+    "history_trades": 131,
+    "median_notional": 62843.2,
+    "trades_after_streak": 41,
+    "sized_up": 19,
+    "sized_up_share": 0.4634,
+    "usual_sized_up_share": 0.3053,
+    "p_value": 0.024,
+    "sized_up_win_rate": 0.3157894736842105,
+    "sized_up_net_pnl": -102785.83
+   }
+  },
+  "describe_rule": "After 2 losses in a row, orders that take a position to $94,264 or more are held for your approval.",
+  "describe_evidence": "In 131 closed trades (Hyperliquid 0x86f8d7ebb8795be0469d0d34d689fc60cd7c159a), 19 of the 41 trades after 2 losses in a row were 1.5x the usual size or more (46%, against 31% of all trades); together they made -$102,786."
+ },
+ {
+  "address": "0x1e96db11af69cc2792a692a5b7bdad2f6afabc49",
+  "patterns": {
+   "trades": 92,
+   "win_rate": 0.5108695652173914,
+   "net_pnl": -61176.264291,
+   "fees": 4241.319128,
+   "median_notional": 48860.0999,
+   "after_losing_streak": {
+    "trades_after_streak": 18,
+    "sized_up": 10,
+    "sized_up_share": 0.5555555555555556,
+    "baseline_sized_up_share": 0.32608695652173914,
+    "sized_up_p_value": 0.03739694299912729,
+    "sized_up_result": {
+     "trades": 10,
+     "win_rate": 0.4,
+     "net_pnl": -65509.105563
+    },
+    "after_streak_result": {
+     "trades": 18,
+     "win_rate": 0.3888888888888889,
+     "net_pnl": -68413.787559
+    },
+    "enough_data": true,
+    "more_often_than_usual": true
+   },
+   "holding": {
+    "median_hold_winners_s": 3840,
+    "median_hold_losers_s": 2961,
+    "enough_data": true
+   },
+   "worst_symbols": [
+    {
+     "symbol": "ZEC",
+     "trades": 5,
+     "win_rate": 0.4,
+     "net_pnl": -48878.362537
+    },
+    {
+     "symbol": "HYPE",
+     "trades": 9,
+     "win_rate": 0.3333333333333333,
+     "net_pnl": -13174.932235
+    },
+    {
+     "symbol": "XYZ:MRVL",
+     "trades": 6,
+     "win_rate": 0.5,
+     "net_pnl": -11760.796576
+    }
+   ],
+   "worst_entry_hours_utc": [
+    {
+     "hour_utc": 11,
+     "trades": 6,
+     "win_rate": 0.8333333333333334,
+     "net_pnl": -12626.522349
+    },
+    {
+     "hour_utc": 15,
+     "trades": 8,
+     "win_rate": 0.5,
+     "net_pnl": -4699.125817
+    },
+    {
+     "hour_utc": 14,
+     "trades": 7,
+     "win_rate": 0.42857142857142855,
+     "net_pnl": -3613.639326
+    }
+   ],
+   "biggest_losses": [
+    {
+     "symbol": "ZEC",
+     "direction": "long",
+     "entry_time": "2026-05-21T17:41:23.022000+00:00",
+     "net_pnl": -51502.920156,
+     "notional": 286822.4206,
+     "hold_seconds": 516831
+    },
+    {
+     "symbol": "HYPE",
+     "direction": "short",
+     "entry_time": "2026-05-20T11:11:50.193000+00:00",
+     "net_pnl": -15476.650813,
+     "notional": 299489.31712,
+     "hold_seconds": 29627
+    },
+    {
+     "symbol": "XYZ:MRVL",
+     "direction": "long",
+     "entry_time": "2026-06-09T15:36:12.879000+00:00",
+     "net_pnl": -14127.202077,
+     "notional": 228603.5609,
+     "hold_seconds": 3862
+    }
+   ]
+  },
+  "suggested_rule": {
+   "kind": "size_after_losing_streak",
+   "streak": 2,
+   "max_notional": "73290",
+   "action": "escalate",
+   "source": "Hyperliquid 0x1e96db11af69cc2792a692a5b7bdad2f6afabc49",
+   "evidence": {
+    "history_trades": 92,
+    "median_notional": 48860.1,
+    "trades_after_streak": 18,
+    "sized_up": 10,
+    "sized_up_share": 0.5556,
+    "usual_sized_up_share": 0.3261,
+    "p_value": 0.0374,
+    "sized_up_win_rate": 0.4,
+    "sized_up_net_pnl": -65509.11
+   }
+  },
+  "describe_rule": "After 2 losses in a row, orders that take a position to $73,290 or more are held for your approval.",
+  "describe_evidence": "In 92 closed trades (Hyperliquid 0x1e96db11af69cc2792a692a5b7bdad2f6afabc49), 10 of the 18 trades after 2 losses in a row were 1.5x the usual size or more (56%, against 33% of all trades); together they made -$65,509."
+ },
+ {
+  "address": "0x403a9970319747aba267c42427be13bca9eb5695",
+  "patterns": {
+   "trades": 377,
+   "win_rate": 0.3448275862068966,
+   "net_pnl": 5044.421358,
+   "fees": 5553.287672,
+   "median_notional": 13308.546863,
+   "after_losing_streak": {
+    "trades_after_streak": 176,
+    "sized_up": 95,
+    "sized_up_share": 0.5397727272727273,
+    "baseline_sized_up_share": 0.35278514588859416,
+    "sized_up_p_value": 3.080148855790945e-07,
+    "sized_up_result": {
+     "trades": 95,
+     "win_rate": 0.09473684210526316,
+     "net_pnl": -3179.5411679517238
+    },
+    "after_streak_result": {
+     "trades": 176,
+     "win_rate": 0.21022727272727273,
+     "net_pnl": -3669.899279007064
+    },
+    "enough_data": true,
+    "more_often_than_usual": true
+   },
+   "holding": {
+    "median_hold_winners_s": 40936.0,
+    "median_hold_losers_s": 1169,
+    "enough_data": true
+   },
+   "worst_symbols": [
+    {
+     "symbol": "BTC",
+     "trades": 154,
+     "win_rate": 0.16883116883116883,
+     "net_pnl": -2401.004569
+    },
+    {
+     "symbol": "SUI",
+     "trades": 15,
+     "win_rate": 0.6666666666666666,
+     "net_pnl": -197.919309
+    },
+    {
+     "symbol": "DOGE",
+     "trades": 19,
+     "win_rate": 0.42105263157894735,
+     "net_pnl": -157.248572
+    }
+   ],
+   "worst_entry_hours_utc": [
+    {
+     "hour_utc": 21,
+     "trades": 22,
+     "win_rate": 0.2727272727272727,
+     "net_pnl": -2834.116682385723
+    },
+    {
+     "hour_utc": 19,
+     "trades": 34,
+     "win_rate": 0.08823529411764706,
+     "net_pnl": -1182.62505907338
+    },
+    {
+     "hour_utc": 3,
+     "trades": 23,
+     "win_rate": 0.30434782608695654,
+     "net_pnl": -1001.6833759109902
+    }
+   ],
+   "biggest_losses": [
+    {
+     "symbol": "BTC",
+     "direction": "long",
+     "entry_time": "2026-05-11T21:56:07.493000+00:00",
+     "net_pnl": -2929.139831852956,
+     "notional": 23700.31309,
+     "hold_seconds": 1822968
+    },
+    {
+     "symbol": "ETH",
+     "direction": "long",
+     "entry_time": "2026-05-15T03:11:10.222000+00:00",
+     "net_pnl": -1644.2664114474871,
+     "notional": 18073.06176,
+     "hold_seconds": 1008772
+    },
+    {
+     "symbol": "SOL",
+     "direction": "long",
+     "entry_time": "2026-05-13T10:59:02.054000+00:00",
+     "net_pnl": -1128.457344665887,
+     "notional": 10116.89788,
+     "hold_seconds": 827344
+    }
+   ]
+  },
+  "suggested_rule": {
+   "kind": "size_after_losing_streak",
+   "streak": 2,
+   "max_notional": "19962",
+   "action": "escalate",
+   "source": "Hyperliquid 0x403a9970319747aba267c42427be13bca9eb5695",
+   "evidence": {
+    "history_trades": 377,
+    "median_notional": 13308.55,
+    "trades_after_streak": 176,
+    "sized_up": 95,
+    "sized_up_share": 0.5398,
+    "usual_sized_up_share": 0.3528,
+    "p_value": 0.0,
+    "sized_up_win_rate": 0.09473684210526316,
+    "sized_up_net_pnl": -3179.54
+   }
+  },
+  "describe_rule": "After 2 losses in a row, orders that take a position to $19,962 or more are held for your approval.",
+  "describe_evidence": "In 377 closed trades (Hyperliquid 0x403a9970319747aba267c42427be13bca9eb5695), 95 of the 176 trades after 2 losses in a row were 1.5x the usual size or more (54%, against 35% of all trades); together they made -$3,180."
+ },
+ {
+  "address": "0x81f043813eb3362cde347e7c6e022a5f743bc9d3",
+  "patterns": {
+   "trades": 54,
+   "win_rate": 0.25925925925925924,
+   "net_pnl": 61387.226215,
+   "fees": 4962.68597,
+   "median_notional": 78925.21216,
+   "after_losing_streak": {
+    "trades_after_streak": 25,
+    "sized_up": 10,
+    "sized_up_share": 0.4,
+    "baseline_sized_up_share": 0.25925925925925924,
+    "sized_up_p_value": 0.08791739649956015,
+    "sized_up_result": {
+     "trades": 10,
+     "win_rate": 0.3,
+     "net_pnl": 55872.140019
+    },
+    "after_streak_result": {
+     "trades": 25,
+     "win_rate": 0.28,
+     "net_pnl": 50655.67269344492
+    },
+    "enough_data": true,
+    "more_often_than_usual": true
+   },
+   "holding": {
+    "median_hold_winners_s": 168499.0,
+    "median_hold_losers_s": 15280.0,
+    "enough_data": true
+   },
+   "worst_symbols": [
+    {
+     "symbol": "BTC",
+     "trades": 12,
+     "win_rate": 0.08333333333333333,
+     "net_pnl": -10832.743218
+    },
+    {
+     "symbol": "CC",
+     "trades": 3,
+     "win_rate": 0.3333333333333333,
+     "net_pnl": -8687.971262
+    },
+    {
+     "symbol": "ONDO",
+     "trades": 5,
+     "win_rate": 0.0,
+     "net_pnl": -6639.259449
+    }
+   ],
+   "worst_entry_hours_utc": [
+    {
+     "hour_utc": 2,
+     "trades": 5,
+     "win_rate": 0.4,
+     "net_pnl": -2508.490351
+    },
+    {
+     "hour_utc": 10,
+     "trades": 5,
+     "win_rate": 0.0,
+     "net_pnl": -2379.552919
+    },
+    {
+     "hour_utc": 0,
+     "trades": 8,
+     "win_rate": 0.125,
+     "net_pnl": -2350.927706444915
+    }
+   ],
+   "biggest_losses": [
+    {
+     "symbol": "BTC",
+     "direction": "short",
+     "entry_time": "2026-09-09T15:46:27.134000+00:00",
+     "net_pnl": -5812.772611,
+     "notional": 137209.29964,
+     "hold_seconds": 789459
+    },
+    {
+     "symbol": "HYPE",
+     "direction": "long",
+     "entry_time": "2026-02-06T01:47:39.798000+00:00",
+     "net_pnl": -5166.304757,
+     "notional": 496514.20674,
+     "hold_seconds": 616
+    },
+    {
+     "symbol": "ONDO",
+     "direction": "long",
+     "entry_time": "2026-02-25T20:20:47.339000+00:00",
+     "net_pnl": -4687.011865,
+     "notional": 138488.65652680126,
+     "hold_seconds": 273666
+    }
+   ]
+  },
+  "suggested_rule": null,
+  "describe_rule": null,
+  "describe_evidence": null
+ },
+ {
+  "address": "0x40ddc73ddd148c54abad4b7461da2e1dd10f1bc5",
+  "patterns": {
+   "trades": 0
+  },
+  "suggested_rule": null,
+  "describe_rule": null,
+  "describe_evidence": null
+ },
+ {
+  "address": "0xd46d952b81b31e00b3d98270c3990926d36f7397",
+  "patterns": {
+   "trades": 4389,
+   "win_rate": 0.26680337206653,
+   "net_pnl": -158.547606,
+   "fees": 4255.85777,
+   "median_notional": 904.5,
+   "after_losing_streak": {
+    "trades_after_streak": 2525,
+    "sized_up": 855,
+    "sized_up_share": 0.33861386138613864,
+    "baseline_sized_up_share": 0.31100478468899523,
+    "sized_up_p_value": 0.0015610907864771985,
+    "sized_up_result": {
+     "trades": 855,
+     "win_rate": 0.22339181286549709,
+     "net_pnl": -473.26087746733367
+    },
+    "after_streak_result": {
+     "trades": 2525,
+     "win_rate": 0.259009900990099,
+     "net_pnl": -610.7499702870136
+    },
+    "enough_data": true,
+    "more_often_than_usual": false
+   },
+   "holding": {
+    "median_hold_winners_s": 18134,
+    "median_hold_losers_s": 1915.5,
+    "enough_data": true
+   },
+   "worst_symbols": [
+    {
+     "symbol": "BTC",
+     "trades": 1475,
+     "win_rate": 0.21016949152542372,
+     "net_pnl": -597.969843
+    },
+    {
+     "symbol": "ARB",
+     "trades": 127,
+     "win_rate": 0.2677165354330709,
+     "net_pnl": -179.661796
+    },
+    {
+     "symbol": "JUP",
+     "trades": 11,
+     "win_rate": 0.2727272727272727,
+     "net_pnl": -129.207789
+    }
+   ],
+   "worst_entry_hours_utc": [
+    {
+     "hour_utc": 18,
+     "trades": 277,
+     "win_rate": 0.259927797833935,
+     "net_pnl": -707.8875693333333
+    },
+    {
+     "hour_utc": 9,
+     "trades": 211,
+     "win_rate": 0.1895734597156398,
+     "net_pnl": -590.4473676666667
+    },
+    {
+     "hour_utc": 15,
+     "trades": 310,
+     "win_rate": 0.25806451612903225,
+     "net_pnl": -547.952609
+    }
+   ],
+   "biggest_losses": [
+    {
+     "symbol": "BTC",
+     "direction": "short",
+     "entry_time": "2025-09-15T09:50:47.202000+00:00",
+     "net_pnl": -253.40047383333334,
+     "notional": 26414.58,
+     "hold_seconds": 112523
+    },
+    {
+     "symbol": "BTC",
+     "direction": "short",
+     "entry_time": "2025-09-01T10:52:38.568000+00:00",
+     "net_pnl": -201.83051,
+     "notional": 7724.605,
+     "hold_seconds": 785866
+    },
+    {
+     "symbol": "BTC",
+     "direction": "short",
+     "entry_time": "2026-04-13T14:47:25.455000+00:00",
+     "net_pnl": -185.070491,
+     "notional": 7202.6,
+     "hold_seconds": 26842
+    }
+   ]
+  },
+  "suggested_rule": null,
+  "describe_rule": null,
+  "describe_evidence": null
+ },
+ {
+  "address": "synthetic-ties",
+  "patterns": {
+   "trades": 131,
+   "win_rate": 0.5190839694656488,
+   "net_pnl": -166254.481373,
+   "fees": 17409.16708,
+   "median_notional": 1000.125,
+   "after_losing_streak": {
+    "trades_after_streak": 32,
+    "sized_up": 17,
+    "sized_up_share": 0.53125,
+    "baseline_sized_up_share": 0.28125,
+    "sized_up_p_value": 0.09375,
+    "sized_up_result": {
+     "trades": 19,
+     "win_rate": 0.3157894736842105,
+     "net_pnl": -1234.125
+    },
+    "after_streak_result": {
+     "trades": 41,
+     "win_rate": 0.3902439024390244,
+     "net_pnl": -97789.732566
+    },
+    "enough_data": true,
+    "more_often_than_usual": true
+   },
+   "holding": {
+    "median_hold_winners_s": 7719.5,
+    "median_hold_losers_s": 2430,
+    "enough_data": true
+   },
+   "worst_symbols": [
+    {
+     "symbol": "BTC",
+     "trades": 44,
+     "win_rate": 0.45454545454545453,
+     "net_pnl": -56946.583958
+    },
+    {
+     "symbol": "ETH",
+     "trades": 30,
+     "win_rate": 0.4,
+     "net_pnl": -49652.604476
+    },
+    {
+     "symbol": "HYPE",
+     "trades": 16,
+     "win_rate": 0.5625,
+     "net_pnl": -26427.744808
+    }
+   ],
+   "worst_entry_hours_utc": [
+    {
+     "hour_utc": 0,
+     "trades": 9,
+     "win_rate": 0.3333333333333333,
+     "net_pnl": -39197.372546
+    },
+    {
+     "hour_utc": 23,
+     "trades": 9,
+     "win_rate": 0.4444444444444444,
+     "net_pnl": -37037.148239157905
+    },
+    {
+     "hour_utc": 16,
+     "trades": 10,
+     "win_rate": 0.5,
+     "net_pnl": -35949.59176021197
+    }
+   ],
+   "biggest_losses": [
+    {
+     "symbol": "BTC",
+     "direction": "short",
+     "entry_time": "2026-04-10T23:07:06.171000+00:00",
+     "net_pnl": -40287.409196,
+     "notional": 373767.8763,
+     "hold_seconds": 2090821
+    },
+    {
+     "symbol": "ETH",
+     "direction": "short",
+     "entry_time": "2026-04-07T16:09:37.668000+00:00",
+     "net_pnl": -38055.104826,
+     "notional": 258873.25583,
+     "hold_seconds": 2375065
+    },
+    {
+     "symbol": "HYPE",
+     "direction": "short",
+     "entry_time": "2026-05-20T13:09:55.246000+00:00",
+     "net_pnl": -24603.145017,
+     "notional": 199935.3305,
+     "hold_seconds": 43162
+    }
+   ]
+  },
+  "suggested_rule": {
+   "kind": "size_after_losing_streak",
+   "streak": 2,
+   "max_notional": "1500",
+   "action": "escalate",
+   "source": "Hyperliquid synthetic-ties",
+   "evidence": {
+    "history_trades": 131,
+    "median_notional": 1000.12,
+    "trades_after_streak": 32,
+    "sized_up": 17,
+    "sized_up_share": 0.5312,
+    "usual_sized_up_share": 0.2812,
+    "p_value": 0.0938,
+    "sized_up_win_rate": 0.3157894736842105,
+    "sized_up_net_pnl": -1234.12
+   }
+  },
+  "describe_rule": "After 2 losses in a row, orders that take a position to $1,500 or more are held for your approval.",
+  "describe_evidence": "In 131 closed trades (Hyperliquid synthetic-ties), 17 of the 32 trades after 2 losses in a row were 1.5x the usual size or more (53%, against 28% of all trades); together they made -$1,234."
+ }
+]
